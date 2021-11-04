@@ -6,10 +6,10 @@ La idea es tener una landing page con los productos principales, una hoja de con
 
 ## Instalación
 
-Instala GRUPO_6_COMPONENTESCOMPUTADORAS con npm. Descarga este proyecto de manera local y en tu terminal:
+Instala Grupo_6_ComponentesComputadoras con npm. Descarga este proyecto de manera local y en tu terminal:
 
 ```bash
-  cd GRUPO_6_COMPONENTESCOMPUTADORAS
+  cd Grupo_6_ComponentesComputadoras
   npm install
 ```
 
