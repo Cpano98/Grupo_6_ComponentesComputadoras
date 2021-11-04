@@ -1,7 +1,19 @@
 # Marketplace: Componentes para computadoras
 
-A brief description of what this project does and who it's for
+¡Hola! Como proyecto integrador decidimos crear un E-commerce para la venta de distintos componentes de computadoras. Queremos incluir tarjetas madre, algunos teclados, memorias RAM y SSD, paneles RGB y demás.
 
+La idea es tener una landing page con los productos principales, una hoja de contacto, hojas de categorías, nosotros, etc.
+
+## Instalación
+
+Instala GRUPO_6_COMPONENTESCOMPUTADORAS con npm. Descarga este proyecto de manera local y en tu terminal:
+
+```bash
+  cd GRUPO_6_COMPONENTESCOMPUTADORAS
+  npm install
+```
+
+Para instalar todas las dependencias del JSON.
 
 ## Equipo #6 esta compuesto por:
 
