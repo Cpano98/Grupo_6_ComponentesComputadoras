@@ -1,0 +1,23 @@
+{
+  "name": "Grupo_6_ComponentesComputadoras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cpano98/Grupo_6_ComponentesComputadoras.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cpano98/Grupo_6_ComponentesComputadoras/issues"
+  },
+  "homepage": "https://github.com/Cpano98/Grupo_6_ComponentesComputadoras#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
