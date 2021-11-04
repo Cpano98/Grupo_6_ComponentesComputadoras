@@ -23,3 +23,4 @@ Para instalar todas las dependencias del JSON.
 - [Valerie Canedo](https://github.com/AzUulL)
 
 
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
