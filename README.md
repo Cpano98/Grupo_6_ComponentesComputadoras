@@ -25,6 +25,8 @@ Para instalar todas las dependencias del JSON.
 Es un desarrollador Drupal, enfocado en el Front-End y el Site building. Deseo aprender JavaScript para desarrollarme en frameworks basados en este lenguaje, como React, Vue y Angular.
 
 - [Carlos Pano Hernández](https://github.com/Cpano98)
+Ingeniero en Sistemas Digitales y Robótica. Interés por el desarrollo Front-end y siempre gustozo por aprender cosas nuevas.
+Actualmente trabajo en Oracle como desarrollador y me gusta siempre experimentar nuevas formas de programación y diseño.
 
 - [José Ángel Avelar](https://github.com/enoc494)
 Estudiante de maestría en ciencias de la computación, con bases en ingeniería.
@@ -37,8 +39,9 @@ se logren resultados en ocaciones.
 ### Sitios de inspiración y razones:
 
 - [DDtech](https://ddtech.mx/productos): Tienda especializada en la atención de clientes de diferentes gamas, con diversos productos y servicios. Su interfaz tiene diseño (visual) simple pero es consistente. 
-
-
+- [Cyberpuerta](https://www.cyberpuerta.mx/): Uno de los mayores Marketplaces de componentes para computadoras. Nos gusta este sitio por la estrucutra general y la categorización de productos. A pesar que su interfaz podría mejorar, queremos tomar de referencia algunos banners y promociones, así como el carrito de compras.
+- [Amazon](https://www.amazon.com.mx/): Probablemente el mayor E-commerce del mundo. Queremos tomar de referencia la hoja de producto, reviews, así como el acomodo de su publicidad.
+- [Decluttr Store](https://www.decluttr.com/us/store/category/computers-and-accessories/): Tienda de productos electronicos en general, su sistema de filtrado y presentación de productos destacando las ofertas.
 
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
