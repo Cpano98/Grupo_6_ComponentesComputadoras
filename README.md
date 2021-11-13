@@ -22,7 +22,6 @@ Para instalar todas las dependencias del JSON.
 ## Equipo #6 esta compuesto por:
 
 - [Osler Villegas](https://github.com/oshler)
-Es un desarrollador Drupal, enfocado en el Front-End y el Site building. Deseo aprender JavaScript para desarrollarme en frameworks basados en este lenguaje, como React, Vue y Angular.
 
 - [Carlos Pano Hernández](https://github.com/Cpano98)
 Ingeniero en Sistemas Digitales y Robótica. Interés por el desarrollo Front-end y siempre gustozo por aprender cosas nuevas.
@@ -42,6 +41,7 @@ se logren resultados en ocaciones.
 - [Cyberpuerta](https://www.cyberpuerta.mx/): Uno de los mayores Marketplaces de componentes para computadoras. Nos gusta este sitio por la estrucutra general y la categorización de productos. A pesar que su interfaz podría mejorar, queremos tomar de referencia algunos banners y promociones, así como el carrito de compras.
 - [Amazon](https://www.amazon.com.mx/): Probablemente el mayor E-commerce del mundo. Queremos tomar de referencia la hoja de producto, reviews, así como el acomodo de su publicidad.
 - [Decluttr Store](https://www.decluttr.com/us/store/category/computers-and-accessories/): Tienda de productos electronicos en general, su sistema de filtrado y presentación de productos destacando las ofertas.
+- [GAIA](https://www.gaiadesign.com.mx/): Nos encanta la interfaz gráfica. La categorización del producto es excelente, así como todo el proceso de compra. Con solo 4 clicks, puedes comprar todos los muebles para tu casa. A pesar que el tema no tiene nada que ver, la experiencia de usuario es muy simple y muy fácil de entender. Nos gusta mucho el previsualizador 3D.
 
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
