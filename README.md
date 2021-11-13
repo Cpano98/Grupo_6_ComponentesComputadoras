@@ -39,7 +39,7 @@ se logren resultados en ocaciones.
 
 - [DDtech](https://ddtech.mx/productos): Tienda especializada en la atención de clientes de diferentes gamas, con diversos productos y servicios. Su interfaz tiene diseño (visual) simple pero es consistente. 
 - [Cyberpuerta](https://www.cyberpuerta.mx/): Uno de los mayores Marketplaces de componentes para computadoras. Nos gusta este sitio por la estrucutra general y la categorización de productos. A pesar que su interfaz podría mejorar, queremos tomar de referencia algunos banners y promociones, así como el carrito de compras.
-
+- [Amazon](https://www.amazon.com.mx/): Probablemente el mayor E-commerce del mundo. Queremos tomar de referencia la hoja de producto, reviews, así como el acomodo de su publicidad.
 - [DDtech](https://ddtech.mx/productos): Tienda especializada en la atención de clientes de diferentes gamas, con diversos productos y servicios. Su interfaz tiene diseño (visual) simple pero es consistente. 
 
 
