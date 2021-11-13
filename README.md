@@ -3,8 +3,7 @@
 ¡Hola! Como proyecto integrador decidimos crear un E-commerce para la venta de distintos componentes de computadoras. Queremos incluir tarjetas madre, algunos teclados, memorias RAM y SSD, paneles RGB y demás. 
 
 Nuestro público objetivo es el usuario comun de equipo de no computo, poderle ofrecer 
-repuestos y actualizaciones competentes sin llegar a la gama más alta de productos especializados
-%escribí esto, pero igual discutimos el público objetivo* 
+repuestos y actualizaciones competentes sin llegar a la gama más alta de productos especializados.
 
 La idea es tener una landing page con los productos principales, una hoja de contacto, hojas de categorías, nosotros, etc.
 
