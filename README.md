@@ -33,4 +33,11 @@ se logren resultados en ocaciones.
 - [Valerie Canedo](https://github.com/AzUulL)
 
 
+### Sitios de inspiración y razones:
+
+- [DDtech](https://ddtech.mx/productos): Tienda especializada en la atención de clientes de diferentes gamas, con diversos productos y servicios. Su interfaz tiene diseño (visual) simple pero es consistente. 
+
+
+
+
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
