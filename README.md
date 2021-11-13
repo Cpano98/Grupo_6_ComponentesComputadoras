@@ -23,11 +23,11 @@ Para instalar todas las dependencias del JSON.
 
 - [Osler Villegas](https://github.com/oshler)
 
-- [Carlos Pano Hernández](https://github.com/Cpano98):
+- [Carlos Pano Hernández](https://github.com/Cpano98)
 Ingeniero en Sistemas Digitales y Robótica. Interés por el desarrollo Front-end y siempre gustozo por aprender cosas nuevas.
 Actualmente trabajo en Oracle como desarrollador y me gusta siempre experimentar nuevas formas de programación y diseño.
 
-- [José Ángel Avelar](https://github.com/enoc494):
+- [José Ángel Avelar](https://github.com/enoc494)
 Estudiante de maestría en ciencias de la computación, con bases en ingeniería.
 Gusto de aprender y poner a prueba las ideas de proyectos que tengo, aunque no
 se logren resultados en ocaciones. 
@@ -40,7 +40,7 @@ se logren resultados en ocaciones.
 - [DDtech](https://ddtech.mx/productos): Tienda especializada en la atención de clientes de diferentes gamas, con diversos productos y servicios. Su interfaz tiene diseño (visual) simple pero es consistente. 
 - [Cyberpuerta](https://www.cyberpuerta.mx/): Uno de los mayores Marketplaces de componentes para computadoras. Nos gusta este sitio por la estrucutra general y la categorización de productos. A pesar que su interfaz podría mejorar, queremos tomar de referencia algunos banners y promociones, así como el carrito de compras.
 - [Amazon](https://www.amazon.com.mx/): Probablemente el mayor E-commerce del mundo. Queremos tomar de referencia la hoja de producto, reviews, así como el acomodo de su publicidad.
--[](https://www.decluttr.com/us/store/category/computers-and-accessories/): Tienda de productos electronicos en general, su sistema de filtrado y presentación de productos destacando las ofertas.
+- [Decluttr Store](https://www.decluttr.com/us/store/category/computers-and-accessories/): Tienda de productos electronicos en general, su sistema de filtrado y presentación de productos destacando las ofertas.
 
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
