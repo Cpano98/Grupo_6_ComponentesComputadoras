@@ -22,6 +22,7 @@ Para instalar todas las dependencias del JSON.
 ## Equipo #6 esta compuesto por:
 
 - [Osler Villegas](https://github.com/oshler)
+Es un desarrollador Drupal, enfocado en el Front-End y el Site building. Deseo aprender JavaScript para desarrollarme en frameworks basados en este lenguaje, como React, Vue y Angular.
 
 - [Carlos Pano Hernández](https://github.com/Cpano98)
 
