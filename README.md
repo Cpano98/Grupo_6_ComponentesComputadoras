@@ -23,11 +23,11 @@ Para instalar todas las dependencias del JSON.
 
 - [Osler Villegas](https://github.com/oshler)
 
-- [Carlos Pano Hernández](https://github.com/Cpano98)
+- [Carlos Pano Hernández](https://github.com/Cpano98):
 Ingeniero en Sistemas Digitales y Robótica. Interés por el desarrollo Front-end y siempre gustozo por aprender cosas nuevas.
 Actualmente trabajo en Oracle como desarrollador y me gusta siempre experimentar nuevas formas de programación y diseño.
 
-- [José Ángel Avelar](https://github.com/enoc494)
+- [José Ángel Avelar](https://github.com/enoc494):
 Estudiante de maestría en ciencias de la computación, con bases en ingeniería.
 Gusto de aprender y poner a prueba las ideas de proyectos que tengo, aunque no
 se logren resultados en ocaciones. 
