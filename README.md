@@ -32,7 +32,8 @@ Estudiante de maestría en ciencias de la computación, con bases en ingeniería
 Gusto de aprender y poner a prueba las ideas de proyectos que tengo, aunque no
 se logren resultados en ocaciones. 
 
-- [Valerie Canedo](https://github.com/AzUulL)
+- [Valerie Canedo](https://github.com/AzUulL) 
+Licenciada en ciencias de la Tierra me gusta explorar el mundo de la programación.
 
 
 ### Sitios de inspiración y razones:
