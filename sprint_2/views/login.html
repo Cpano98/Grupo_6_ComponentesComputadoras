@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> Mercado Liebre </title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel= "stylesheet"/>    
+        
+        <link rel="stylesheet" href="/css/normalize.css" type="text/css"/>
+        <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
+    
+    </head> 
+    
+    <header>
+        <div id="logo-search">
+            <div id="logo">
+                <img
+                  src="/images/logo-mercado-liebre.svg"
+                  alt="Mercado Liebre"
+                />
+            </div>
+            <div class ="form" method="GET">
+                <input  type="text"
+                        placeholder="Buscar productos, marcas y más">
+                </input>
+                <div class="submit" id="button" >
+                    <i class="fas fa-search-dollar"></i>
+                </div>
+            </div>
+            <div id="credito">
+                <p><i class="fas fa-hand-holding-usd"></i> Compra en cuotas y sin tarjeta de credito</p>
+            </div>
+        </div>    
+
+        <div class="enlaces">
+            <ul type="none" >
+                <li><a href="" >Ofertas</a></li>
+                <li><a href="" >Tiendas Oficiales</a></li>
+                <li><a href="" >Vender</a></li>
+                <li><a href="" >Ayuda</a></li>
+            </ul>
+
+            <ul type="none" >
+                <li><a href="/register" >Crea tu cuenta <i class="fas fa-id-card-alt"></i></a></li>
+                <li><a href="/login" >Ingresa <i class="fas fa-arrow-circle-right"></i></i></a></li>
+                <li><a href="" >Mas compras <i class="fas fa-cart-arrow-down"></i></a></li>
+            </ul>
+        </div>
+        
+        <div class="burger-menu">
+            <i class="fas fa-bars"></i>
+        </div>  
+        <div>   
+            <img src="/images/img-home-banner.jpg" 
+                 alt="Banner"
+                 width="100%"/>
+        </div>
+    </header>
+    <body class="login">
+        <form action="/login" method="POST">
+            <label for="Nombre">Login</label>
+            <input type="text" name="NombreDeUsuario" id="campoNombre"  placeholder="Nombre de usuario@" />
+            <label>Contraseña</label>
+            <input type="password" name = password >
+            <input type="submit" value="Enviar" onclick="validar(event)"></input>
+        </form>
+    </body>  
+    <script>
+        let campoNombre=document.getElementById("campoNombre")
+
+        function validar(e){
+            e.preventDefault();
+            
+            if(campoNombre.value === ""){
+                alert("Este campo está vacío")
+            }
+            if(campoNombre.value.length <= 1){
+                alert("Debe ser mayor que un caracter")
+            }
+
+        }
+    </script>  
+</html>

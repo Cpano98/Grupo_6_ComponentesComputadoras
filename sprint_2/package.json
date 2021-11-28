@@ -1,0 +1,15 @@
+{
+  "name": "ejercitacion",
+  "version": "1.0.0",
+  "description": "prueba de ejercitacion",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JAAB",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "normalize": "^0.3.1"
+  }
+}
