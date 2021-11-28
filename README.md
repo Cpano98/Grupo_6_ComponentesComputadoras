@@ -50,3 +50,8 @@ Licenciada en ciencias de la Tierra me gusta explorar el mundo de la programaci√
 
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+
+### Enlaces a los tableros de trabajo:
+- sprint1: 
+- sprint2: https://trello.com/b/QbHZpH1g/grupo6componentescomputadorassprint2
