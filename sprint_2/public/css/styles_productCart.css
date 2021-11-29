@@ -3,6 +3,8 @@
  * =================================== */
 
 .carrito-de-compras {
+	margin: 4rem auto;
+
 	display: grid;
 	grid-template-columns: 50% 20% 20%;
 	grid-template-areas: 
@@ -34,16 +36,39 @@
 	text-align: center;
 }
 
+.subtitulo-cantidad,
+.subtitulo-total {
+	display: none;
+}
+
 .tabla-productos {
 	grid-area: productos;
+	width: 100%;
 
+	border-right: 2px solid var(--bg-secundario);
+	border-left: 2px solid var(--bg-secundario);
+}
+
+.row-producto {
 	display: grid;
-	grid-template-columns: 50% 25% 25%
+	grid-template-columns: 50% 50%;
+	grid-template-areas:
+	"producto producto"
+	"cantidad total";
+	gap: 1rem 1rem;
+	padding-bottom: 2rem;
+	border-bottom: 2px solid var(--bg-secundario);
 }
 
 .col-producto {
+	grid-area: producto;
+
 	display: grid;
-	grid-template-columns: 30% 70%
+	grid-template-columns: 50% 50%;
+}
+
+.col-producto-img {
+	padding: var(--distancia-largo);
 }
 
 .col-producto-info {
@@ -53,14 +78,16 @@
 }
 
 .col-producto-info-nombre {
-	align-self: end;
+	align-self: center;
 }
 
-.btn-accion {
-	grid-area: btn-actualizar;
+.col-producto-info-descripcion {
+	display: none;
 }
 
 .col-cantidad {
+	grid-area: cantidad;
+
 	display: grid;
 	justify-content: center;
 	gap: 1rem 1rem;
@@ -95,13 +122,25 @@
 }
 
 .col-total {
+	grid-area: total;
+
 	display: grid;
 	justify-content: center;
 	align-items: center;
 }
 
+.btn-actualizar {
+	margin: 2rem auto;
+	grid-area: btn-actualizar;
+}
+
 .tabla-subtotal {
 	grid-area: subtotal;
+
+	display: grid;
+	grid-template-columns: 100%;
+	gap: 1rem;
+	text-align: right;
 }
 
 .tabla-productos img {
@@ -113,4 +152,34 @@
 
 .tabla-productos img:hover {
 	border: 2px solid var(--decoracion-secundario)
+}
+
+button i {
+	margin-left: 10px;
+}
+
+.precio {
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	[class^="subtitulo-"] {
+		display: block;
+	}
+
+	.row-producto {
+		grid-template-columns: 50% 25% 25%;
+		grid-template-areas:
+		"producto cantidad total";
+	}
+
+	.col-producto {
+		grid-template-columns: 30% 70%;
+	}
+
+	.col-producto-info-nombre { align-self: end; }
+
+	.col-producto-info-descripcion { display: block; }
+
+	.precio-subtitulo { display: none; }
 }
