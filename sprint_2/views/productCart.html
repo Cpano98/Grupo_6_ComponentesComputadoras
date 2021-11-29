@@ -1,22 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title> Mercado Liebre </title>
+        <title> Carrito de Compars | MiPC </title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel= "stylesheet"/>    
-        
-        <link rel="stylesheet" href="/css/normalize.css" type="text/css"/>
+				<link rel="preconnect" href="https://fonts.googleapis.com">
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+				<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+				
+				<link rel="stylesheet" href="/css/normalize.css" type="text/css"/>
         <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
-    
     </head> 
     <body>
         <header>
           
         </header>
         <main >
-           
+					<div class="main-container carrito-de-compras">
+						 <div class="titulo-pagina">
+							 <h1>CARRITO DE COMPRAS</h1>
+						 </div>
+						 <div class="tabla-titulo">
+							<div class="tabla-subtitulo"><p>PRODUCTO</p></div>
+							<div class="tabla-subtitulo"><p>CANTIDAD</p></div>
+							<div class="tabla-subtitulo"><p>TOTAL</p></div>
+						 </div>
+						 <div class="tabla-productos">
+							 <div class="col-producto">
+								 <div class="col-producto-img">
+									<img src="/images/img-macbook-pro-2019.jpg" alt="MacBook Pro 2019">
+								 </div>
+								 <div class="col-producto-info">
+									 <div class="col-producto-info-nombre">
+											<p>MacBook Pro 2019</p>
+									 </div>
+									 <div class="col-producto-info-descripcion">
+										<p>Descripcion del producto</p>
+									 </div>
+								 </div>
+							 </div>
+							 <div class="col-cantidad">
+								 <div class="cantidad-contador">
+									 <div class="operador izquierda">-</div>
+									 <div class="contador">1</div>
+									 <div class="operador derecha">+</div>
+								 </div>
+								 <div class="btn-remover">
+									<button class="btn-accion" type="submit">REMOVER<i class="fas fa-trash-alt"></i>
+									</button>
+								 </div>
+							 </div>
+							 <div class="col-total">
+								 <div class="precio">
+									 <p>$29,000.00</p>
+								 </div>
+							 </div>
+						 </div>
+
+						 <div class="btn-accion">
+							 <button type="submit">Actualizar carrito</button>
+						 </div>
+						 <div class="tabla-subtotal">
+							<div class="subtotal-titulo">Subtotal</div>
+							<div class="precio-total">$29,000.00</div>
+							<button type="submit">Proceder a Pagar</button>
+						</div>
+					</div>
         </main>
         <footer>      
         </footer>

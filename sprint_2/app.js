@@ -9,7 +9,7 @@ app.use(express.static(publicPath));
 
 app.get("/",function(req,res){
     //res.send("Bienvenido");
-    res.sendFile(path.join(__dirname,'/views/home.html'));
+    res.sendFile(path.join(__dirname,'/views/index.html'));
 });
 
 
@@ -24,13 +24,12 @@ app.get("/login", (req,res)=>{
 app.get("/productCart", (req,res)=>{
     res.sendFile(path.join(__dirname,'/views/productCart.html'));
 });
+
 app.get("/productDetail", (req,res)=>{
     res.sendFile(path.join(__dirname,'/views/productDetail.html'));
 });
 
 //Preferencialmente al final
 app.listen(puerto, ()=> {
-    console.log(
-    `Servidor activo en el puerto ${puerto}`
-    );
+    console.log(`Servidor activo en el puerto ${puerto}`);
 });

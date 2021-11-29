@@ -1,10 +1,55 @@
-*{
-    font-family: 'Roboto', sans-serif;
-    margin:0px;
-    padding:0px;
-    box-sizing: border-box;
+/* ===================================
+ *             Imports
+ * =================================== */
+ @import "styles_productCart.css";
+
+/* ================
+ * Global Variables
+ * ================ */
+ :root {
+
+	--blanco: #fff;
+  --gris: #e7e7e7;
+  --naranja: #e49e29;
+  --rojo: #e23e4e;
+  --negro: #000;
+
+
+	--main-font: 'Poppins', sans-serif;
+	--gradiente-1: linear-gradient(141deg, rgba(226,62,78,1) 0%, rgba(228,158,41,1) 100%);
+	--gradiente-2: linear-gradient(141deg, rgba(228,158,41,1) 0%, rgba(226,62,78,1) 100%);
+
+	--font-color-primario: var(--negro);
+	--font-color-secundario: var(--rojo);
+	--font-color-bg: var(--blanco);
+	--bg-primario: var(--blanco);
+	--bg-secundario: var(--rojo);
+	--decoracion-primario: var(--gris);
+	--decoracion-secundario: var(--rojo);
+
+	--distancia-normal: 5px;
+	--distancia-largo: 10px;
+
 }
 
+
+/* ===================================
+ *          General Styles
+ * =================================== */
+ * {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: var(--main-font)
+}
+
+.btn-accion {
+	background-color: rgba(226,62,78,0);
+	border-radius: 150px;
+	padding: 10px 20px 10px 20px;
+}
+
+/* =================== Main Styles =================== */
 header{
     background-color:#EAC926;
     width:100%
@@ -103,7 +148,7 @@ a{
 
 main{
     align-content: center;
-    background-color:#ebebeb;
+    background-color: var(--blanco);
     width: 100%;
     margin: 0 auto;
 }

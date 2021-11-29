@@ -1,0 +1,116 @@
+/* ===================================
+ *             Carrito de Compras
+ * =================================== */
+
+.carrito-de-compras {
+	display: grid;
+	grid-template-columns: 50% 20% 20%;
+	grid-template-areas: 
+	"title title title"
+	"table-title table-title table-title"
+	"productos productos productos"
+	". btn-actualizar btn-actualizar"
+	"subtotal	subtotal	subtotal";
+	justify-content: center;
+	align-items: center;
+}
+
+.titulo-pagina {
+	grid-area: title;
+
+	text-align: center;
+}
+
+.tabla-titulo {
+	grid-area: table-title;
+	display: grid;
+	grid-template-columns: 50% 20% 20%;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid var(--bg-secundario);
+}
+
+.tabla-subtitulo {
+	text-align: center;
+}
+
+.tabla-productos {
+	grid-area: productos;
+
+	display: grid;
+	grid-template-columns: 50% 25% 25%
+}
+
+.col-producto {
+	display: grid;
+	grid-template-columns: 30% 70%
+}
+
+.col-producto-info {
+	display: grid;
+  gap: 1rem;
+  padding-left: 2rem;
+}
+
+.col-producto-info-nombre {
+	align-self: end;
+}
+
+.btn-accion {
+	grid-area: btn-actualizar;
+}
+
+.col-cantidad {
+	display: grid;
+	justify-content: center;
+	gap: 1rem 1rem;
+}
+
+.cantidad-contador {
+	align-self: end;
+	display: grid;
+	grid-template-columns: 20% 60% 20%;
+}
+
+.operador {
+	color: var(--font-color-bg);
+	background-color: var(--bg-secundario);
+	text-align: center;
+}
+
+.operador.izquierda {
+	border-top-left-radius: var(--distancia-normal);
+	border-bottom-left-radius: var(--distancia-normal);
+}
+
+.operador.derecha {
+	border-top-right-radius: var(--distancia-normal);
+	border-bottom-right-radius: var(--distancia-normal);
+}
+
+.contador {
+	min-width: 3rem;
+	text-align: center;
+	border: 2px solid var(--bg-secundario);
+}
+
+.col-total {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+.tabla-subtotal {
+	grid-area: subtotal;
+}
+
+.tabla-productos img {
+	max-width: 100%;
+	border-radius: 5px;
+	border: 2px solid var(--decoracion-primario);
+	transition: all ease 0.3s;
+}
+
+.tabla-productos img:hover {
+	border: 2px solid var(--decoracion-secundario)
+}
