@@ -1,0 +1,34 @@
+/* ===================================
+ *      	Detalle de Producto
+ * =================================== */
+
+.contenedor-detalle-de-producto {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+	grid-template-areas:
+	"img info"
+	"slider info";
+}
+
+.detalle-de-producto-img {
+	grid-area: img;
+}
+
+.detalle-de-producto-img img {
+	width: 100%;
+}
+
+.detalle-de-producto-slider {
+	grid-area: slider;
+}
+
+.detalle-de-producto-slider img {
+	max-height: 200px;
+	width: auto !important;
+	margin: auto;
+}
+
+.detalle-de-producto-info {
+	grid-area: info;
+}

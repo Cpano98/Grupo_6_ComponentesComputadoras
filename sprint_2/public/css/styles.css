@@ -2,6 +2,7 @@
  *             Imports
  * =================================== */
  @import "styles_productCart.css";
+ @import "styles_productDetail.css";
 
 /* ================
  * Global Variables
@@ -51,7 +52,6 @@
 
 /* =================== Main Styles =================== */
 header{
-    background-color:#EAC926;
     width:100%
 }
 
@@ -258,6 +258,96 @@ footer{
 
 p{font-size:12px;}
 
+/* - - - - - - - - - - - Header - - - - - - - - - - - */
+.grid-contenedor-menu-hamburgesa { 
+	background: var(--gradiente-1);
+	display: grid;
+}
+
+.boton-hamburgesa { 
+	margin-top: 0.5rem;
+	margin-right: 1rem;
+	justify-self: end;
+
+	color: var(--font-color-bg);
+}
+
+.menu-hamburgesa-head {
+	padding: 1rem 0;
+	display: grid;
+	justify-content: end;
+}
+
+.menu-hamburgesa-head .boton-cerrar {
+	margin-right: 1rem;
+	position: relative;
+}
+
+.boton-icon {
+	color: var(--font-color-secundario);
+	background-color: var(--font-color-bg);
+	border-radius: 45px;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	font-size: 16px;
+	padding-top: 4.5px;
+}
+
+.boton-icon i {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.menu-hamburgesa-body {
+	padding-bottom: 1rem;
+
+	display: grid;
+	justify-content: center;
+	gap: 0.75rem;
+}
+
+.menu-hamburgesa-link {
+	margin: auto;
+	text-align: center;
+}
+
+.menu-hamburgesa-link a {
+	font-size: 16px;
+	font-weight: bold;
+	color: var(--font-color-bg);
+}
+
+/* - - - - - - - - - - - Index - - - - - - - - - - - */
+
+.grid-contenedor-index {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"slider slider"
+	"img-half-w img-half-w";
+}
+
+.grid-slider {
+	grid-area: slider;
+}
+
+
+.grid-half-width {
+	grid-area: img-half-w;
+
+	display: grid;
+}
+
+.grid-half-width img {
+	margin: auto;
+	width: 100%;
+	padding: 2rem;
+	max-height: 300px;
+	width: auto;
+}
 
 
 
@@ -341,6 +431,20 @@ footer section section .titular{
     header .form{ font-size:1.5vw; }
     header .form .submit{       width: 12.5%;   }
     main section .titular{   font-size:2.5vw; }
+
+		.grid-contenedor-menu-hamburgesa { display: none; }
+
+		main {
+			grid-template-columns: 50% 50%;
+			grid-template-areas: 
+			"slider slider"
+			"img-half-w img-half-w";
+		}
+
+		.grid-half-width {
+			grid-template-columns: 50% 50%;
+		}
+
     footer section{
         display:flex;
         flex-direction: row;

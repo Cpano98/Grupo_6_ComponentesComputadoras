@@ -29,6 +29,7 @@ app.get("/productDetail", (req,res)=>{
     res.sendFile(path.join(__dirname,'/views/productDetail.html'));
 });
 
+
 //Preferencialmente al final
 app.listen(puerto, ()=> {
     console.log(`Servidor activo en el puerto ${puerto}`);
