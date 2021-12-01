@@ -164,6 +164,55 @@ header{
     width:100%
 }
 
+.s1{
+    background: rgb(228,158,41);
+    background: linear-gradient(141deg, rgba(228,158,41,1) 0%, rgba(226,62,78,1) 100%);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.s3{
+    padding-right: 100px;
+}
+
+.header-1{
+    padding: 30px;
+}
+
+.navbar-expand{
+    padding-left: 23px;
+}
+
+.nav-link{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.nav-link:hover{
+    color: black;
+
+}
+
+.bi{
+    color: white;
+}
+
+.bi:hover{
+    color: black;
+    transform: scale(1.4);
+}
+
+.box-redes{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    margin-right: 50px;
+}
+
+
 
 #logo-search{
     display:flex;
