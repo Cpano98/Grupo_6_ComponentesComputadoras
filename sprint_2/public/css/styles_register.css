@@ -4,3 +4,18 @@
     padding:0px;
     box-sizing: border-box;
 }
+
+body {
+background-image: url(../images/slider-image-03.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed;
+}
+.contenedor_formulario_login
+{
+    width: 100%;
+    max-width: width 800px;
+    margin: auto;
+    position: relative;
+}
