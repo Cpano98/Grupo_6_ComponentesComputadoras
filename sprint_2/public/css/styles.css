@@ -86,7 +86,6 @@ header .login form{
 
 
 
-/*commentario*/
 header .form{
     background-color: #FFF;
     display: flex;
@@ -386,29 +385,74 @@ footer section section .titular{
     width: 30px;
 }
 
+/* - - - - - - - - - - - Footer - - - - - - - - - - - */
 
+.grid-ir-a-inicio{
+    background: var(--naranja);
+    height:50px;
+    padding-top:10px;
+    font-weight: bold;
+    text-align: center
+}
+.grid-footer-contenido{
+    background:var(--gradiente-2);
+    padding:15px;
+    border:1px solid var(--negro);
+    
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+}
+.grid-footer-enlaces{
+    border-bottom:1px solid var(--negro);
+}
+ul#footer-enlaces{
+    display:flex;
+    flex-flow:row wrap;
+    height: 90%;
+    padding:5px;
+}
+li.enlace-del-footer{
+    width:50%;
+    list-style: none;
+    text-align: center;
+}
+.grid-footer-logo a{
+    width:100%;
+    height:auto;
+}
+
+.footer-texto{
+    
+    border-bottom:1px solid var(--negro);
+    display:flex;
+    flex-flow:row wrap;
+    text-align: center;
+    
+}
+.footer-texto p{
+    width:50%;
+}
+.grid-caja-icono-redes{
+    text-align:center;
+}
+a.icono-red i{
+    text-align: center;
+    width:50px;
+    font-size:2em;
+    padding:5px;
+}
 
 
  
+/* celular  */
+/* Mobile First, lo de arriba debe ser para celular */
 
-@media (max-width: 360px){
-     body main section .article .name{opacity: 1;}
-     body header .enlaces{display:none;}
-     main section .article{width:90%;}
-
-}
-
-@media (min-width:361px){
-    body header .burger-menu{display:none;}
-    main section .article:hover{
-        max-height:auto;
-        box-shadow: 0px 0px 10px rgb(100, 100, 100);
-    }
-}
 
 /*tablet*/
 @media (min-width:481px) and (max-width:768px){
-    #logo-search div{width: 30%;}
+ 
     main section .article{width:45%;}
     header .form{font-size:2vw; }
     header .form .submit{
@@ -419,9 +463,9 @@ footer section section .titular{
         max-height:auto;
         box-shadow: 0px 0px 10px rgb(100, 100, 100);
     }
-    footer section section .titular{font-size:4vw;}
-    .textofooter{font-size:3vw;}
-    footer section p{font-size:1.5em;}
+  
+ 
+
 }
 
 /*any laptop to desktop*/
@@ -445,19 +489,12 @@ footer section section .titular{
 			grid-template-columns: 50% 50%;
 		}
 
-    footer section{
-        display:flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: baseline;
-    }
+ 
 
-    footer section section{  width:33%;    }
+
     main section .article:hover{
         max-height:auto;
         box-shadow: 0px 0px 10px rgb(100, 100, 100);
     }
-    footer section section .icons:hover{ color: #39b54a;}
-    footer section section .titular{font-size:2vw;}
+  
 }
