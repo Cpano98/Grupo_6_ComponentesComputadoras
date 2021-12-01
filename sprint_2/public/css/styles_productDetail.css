@@ -1,0 +1,131 @@
+:root {
+
+	--blanco: #fff;
+  --gris: #e7e7e7;
+  --naranja: #e49e29;
+  --rojo: #e23e4e;
+  --negro: #000;
+
+
+	--main-font: 'Poppins', sans-serif;
+	--gradiente-1: linear-gradient(141deg, rgba(226,62,78,1) 0%, rgba(228,158,41,1) 100%);
+	--gradiente-2: linear-gradient(141deg, rgba(228,158,41,1) 0%, rgba(226,62,78,1) 100%);
+
+	--font-color-primario: var(--negro);
+	--font-color-secundario: var(--rojo);
+	--font-color-bg: var(--blanco);
+	--bg-primario: var(--blanco);
+	--bg-secundario: var(--rojo);
+	--decoracion-primario: var(--gris);
+	--decoracion-secundario: var(--rojo);
+
+	--distancia-normal: 5px;
+	--distancia-largo: 10px;
+
+}
+
+/* ===================================
+ *      	Detalle de Producto
+ * =================================== */
+
+.contenedor-detalle-de-producto {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+	grid-template-areas:
+	"img info"
+	"slider info";
+}
+
+.detalle-de-producto-img {
+	grid-area: img;
+}
+
+.detalle-de-producto-img img {
+	width: 100%;
+}
+
+.detalle-de-producto-slider {
+	grid-area: slider;
+}
+
+.detalle-de-producto-slider img {
+	max-height: 200px;
+	width: auto !important;
+	margin: auto;
+}
+
+.detalle-de-producto-info {
+	grid-area: info;
+}
+
+
+/* tabla de características */
+.grid-caracteristicas-principales{
+	padding:10px;
+	margin:10px;
+}
+.grid-caracteristicas-principales h3,
+.grid-caracteristicas-otros h4{
+	padding-bottom:15px;
+	padding-left:15px;
+	font-size:1em;
+	font-weight:bold;
+}
+
+table,tr,th{
+	border: 1px solid #222;
+	text-align: left;
+	font-size: 15px;
+}
+table{width:90%;}
+th,tr{padding: 10px;}
+th.tabla-valor{
+	font-weight:lighter;
+	width:70%;
+}
+tr.fila-tabla-impar th.tabla-caracteristica, 
+tr.fila-tabla-par th.tabla-valor{
+	background-color: #DDD;
+}
+tr.fila-tabla-par th.tabla-caracteristica{
+	background-color: #AAA;
+}
+tr.fila-tabla-impar th.tabla-valor{
+	background-color: #BBB;
+}
+.grid-caracteristicas-otros{
+	padding-top:15px;
+	margin:10px;
+	border:1px solid #000;
+	border-radius: 5%;
+	width:90%;
+}
+
+.grid-caracteristicas-otros ul{padding-left:30px;}
+
+/* comentarios*/
+.contenedor-comentarios{
+	padding:40px;
+	border-top: 1px double #000;
+}
+.contenedor-comentarios h3{
+	text-align: center;
+	padding: 5px;
+}
+.grid-perfil-usuario{
+	padding:10px 0px 0px 10px;
+}
+.grid-perfil-usuario p i{
+	color:var(--negro);
+	border: 1px solid var(--negro);
+	border-radius: 50%;
+	padding: 3px;
+}
+.grid-puntuacion{color:var(--naranja);}
+.grid-comentario{
+	padding:0px 2px 0px 2px;
+	background-color:var(--gris);
+	margin:0 auto;
+}
+
