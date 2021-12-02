@@ -25,6 +25,67 @@
 }
 
 /* ===================================
+ *      	HOJA TÉCNICA
+ * =================================== */
+
+
+
+
+.border_contenedor{
+	border: solid #e7e7e7 1px;
+	padding: 5%;
+	margin: 8%;
+	margin-right: 10%;
+}
+
+#Especificaciones{
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom: 25px;
+}
+
+.border-gris{
+	border: 1px solid #ebebeb;
+}
+
+.col-botones{
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 25px;
+}
+
+label{
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.btn4{
+	background-color: #000;
+
+    border: rgba(255, 255, 255, 0);
+    padding: 10px;
+
+}
+
+.btn5{
+	background-color: #000;
+
+    border: rgba(255, 255, 255, 0);
+    padding: 10px;
+
+}
+
+
+.form-select{
+	border-radius: 0px;
+	border: 1px solid #ebebeb;
+}
+
+.col-especificaciones{
+	padding: 5%;
+}
+/* ===================================
  *      	Detalle de Producto
  * =================================== */
 

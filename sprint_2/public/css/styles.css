@@ -164,6 +164,7 @@ header{
     width:100%
 }
 
+/* =================== HEADER ESCRITORIO =================== */
 .s1{
     background: rgb(228,158,41);
     background: linear-gradient(141deg, rgba(228,158,41,1) 0%, rgba(226,62,78,1) 100%);
@@ -220,6 +221,7 @@ header{
 
 .seccion3{
     border-top: solid #e7e7e7 1px;
+    border-bottom: solid #e7e7e7 1px;
 
 }
 
@@ -324,6 +326,8 @@ header{
     font-weight: 300;
     border: transparent;
 }
+
+/* =================== FIN HEADER ESCRITORIO =================== */
 
 
 header .register form{
