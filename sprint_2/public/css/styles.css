@@ -213,6 +213,40 @@ header{
 }
 
 
+.searchBar{
+    display: flex;
+    align-items: center;
+}
+
+.seccion3{
+    border-top: solid #e7e7e7 1px;
+
+}
+
+.art_1{
+    display: flex;
+    padding: 10px;
+}
+
+.titulo_cont{
+    font-size: 18px;
+    margin-bottom: 1px;
+}
+
+.cont{
+    margin-left: 15px;
+}
+
+.art_1 > .bi{
+    width: 25px;
+    height: 25px;
+    color: black;
+}
+
+.caracteristicas{
+    display: flex;
+    justify-content: space-around;
+}
 
 #logo-search{
     display:flex;
@@ -226,6 +260,70 @@ header{
 
 
 #credito{text-align: center;}
+
+
+.btn2{
+    background-color: #fff;
+
+    border: rgba(255, 255, 255, 0);
+    padding: 10px;
+    background: rgb(228,158,41);
+    background: linear-gradient(141deg, rgba(228,158,41,1) 0%, rgba(226,62,78,1) 100%);
+    padding-left: 35px;
+    padding-right: 25px;
+}
+
+.btn3{
+    margin-left: 20px;
+    background-color: transparent;
+    color: black;
+    border: rgba(255, 255, 255, 0);
+    padding: 10px;
+    border: solid black 1px;
+    padding-left: 35px;
+    padding-right: 25px;
+}
+
+.s3-1{
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.formSearch{
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.me-2{
+    background-color: #e7e7e7;
+    border: transparent;
+    border-radius: 0px;
+    margin-left: 30px;
+    margin-right: 10px;
+    font-weight: 300;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.btn_search{
+    border-radius: 0px;
+    background-color: black;
+    color: white;
+    font-weight: 300;
+    border: transparent;
+}
+
+.btn_search:hover{
+    border-radius: 0px;
+    background: rgb(228,158,41);
+    background: linear-gradient(141deg, rgba(228,158,41,1) 0%, rgba(226,62,78,1) 100%);
+    color: white;
+    font-weight: 300;
+    border: transparent;
+}
 
 
 header .register form{
