@@ -339,8 +339,6 @@ header{
 
 
 
-<<<<<<< HEAD
-=======
 
 main section .article div h3{
     font-size: 1em;
@@ -354,7 +352,6 @@ footer{
 
 p{font-size:12px;}
 
->>>>>>> d27e5c0c64a85a2761e04cc10a8e4ff189f4cbf0
 /* - - - - - - - - - - - Header - - - - - - - - - - - */
 .grid-contenedor-menu-hamburgesa { 
 	background: var(--gradiente-1);
