@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-		<title> Carrito de Compras | MiPC </title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel= "stylesheet"/>    
-				<link rel="preconnect" href="https://fonts.googleapis.com">
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-				<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-				
-				<link rel="stylesheet" href="/css/normalize.css" type="text/css"/>
-        <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
-    </head> 
-    <body>
-        <header>
 
-			<!--Header-escritorio-->
+<head>
+	<title> Carrito de Compras | MiPC </title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap - CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+	<link rel="stylesheet" href="/css/normalize.css" type="text/css" />
+	<link rel="stylesheet" href="/css/styles.css" type="text/css" />
+</head>
+
+<body>
+	<header>
+
+		<!--Header-escritorio-->
 
 		<div class="container-fluid">
 			<div class="row s1">
@@ -34,6 +41,9 @@
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="/login">Lista de deseos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/login">Carrito de compras</a>
 							</li>
 						</ul>
 					</nav>
@@ -166,218 +176,218 @@
 
 		<!--FIN Header-escritorio-->
 
-          <div class="grid-contenedor-menu-hamburgesa">
-						<span class="boton-hamburgesa"><i class="fas fa-bars"></i></span>
-						<div class="menu-hamburgesa-head">
-							<span class="boton-cerrar boton-icon"><i class="fas fa-times"></i></span>
+		<div class="grid-contenedor-menu-hamburgesa">
+			<span class="boton-hamburgesa"><i class="fas fa-bars"></i></span>
+			<div class="menu-hamburgesa-head">
+				<span class="boton-cerrar boton-icon"><i class="fas fa-times"></i></span>
+			</div>
+			<div class="menu-hamburgesa-body">
+				<p class="menu-hamburgesa-link"><a href="/">HOME</a></p>
+				<p class="menu-hamburgesa-link"><a href="/productCart">CARRITO DE COMPRAS</a></p>
+				<p class="menu-hamburgesa-link"><a href="/">REGISTRAR</a></p>
+				<p class="menu-hamburgesa-link"><a href="/login">LOGIN</a></p>
+			</div>
+			<div class="menu-hamburgesa-footer"></div>
+		</div>
+	</header>
+	<main>
+		<div class="main-container carrito-de-compras">
+			<div class="titulo-pagina">
+				<h1>CARRITO DE COMPRAS</h1>
+			</div>
+			<div class="tabla-titulo">
+				<div class="tabla-subtitulo">
+					<p class="subtitulo-producto">PRODUCTO</p>
+				</div>
+				<div class="tabla-subtitulo">
+					<p class="subtitulo-cantidad">CANTIDAD</p>
+				</div>
+				<div class="tabla-subtitulo">
+					<p class="subtitulo-total">TOTAL</p>
+				</div>
+			</div>
+			<div class="tabla-productos">
+				<div class="row-producto">
+					<div class="col-producto">
+						<div class="col-producto-img">
+							<img src="/images/img-macbook-pro-2019.jpg" alt="MacBook Pro 2019">
 						</div>
-						<div class="menu-hamburgesa-body">
-							<p class="menu-hamburgesa-link"><a href="/">HOME</a></p>
-							<p class="menu-hamburgesa-link"><a href="/productCart">CARRITO DE COMPRAS</a></p>
-							<p class="menu-hamburgesa-link"><a href="/">REGISTRAR</a></p>
-							<p class="menu-hamburgesa-link"><a href="/login">LOGIN</a></p>
-						</div>
-						<div class="menu-hamburgesa-footer"></div>
-					</div>
-        </header>
-        <main >
-					<div class="main-container carrito-de-compras">
-						 <div class="titulo-pagina">
-							 <h1>CARRITO DE COMPRAS</h1>
-						 </div>
-						 <div class="tabla-titulo">
-							<div class="tabla-subtitulo"><p class="subtitulo-producto">PRODUCTO</p></div>
-							<div class="tabla-subtitulo"><p class="subtitulo-cantidad">CANTIDAD</p></div>
-							<div class="tabla-subtitulo"><p class="subtitulo-total">TOTAL</p></div>
-						 </div>
-						 <div class="tabla-productos">
-							 <div class="row-producto">
-								 <div class="col-producto">
-								 <div class="col-producto-img">
-									<img src="/images/img-macbook-pro-2019.jpg" alt="MacBook Pro 2019">
-								 </div>
-								 <div class="col-producto-info">
-									 <div class="col-producto-info-nombre">
-											<p>MacBook Pro 2019</p>
-									 </div>
-									 <div class="col-producto-info-descripcion">
-										<p>Descripcion del producto</p>
-									 </div>
-								 </div>
-							 </div>
-							 <div class="col-cantidad">
-								 <div class="cantidad-contador">
-									 <div class="operador izquierda">-</div>
-									 <div class="contador">1</div>
-									 <div class="operador derecha">+</div>
-								 </div>
-								 <div class="btn-remover">
-									<button class="btn-accion" type="submit">REMOVER<i class="fas fa-trash-alt"></i>
-									</button>
-								 </div>
-							 </div>
-							 <div class="col-total">
-								 <div class="precio">
-									<p class="precio-subtitulo">TOTAL</p>
-									<p class="precio-valor">$29,000.00</p>
-								 </div>
-							 </div>
-							 </div>
-							 <div class="row-producto">
-								<div class="col-producto">
-								<div class="col-producto-img">
-								 <img src="/images/img-macbook-pro-2019.jpg" alt="MacBook Pro 2019">
-								</div>
-								<div class="col-producto-info">
-									<div class="col-producto-info-nombre">
-										 <p>MacBook Pro 2019</p>
-									</div>
-									<div class="col-producto-info-descripcion">
-									 <p>Descripcion del producto</p>
-									</div>
-								</div>
+						<div class="col-producto-info">
+							<div class="col-producto-info-nombre">
+								<p>MacBook Pro 2019</p>
 							</div>
-							<div class="col-cantidad">
-								<div class="cantidad-contador">
-									<div class="operador izquierda">-</div>
-									<div class="contador">1</div>
-									<div class="operador derecha">+</div>
-								</div>
-								<div class="btn-remover">
-								 <button class="btn-accion" type="submit">REMOVER<i class="fas fa-trash-alt"></i>
-								 </button>
-								</div>
+							<div class="col-producto-info-descripcion">
+								<p>Descripcion del producto</p>
 							</div>
-							<div class="col-total">
-								<div class="precio">
-									<p class="precio-subtitulo">TOTAL</p>
-									<p class="precio-valor">$29,000.00</p>
-								</div>
-							</div>
-							</div>
-							<div class="row-producto">
-								<div class="col-producto">
-								<div class="col-producto-img">
-								 <img src="/images/img-macbook-pro-2019.jpg" alt="MacBook Pro 2019">
-								</div>
-								<div class="col-producto-info">
-									<div class="col-producto-info-nombre">
-										 <p>MacBook Pro 2019</p>
-									</div>
-									<div class="col-producto-info-descripcion">
-									 <p>Descripcion del producto</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-cantidad">
-								<div class="cantidad-contador">
-									<div class="operador izquierda">-</div>
-									<div class="contador">1</div>
-									<div class="operador derecha">+</div>
-								</div>
-								<div class="btn-remover">
-								 <button class="btn-accion" type="submit">REMOVER<i class="fas fa-trash-alt"></i>
-								 </button>
-								</div>
-							</div>
-							<div class="col-total">
-								<div class="precio">
-									<p class="precio-subtitulo">TOTAL</p>
-									<p class="precio-valor">$29,000.00</p>
-								</div>
-							</div>
-							</div>
-						 </div>
-
-						 <div class="btn-actualizar">
-							 <button class="btn-accion" type="submit">Actualizar carrito<i class="fas fa-sync-alt"></i></button>
-						 </div>
-						 <div class="tabla-subtotal">
-							<div class="subtotal-titulo">Subtotal</div>
-							<div class="precio-total">$29,000.00</div>
-							<div class="btn-pagar"><button class="btn-accion" type="submit">Proceder a Pagar</button></div>
 						</div>
 					</div>
-        </main>
-        <footer>
-            <div>
-                <div class="grid-ir-a-inicio">
-                    <a id="ir-a-inicio" href=""> Inicio de página </a>
-                </div>
-                <div class="grid-footer-contenido">
-                    <div class="grid-footer-enlaces">
-                        <ul id="footer-enlaces">
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 1</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 2</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 3</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 4</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 5</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 6</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 7</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="grid-footer-logo">
-                        <a title="Mi PC" href="/index">
-                            <img class="img-logo-centrado" 
-                                 src="/images/placeholderLogo.png"
-                                 alt="Logo de Mi PC">
-                        </a>
-                    </div>
-                    <div class="grid-footer-info">
-                        <div class="grid-footer-info-detalles">
-                            <div class="footer-texto">
-                                <p>"Sucursal"</p>
-                                <br/>
-                                <p>"Oficinas"</p>
-                                <br/>
-                                <p>"Telefono"</p>
-                                <br/>
-                                <p>"Correo"</p>
-                            </div>
-                        </div>
-                        <div class="grid-footer-info-redesSociales">
-                            <div class="grid-caja-icono-redes">
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+					<div class="col-cantidad">
+						<div class="cantidad-contador">
+							<div class="operador izquierda">-</div>
+							<div class="contador">1</div>
+							<div class="operador derecha">+</div>
+						</div>
+						<div class="btn-remover">
+							<button class="btn-accion" type="submit">REMOVER<i class="fas fa-trash-alt"></i>
+							</button>
+						</div>
+					</div>
+					<div class="col-total">
+						<div class="precio">
+							<p class="precio-subtitulo">TOTAL</p>
+							<p class="precio-valor">$29,000.00</p>
+						</div>
+					</div>
+				</div>
+				<div class="row-producto">
+					<div class="col-producto">
+						<div class="col-producto-img">
+							<img src="/images/img-macbook-pro-2019.jpg" alt="MacBook Pro 2019">
+						</div>
+						<div class="col-producto-info">
+							<div class="col-producto-info-nombre">
+								<p>MacBook Pro 2019</p>
+							</div>
+							<div class="col-producto-info-descripcion">
+								<p>Descripcion del producto</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-cantidad">
+						<div class="cantidad-contador">
+							<div class="operador izquierda">-</div>
+							<div class="contador">1</div>
+							<div class="operador derecha">+</div>
+						</div>
+						<div class="btn-remover">
+							<button class="btn-accion" type="submit">REMOVER<i class="fas fa-trash-alt"></i>
+							</button>
+						</div>
+					</div>
+					<div class="col-total">
+						<div class="precio">
+							<p class="precio-subtitulo">TOTAL</p>
+							<p class="precio-valor">$29,000.00</p>
+						</div>
+					</div>
+				</div>
+				<div class="row-producto">
+					<div class="col-producto">
+						<div class="col-producto-img">
+							<img src="/images/img-macbook-pro-2019.jpg" alt="MacBook Pro 2019">
+						</div>
+						<div class="col-producto-info">
+							<div class="col-producto-info-nombre">
+								<p>MacBook Pro 2019</p>
+							</div>
+							<div class="col-producto-info-descripcion">
+								<p>Descripcion del producto</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-cantidad">
+						<div class="cantidad-contador">
+							<div class="operador izquierda">-</div>
+							<div class="contador">1</div>
+							<div class="operador derecha">+</div>
+						</div>
+						<div class="btn-remover">
+							<button class="btn-accion" type="submit">REMOVER<i class="fas fa-trash-alt"></i>
+							</button>
+						</div>
+					</div>
+					<div class="col-total">
+						<div class="precio">
+							<p class="precio-subtitulo">TOTAL</p>
+							<p class="precio-valor">$29,000.00</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-        </footer>
-    </body>  
+			<div class="btn-actualizar">
+				<button class="btn-accion" type="submit">Actualizar carrito<i class="fas fa-sync-alt"></i></button>
+			</div>
+			<div class="tabla-subtotal">
+				<div class="subtotal-titulo">Subtotal</div>
+				<div class="precio-total">$29,000.00</div>
+				<div class="btn-pagar"><button class="btn-accion" type="submit">Proceder a Pagar</button></div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div>
+			<div class="grid-ir-a-inicio">
+				<a id="ir-a-inicio" href=""> Inicio de página </a>
+			</div>
+			<div class="grid-footer-contenido">
+				<div class="grid-footer-enlaces">
+					<ul id="footer-enlaces">
+						<li class="enlace-del-footer">
+							<a href="">Enlace 1</a>
+						</li>
+						<li class="enlace-del-footer">
+							<a href="">Enlace 2</a>
+						</li>
+						<li class="enlace-del-footer">
+							<a href="">Enlace 3</a>
+						</li>
+						<li class="enlace-del-footer">
+							<a href="">Enlace 4</a>
+						</li>
+						<li class="enlace-del-footer">
+							<a href="">Enlace 5</a>
+						</li>
+						<li class="enlace-del-footer">
+							<a href="">Enlace 6</a>
+						</li>
+						<li class="enlace-del-footer">
+							<a href="">Enlace 7</a>
+						</li>
+					</ul>
+				</div>
+				<div class="grid-footer-logo">
+					<a title="Mi PC" href="/index">
+						<img class="img-logo-centrado" src="/images/placeholderLogo.png" alt="Logo de Mi PC">
+					</a>
+				</div>
+				<div class="grid-footer-info">
+					<div class="grid-footer-info-detalles">
+						<div class="footer-texto">
+							<p>"Sucursal"</p>
+							<br />
+							<p>"Oficinas"</p>
+							<br />
+							<p>"Telefono"</p>
+							<br />
+							<p>"Correo"</p>
+						</div>
+					</div>
+					<div class="grid-footer-info-redesSociales">
+						<div class="grid-caja-icono-redes">
+							<a class="icono-red" href="">
+								<i class="fab fa-facebook"></i>
+							</a>
+							<a class="icono-red" href="">
+								<i class="fab fa-facebook"></i>
+							</a>
+							<a class="icono-red" href="">
+								<i class="fab fa-facebook"></i>
+							</a>
+							<a class="icono-red" href="">
+								<i class="fab fa-facebook"></i>
+							</a>
+							<a class="icono-red" href="">
+								<i class="fab fa-facebook"></i>
+							</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+</body>
+
 </html>
