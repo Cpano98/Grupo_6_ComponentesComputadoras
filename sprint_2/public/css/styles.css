@@ -243,6 +243,10 @@ header{
     margin-left: 15px;
 }
 
+.nav-link{
+    font-size: 12px;
+}
+
 .art_1 > .bi{
     width: 25px;
     height: 25px;
