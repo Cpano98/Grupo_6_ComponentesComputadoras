@@ -54,13 +54,17 @@
 
 .pro-destacados{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+    justify-content: center;
 }
 
 .individual{
     margin: 10px;
+    margin-bottom: 50px;
     border: solid #e7e7e7 1px;
     text-align: center;
+    width: 350px;
 }
 
 .contenedor_info{
@@ -240,7 +244,7 @@ header{
 }
 
 .nav-link{
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .art_1 > .bi{
@@ -336,7 +340,17 @@ header{
 
 
 
+main section .article div h3{
+    font-size: 1em;
+    width:  100%;
+}
+footer{
+    background-color:#FFFFFF;  
+    width: 100%;
+}
 
+
+p{font-size:12px;}
 
 /* - - - - - - - - - - - Header - - - - - - - - - - - */
 .grid-contenedor-menu-hamburgesa { 
@@ -538,10 +552,31 @@ a.icono-red i{
  
 /* celular  */
 /* Mobile First, lo de arriba debe ser para celular */
+@media (max-width: 770px){
+    .tit-1{
+        text-align: center;
+    }
+}
 
+@media (max-width: 1100px){
+    .header-1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 30px;
+
+    }
+
+    .seccion3, .box-redes, .btn3{
+        display: none;
+    }
+
+}
 
 /*tablet*/
 @media (min-width:481px) and (max-width:768px){
+
+
  
     main section .article{width:45%;}
     header .form{font-size:2vw; }
@@ -598,8 +633,17 @@ a.icono-red i{
 
 }
 
+@media (max-width: 769px){
+    .s1{
+        display: none;
+    }
+}
+
 /*any laptop to desktop*/
 @media (min-width: 769px){
+
+
+
     #logo-search div{width: 30%;}
     main section .article{width:22%;}
     header .form{ font-size:1.5vw; }
@@ -618,6 +662,8 @@ a.icono-red i{
 		.grid-half-width {
 			grid-template-columns: 50% 50%;
 		}
+
+
 
  
 
