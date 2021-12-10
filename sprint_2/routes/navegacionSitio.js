@@ -1,11 +1,10 @@
 let express = require('express');
 const path = require("path");
 let router = express.Router();
-const app = express();
 
 
 const publicPath = path.join(__dirname, "../public");
-app.use(express.static(publicPath));
+router.use(express.static(publicPath));
 
 
 router.get("", function (req, res) {
