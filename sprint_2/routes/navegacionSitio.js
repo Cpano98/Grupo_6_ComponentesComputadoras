@@ -1,17 +1,14 @@
-let express = require('express');
+const express = require('express');
 const path = require("path");
-let router = express.Router();
+const router = express.Router();
 
+const navegacionSitio = require('../controllers/navegacionSitio');
 
 const publicPath = path.join(__dirname, "../public");
 router.use(express.static(publicPath));
 
 
-router.get("", function (req, res) {
-    //res.send("Bienvenido");
-    res.sendFile(path.join(__dirname, '../views/index.html'));
-});
-
+router.get("/", navegacionSitio.index);
 
 router.get("/register", (req, res) => {
     //res.send("Pagina Registro");

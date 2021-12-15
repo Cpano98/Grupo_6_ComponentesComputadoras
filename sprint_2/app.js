@@ -7,11 +7,12 @@ const puerto = 3030; //default
 //=====navegacion de sitio======
 const navegacionSitio = require('./routes/navegacionSitio.js');
 
-
 /* //Public Path ahora en NavegacionSitio
 const publicPath = path.join(__dirname, "./public");
 app.use(express.static(publicPath));
 */
+
+app.set('view engine', 'ejs');
 
 //Uso de rutas:
 app.use('/', navegacionSitio);
