@@ -1,0 +1,56 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+body {
+background-image: url(../images/slider-image-03.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed;
+}
+.contenedor_formulario_login
+{
+    width: 100%;
+    max-width: width 800px;
+    margin: auto;
+    position: relative;
+}
+.caja__login{
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: #e49e29;
+}
+
+.caja__register div{
+margin: 100px 40px;
+color: #e23e4e;
+transition: all 500ms;
+}
+.caja__register div p,
+.caja__register div button{
+    margin-top: 30px;
+}
+.caja__register div h3{
+    font-weight: 400;
+    font-size: 26px;
+}
+.contenedor_formulario_register button{
+    padding: 10px 40px;
+    border: 2px solid #fff;
+    background: transparent;
+    font-size: 14px;
+font-weight: 600;
+cursor:pointer;
+color:white;
+outline: none;
+transform: all 300ms;
+
+
+}
