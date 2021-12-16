@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title> Login | MiPC </title>
+        <title> Register | MiPC </title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
@@ -174,101 +174,28 @@
           
         </header>
         <main >
-           
+
             <div class="contenedor">
-                <div class="caja__login">
-                    <h3>¿Ya tienes cuenta? </h3>
-                    <p>Inicia sesión </p>
-                    <button id="boton_iniciar-sesion">Iniciar sesión</button>
+                <div class="caja__register">
+                    <h3>¿Aún no tienes cuenta? </h3>
+                    <p>Registrate para Iniciar sesión </p>
+                    <button id="boton_registrarse">Registrarse</button>
                 </div>
             
-            </div class="contenedor_formulario_login">
-            <form action="" class="" Formulario login">
-                <h2>Inicia sesión</h2>
-                <input type="text" placeholder="correo electronico">
+            </div class="contenedor_formulario_register">
+            <form action="" class="" Formulario register">
+                <h2>Regístrarse</h2>
+                <input type="text" placeholder="Nombre completo">
+                <input type="text" placeholder="Correo electronico">
                 <input type="password" placeholder="contraseña">
-                <button>entrar</button>
+                <button>Registrarse</button>
             </form>
+            <body>
+            
+            
+            </body>
+            
         </main>
-        <footer>
-            <div>
-                <div class="grid-ir-a-inicio">
-                    <a id="ir-a-inicio" href=""> Inicio de página </a>
-                </div>
-                <div class="grid-footer-contenido">
-                    <div class="grid-footer-enlaces">
-                        <ul id="footer-enlaces">
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 1</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 2</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 3</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 4</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 5</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 6</a>
-                            </li>
-                            <li class="enlace-del-footer"> 
-                                <a href="">Enlace 7</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="grid-footer-logo">
-                        <a title="Mi PC" href="/index">
-                            <img class="img-logo-centrado" 
-                                 src="/images/placeholderLogo.png"
-                                 alt="Logo de Mi PC">
-                        </a>
-                    </div>
-                    <div class="grid-footer-info">
-                        <div class="grid-footer-info-detalles">
-                            <div class="footer-texto">
-                                <p>"Sucursal"</p>
-                                <br/>
-                                <p>"Oficinas"</p>
-                                <br/>
-                                <p>"Telefono"</p>
-                                <br/>
-                                <p>"Correo"</p>
-                            </div>
-                        </div>
-                        <div class="grid-footer-info-redesSociales">
-                            <div class="grid-caja-icono-redes">
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                <a class="icono-red" 
-                                   href="">
-                                <i class="fab fa-facebook"></i>
-                                </a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </footer>
+		<%- include("partials/footer.ejs") %>
     </body>  
 </html>
