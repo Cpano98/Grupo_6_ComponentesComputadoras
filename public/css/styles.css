@@ -273,7 +273,6 @@ header{
 
 .btn2{
     background-color: #fff;
-
     border: rgba(255, 255, 255, 0);
     padding: 10px;
     background: rgb(228,158,41);
@@ -314,7 +313,6 @@ header{
     font-weight: 300;
     padding-top: 10px;
     padding-bottom: 10px;
-    
 }
 
 .btn_search{
@@ -477,6 +475,68 @@ footer section section .titular{
     margin: 5px 0px 15px 0px;
     padding: 5px;
     width: 30px;
+}
+
+/* - - - - - - - - - - - - - Login & Register - - - - - - - - - - - - - - */
+.grid-contenedor-register{
+    background-color: var(--gris);
+    min-width: 20rem;
+    padding: 2.8rem 1.4rem 2.8rem ;
+    margin: 0px auto;
+    text-align: center;
+}
+.grid-register-form{
+    background-color: white;
+    border: 1px solid var(--negro);
+    border-bottom: none;
+    border-radius: 0.4rem 0.4rem 0 0;
+    margin:auto;
+    text-align: center;
+    width: 50%;
+    max-width: 500px;
+    position:relative;
+}
+.grid-register-form div{    padding-top: 10px; }
+.grid-register-form div input{
+    padding: 5px;
+    border: transparent;
+    border-radius: 0px;
+    vertical-align: middle;
+}
+div input[type=text]{background-color: #e7e7e7;}
+#contraseñaCheck{background-color: white;}
+
+/*detallando botones*/
+div input[type=submit],
+div input[type=reset]{
+    background-color: var(--naranja);
+    color: white;
+    font-weight: 300;
+    border-radius: 0px;
+    border: transparent;
+    padding: 3px;
+    transition: color 200ms;
+}
+
+div input[type=submit]:hover,
+div input[type=reset]:hover{
+    border-radius: 0px;
+    background: var(--gradiente-1);
+    color: white;
+    font-weight: 300;
+    border: transparent;
+}
+
+.grid-register-legal{
+    background-color: white;
+    border: 1px solid var(--negro);
+    border-top: none;
+    margin:auto;
+    padding-top: 10px;
+    text-align: center;
+    width: 50%;
+    max-width: 500px;
+    position:relative;
 }
 
 /* - - - - - - - - - - - Footer - - - - - - - - - - - */
