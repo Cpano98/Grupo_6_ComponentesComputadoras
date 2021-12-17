@@ -1,70 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title> Register | MiPC </title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel= "stylesheet"/>    
-        
-		<!-- Bootstrap - CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<head>
+	<title> Register | MiPC </title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+	<!-- Bootstrap - CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
-        <link rel="stylesheet" href="/css/normalize.css" type="text/css"/>
-        <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
-    
-    </head> 
-    <body>
-		<header>
-			<!--Header-escritorio-->
-			<%- include("partials/header.ejs") %>
+	<link rel="stylesheet" href="/css/normalize.css" type="text/css" />
+	<link rel="stylesheet" href="/css/styles.css" type="text/css" />
+	<link rel="stylesheet" href="/css/styles_login.css" type="text/css" />
+
+</head>
+
+<body>
+	<header>
+		<!--Header-escritorio-->
+		<%- include("partials/header.ejs") %>
 			<!-- Header hambuger  -->
 			<%- include("partials/headerhambugerMenu.ejs")%>
-		</header>
-        <main >
-            <div class="grid-contenedor-register">
-				<h2> Bienvenido  </h2>
-                <div class="grid-register-form">
-                    <form action="/register" method="POST">
-						<div>
-							<input type="text" name="Nombre" placeholder="Nombre y apellido"/>
-						</div>
-						<div>
-							<input type="text" name="Usuario" placeholder="Nombre de usuario"/>
-						</div>
-						<div>
-							<input type="text" name="Correo" placeholder="Correo"/>
-						</div>
-						<div>
-							<input type="text" name="Contraseña0" placeholder="Contraseña"/>
-						</div>
-						<div>
-							<input type="text" name="Contraseña1" placeholder="Confirmar contraseña"/>
-						</div>
-						<div id="contraseñaCheck">
-							<input type="checkbox" name="MostrarContraseña" value="False"/>
-							<label for="MostrarContraseña">Mostrar contraseña</label>
-						</div>
-						<div>
-							<input type="reset" value="Vaciar"></input>
-							<input type="submit" value="Enviar"></input> 
-						</div>
-					</form>
-                </div>
-				<div class="grid-register-legal">
+	</header>
+	<main>
+
+		<div class="contenedor-login">
+			<div class="login2">
+
+				<h3>Bienvenid@ a MiPC!</h3>
+				<p>Crea tu cuenta y disfruta de grandes e increíbles beneficios</p>
+				<form>
+					<div class="campo-ind">
+						<label class="label-login">Nombre completo:</label><br>
+						<input class="campo-log" type="text" style="background-color: transparent;"
+							placeholder="¿cómo te llamas?">
+					</div>
+
+					<div class="campo-ind">
+						<label class="label-login">Nombre de usuario: </label><br>
+						<input class="campo-log" type="text" style="background-color: transparent;"
+							placeholder="username">
+					</div>
+
+					<div class="campo-ind">
+						<label class="label-login">Correo Electrónico:</label><br>
+						<input class="campo-log" type="email" placeholder="ejemplo@mipc.com">
+					</div>
+
+					<div class="campo-ind">
+						<label class="label-login">Contraseña:</label><br>
+						<input class="campo-log" type="password" placeholder="--">
+					</div>
+					<div class="campo-ind">
+						<label class="label-login">Confirmar contraseña:</label><br>
+						<input class="campo-log" type="password" placeholder="">
+					</div>
+
+					<div id="contraseñaCheck">
+						<input type="checkbox" name="MostrarContraseña" value="False" />
+						<label for="MostrarContraseña">Mostrar contraseña</label>
+						<p></p>
+					</div>
+
+					<button class="btn btn-outline-success btn_search" type="submit">Registrarme</button>
+					<button style="
+						background-color: transparent; 
+						color: black;
+						border: solid black 1px;" class="btn btn-outline-success btn_search" type="reset">Comenzar de nuevo</button>
+					<p></p>
 					<p>
-						Al crear una cuenta aceptas las 
+						Al crear una cuenta aceptas las
 						<a href="">Condiciones de uso</a>
-						y el 
+						y el
 						<a href="">Aviso de privacidad</a>
 						de Mi|PC.
 					</p>
-				</div>
+
+				</form>
+
 			</div>
-        </main>
-		<!--FOOTER-->
-		<%- include("partials/footer.ejs") %>
-    </body>  
+
+
+		</div>
+	</main>
+	<!--FOOTER-->
+	<%- include("partials/footer.ejs") %>
+</body>
+
 </html>

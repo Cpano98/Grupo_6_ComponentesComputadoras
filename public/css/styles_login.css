@@ -5,7 +5,7 @@
     padding-bottom: 10%;
     background-color: #ffffff;
     opacity: 0.8;
-    background-image: radial-gradient(#ced4da 1.5px, #ffffff 1.5px);
+    background-image: radial-gradient(#a0a3a7 1.5px, #ffffff 1.5px);
     background-size: 30px 30px;
 
     
@@ -16,6 +16,18 @@
     background-color: white;
     width: 450px;
     height: 470px;
+    padding: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05); 
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05);
+
+}
+
+.login2{
+    color: black;
+    background-color: white;
+    width: 600px;
     padding: 30px;
     padding-top: 60px;
     padding-bottom: 60px;
