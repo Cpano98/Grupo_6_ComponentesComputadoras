@@ -13,7 +13,7 @@
 			<!-- Header hambuger  -->
 			<%- include("partials/headerhambugerMenu.ejs")%>
 	</header>
-	
+
 	<main>
 		<div class="contenedor-detalle-de-producto">
 			<div class="detalle-de-producto-img">
@@ -90,9 +90,11 @@
 								<div class="contenedor_btn">
 									<p class="texto-carrito" style="color: white; font-size: 15px; font-weight: 300;">
 										Agregar al carrito</p>
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket2-fill" viewBox="0 0 16 16">
-											<path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z"/>
-										  </svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-basket2-fill" viewBox="0 0 16 16">
+										<path
+											d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z" />
+									</svg>
 								</div>
 							</button>
 
@@ -156,44 +158,44 @@
 			<h3>Comentarios</h3>
 			<!-- Import de Comentarios -->
 			<%- include("partials/comentario")%>
-			<div class="grid-comentario">
-				<div class="grid-perfil-usuario">
-					<p>
-						<i class="fas fa-user"></i>
-						Nombre Usuario
-					</p>
-				</div>
-				<div class="grid-puntuacion">
-					<i class="fas fa-star"></i>
-					<i class="far fa-star"></i>
-					<i class="far fa-star"></i>
-					<i class="far fa-star"></i>
-					<i class="far fa-star"></i>
-				</div>
 				<div class="grid-comentario">
-					<p>Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit.
-						Vivamus fermentum a sem eget
-						pretium. Curabitur non ipsum
-						at eros fermentum suscipit at
-						sit amet urna.
-					</p>
+					<div class="grid-perfil-usuario">
+						<p>
+							<i class="fas fa-user"></i>
+							Nombre Usuario
+						</p>
+					</div>
+					<div class="grid-puntuacion">
+						<i class="fas fa-star"></i>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+						<i class="far fa-star"></i>
+					</div>
+					<div class="grid-comentario">
+						<p>Lorem ipsum dolor sit amet,
+							consectetur adipiscing elit.
+							Vivamus fermentum a sem eget
+							pretium. Curabitur non ipsum
+							at eros fermentum suscipit at
+							sit amet urna.
+						</p>
+					</div>
 				</div>
-			</div>
 		</div>
 	</main>
 	<%- include("partials/footer.ejs") %>
 
-	<!-- Bootstrap - JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
+		<!-- Bootstrap - JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"></script>
 </body>
 
 </html>
