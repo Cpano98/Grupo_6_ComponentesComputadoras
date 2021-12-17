@@ -537,11 +537,11 @@ div input[type=text]{background-color: #e7e7e7;}
 div input[type=submit],
 div input[type=reset]{
     background-color: var(--naranja);
-    color: white;
+    color: var(--blanco);
     font-weight: 300;
     border-radius: 0px;
     border: transparent;
-    padding: 3px;
+    padding: 10px;
     transition: color 200ms;
 }
 
