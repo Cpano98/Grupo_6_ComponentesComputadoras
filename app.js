@@ -6,6 +6,7 @@ const app     = express();
 const mainRoutes = require("./routes/mainRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
+const adminPanel = require("./routes/adminRoutes");
 
 /* ruta de estilos */ 
 app.use(express.static("./public"));
@@ -17,6 +18,7 @@ app.set('view engine', 'ejs');
 app.use("/",mainRoutes);
 app.use("/",userRoutes);
 app.use("/",productRoutes);
+app.use("/",adminPanel);
 
 
 app.listen(3030,()=>{
