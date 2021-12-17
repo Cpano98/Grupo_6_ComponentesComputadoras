@@ -1,4 +1,4 @@
-main{
+.main{
     
     background-color: #ffffff;
 
@@ -27,7 +27,7 @@ main{
     transform: scale(1.1);
 }
 
-.contenedorAdmin{
+.contenedorAdmin, .contenedor-login2{
     padding: 40px;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -65,4 +65,17 @@ main{
 
 .last{
     margin-right: 0px;
+}
+
+
+.login3{
+    color: black;
+    background-color: white;
+    width: 100%;
+    padding: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05); 
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05);
+
 }

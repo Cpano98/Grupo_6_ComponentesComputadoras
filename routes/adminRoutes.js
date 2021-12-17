@@ -7,6 +7,7 @@ const mainController =require("../controllers/adminController");
 (con "atributo") respectivo */
 
 router.get("/adminPanel", mainController.admin);
+router.get("/agregarProducto", mainController.agregar);
 
 
 module.exports = router; 
