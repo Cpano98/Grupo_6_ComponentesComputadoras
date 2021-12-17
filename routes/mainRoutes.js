@@ -7,10 +7,9 @@ const mainController =require("../controllers/mainController");
 (con "atributo") respectivo */
 
 router.get("/", mainController.index);
-router.get("/login", mainController.login);
-router.get("/register", mainController.register);
-router.get("/productCart", mainController.productCart);
-router.get("/productDetail", mainController.productDetail);
+router.get("/index", mainController.index);
+router.get("/home", mainController.index);
+
 
 module.exports = router; 
 
