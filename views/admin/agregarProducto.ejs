@@ -12,61 +12,70 @@
         <main class="main">
             <div class="contenedor-login2">
                 <div class="login3">
-    
-                    <h3>Bienvenid@ a MiPC!</h3>
-                    <p>Crea tu cuenta y disfruta de grandes e increíbles beneficios</p>
+
+                    <h3>Agregar nuevo producto</h3>
+                    <p>Agregar un nuevo artículo a tu tienda</p>
                     <form>
                         <div class="campo-ind">
-                            <label class="label-login">Nombre completo:</label><br>
+                            <label class="label-login">Nombre del producto: </label><br>
                             <input class="campo-log" type="text" style="background-color: transparent;"
-                                placeholder="¿cómo te llamas?">
+                                placeholder="Se muestra a los usuarios">
                         </div>
-    
+
                         <div class="campo-ind">
-                            <label class="label-login">Nombre de usuario: </label><br>
-                            <input class="campo-log" type="text" style="background-color: transparent;"
-                                placeholder="username">
+                            <label class="label-login">Descripción de tu producto: </label><br>
+                            <textarea class="campo-log" style="background-color: transparent;"> </textarea>
                         </div>
-    
+
                         <div class="campo-ind">
-                            <label class="label-login">Correo Electrónico:</label><br>
-                            <input class="campo-log" type="email" placeholder="ejemplo@mipc.com">
+                            <label class="label-login">Precio a público: </label><br>
+                            <input class="campo-log" type="number" style="background-color: transparent;"
+                                placeholder="$0.00 MXN">
                         </div>
-    
+
                         <div class="campo-ind">
-                            <label class="label-login">Contraseña:</label><br>
-                            <input class="campo-log" type="password" placeholder="--">
+                            <label class="label-login">Imagen principal de producto: </label><br><br>
+                            <input class="campo-log" type="file" style="background-color: transparent;"
+                                placeholder="Se muestra a usuarios">
                         </div>
-                        <div class="campo-ind">
-                            <label class="label-login">Confirmar contraseña:</label><br>
-                            <input class="campo-log" type="password" placeholder="">
+
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="campo-ind">
+                                    <label class="label-login">Categoría del producto: </label><br><br>
+                                    <select name="select">
+                                        <option value="value1" selected>Selecccionar categoría</option>
+                                        <option value="value2">Laptops</option>
+                                        <option value="value3">Memorias RAM</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="campo-ind">
+                                    <label class="label-login">Estado del producto: </label><br><br>
+                                    <select name="select">
+                                        <option value="value1" selected>Selecccionar estado</option>
+                                        <option value="value2">Nuevo</option>
+                                        <option value="value3">Usado</option>
+                                    </select>
+
+                                </div>
+                            </div>
                         </div>
-    
-                        <div id="contraseñaCheck">
-                            <input type="checkbox" name="MostrarContraseña" value="False" />
-                            <label for="MostrarContraseña">Mostrar contraseña</label>
-                            <p></p>
-                        </div>
-    
-                        <button class="btn btn-outline-success btn_search" type="submit">Registrarme</button>
-                        <button style="
-                            background-color: transparent; 
-                            color: black;
-                            border: solid black 1px;" class="btn btn-outline-success btn_search" type="reset">Comenzar de nuevo</button>
-                        <p></p>
-                        <p>
-                            Al crear una cuenta aceptas las
-                            <a href="">Condiciones de uso</a>
-                            y el
-                            <a href="">Aviso de privacidad</a>
-                            de Mi|PC.
-                        </p>
-    
+
+
+
+                        <button class="btn btn-outline-success btn_search" type="submit">Registrar nuevo
+                            producto</button>
+
+
                     </form>
-    
+
                 </div>
-    
-    
+
+
             </div>
 
         </main>
