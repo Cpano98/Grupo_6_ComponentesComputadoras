@@ -24,13 +24,15 @@
 			<%- include("partials/headerhambugerMenu.ejs")%>
 		</header>
         <main >
-			
             <div class="grid-contenedor-register">
 				<h2> Bienvenido  </h2>
                 <div class="grid-register-form">
                     <form action="/register" method="POST">
 						<div>
 							<input type="text" name="Nombre" placeholder="Nombre y apellido"/>
+						</div>
+						<div>
+							<input type="text" name="Usuario" placeholder="Nombre de usuario"/>
 						</div>
 						<div>
 							<input type="text" name="Correo" placeholder="Correo"/>

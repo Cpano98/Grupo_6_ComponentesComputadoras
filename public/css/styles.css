@@ -497,30 +497,38 @@ footer section section .titular{
 }
 
 /* - - - - - - - - - - - - - Login & Register - - - - - - - - - - - - - - */
-.grid-contenedor-register{
+.grid-contenedor-register,
+.grid-contenedor-login{
     background-color: var(--gris);
     min-width: 20rem;
     padding: 2.8rem 1.4rem 2.8rem ;
     margin: 0px auto;
     text-align: center;
 }
-.grid-register-form{
+.grid-register-legal,
+.grid-login-legal,
+.grid-register-form,
+.grid-login-form{
     background-color: white;
     border: 1px solid var(--negro);
     border-bottom: none;
     border-radius: 0.4rem 0.4rem 0 0;
     margin:auto;
     text-align: center;
-    width: 50%;
+    width: 75%;
     max-width: 500px;
     position:relative;
+    padding: 5px;
 }
-.grid-register-form div{    padding-top: 10px; }
-.grid-register-form div input{
+.grid-register-form div,
+.grid-login-form div{    padding-top: 10px; }
+.grid-register-form div input,
+.grid-login-form div input{
     padding: 5px;
     border: transparent;
     border-radius: 0px;
     vertical-align: middle;
+    max-width: 90%;
 }
 div input[type=text]{background-color: #e7e7e7;}
 #contraseñaCheck{background-color: white;}
@@ -546,17 +554,14 @@ div input[type=reset]:hover{
     border: transparent;
 }
 
-.grid-register-legal{
-    background-color: white;
+.grid-register-legal,
+.grid-login-legal{  
     border: 1px solid var(--negro);
+    border-radius: 0;
     border-top: none;
-    margin:auto;
-    padding-top: 10px;
-    text-align: center;
-    width: 50%;
-    max-width: 500px;
-    position:relative;
 }
+
+
 
 /* - - - - - - - - - - - Footer - - - - - - - - - - - */
 
