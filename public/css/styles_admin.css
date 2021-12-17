@@ -23,8 +23,7 @@
 }
 
 .nav-link:hover{
-    color: #e49e29;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .contenedorAdmin, .contenedor-login2{
