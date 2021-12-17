@@ -1,63 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title> Login | MiPC </title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel= "stylesheet"/>    
-        
-		<!-- Bootstrap - CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<head>
+	<title> Login | MiPC </title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+	<!-- Bootstrap - CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
-        <link rel="stylesheet" href="/css/normalize.css" type="text/css"/>
-        <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
-    
-    </head> 
-    <body>
-		<header>
-			<!--Header-escritorio-->
-			<%- include("partials/header.ejs") %>
+	<link rel="stylesheet" href="/css/normalize.css" type="text/css" />
+	<link rel="stylesheet" href="/css/styles.css" type="text/css" />
+	<link rel="stylesheet" href="/css/styles_login.css" type="text/css" />
+
+</head>
+
+<body>
+	<header>
+		<!--Header-escritorio-->
+		<%- include("partials/header.ejs") %>
 			<!-- Header hambuger  -->
 			<%- include("partials/headerhambugerMenu.ejs")%>
-		</header>
-        <main >
-			<div class="grid-contenedor-login">
-				<h2> Iniciar sesión  </h2>
-                <div class="grid-login-form">
-                    <form action="/login" method="POST">
-						<div>
-							<input type="text" name="Nombre" placeholder="Nombre usuario"/>
-						</div>
-						<div>
-							<input type="text" name="Correo" placeholder="Correo"/>
-						</div>
-						<div>
-							<input type="text" name="Contraseña0" placeholder="Contraseña"/>
-						</div>
-						<div id="contraseñaCheck">
-							<input type="checkbox" name="MostrarContraseña" value="False"/>
-							<label for="MostrarContraseña">Mostrar contraseña</label>
-						</div>
-						<div>
-							<input type="submit" value="Entrar"></input> 
-						</div>
-					</form>
-                </div>
-				<div class="grid-login-legal">
-					<p>
-						Al continuar aceptas las 
-						<a href="">Condiciones de uso</a>
-						y el 
-						<a href="">Aviso de privacidad</a>
-						de Mi|PC.
+	</header>
+	<main>
+
+		<div class="contenedor-login">
+			<div class="login">
+
+				<h3>¿Ya tienes cuenta? </h3>
+				<p>Aquí podrás iniciar sesión y rastrear tus pedidos</p>
+				<form>
+					<div class="campo-ind">
+						<label class="label-login">Correo Electrónico:</label><br>
+						<input class="campo-log" type="email" placeholder="ejemplo@mipc.com">
+					</div>
+
+					<div class="campo-ind">
+						<label class="label-login">Contraseña:</label><br>
+						<input class="campo-log" type="password" placeholder="--">
+					</div>
+
+					<button class="btn btn-outline-success btn_search" type="submit">Iniciar sesión</button>
+					<p></p>
+					<p>Al ingresar a esta p&aacute;gina, aceptas nuestros <a href="#">t&eacute;rminos y condiciones.</a>
 					</p>
-				</div>
+
+				</form>
+
 			</div>
-        </main>
-		<!-- FOOTER -->
-		<%- include("partials/footer.ejs") %>
-    </body>  
+
+
+		</div>
+
+	</main>
+	<!-- FOOTER -->
+	<%- include("partials/footer.ejs") %>
+</body>
+
 </html>
