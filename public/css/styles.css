@@ -65,10 +65,27 @@
     border: solid #e7e7e7 1px;
     text-align: center;
     width: 350px;
+    width: 300px;
+    transition: all 0.3s;
+}
+
+.individual:hover {
+    border: solid #e23e4e 1px;
+    transform: translateY(-8px);
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(226,62,78,0.05); 
+    box-shadow: 5px 5px 15px 5px rgba(226,62,78,0.05);
+
+
 }
 
 .contenedor_info{
     border-top: solid #e7e7e7 1px;
+    transition: all 0.3s;
+
+}
+
+.individual:hover > .contenedor_info{
+    border-top: solid #e23e4e 1px;
 
 }
 
@@ -103,6 +120,13 @@
     border: rgba(255, 255, 255, 0);
     padding: 10px;
     border: solid #e7e7e7 1px;
+    transition: all 0.3s;
+}
+
+.btn1:hover{
+    background-color: #e23e4e;
+    color: #fff;
+    border: solid #e23e4e 1px;
 }
 
 .icon-tienda{
@@ -112,11 +136,6 @@
     background-color: #e23e4e;
     width: 35px;
     height: 35px;
-}
-
-.btn1:hover{
-    background-color: #e23e4e;
-    color: #fff;
 }
 
 .texto-carrito{
