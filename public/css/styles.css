@@ -575,8 +575,6 @@ div input[type=reset]:hover{
 .grid-footer-contenido{
     background:var(--gradiente-2);
     padding:15px;
-    border:1px solid var(--negro);
-    
     display:flex;
     flex-direction: column;
     align-items:center;
@@ -711,8 +709,6 @@ a.lang:hover{
     .grid-footer-contenido{
         background:var(--gradiente-2);
         padding:15px;
-        border:1px solid var(--negro);
-        
         flex-direction: row;
         align-items:center;
         justify-content:space-evenly;
@@ -786,9 +782,7 @@ a.lang:hover{
     /* footer responsive*/
     .grid-footer-contenido{
         background:var(--gradiente-2);
-        padding:15px;
-        border:1px solid var(--negro);
-        
+        padding:15px; 
         flex-direction: row;
         align-items:center;
         justify-content:space-evenly;
