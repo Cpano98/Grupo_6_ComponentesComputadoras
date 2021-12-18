@@ -8,6 +8,8 @@ const mainController =require("../controllers/adminController");
 
 router.get("/adminPanel", mainController.admin);
 router.get("/agregarProducto", mainController.agregar);
+router.get("/listaProductos", mainController.lista);
+router.get("/editarProductos", mainController.editar);
 
 
 module.exports = router; 

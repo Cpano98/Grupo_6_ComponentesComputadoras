@@ -4,7 +4,14 @@ const controller = {
     },
     agregar: (req, res) => {
         return res.render("./admin/agregarProducto.ejs");
+    },
+    lista: (req, res) => {
+        return res.render("./admin/listaProductoscCRUD.ejs");
+    },
+    editar: (req, res) => {
+        return res.render("./admin/editarProducto.ejs");
     }
+
 
 }
 
