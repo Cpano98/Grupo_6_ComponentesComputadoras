@@ -308,6 +308,14 @@ header{
     border: solid black 1px;
     padding-left: 35px;
     padding-right: 25px;
+    transition: all 0.3s;
+}
+
+.btn3:hover{
+    margin-left: 20px;
+    background-color: black;
+    color: white;
+    transform: scale(1.1);
 }
 
 .btn4{
