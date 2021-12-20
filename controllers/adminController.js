@@ -11,6 +11,28 @@ const controller = {
     agregar: (req, res) => {
         return res.render("./admin/agregarProducto.ejs");
     },
+    agregarProducto: (req, res) => {
+        const body = req.body;
+        console.log(body + "Producto agregado");
+        res.send("Producto agregado con éxito");
+
+        
+
+        /*
+        const newProduct = {
+            id: products[products.length - 1].id + 1,
+            ...req.body,
+            image: ""
+        }
+
+        products.push(newProduct)
+        // express validator
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+        
+        res.redirect("/listaProductos")
+        */
+    },
+
     lista: (req, res) => {
         return res.render("./admin/listaProductoscCRUD.ejs", { products });
     },

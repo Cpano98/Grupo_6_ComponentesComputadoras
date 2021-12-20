@@ -7,7 +7,14 @@ const mainController =require("../controllers/adminController");
 (con "atributo") respectivo */
 
 router.get("/adminPanel", mainController.admin);
+
+//Crear un producto nuevo:
 router.get("/agregarProducto", mainController.agregar);
+router.post("/agregarProductoNuevo",mainController.agregarProducto);
+
+
+
+
 router.get("/listaProductos", mainController.lista);
 router.get("/editarProductos/:id", mainController.editar);
 
