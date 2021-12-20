@@ -1,3 +1,9 @@
+const fs = require('fs');
+const path = require('path');
+
+const productsFilePath = path.join(__dirname, '../data/baseProductosPre.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 const controller = {
     admin: (req, res) => {
         return res.render("./admin/adminPanel.ejs");
@@ -6,10 +12,12 @@ const controller = {
         return res.render("./admin/agregarProducto.ejs");
     },
     lista: (req, res) => {
-        return res.render("./admin/listaProductoscCRUD.ejs");
+        return res.render("./admin/listaProductoscCRUD.ejs", { products });
     },
     editar: (req, res) => {
-        return res.render("./admin/editarProducto.ejs");
+        const id = req.params.id
+        const productoEnviar = products.find(p => p.id == id)
+        return res.render("./admin/editarProducto.ejs", { products:productoEnviar });
     }
 
 

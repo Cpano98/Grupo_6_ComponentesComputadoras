@@ -78,3 +78,13 @@
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05);
 
 }
+
+.img_ind_admin{
+    width: 100%;
+}
+
+.separacion{
+    border-bottom: solid #e7e7e7 1px ;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}

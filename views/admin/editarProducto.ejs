@@ -13,24 +13,23 @@
             <div class="contenedor-login2">
                 <div class="login3">
 
-                    <h3>Editar producto existente</h3>
+                    <h3>Editando producto: <%= products.nombre_producto %></h3>
                     <p>Edita las especificaciones de tu producto</p>
                     <form>
                         <div class="campo-ind">
                             <label class="label-login">Nombre del producto: </label><br>
-                            <input class="campo-log" type="text" style="background-color: transparent;"
-                                placeholder="--PRODUCTO DE LA BASE DE DATOS--">
+                            <input class="campo-log" type="text" style="background-color: transparent;" value="<%= products.nombre_producto %>">
                         </div>
 
                         <div class="campo-ind">
                             <label class="label-login">Descripción de tu producto: </label><br>
-                            <textarea class="campo-log" style="background-color: transparent;"> </textarea>
+                            <textarea class="campo-log" style="background-color: transparent; height: auto;"> <%= products.descripcion %></textarea>
                         </div>
 
                         <div class="campo-ind">
                             <label class="label-login">Precio a público: </label><br>
                             <input class="campo-log" type="number" style="background-color: transparent;"
-                                placeholder="$--PRECIO DE LA BASE DE DATOS MXN">
+                            value="<%= products.precio %>">
                         </div>
 
                         <div class="campo-ind">
@@ -45,7 +44,7 @@
                                 <div class="campo-ind">
                                     <label class="label-login">Categoría del producto: </label><br><br>
                                     <select name="select">
-                                        <option value="value1" selected>Selecccionar categoría</option>
+                                        <option value="value1" selected> Actual: <%= products.categoria %></option>
                                         <option value="value2">Laptops</option>
                                         <option value="value3">Memorias RAM</option>
                                     </select>
@@ -56,19 +55,30 @@
                                 <div class="campo-ind">
                                     <label class="label-login">Estado del producto: </label><br><br>
                                     <select name="select">
-                                        <option value="value1" selected>Selecccionar estado</option>
+                                        <option value="value1" selected>Actual: <%= products.estado %></option>
                                         <option value="value2">Nuevo</option>
                                         <option value="value3">Usado</option>
                                     </select>
 
                                 </div>
                             </div>
+                            <div class="col">
+                                <div class="campo-ind">
+                                    <label class="label-login">ID del producto: </label><br>
+                                    <input class="campo-log" type="text" style="background-color: transparent; min-height: 100%;" value="<%= products.id %>">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="campo-ind">
+                                    <label class="label-login">Descuento del producto: </label><br>
+                                    <input class="campo-log" type="text" style="background-color: transparent; min-height: 100%;" value="<%= products.descuento %>">
+                                </div>
+                            </div>
                         </div>
 
 
 
-                        <button class="btn btn-outline-success btn_search" type="submit">Registrar nuevo
-                            producto</button>
+                        <button class="btn btn-outline-success btn_search" type="submit">Editar este producto</button>
 
 
                     </form>
