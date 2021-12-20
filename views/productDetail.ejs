@@ -17,7 +17,7 @@
 	<main>
 		<div class="contenedor-detalle-de-producto">
 			<div class="detalle-de-producto-img">
-				<img src="/images/img-macbook-pro-2019.jpg" alt="MacBook Pro 2019">
+				<img src="/images/productosPrueba/<%= item.image %>" alt="MacBook Pro 2019">
 			</div>
 
 			<div class="detalle-de-producto-slider">
@@ -50,7 +50,7 @@
 			</div>
 			<div class="detalle-de-producto-info">
 				<div class="border_contenedor">
-					<h2 class="titulo_producto">Macbook pro 2019</h2>
+					<h2 class="titulo_producto"><%= item.nombre_producto %></h2>
 					<div class="atributos">
 						<div class="stars">
 							<span class="fa fa-star checked"></span>
@@ -60,13 +60,10 @@
 							<span class="fa fa-star"></span>
 						</div>
 					</div>
-					<p class="descrip_producto" style="margin-top: 10px;">Lorem ipsum dolor sit amet consectetur
-						adipisicing elit. Cumque, incidunt quos officia assumenda exercitationem quae rem velit
-						consectetur dolorem doloremque natus quaerat illo! Libero porro necessitatibus fuga aliquid non
-						sequi? </p>
+					<p class="descrip_producto" style="margin-top: 10px;"> <%= item.descripcion %></p>
 					<div class="atributos">
-						<h3 style="font-size: 30px;">$300.00</h3>
-						<p style="margin-left: 15px; margin-top: 17px;">10% de descuento</p>
+						<h3 style="font-size: 30px;"> $<%= item.precio %> </h3>
+						<p style="margin-left: 15px; margin-top: 17px;"> <%= item.descuento %>% de descuento</p>
 					</div>
 					<h3 id="Especificaciones">Especificaciones: </h3>
 					<div class="atributos">

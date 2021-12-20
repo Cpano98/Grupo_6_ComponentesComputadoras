@@ -6,7 +6,7 @@ const productController =require("../controllers/productController");
 /* creo que aquí se cargan los comentarios :'(  */
 
     
-router.get("/productDetail", productController.product);
+router.get("/productDetail/:id/", productController.product);
 router.get("/productCart", productController.cart);
 
 module.exports = router; 

@@ -51,10 +51,15 @@
                             <img class="img_ind" src="/images/productosPrueba/<%= item.image %>" alt="MacBook Pro 2019">
                         </div>
                         <div class="contenedor_info">
-                            <h2 class="titulo_producto"><%= item.nombre_producto %></h2>
-                            <p class="descrip_producto"> <%= item.descripcion.substring(0,100) %> </p>
+                            <h2 class="titulo_producto">
+                                <%= item.nombre_producto %>
+                            </h2>
+                            <p class="descrip_producto">
+                                <%= item.descripcion.substring(0,100) %>
+                            </p>
                             <div class="atributos">
-                                <h3 class="precio"> $<%= item.precio %> </h3>
+                                <h3 class="precio"> $<%= item.precio %>
+                                </h3>
                                 <div class="stars">
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
@@ -65,22 +70,25 @@
                             </div>
                             <div class="agregar-carrito">
                                 <button class="btn1">
-                                    <div class="contenedor_btn">
-                                        <p class="texto-carrito">Agregar al carrito</p>
-                                        <svg class="icon-tienda" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-basket2-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z" />
-                                        </svg>
-                                    </div>
+                                    <a href="/productDetail/<%= item.id %>">
+                                        <div class="contenedor_btn">
+                                            <p class="texto-carrito">Ver producto</p>
+                                            <svg class="icon-tienda" xmlns="http://www.w3.org/2000/svg" width="16"
+                                                height="16" fill="currentColor" class="bi bi-basket2-fill"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z" />
+                                            </svg>
+                                        </div>
+                                    </a>
                                 </button>
                             </div>
                         </div>
                     </article>
-                    
-                <% } %> 
 
-                
+                    <% } %>
+
+
             </div>
         </div>
     </main>
