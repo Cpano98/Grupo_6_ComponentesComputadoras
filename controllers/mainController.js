@@ -1,19 +1,12 @@
-/*aquí ira el load de una DataBase */
+const fs = require('fs');
+const path = require('path');
 
-/* El prototipo de controlador es:
-
-const controllerName = {
-    acción: (req,res)=>{
-        return ---
-    }
-}
-
-El return con res.render permite envíar variables al ejs
-*/
+const productsFilePath = path.join(__dirname, '../data/baseProductosPre.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
     index: (req, res) => { 
-        return res.render("index.ejs");
+        return res.render("index.ejs", { products });
     }
 }
 
