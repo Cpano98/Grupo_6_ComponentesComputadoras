@@ -1,6 +1,19 @@
-// App principal
-const express = require("express");
-const app     = express();
+// ************ Require's ************
+const createError = require('http-errors');
+const cookieParser = require('cookie-parser');
+const express = require('express');
+const logger = require('morgan');
+const path = require('path');
+const methodOverride = require('method-override'); // Pasar poder usar los métodos PUT y DELETE
+
+// ************ express() - (don't touch) ************
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+//app.use(logger('dev'));
+//app.use(express.json());
+//app.use(cookieParser());
+app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
+//app.use(express.bodyParser());
 
 /* bloque de routes */
 const mainRoutes = require("./routes/mainRoutes");
@@ -8,19 +21,20 @@ const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 const adminPanel = require("./routes/adminRoutes");
 
-/* ruta de estilos */ 
+/* ruta de estilos */
 app.use(express.static("./public"));
+
 
 
 app.set('view engine', 'ejs');
 
 //Anclado de rutas [se llama así?]
-app.use("/",mainRoutes);
-app.use("/",userRoutes);
-app.use("/",productRoutes);
-app.use("/",adminPanel);
+app.use("/", mainRoutes);
+app.use("/", userRoutes);
+app.use("/", productRoutes);
+app.use("/admin", adminPanel);
 
 
-app.listen(3030,()=>{
+app.listen(3030, () => {
     console.log("Servidor activo en 3030");
 })

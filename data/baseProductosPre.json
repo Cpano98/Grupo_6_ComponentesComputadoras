@@ -1,21 +1,12 @@
 [
  {
-  "id": 1,
-  "nombre_producto": "Cafetera Moulinex Dolce Gusto Edited",
-  "precio": 100,
-  "descuento": 50,
-  "categoria": "visited",
-  "descripcion": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
-  "image": "img-cafetera-moulinex.jpg",
-  "estado": "nuevo"
- },
- {
   "id": 2,
   "nombre_producto": "Macbook Pro 2022. Intel i7 chip",
   "precio": 500,
   "descuento": 3,
   "categoria": "in-sale",
   "descripcion": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
+  "descripcion_dos": "DescripcionNumDos",
   "image": "img-macbook-pro-2019.jpg",
   "estado": "usado"
  },
@@ -100,16 +91,6 @@
   "estado": "usado"
  },
  {
-  "id": 11,
-  "nombre_producto": "Parlante Inalámbrico Bose Soundtouch 10",
-  "descripcion": "Parlante Inalámbrico Bose Soundtouch 10. SoundTouch®.La manera más sencilla de reproducir música en todo su hogar de forma inalámbrica. Características. » Marca: Bose. » Modelo: SoundTouch. » Color: Negro",
-  "precio": 29990,
-  "descuento": 12,
-  "image": "img-parlante-bose.jpg",
-  "categoria": "visited",
-  "estado": "nuevo"
- },
- {
   "id": 12,
   "nombre_producto": "Home Theatre Sony Bdv-e4100",
   "descripcion": "El sonido Surround de 5.1 canales y 1000 W proporciona un audio de verdadero impacto en los efectos especiales de películas y efectos de sonido de música y deportes. Con la tecnología Near Field Communication(NFC) podés disfrutar de Sonido One- Touch para reproducir música de forma instantánea",
@@ -148,5 +129,17 @@
   "descripcion": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
   "image": "img-parlante-sony.jpg",
   "estado": "usado"
+ },
+ {
+  "id": 17,
+  "nombre_producto": "Prueba de producto Funcionando",
+  "descripcion": "Esta es la descripción primaria ",
+  "descripcion_dos": "Secundaria ",
+  "precio": "7",
+  "categoria": "Laptops",
+  "estado": "Nuevo",
+  "sku": "213DF-5",
+  "descuento": "5",
+  "image": ""
  }
 ]

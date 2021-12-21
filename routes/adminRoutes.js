@@ -9,14 +9,18 @@ const mainController =require("../controllers/adminController");
 router.get("/adminPanel", mainController.admin);
 
 //Crear un producto nuevo:
-router.get("/agregarProducto", mainController.agregar);
-router.post("/agregarProductoNuevo",mainController.agregarProducto);
+router.get("/agregarProducto/", mainController.agregar);
+router.post("/",mainController.agregarProducto);
 
 
 
 
 router.get("/listaProductos", mainController.lista);
 router.get("/editarProductos/:id", mainController.editar);
+
+
+//Borrar productos
+router.delete('/delete/:id', mainController.borrar); 
 
 
 module.exports = router; 

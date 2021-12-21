@@ -15,14 +15,12 @@
                     <h3>Agregar nuevo producto</h3>
                     <p>Agregar un nuevo artículo a tu tienda</p>
 
-                    <form action="/agregarProductoNuevo" method="post">
+                    <form action="/admin" method="post">
                         <div class="campo-ind">
                             <label class="label-login">Nombre del producto: </label><br>
                             <input class="campo-log" type="text" style="background-color: transparent;"
                                 placeholder="Se muestra a los usuarios" name="nombre_producto" id="nombre_producto">
                         </div>
-                        <!--
-
                         <div class="campo-ind">
                             <label class="label-login">Descripción de tu producto: </label><br>
                             <textarea class="campo-log" style="background-color: transparent;" name="descripcion"
@@ -30,16 +28,23 @@
                         </div>
 
                         <div class="campo-ind">
+                            <label class="label-login">Descripción secundaria de tu producto: </label><br>
+                            <textarea class="campo-log" style="background-color: transparent;" name="descripcion_dos"
+                                id="descripcion_dos"> </textarea>
+                        </div>
+
+                        <div class="campo-ind">
                             <label class="label-login">Precio a público: </label><br>
                             <input class="campo-log" type="number" style="background-color: transparent;"
                                 placeholder="$0.00 MXN" name="precio" id="precio">
                         </div>
-
+                        <!--
                         <div class="campo-ind">
                             <label class="label-login">Imagen principal de producto: </label><br><br>
                             <input class="campo-log" type="file" style="background-color: transparent;"
                                 placeholder="Se muestra a usuarios" name=image" id="image">
                         </div>
+                        -->
 
 
                         <div class="row">
@@ -67,25 +72,23 @@
                             </div>
                             <div class="col">
                                 <div class="campo-ind">
-                                    <label class="label-login">ID del producto: </label><br>
+                                    <label class="label-login">SKU del producto: </label><br>
                                     <input class="campo-log" type="text"
                                         style="background-color: transparent; min-height: 100%;" placeholder="##"
-                                        name="id" id="id">
+                                        name="sku" id="sku">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="campo-ind">
                                     <label class="label-login">Descuento del producto: </label><br>
-                                    <input class="campo-log" type="text"
+                                    <input class="campo-log" type="number"
                                         style="background-color: transparent; min-height: 100%;" placeholder="##"
                                         name="descuento" id="descuento">
                                 </div>
                             </div>
                         </div>
 
-                    -->
-
-                        <button class="btn btn-outline-success btn_search" type="submit" >Registrar nuevo
+                        <button class="btn btn-outline-success btn_search" type="submit">Registrar nuevo
                             producto</button>
                     </form>
 

@@ -50,7 +50,9 @@
 			</div>
 			<div class="detalle-de-producto-info">
 				<div class="border_contenedor">
-					<h2 class="titulo_producto"><%= item.nombre_producto %></h2>
+					<h2 class="titulo_producto">
+						<%= item.nombre_producto %>
+					</h2>
 					<div class="atributos">
 						<div class="stars">
 							<span class="fa fa-star checked"></span>
@@ -60,17 +62,22 @@
 							<span class="fa fa-star"></span>
 						</div>
 					</div>
-					<p class="descrip_producto" style="margin-top: 10px;"> <%= item.descripcion %></p>
+					<p class="descrip_producto" style="margin-top: 10px;">
+						<%= item.descripcion %>
+					</p>
 					<div class="atributos">
-						<h3 style="font-size: 30px;"> $<%= item.precio %> </h3>
-						<p style="margin-left: 15px; margin-top: 17px;"> <%= item.descuento %>% de descuento</p>
+						<h3 style="font-size: 30px;"> $<%= item.precio %>
+						</h3>
+						<p style="margin-left: 15px; margin-top: 17px;">
+							<%= item.descuento %>% de descuento
+						</p>
 					</div>
 					<h3 id="Especificaciones">Especificaciones: </h3>
 					<div class="atributos">
 						<div class="col-especificaciones border-gris">
-							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, labore totam
-								provident quas, doloribus excepturi facere nam rerum, minus corporis incidunt. Saepe
-								quasi non inventore necessitatibus atque sed nostrum beatae.</p>
+							<p>
+								<%= item.descripcion_dos %>
+							</p>
 						</div>
 						<div class="col-botones">
 							<div>
