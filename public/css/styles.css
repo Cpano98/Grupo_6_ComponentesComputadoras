@@ -122,10 +122,44 @@
     transition: all 0.3s;
 }
 
-.btn1:hover{
+.btn1:hover, .link:hover{
     background-color: #e23e4e;
     color: #fff;
     border: solid #e23e4e 1px;
+    text-decoration: none;
+}
+
+.oferta{
+    background-color: #e23e4e;
+
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+.precioNormal{
+    text-decoration: line-through;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: -5px;
+}
+
+.precioS{
+    font-size: 30px;
+}
+
+.Soferta{
+    background-color: white;
+
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+.link{
+    color: black;
 }
 
 .icon-tienda{
@@ -153,16 +187,19 @@
 }
 
 .precio{
-    font-size: 18px;
+    text-align: left;
+    font-size: 25px;
     font-weight: 600;
     margin-top: 8px;
-    margin-right: 25%;
+    
+
 }
 
 .descrip_producto{
     text-align: left;
     color: #717171;
     font-weight: 300;
+    
 
 }
 
@@ -288,6 +325,11 @@ header{
 
 #credito{text-align: center;}
 
+.stock{
+    text-align: left;
+    margin-bottom: 8px;
+}
+
 
 .btn2{
     background-color: #fff;
@@ -347,6 +389,11 @@ header{
     margin-top: auto;
     margin-bottom: auto;
 
+}
+
+.stars{
+    margin-left: 20px;
+    transform: translateY(-11.5px);
 }
 
 .me-2{

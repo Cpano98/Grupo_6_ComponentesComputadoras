@@ -9,7 +9,7 @@ const controller = {
         const id = req.params.id
         const productoEnviar = products.find(p => p.id == id)
         //console.log(id)
-
+        
         return res.render("productDetail.ejs", { item:productoEnviar });
     },
     cart: (req, res) => { 

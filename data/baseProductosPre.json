@@ -3,29 +3,33 @@
   "id": 2,
   "nombre_producto": "Macbook Pro 2022. Intel i7 chip",
   "precio": 500,
-  "descuento": 3,
+  "descuento": 0,
   "categoria": "in-sale",
   "descripcion": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
   "descripcion_dos": "DescripcionNumDos",
   "image": "img-macbook-pro-2019.jpg",
-  "estado": "usado"
+  "estado": "usado",
+  "sku": "56SK-002",
+  "piezas": "5"
  },
  {
   "id": 3,
   "nombre_producto": "Samsung Galaxy S10. 256Gb Ram",
-  "precio": 72999,
+  "precio": 7299,
   "descuento": 25,
   "categoria": "in-sale",
   "descripcion": "Experiencia visual excepcional. Mirá tus series y películas favoritas con la mejor definición.Tendrás colores brillantes y detalles precisos en todos tus contenidos.Disfrutá aún más del mejor entretenimiento gracias a su vasta pantalla y ángulos de visión amplios.",
   "image": "img-samsung-galaxy-s10.jpg",
-  "estado": "nuevo"
+  "estado": "nuevo",
+  "sku": "56SK-002",
+  "piezas": "0"
  },
  {
   "id": 4,
   "nombre_producto": "Heladera no frost Whirlpool WRM45A",
   "descripcion": "Disfrutá de la frescura de tus alimentos y almacenalos de manera práctica y cómoda en tu heladera Whirlpool, la protagonista de tu cocina. Su sistema no frost evita la generación de escarcha y te permitirá conservar el sabor y las propiedades nutritivas de los productos.A su vez, su freezer cuenta con una capacidad de 86 litros, que facilitará la distribución y el orden de tus congelados para que no te preocupes por la falta de espacio.",
   "precio": 47900,
-  "descuento": 10,
+  "descuento": 0,
   "image": "img-heladera-whirpool.jpg",
   "categoria": "in-sale",
   "estado": "nuevo"
@@ -38,17 +42,19 @@
   "descuento": 20,
   "image": "img-camara-nikon.jpg",
   "categoria": "in-sale",
-  "estado": "nuevo"
+  "estado": "nuevo",
+  "piezas": "8"
  },
  {
   "id": 6,
   "nombre_producto": "Aire Acondicionado 3200w Frio / Calor",
   "descripcion": "AIRE SPLIT 3200W TACA-3200WCHSA/KC FC TCL. Capacidad frio 3200 Watts. Capacidad calor 3300 Watts. Potencia Electrica(W)frio 996. Potencia Electrica(W)calor 1028. Eficiencia energética calor C. Eficiencia energética frio A. Frigorias 2750 UNIDAD INTERIOR. Peso Bruto 10kg. Peso Neto 7 kg",
   "precio": 20999,
-  "descuento": 12,
+  "descuento": 0,
   "image": "img-aire-acondicionado.jpg",
   "categoria": "in-sale",
-  "estado": "nuevo"
+  "estado": "nuevo",
+  "piezas": "0"
  },
  {
   "id": 7,
@@ -88,6 +94,7 @@
   "descuento": 10,
   "image": "img-mouse-logitech.jpg",
   "categoria": "visited",
+  "piezas": "10",
   "estado": "usado"
  },
  {
@@ -106,6 +113,7 @@
   "descripcion": "Con el Smart TV Samsung UN50MU6100, viví una nueva experiencia visual con la resolución 4K, que te presentará imágenes con gran detalle y de alta calidad. Ahora todo lo que veas cobrará vida con brillo y colores más reales. Gracias a su tamaño de 50\", podrás transformar tu espacio en una sala de cine y transportarte a donde quieras.",
   "precio": 34990,
   "descuento": 0,
+  "piezas": "0",
   "image": "img-tv-samsung-smart.jpg",
   "categoria": "visited",
   "estado": "nuevo"
@@ -118,28 +126,31 @@
   "descuento": 12,
   "image": "img-bicicleta-fierce.jpg",
   "categoria": "visited",
+  "piezas": "0",
   "estado": "nuevo"
  },
  {
   "id": 16,
   "nombre_producto": "Sony Srs-xb12 Parlante Bluetooth Portátil",
   "precio": 4699,
-  "descuento": 5,
+  "descuento": 0,
   "categoria": "in-sale",
   "descripcion": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
   "image": "img-parlante-sony.jpg",
+  "piezas": "10",
   "estado": "usado"
  },
  {
   "id": 17,
-  "nombre_producto": "Prueba de producto Funcionando",
-  "descripcion": "Esta es la descripción primaria ",
-  "descripcion_dos": "Secundaria ",
-  "precio": "7",
+  "nombre_producto": "Prueba de producto base crud",
+  "descripcion": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
+  "descripcion_dos": "Prueba de descripcion de producto ",
+  "precio": "20",
+  "piezas": "0",
   "categoria": "Laptops",
   "estado": "Nuevo",
-  "sku": "213DF-5",
-  "descuento": "5",
-  "image": ""
+  "sku": "56SK-001",
+  "descuento": "50",
+  "image": "img-parlante-sony.jpg"
  }
 ]

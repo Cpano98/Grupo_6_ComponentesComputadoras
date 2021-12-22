@@ -5,7 +5,9 @@ const productsFilePath = path.join(__dirname, '../data/baseProductosPre.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
-    index: (req, res) => { 
+    index: (req, res) => {
+        //console.log(id)
+        
         return res.render("index.ejs", { products });
     }
 }
