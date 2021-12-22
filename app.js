@@ -36,6 +36,8 @@ app.use("/", productRoutes);
 app.use("/admin", adminPanel);
 
 
-app.listen(3030, () => {
-    console.log("Servidor activo en 3030");
+//Heroku Config
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Servidor activo en 3000");
 })
+    
