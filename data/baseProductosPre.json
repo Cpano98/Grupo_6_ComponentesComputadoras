@@ -10,7 +10,8 @@
   "image": "img-macbook-pro-2019.jpg",
   "estado": "usado",
   "sku": "56SK-002",
-  "piezas": "5"
+  "piezas": "5",
+  "marca":"Apple"
  },
  {
   "id": 3,
@@ -22,7 +23,8 @@
   "image": "img-samsung-galaxy-s10.jpg",
   "estado": "nuevo",
   "sku": "56SK-002",
-  "piezas": "0"
+  "piezas": "0",
+  "marca" : "Samsung"
  },
  {
   "id": 4,
@@ -151,6 +153,21 @@
   "estado": "Nuevo",
   "sku": "56SK-001",
   "descuento": "50",
-  "image": "img-parlante-sony.jpg"
+  "image": "img-parlante-sony.jpg",
+  "marca": "Samsung"
+ },
+ {
+  "id": 18,
+  "nombre_producto": "sad",
+  "marca": "Samsung",
+  "descripcion": " asd",
+  "descripcion_dos": " asda",
+  "precio": "2",
+  "piezas": "4",
+  "categoria": "Memorias RAM",
+  "estado": "Nuevo",
+  "sku": "sad",
+  "descuento": "4",
+  "image": ""
  }
 ]

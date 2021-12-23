@@ -24,6 +24,16 @@
                         </div>
 
                         <div class="campo-ind">
+                            <label class="label-login">Marca del producto:  </label><br><br>
+                            <select name="marca" id="marca">
+                                <option value="value1" selected>Actual: <%= products.marca %></option>
+                                <option value="Samsung">Samsung</option>
+                                <option value="Apple">Apple</option>
+                            </select>
+
+                        </div>
+
+                        <div class="campo-ind">
                             <label class="label-login">Descripción de tu producto: </label><br>
                             <textarea class="campo-log"
                                 style="background-color: transparent; height: auto;"> <%= products.descripcion %></textarea>
