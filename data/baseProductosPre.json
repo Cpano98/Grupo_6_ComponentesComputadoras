@@ -11,7 +11,7 @@
   "estado": "usado",
   "sku": "56SK-002",
   "piezas": "5",
-  "marca":"Apple"
+  "marca": "Apple"
  },
  {
   "id": 3,
@@ -24,7 +24,7 @@
   "estado": "nuevo",
   "sku": "56SK-002",
   "piezas": "0",
-  "marca" : "Samsung"
+  "marca": "Samsung"
  },
  {
   "id": 4,
@@ -155,19 +155,5 @@
   "descuento": "50",
   "image": "img-parlante-sony.jpg",
   "marca": "Samsung"
- },
- {
-  "id": 18,
-  "nombre_producto": "sad",
-  "marca": "Samsung",
-  "descripcion": " asd",
-  "descripcion_dos": " asda",
-  "precio": "2",
-  "piezas": "4",
-  "categoria": "Memorias RAM",
-  "estado": "Nuevo",
-  "sku": "sad",
-  "descuento": "4",
-  "image": ""
  }
 ]
