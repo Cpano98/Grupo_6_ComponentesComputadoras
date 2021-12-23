@@ -16,9 +16,8 @@ const controller = {
         const body = req.body;
         console.log(body.nombre_producto + "Producto agregado");
         res.send("Producto agregado con éxito");
-
         */
-
+       
         const newProduct = {
             id: products[products.length - 1].id + 1,
             ...req.body,
