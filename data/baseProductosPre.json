@@ -155,5 +155,19 @@
   "descuento": "50",
   "image": "img-parlante-sony.jpg",
   "marca": "Samsung"
+ },
+ {
+  "id": 18,
+  "nombre_producto": "hola",
+  "marca": "Samsung",
+  "descripcion": " asdas",
+  "descripcion_dos": " asda",
+  "precio": "2",
+  "piezas": "2",
+  "categoria": "Laptops",
+  "estado": "Nuevo",
+  "sku": "dasd",
+  "descuento": "3",
+  "image": ""
  }
 ]

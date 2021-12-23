@@ -295,13 +295,13 @@
 
 }
 
-.fa{
+.fa2{
     font-size: 25px;
     color: rgb(123, 123, 123);
     transition: all 0.3s;
 }
 
-.fa:hover{
+.fa2:hover{
     font-size: 20px;
     color: #e23e4e;
 }
