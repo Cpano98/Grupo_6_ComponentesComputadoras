@@ -84,6 +84,11 @@ label{
 
 .col-especificaciones{
 	padding: 5%;
+	width: 50%;
+}
+
+.col-especificaciones2{
+	width: 100%;
 }
 /* ===================================
  *      	Detalle de Producto
@@ -100,6 +105,7 @@ label{
 
 .detalle-de-producto-img {
 	grid-area: img;
+	padding-top: 60px;
 }
 
 .detalle-de-producto-img img {
@@ -168,7 +174,7 @@ tr.fila-tabla-impar th.tabla-valor{
 /* comentarios*/
 .contenedor-comentarios{
 	padding:40px;
-	border-top: 1px double #000;
+	border-top: 1px double #e7e7e7;
 }
 .contenedor-comentarios h3{
 	text-align: center;
@@ -190,3 +196,46 @@ tr.fila-tabla-impar th.tabla-valor{
 	margin:0 auto;
 }
 
+
+
+/* Mobile First, lo de arriba debe ser para celular */
+@media (max-width: 770px){
+	.contenedor-detalle-de-producto {
+		display: flex;
+		flex-wrap: wrap;
+
+	}
+
+	.detalle-de-producto-slider, #Especificaciones {
+		display: none;
+	}
+
+	.detalle-de-producto-img {
+		padding: 25px;
+	
+	}
+
+	.border_contenedor {
+		border: solid #e7e7e7 1px;
+		padding: 5%;
+		margin: 3%;
+	}
+
+	.stars{
+		display: none;
+	}
+
+	.col-especificaciones {
+		display: none;
+	}
+
+	.col-botones {
+		margin-left: 0px;
+	}
+
+	.form-select {
+		width: 100%;
+		height: 50px;
+	}
+
+}

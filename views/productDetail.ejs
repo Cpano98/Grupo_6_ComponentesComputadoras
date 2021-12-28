@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-	<title> Detallde de Producto | MiPC </title>
+	<title> Detalle de Producto | MiPC </title>
 	<%- include("partials/head.ejs") %>
 </head>
 
@@ -71,31 +71,65 @@
 					<h2 class="titulo_producto">
 						<%= item.nombre_producto %>
 					</h2>
-					<div class="atributos">
-						<div class="stars">
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
-						</div>
-					</div>
 					<p class="descrip_producto" style="margin-top: 10px;">
 						<%= item.descripcion %>
 					</p>
 					<p class="descrip_producto">
 						<strong>SKU:</strong> <%= item.sku %>
 					</p>
-					<div class="atributos">
+					<!--
+					<div class="atributos" id="precio-escritorio">
 						<h3 style="font-size: 30px;"> $<%= item.precio %>
 						</h3>
 						<p style="margin-left: 15px; margin-top: 17px;">
 							<%= item.descuento %>% de descuento
 						</p>
 					</div>
+					-->
+
+					<div class="atributos" id="precio-movil">
+
+						<% if (item.descuento=="0" ){ %>
+							<div>
+								<h3 class="precioNormal" style="color: white;"> -
+								</h3>
+								<h3 class="precio"> $<%= item.precio %>
+								</h3>
+								<p class="descrip_producto" style="color: white;"> <strong>Sin
+									</strong>
+									descuento
+								</p>
+							</div>
+
+
+							<% }else{ %>
+								<% const precioFinal=item.descuento / 100 * item.precio; %>
+									<div>
+										<h3 class="precioNormal"> $<%= item.precio %>
+										</h3>
+										<h3 class="precio"> $<%= item.precio - precioFinal %>
+										</h3>
+										<p class="descrip_producto"> <strong>Ahorras: </strong>
+											$<%= precioFinal %>
+										</p>
+									</div>
+									<% } %>
+										<div class="stars">
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</div>
+					</div>
+
 					<h3 id="Especificaciones">Especificaciones: </h3>
+					
+
+
+					<!--Atributos-->
 					<div class="atributos">
-						<div class="col-especificaciones border-gris">
+						<div class="col-especificaciones border-gris" >
 							<p>
 								<%= item.descripcion_dos %>
 							</p>
@@ -111,7 +145,7 @@
 								</select>
 							</div>
 
-							<button class="btn2" style="width: 18.7vw">
+							<button class="btn2">
 								<div class="contenedor_btn">
 									<p class="texto-carrito" style="color: white; font-size: 15px; font-weight: 300;">
 										Agregar al carrito</p>
@@ -124,7 +158,7 @@
 							</button>
 
 
-							<button class="btn5" style="width: 18.7vw">
+							<button class="btn5">
 								<div class="contenedor_btn">
 									<p class="texto-carrito" style="color: white; font-size: 15px; font-weight: 300;">
 										Comprar este producto ahora</p>
@@ -140,7 +174,7 @@
 
 					</div>
 					<h3 id="Especificaciones" style="margin-top: 20px;">Más características </h3>
-					<div class="col-especificaciones border-gris">
+					<div class="col-especificaciones border-gris col-especificaciones2">
 						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, labore totam
 							provident quas, doloribus excepturi facere nam rerum, minus corporis incidunt. Saepe
 							quasi non inventore necessitatibus atque sed nostrum beatae.</p>
