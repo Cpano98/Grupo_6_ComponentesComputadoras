@@ -1,0 +1,33 @@
+/*
+* @file Promociones
+*/
+
+#promo-1-b {
+	background-image: url("https://assets.spartangeek.com/cc/gabinetes-para-pc-baratos.jpg");
+	margin-right: 10px;
+}
+
+#promo-2-b {
+	background-image: url("https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-og-202011?wid=600&hei=315&fmt=jpeg&qlt=95&.v=1604278672000");
+	margin-left: 10px;
+}
+
+#promo-3-b {
+	background-image: url("https://www.gigabyte.com/FileUpload/Global/KeyFeature/1108/images/design-concept.jpg");
+}
+
+[id*="promo-"] {
+	background-size: 115%;
+	background-position: center;
+	transition: all 1s;
+
+	&:hover {
+		background-size: 125%
+	}
+}
+
+.promocionesB {
+	padding-left: 5.5%;
+	padding-right: 5.5%;
+	padding-top: 60px;
+}

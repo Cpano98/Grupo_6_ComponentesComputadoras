@@ -1,0 +1,107 @@
+/*
+* @file Buttons
+*/
+
+.btn1 {
+	background-color: #fff;
+	border-radius: 150px;
+	border: rgba(255, 255, 255, 0);
+	padding: 10px;
+	border: solid #e7e7e7 1px;
+	transition: all 0.3s;
+
+	&:hover {
+		background-color: #e23e4e;
+		color: #fff;
+		border: solid #e23e4e 1px;
+		text-decoration: none;
+	}
+}
+
+.btn-accion {
+	background-color: rgba(226,62,78,0);
+	border-radius: 150px;
+	padding: 10px 20px 10px 20px;
+}
+
+.btn-1-banner {
+	color: white;
+	transition: all .5s;
+	padding: 5px;
+	text-decoration: none;
+
+	&:hover {
+		color: white;
+    background-color: #e23e4e;
+    padding-right: 100px;
+    text-decoration: none;
+	}
+}
+
+.btn2 {
+	background-color: #fff;
+	border: rgba(255, 255, 255, 0);
+	padding: 10px;
+	background: rgb(228,158,41);
+	background: linear-gradient(141deg, rgba(228,158,41,1) 0%, rgba(226,62,78,1) 100%);
+	padding-left: 35px;
+	padding-right: 25px;
+}
+
+.btn3 {
+	margin-left: 20px;
+	background-color: transparent;
+	color: black;
+	border: rgba(255, 255, 255, 0);
+	padding: 10px;
+	border: solid black 1px;
+	padding-left: 35px;
+	padding-right: 25px;
+	transition: all 0.3s;
+	&:hover {
+		margin-left: 20px;
+		background-color: black;
+		color: white;
+		transform: scale(1.1);
+	}
+}
+
+.btn4 {
+	background-color: transparent;
+	color: white;
+	border: rgba(255, 255, 255, 1);
+	padding: 10px;
+	border: solid white 1px;
+	padding-left: 35px;
+	padding-right: 35px;
+  &:hover {
+		background-color: white;
+		color: black;
+		text-decoration: none;
+	}
+}
+
+.btn_search {
+	border-radius: 0px;
+	background-color: black;
+	color: white;
+	font-weight: 300;
+	border: transparent;
+	&:hover{
+		border-radius: 0px;
+		background: rgb(228,158,41);
+		background: linear-gradient(141deg, rgba(228,158,41,1) 0%, rgba(226,62,78,1) 100%);
+		color: white;
+		font-weight: 300;
+		border: transparent;
+	}
+}
+
+.btn-actualizar {
+	margin: 2rem auto;
+	grid-area: btn-actualizar;
+}
+
+button i {
+	margin-left: 10px;
+}
