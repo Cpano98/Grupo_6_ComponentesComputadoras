@@ -1,0 +1,94 @@
+/*
+* @file Home
+*/
+
+.p-banner{ background-color: black; }
+
+.heading-1-banner {
+	color: white;
+	padding-right: 45%;
+	margin-bottom: 20px;
+}
+
+.marcas-container {
+	display: flex;
+	background-color: #e7e7e7;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	justify-content: space-around;
+
+}
+
+.fa2 {
+	font-size: 25px;
+	color: rgb(123, 123, 123);
+	transition: all 0.3s;
+	&:hover {
+    font-size: 20px;
+    color: #e23e4e;
+	}
+}
+
+#overlay {
+	background: rgb(0,0,0);
+	background: linear-gradient(90deg, rgba(0,0,0,1) 8%, rgba(0,0,0,0) 100%);
+	padding-left: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.texto-1-banner {
+	color: #e23e4e;
+	font-size: 16px;
+	padding: 5px;
+	margin-right: 70%;
+	margin-bottom: -2px;
+}
+
+.p-banner {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 30px;
+}
+
+
+#demo {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	padding: 7px;
+	padding-left: 35px;
+	padding-right: 35px;
+
+}
+
+main section .article div h3 {
+	font-size: 1em;
+	width:  100%;
+}
+
+.grid-contenedor-index {
+	z-index: -1;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"slider slider"
+	"img-half-w img-half-w";
+}
+
+.grid-slider { grid-area: slider; }
+
+
+.grid-half-width {
+	grid-area: img-half-w;
+	display: grid;
+}
+
+.grid-half-width img {
+	margin: auto;
+	width: 100%;
+	padding: 2rem;
+	max-height: 300px;
+	width: auto;
+}

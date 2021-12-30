@@ -1,0 +1,91 @@
+/* ===================================
+ *            MiPC Theme
+ * =================================== */
+
+//Default variables. Do not remove these @import
+@import "overrides/default-variables";
+
+// Componentes - Buttons
+@import "./componentes/buttons";
+
+// Componentes - Precios
+@import "./componentes/precios";
+
+// Componentes - Ofertas
+@import "./componentes/ofertas";
+
+// Componentes - Promociones
+@import "./componentes/promociones";
+
+// Componentes - Heading
+@import "./componentes/headings";
+
+// Componentes - Nav Bar
+@import "./componentes/nav-bar";
+
+// Componentes - Footer
+@import "./componentes/footer";
+
+// Componentes - Menu Lateral
+@import "./componentes/menu-lateral";
+
+
+// Styler - Home
+@import "./styler/home";
+
+// Styler - Productos
+@import "./styler/productos";
+
+// Styler - Carrito
+@import "./styler/carrito";
+
+// Styler - Login
+@import "./styler/login";
+
+// Styler - Register
+@import "./styler/register";
+
+// Styler - User
+@import "./styler/user";
+
+
+/* ===================================
+ *          General Styles
+ * =================================== */
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: var(--main-font);
+}
+
+/* =================== General =================== */
+
+.link {
+	color: black;
+
+	&:hover {
+		background-color: #e23e4e;
+		color: #fff;
+		border: solid #e23e4e 1px;
+		text-decoration: none;
+	}
+}
+
+.icon-tienda {
+	color: #fff;
+	padding: 5px;
+	border-radius: 150px;
+	background-color: #e23e4e;
+	width: 35px;
+	height: 35px;
+}
+
+header {
+	width: 100%;
+}
+
+p {
+	font-size: 12px;
+}
