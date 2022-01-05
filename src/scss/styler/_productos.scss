@@ -1,0 +1,298 @@
+/*
+* @file Productos
+*/
+
+.pro-destacados {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	justify-content: center;
+}
+
+.individual {
+	margin: 10px;
+	margin-bottom: 50px;
+	border: solid #e7e7e7 1px;
+	text-align: center;
+	width: 300px;
+	transition: all 0.3s;
+
+	&:hover {
+		border: solid #e23e4e 1px;
+		transform: translateY(-8px);
+		-webkit-box-shadow: 5px 5px 15px 5px rgba(226, 62, 78, 0.05);
+		box-shadow: 5px 5px 15px 5px rgba(226, 62, 78, 0.05);
+
+		.contenedor_info {
+			border-top: solid #e23e4e 1px;
+		}
+	}
+}
+
+.checked {
+	color: #e49e29;
+}
+
+.img_ind {
+	width: 100%;
+}
+
+.contenedor-imagen {
+	padding: 12.5%;
+}
+
+.contenedor_info {
+	padding: 20px;
+}
+
+.atributos {
+	display: flex;
+	align-items: center;
+}
+
+.contenedor_btn {
+	display: flex;
+}
+
+.titulo_producto {
+	font-size: 22px;
+	font-weight: 500;
+	text-align: left;
+}
+
+.precio {
+	text-align: left;
+	font-size: 25px;
+	font-weight: 600;
+	margin-top: 8px;
+}
+
+.descrip_producto {
+	text-align: left;
+	color: #717171;
+	font-weight: 300;
+}
+
+.grid-contenedor-productos {
+	margin: 50px;
+}
+
+.border_contenedor {
+	border: solid #e7e7e7 1px;
+	padding: 5%;
+	margin: 8%;
+	margin-right: 10%;
+}
+
+#Especificaciones {
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom: 25px;
+}
+
+.border-gris {
+	border: 1px solid #ebebeb;
+}
+
+.col-botones {
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 25px;
+}
+
+label {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.btn4 {
+	background-color: #000;
+	border: rgba(255, 255, 255, 0);
+	padding: 10px;
+}
+
+.btn5 {
+	background-color: #000;
+
+	border: rgba(255, 255, 255, 0);
+	padding: 10px;
+}
+
+.form-select {
+	border-radius: 0px;
+	border: 1px solid #ebebeb;
+}
+
+.col-especificaciones {
+	padding: 5%;
+	width: 50%;
+}
+
+.col-especificaciones2 {
+	width: 100%;
+}
+
+/* - - - - - - - - - - - - - - - Detalle de Producto - - - - - - - - - - - - - - - */
+
+.contenedor-detalle-de-producto {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+	grid-template-areas:
+		"img info"
+		"slider info";
+}
+
+.detalle-de-producto-img {
+	grid-area: img;
+	padding-top: 60px;
+
+	img {
+		width: 100%;
+	}
+}
+
+.detalle-de-producto-slider {
+	grid-area: slider;
+
+	img {
+		max-height: 200px;
+		width: auto !important;
+		margin: auto;
+	}
+}
+
+.detalle-de-producto-info {
+	grid-area: info;
+}
+
+/* tabla de características */
+.grid-caracteristicas-principales {
+	padding: 10px;
+	margin: 10px;
+}
+
+.grid-caracteristicas-principales h3,
+.grid-caracteristicas-otros h4 {
+	padding-bottom: 15px;
+	padding-left: 15px;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+table,
+tr,
+th {
+	border: 1px solid #222;
+	text-align: left;
+	font-size: 15px;
+}
+
+table {
+	width: 90%;
+}
+
+th,
+tr {
+	padding: 10px;
+}
+
+th.tabla-valor {
+	font-weight: lighter;
+	width: 70%;
+}
+
+tr.fila-tabla-impar th.tabla-caracteristica,
+tr.fila-tabla-par th.tabla-valor {
+	background-color: #ddd;
+}
+
+tr.fila-tabla-par th.tabla-caracteristica {
+	background-color: #aaa;
+}
+tr.fila-tabla-impar th.tabla-valor {
+	background-color: #bbb;
+}
+.grid-caracteristicas-otros {
+	padding-top: 15px;
+	margin: 10px;
+	border: 1px solid #000;
+	border-radius: 5%;
+	width: 90%;
+
+	ul {
+		padding-left: 30px;
+	}
+}
+
+/* comentarios*/
+.contenedor-comentarios {
+	padding: 40px;
+	border-top: 1px double #e7e7e7;
+
+	h3 {
+		text-align: center;
+		padding: 5px;
+	}
+}
+
+.grid-perfil-usuario {
+	padding: 10px 0px 0px 10px;
+
+	p i {
+		color: var(--negro);
+		border: 1px solid var(--negro);
+		border-radius: 50%;
+		padding: 3px;
+	}
+}
+.grid-puntuacion {
+	color: var(--naranja);
+}
+
+.grid-comentario {
+	padding: 0px 2px 0px 2px;
+	background-color: var(--gris);
+	margin: 0 auto;
+}
+
+/* Mobile First, lo de arriba debe ser para celular */
+@media (max-width: 770px) {
+	.contenedor-detalle-de-producto {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.detalle-de-producto-slider,
+	#Especificaciones {
+		display: none;
+	}
+
+	.detalle-de-producto-img {
+		padding: 25px;
+	}
+
+	.border_contenedor {
+		border: solid #e7e7e7 1px;
+		padding: 5%;
+		margin: 3%;
+	}
+
+	.stars {
+		display: none;
+	}
+
+	.col-especificaciones {
+		display: none;
+	}
+
+	.col-botones {
+		margin-left: 0px;
+	}
+
+	.form-select {
+		width: 100%;
+		height: 50px;
+	}
+}

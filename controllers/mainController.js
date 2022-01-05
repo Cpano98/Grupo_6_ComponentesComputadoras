@@ -1,31 +1,25 @@
-/*aquí ira el load de una DataBase */
+const fs = require('fs');
+const path = require('path');
 
-/* El prototipo de controlador es:
-
-const controllerName = {
-    acción: (req,res)=>{
-        return ---
-    }
-}
-
-El return con res.render permite envíar variables al ejs
-*/
+const productsFilePath = path.join(__dirname, '../data/baseProductosPre.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
-    index: (req, res) => { 
-        return res.render("index.ejs");
-    },
-    login: (req, res) => { 
-        return res.render("login.ejs");
-    },
-    register: (req, res) => { 
-        return res.render("register.ejs");
-    },
-    productCart: (req, res) => { 
-        return res.render("productCart.ejs");
-    },
-    productDetail: (req, res) => { 
-        return res.render("productDetail.ejs");
+    index: (req, res) => {
+        //console.log(id)
+        //Ofertas
+        const ofertas = [];
+        const sinOferta = [];
+
+        products.forEach(p => {
+            if (p.descuento != "0") {
+                ofertas.push(p);
+            } else {
+                sinOferta.push(p);
+            }
+        })
+
+        return res.render("index.ejs", { products, ofertas, sinOferta });
     }
 }
 
