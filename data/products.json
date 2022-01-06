@@ -1,18 +1,5 @@
 [
  {
-  "id": "6",
-  "nombre_producto": "Aire Acondicionado 3200w Frio / Calor",
-  "marca": "value1",
-  "descripcion": " AIRE SPLIT 3200W TACA-3200WCHSA/KC FC TCL. Capacidad frio 3200 Watts. Capacidad calor 3300 Watts. Potencia Electrica(W)frio 996. Potencia Electrica(W)calor 1028. Eficiencia energética calor C. Eficiencia energética frio A. Frigorias 2750 UNIDAD INTERIOR. Peso Bruto 10kg. Peso Neto 7 kg\r\n                            ",
-  "precio": "20999",
-  "piezas": "1000",
-  "image": "",
-  "categoria": "value1",
-  "estado": "value1",
-  "sku": "",
-  "descuento": "0"
- },
- {
   "id": 7,
   "nombre_producto": "Notebook Lenovo I3 Intel 8gb Ram",
   "descripcion": "PROCESADOR / CHIPSET. CPU: Intel Core i3(8a generación) 8130U / 2.2 GHz. Velocidad turbo máxima: 3, 4 GHz. Numero de núcleos: Doble núcleo. Cache: 4 MB. Arquitectura de 64 bit: ss. MEMORIA CACHÉ. Tamaño instalada: 4 MB. ALMACENAMIENTO. Interfaz Serial ATA - 600",
