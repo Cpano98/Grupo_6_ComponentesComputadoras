@@ -33,6 +33,7 @@ router.get('/edit/:id', productController.editar);
 router.put('/edit/:id', productController.actualizar);
 
 /* --- Delete borrar producto --- */
+router.delete('/delete/:id', productController.borrar);
 
 //El carrito de compras va aquí??
 router.get("/productCart", productController.cart);

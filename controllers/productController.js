@@ -75,7 +75,7 @@ const controller = {
         products.splice(idx, 1)
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-        res.redirect("listaProductos")
+        res.redirect("/products")
 
     },
     //Mover el carrito?

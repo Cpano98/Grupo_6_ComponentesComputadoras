@@ -69,12 +69,12 @@
                             </div>
 
                             <div class="col">
-                                <a href="/admin/editarProductos/<%= item.id %>">
+                                <a href="/products/edit/<%= item.id %>">
                                     <button type="button" class="btn btn-success">Editar producto</button>
                                 </a>
                                 <p></p>
 
-                                <form action="/admin/delete/<%= item.id%>?_method=DELETE" method="POST">
+                                <form action="/products/delete/<%= item.id %>?_method=DELETE" method="POST">
                                     <button type="submit" class="btn btn-danger">Borrar producto</button>
                                 </form>
 
