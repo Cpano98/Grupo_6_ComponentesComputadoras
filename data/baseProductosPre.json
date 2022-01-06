@@ -142,33 +142,5 @@
   "image": "img-parlante-sony.jpg",
   "piezas": "10",
   "estado": "usado"
- },
- {
-  "id": 17,
-  "nombre_producto": "Prueba de producto base crud",
-  "descripcion": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
-  "descripcion_dos": "Prueba de descripcion de producto ",
-  "precio": "20",
-  "piezas": "0",
-  "categoria": "Laptops",
-  "estado": "Nuevo",
-  "sku": "56SK-001",
-  "descuento": "50",
-  "image": "img-parlante-sony.jpg",
-  "marca": "Samsung"
- },
- {
-  "id": 18,
-  "nombre_producto": "hola",
-  "marca": "Samsung",
-  "descripcion": " asdas",
-  "descripcion_dos": " asda",
-  "precio": "2",
-  "piezas": "2",
-  "categoria": "Laptops",
-  "estado": "Nuevo",
-  "sku": "dasd",
-  "descuento": "3",
-  "image": ""
  }
 ]
