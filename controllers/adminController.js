@@ -4,6 +4,7 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/baseProductosPre.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+/* Contenido movido a productController */
 const controller = {
     admin: (req, res) => {
         return res.render("./admin/adminPanel.ejs");
