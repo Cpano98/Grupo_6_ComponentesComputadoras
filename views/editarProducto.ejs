@@ -16,11 +16,12 @@
                     <h3>Editando producto: <strong><%= item.nombre_producto %></strong> (ID: <%= item.id %>)
                     </h3>
                     <p>Edita las especificaciones de tu producto</p>
-                    <form action="/products/edit/<%= item.id %>?_method=PUT", method="POST">
+                    <form action="/products/edit/<%= item.id %>?_method=PUT", method="post">
                         <div class="campo-ind">
                             <label class="label-login">Nombre del producto: </label><br>
                             <input class="campo-log" type="text" style="background-color: transparent;"
-                                value="<%= item.nombre_producto %>">
+                                value="<%= item.nombre_producto %>" 
+                                name="nombre_producto" id="nombre_producto">
                         </div>
 
                         <div class="campo-ind">
@@ -36,19 +37,23 @@
                         <div class="campo-ind">
                             <label class="label-login">Descripción de tu producto: </label><br>
                             <textarea class="campo-log"
-                                style="background-color: transparent; height: auto;"> <%= item.descripcion %></textarea>
+                                style="background-color: transparent; height: auto;"
+                                name="descripcion" id="descripcion"> <%= item.descripcion %>
+                            </textarea>
                         </div>
-
+                        <!--  
+                            WTF con este bloque*
                         <div class="campo-ind">
                             <label class="label-login">Descripción secundaria de tu producto: </label><br>
                             <textarea class="campo-log" style="background-color: transparent;" name="descripcion_dos"
                                 id="descripcion_dos"> <%= item.descripcion_dos %></textarea>
                         </div>
-
+                        -->
                         <div class="campo-ind">
                             <label class="label-login">Precio a público: </label><br>
                             <input class="campo-log" type="number" style="background-color: transparent;"
-                                value="<%= item.precio %>">
+                                value="<%= item.precio %>"
+                                name="precio" id="precio">
                         </div>
 
                         <div class="campo-ind">
@@ -60,7 +65,7 @@
                         <div class="campo-ind">
                             <label class="label-login">Imagen principal de producto: </label><br><br>
                             <input class="campo-log" type="file" style="background-color: transparent;"
-                                placeholder="Se muestra a usuarios">
+                                placeholder="Se muestra a usuarios" name="image" id="image">
                         </div>
 
 
@@ -68,7 +73,7 @@
                             <div class="col">
                                 <div class="campo-ind">
                                     <label class="label-login">Categoría del producto: </label><br><br>
-                                    <select name="select">
+                                    <select name="categoria" id="categoria">
                                         <option value="value1" selected> Actual: <%= item.categoria %>
                                         </option>
                                         <option value="value2">Laptops</option>
@@ -80,7 +85,7 @@
                             <div class="col">
                                 <div class="campo-ind">
                                     <label class="label-login">Estado del producto: </label><br><br>
-                                    <select name="select">
+                                    <select name="estado" id="estado">
                                         <option value="value1" selected>Actual: <%= item.estado %>
                                         </option>
                                         <option value="value2">Nuevo</option>
@@ -94,7 +99,8 @@
                                     <label class="label-login">SKU del producto: </label><br>
                                     <input class="campo-log" type="text"
                                         style="background-color: transparent; min-height: 100%;"
-                                        value="<%= item.sku %>">
+                                        value="<%= item.sku %>"
+                                        name="sku" id="sku">
                                 </div>
                             </div>
                             <div class="col">
@@ -102,7 +108,8 @@
                                     <label class="label-login">Descuento del producto: </label><br>
                                     <input class="campo-log" type="number"
                                         style="background-color: transparent; min-height: 100%;"
-                                        value="<%= item.descuento %>">
+                                        value="<%= item.descuento %>"
+                                        name="descuento" id="descuento">
                                 </div>
                             </div>
                         </div>
@@ -124,7 +131,7 @@
         <!-- Bootstrap - JS -->
         <%- include("./partials/bootstrap_script.ejs") %>
 
-            <%- include("./partials/footer.ejs") %>
+        <%- include("./partials/footer.ejs") %>
 
 </body>
 

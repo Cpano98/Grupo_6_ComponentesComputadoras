@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/baseProductosPre.json');
+const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
@@ -56,11 +56,13 @@ const controller = {
         const idx = products.findIndex(p => p.id == id);
 
         console.log(req.body)
+        
         products[idx] ={
             id,
             ...req.body,
             image:""
         }
+        
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
         res.redirect("/products/productDetail/"+id) 
