@@ -13,20 +13,20 @@
             <div class="contenedor-login2">
                 <div class="login3">
 
-                    <h3>Editando producto: <strong><%= products.nombre_producto %></strong> (ID: <%= products.id %>)
+                    <h3>Editando producto: <strong><%= item.nombre_producto %></strong> (ID: <%= item.id %>)
                     </h3>
                     <p>Edita las especificaciones de tu producto</p>
-                    <form>
+                    <form action="/products/edit/<%= item.id %>?_method=PUT", method="POST">
                         <div class="campo-ind">
                             <label class="label-login">Nombre del producto: </label><br>
                             <input class="campo-log" type="text" style="background-color: transparent;"
-                                value="<%= products.nombre_producto %>">
+                                value="<%= item.nombre_producto %>">
                         </div>
 
                         <div class="campo-ind">
                             <label class="label-login">Marca del producto:  </label><br><br>
                             <select name="marca" id="marca">
-                                <option value="value1" selected>Actual: <%= products.marca %></option>
+                                <option value="value1" selected>Actual: <%= item.marca %></option>
                                 <option value="Samsung">Samsung</option>
                                 <option value="Apple">Apple</option>
                             </select>
@@ -36,19 +36,19 @@
                         <div class="campo-ind">
                             <label class="label-login">Descripción de tu producto: </label><br>
                             <textarea class="campo-log"
-                                style="background-color: transparent; height: auto;"> <%= products.descripcion %></textarea>
+                                style="background-color: transparent; height: auto;"> <%= item.descripcion %></textarea>
                         </div>
 
                         <div class="campo-ind">
                             <label class="label-login">Descripción secundaria de tu producto: </label><br>
                             <textarea class="campo-log" style="background-color: transparent;" name="descripcion_dos"
-                                id="descripcion_dos"> <%= products.descripcion_dos %></textarea>
+                                id="descripcion_dos"> <%= item.descripcion_dos %></textarea>
                         </div>
 
                         <div class="campo-ind">
                             <label class="label-login">Precio a público: </label><br>
                             <input class="campo-log" type="number" style="background-color: transparent;"
-                                value="<%= products.precio %>">
+                                value="<%= item.precio %>">
                         </div>
 
                         <div class="campo-ind">
@@ -69,7 +69,7 @@
                                 <div class="campo-ind">
                                     <label class="label-login">Categoría del producto: </label><br><br>
                                     <select name="select">
-                                        <option value="value1" selected> Actual: <%= products.categoria %>
+                                        <option value="value1" selected> Actual: <%= item.categoria %>
                                         </option>
                                         <option value="value2">Laptops</option>
                                         <option value="value3">Memorias RAM</option>
@@ -81,7 +81,7 @@
                                 <div class="campo-ind">
                                     <label class="label-login">Estado del producto: </label><br><br>
                                     <select name="select">
-                                        <option value="value1" selected>Actual: <%= products.estado %>
+                                        <option value="value1" selected>Actual: <%= item.estado %>
                                         </option>
                                         <option value="value2">Nuevo</option>
                                         <option value="value3">Usado</option>
@@ -94,7 +94,7 @@
                                     <label class="label-login">SKU del producto: </label><br>
                                     <input class="campo-log" type="text"
                                         style="background-color: transparent; min-height: 100%;"
-                                        value="<%= products.sku %>">
+                                        value="<%= item.sku %>">
                                 </div>
                             </div>
                             <div class="col">
@@ -102,7 +102,7 @@
                                     <label class="label-login">Descuento del producto: </label><br>
                                     <input class="campo-log" type="number"
                                         style="background-color: transparent; min-height: 100%;"
-                                        value="<%= products.descuento %>">
+                                        value="<%= item.descuento %>">
                                 </div>
                             </div>
                         </div>

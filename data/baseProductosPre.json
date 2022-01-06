@@ -1,17 +1,14 @@
 [
  {
-  "id": 2,
-  "nombre_producto": "Macbook Pro 2022. Intel i7 chip",
-  "precio": 500,
-  "descuento": 0,
-  "categoria": "in-sale",
-  "descripcion": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
-  "descripcion_dos": "DescripcionNumDos",
-  "image": "img-macbook-pro-2019.jpg",
-  "estado": "usado",
-  "sku": "56SK-002",
-  "piezas": "5",
-  "marca": "Apple"
+  "id": "2",
+  "marca": "value1",
+  "descripcion_dos": "   Experiencia visual excepcional. Mirá tus series y películas favoritas con la mejor",
+  "piezas": "",
+  "select": [
+   "value1",
+   "value1"
+  ],
+  "image": ""
  },
  {
   "id": 3,
@@ -169,6 +166,34 @@
   "estado": "Nuevo",
   "sku": "dasd",
   "descuento": "3",
+  "image": ""
+ },
+ {
+  "id": 19,
+  "nombre_producto": "",
+  "marca": "value1",
+  "descripcion": " ",
+  "descripcion_dos": " ",
+  "precio": "",
+  "piezas": "",
+  "categoria": "value1",
+  "estado": "value1",
+  "sku": "",
+  "descuento": "",
+  "image": ""
+ },
+ {
+  "id": 20,
+  "nombre_producto": "",
+  "marca": "value1",
+  "descripcion": " ",
+  "descripcion_dos": " ",
+  "precio": "",
+  "piezas": "",
+  "categoria": "value1",
+  "estado": "value1",
+  "sku": "",
+  "descuento": "",
   "image": ""
  }
 ]

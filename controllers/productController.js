@@ -5,31 +5,26 @@ const productsFilePath = path.join(__dirname, '../data/baseProductosPre.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
+    //Listado de productos
     lista: (req, res) => {
         res.render("listaProductoscCRUD.ejs", { products });
     },
-
     //Detalles de producto
-
     product: (req, res) => {
+        //renombre productoEnviar por "item"
         const id = req.params.id
-        const productoEnviar = products.find(p => p.id == id)
+        const item = products.find(p => p.id == id)
         //console.log(id)
-        
-        return res.render("productDetail.ejs", { item:productoEnviar });
-    },
-
-    //Mover el carrito?
-    cart: (req, res) => { 
-        return res.render("productCart.ejs");
+        res.render("productDetail.ejs", {item});
     },
 
     /* Contenido de admin a product */
+    // Admin se usará para?
     admin: (req, res) => {
-        return res.render("adminPanel.ejs");
+        res.render("adminPanel.ejs");
     },
     agregar: (req, res) => {
-        return res.render("agregarProducto.ejs");
+        res.render("agregarProducto.ejs");
     },
     agregarProducto: (req, res) => {
         /*
@@ -47,14 +42,28 @@ const controller = {
         // express validator
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
 
-        res.redirect("listaProductos")
+        res.redirect("products")
     },
 
 
     editar: (req, res) => {
         const id = req.params.id
-        const productoEnviar = products.find(p => p.id == id)
-        return res.render("editarProducto.ejs", { products: productoEnviar });
+        const item = products.find(p => p.id == id)
+        return res.render("editarProducto.ejs", {item});
+    },
+    actualizar:(req,res)=>{
+        const id = req.params.id
+        const idx = products.findIndex(p => p.id == id);
+
+        console.log(req.body)
+        products[idx] ={
+            id,
+            ...req.body,
+            image:""
+        }
+
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+        res.redirect("/products/productDetail/"+id) 
     },
 
     borrar: (req, res) => {
@@ -66,6 +75,10 @@ const controller = {
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
         res.redirect("listaProductos")
 
+    },
+    //Mover el carrito?
+    cart: (req, res) => { 
+        return res.render("productCart.ejs");
     }
 }
 
