@@ -20,7 +20,7 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 const mainRoutes = require("./routes/mainRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
-const adminPanel = require("./routes/adminRoutes");
+
 
 /* ruta de estilos */
 app.use(express.static("./public"));
