@@ -19,7 +19,7 @@ const controller = {
     },
 
     /* Contenido de admin a product */
-    // Admin se usará para?
+    
     admin: (req, res) => {
         res.render("adminPanel.ejs");
     },
@@ -28,14 +28,14 @@ const controller = {
     },
     agregarProducto: (req, res) => {
         /*
-        const body = req.body;
-        console.log(body.nombre_producto + "Producto agregado");
-        res.send("Producto agregado con éxito");
+        Revisar si el id de productos es dinámico o nel?
         */
+        
+
         const newProduct = {
             id: products[products.length - 1].id + 1,
             ...req.body,
-            image: ""
+            image: req.file.originalname
         }
 
         products.push(newProduct)
@@ -55,13 +55,18 @@ const controller = {
         const id = req.params.id
         const idx = products.findIndex(p => p.id == id);
 
-        console.log(req.body)
         
+        /* Revisar si sí actualizamos solo imagenes? */
+        /*Revisar cambios debidos a ponerle fechas a las imagenes*/
+        
+        const imagenAUsar = products[idx].image == req.file.originalname ? products[idx].image:req.file.originalname
+
         products[idx] ={
             id,
             ...req.body,
-            image:""
+            image: imagenAUsar
         }
+
         
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))

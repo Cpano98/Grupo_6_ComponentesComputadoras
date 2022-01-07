@@ -108,5 +108,18 @@
   "sku": "",
   "descuento": "",
   "image": ""
+ },
+ {
+  "id": 20,
+  "nombre_producto": "T",
+  "marca": "Samsung",
+  "descripcion": " borrar",
+  "precio": "10",
+  "piezas": "1e1",
+  "categoria": "Laptops",
+  "estado": "Nuevo",
+  "sku": "5",
+  "descuento": "-1",
+  "image": ""
  }
 ]

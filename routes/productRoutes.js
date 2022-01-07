@@ -4,17 +4,17 @@ const multer  = require('multer');
 const path    = require('path');
 
 const productController = require("../controllers/productController");
-const pathImagenesProductos = '../public/images/productosPrueba'; 
+ 
 
 //implementación de multer para imagenes ***
 
 const storage = multer.diskStorage({
     destination:(req, flie, cb)=>{
-        cb( null, path.join(__dirname), pathImagenesProductos );
+        cb( null, path.join(__dirname, '../public/images/productosPrueba' ) );
     },
     filename:(req, file, cb )=>{
         /* modificar para incluir la hora si funciona? */
-        cb( null, file.nombre_producto );
+        cb( null, file.originalname );
     }
 })
 const upload = multer({storage});
@@ -31,11 +31,11 @@ router.get("/productDetail/:id/", productController.product);
 
 /* --- Get/post crear producto --- */
 router.get("/create", productController.agregar);
-router.post("/", productController.agregarProducto);
+router.post("/", upload.single('image'), productController.agregarProducto);
 
 /* --- Get/put editar producto --- */
 router.get('/edit/:id', productController.editar);
-router.put('/edit/:id', productController.actualizar);
+router.put('/edit/:id', upload.single('image'), productController.actualizar);
 
 /* --- Delete borrar producto --- */
 router.delete('/delete/:id', productController.borrar);
