@@ -38,6 +38,7 @@
 	align-content: center;
 	align-items: center;
 	margin-right: 50px;
+	justify-content: space-between;;
 }
 
 
@@ -196,5 +197,11 @@
 	margin: 5px 0px 15px 0px;
 	padding: 5px;
 	width: 30px;
+	}
+}
+
+@media (max-width: 960px){
+	.box-redes{
+		display: none;
 	}
 }

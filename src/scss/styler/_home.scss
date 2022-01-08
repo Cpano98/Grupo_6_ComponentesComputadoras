@@ -2,6 +2,8 @@
 * @file Home
 */
 
+@import ".././overrides/media-variables";
+
 .p-banner{ background-color: black; }
 
 .heading-1-banner {
@@ -91,4 +93,22 @@ main section .article div h3 {
 	padding: 2rem;
 	max-height: 300px;
 	width: auto;
+}
+
+
+@media (max-width: $screen-md) {
+	.texto-1-banner {
+		margin-right: 0%;
+	}
+
+	.heading-1-banner {
+		font-size: 20px;
+	}
+
+
+
+	.title-cont {
+		display: flex;
+		flex-direction: column;
+	}
 }

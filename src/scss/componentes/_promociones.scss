@@ -2,6 +2,8 @@
 * @file Promociones
 */
 
+@import ".././overrides/media-variables";
+
 #promo-1-b {
 	background-image: url("https://assets.spartangeek.com/cc/gabinetes-para-pc-baratos.jpg");
 	margin-right: 10px;
@@ -30,4 +32,17 @@
 	padding-left: 5.5%;
 	padding-right: 5.5%;
 	padding-top: 60px;
+}
+
+@media (max-width: $screen-md) {
+
+	#promo-1-b {
+		margin-right: 0px;
+		margin-bottom: 20px;
+	}
+
+	#promo-2-b {
+		margin-left: 0px;
+	}
+
 }
