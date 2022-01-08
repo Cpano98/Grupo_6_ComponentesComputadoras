@@ -45,7 +45,7 @@
   "nombre_producto": "Home Theatre Sony Bdv-e4100",
   "descripcion": "El sonido Surround de 5.1 canales y 1000 W proporciona un audio de verdadero impacto en los efectos especiales de películas y efectos de sonido de música y deportes. Con la tecnología Near Field Communication(NFC) podés disfrutar de Sonido One- Touch para reproducir música de forma instantánea",
   "precio": 32990,
-  "descuento": 0,
+  "descuento": 20,
   "image": "img-home-theater-sony.jpg",
   "categoria": "visited",
   "estado": "usado"
@@ -55,7 +55,7 @@
   "nombre_producto": "Smart TV Samsung 4K 50",
   "descripcion": "Con el Smart TV Samsung UN50MU6100, viví una nueva experiencia visual con la resolución 4K, que te presentará imágenes con gran detalle y de alta calidad. Ahora todo lo que veas cobrará vida con brillo y colores más reales. Gracias a su tamaño de 50\", podrás transformar tu espacio en una sala de cine y transportarte a donde quieras.",
   "precio": 34990,
-  "descuento": 0,
+  "descuento": 15,
   "piezas": "0",
   "image": "img-tv-samsung-smart.jpg",
   "categoria": "visited",
