@@ -1,6 +1,7 @@
 /*
 * @file Carrito
 */
+@import "../overrides/media-variables";
 
 .texto-carrito {
 	margin-right: 15px;
@@ -45,7 +46,6 @@
 	grid-template-columns: 50% 20% 20%;
 	justify-content: center;
 	align-items: center;
-	border: 2px solid var(--bg-secundario);
 }
 
 .tabla-subtitulo {
@@ -60,9 +60,6 @@
 .tabla-productos {
 	grid-area: productos;
 	width: 100%;
-
-	border-right: 2px solid var(--bg-secundario);
-	border-left: 2px solid var(--bg-secundario);
 }
 
 .row-producto {
@@ -73,7 +70,7 @@
 		"cantidad total";
 	gap: 1rem 1rem;
 	padding-bottom: 2rem;
-	border-bottom: 2px solid var(--bg-secundario);
+	@include shadow-light;
 }
 
 .col-producto {
@@ -84,6 +81,8 @@
 
 .col-producto-img {
 	padding: var(--distancia-largo);
+
+	img { width: 100%; }
 }
 
 .col-producto-info {
@@ -114,8 +113,11 @@
 }
 
 .operador {
-	color: var(--font-color-bg);
-	background-color: var(--bg-secundario);
+	@include btn;
+
+	@include btn-submit;
+
+	padding: 0rem;
 	text-align: center;
 	
 	&.izquierda {
@@ -127,14 +129,20 @@
 		border-top-right-radius: var(--distancia-normal);
 		border-bottom-right-radius: var(--distancia-normal);
 	}
-	
+}
+
+.btn-delete {
+	@include btn;
+
+	@include btn-delete;
 }
 
 
 .contador {
 	min-width: 3rem;
 	text-align: center;
-	border: 2px solid var(--bg-secundario);
+
+	@include shadow-light;
 }
 
 .col-total {
@@ -170,7 +178,14 @@
 	text-align: center;
 }
 
-@media ($desktop) {
+.btn-actualizar,
+.btn-pagar {
+	button {
+		@include btn-submit;
+	}
+}
+
+@media screen and (min-width: #{$screen-sm}) {
 	[class^="subtitulo-"] {
 		display: block;
 	}
