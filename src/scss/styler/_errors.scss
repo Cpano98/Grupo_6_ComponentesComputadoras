@@ -1,0 +1,23 @@
+/*
+* @file errores
+*/
+@import ".././overrides/default-variables";
+
+body{
+    background: var(--gradiente-2);
+
+        
+    img.imgError{
+        position: absolute;
+        width: 30%;
+        top: 100px;
+        left: 50%;
+        margin-left: -15%;
+    }
+
+    div.textError{
+        text-align: center;
+        font-size: 5vw;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}

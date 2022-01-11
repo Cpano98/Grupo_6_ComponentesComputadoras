@@ -26,20 +26,26 @@ const controller = {
     agregar: (req, res) => {
         res.render("agregarProducto.ejs");
     },
-    agregarProducto: (req, res) => {
+    agregarProducto: (req, res, next) => {
         /*
         Revisar si el id de productos es dinámico o nel?
         */
-        
+        const file = req.file
+        if(!file){
+            const error = new Error('No ha seleccionado un archivo')
+            error.httpStatusCode = 400;
+            return res.render('error400.ejs')
+            //return next(error)
+        }
 
         const newProduct = {
             id: products[products.length - 1].id + 1,
             ...req.body,
-            image: req.file.originalname
+            image: file.originalname
         }
 
         products.push(newProduct)
-        // express validator
+
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
 
         res.redirect("products")
@@ -51,7 +57,14 @@ const controller = {
         const item = products.find(p => p.id == id)
         return res.render("editarProducto.ejs", {item});
     },
-    actualizar:(req,res)=>{
+    actualizar:(req, res, next)=>{
+        const file = req.file
+        if(!file){
+            const error = new Error('No ha seleccionado un archivo')
+            error.httpStatusCode = 400;
+            return next(error)
+        }
+
         const id = req.params.id
         const idx = products.findIndex(p => p.id == id);
 
@@ -59,7 +72,7 @@ const controller = {
         /* Revisar si sí actualizamos solo imagenes? */
         /*Revisar cambios debidos a ponerle fechas a las imagenes*/
         
-        const imagenAUsar = products[idx].image == req.file.originalname ? products[idx].image:req.file.originalname
+        const imagenAUsar = products[idx].image == file.originalname ? products[idx].image:file.originalname
 
         products[idx] ={
             id,
