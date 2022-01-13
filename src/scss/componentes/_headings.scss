@@ -174,11 +174,15 @@
 
 /*any laptop to desktop*/
 @media (#{$desktop}) {
+
+	
+
 	#logo-search div {
 		width: 30%;
 	}
 
 	main section {
+		
 		.article {
 			width: 22%;
 
@@ -207,6 +211,7 @@
 
 	main {
 		grid-template-columns: 50% 50%;
+		
 		grid-template-areas:
 			"slider slider"
 			"img-half-w img-half-w";
