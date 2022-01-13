@@ -55,3 +55,4 @@ Licenciada en ciencias de la Tierra me gusta explorar el mundo de la programaci√
 ### Enlaces a los tableros de trabajo:
 - sprint1: https://trello.com/b/LuuhhQwA/grupo6-componentescomputadorassprint1
 - sprint2: https://trello.com/b/QbHZpH1g/grupo6componentescomputadorassprint2
+- sprint4: https://trello.com/invite/b/LuuhhQwA/403b7cd920b9373066cd61028eea1748/grupo6-componentescomputadorassprint4
