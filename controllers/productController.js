@@ -60,7 +60,7 @@ const controller = {
     actualizar:(req, res, next)=>{
         const file = req.file
         if(!file){
-            const error = new Error('No ha seleccionado un archivo')
+            const error = new Error('No hta seleccionado un archivo')
             error.httpStatusCode = 400;
             return res.render('error400.ejs')
         }
