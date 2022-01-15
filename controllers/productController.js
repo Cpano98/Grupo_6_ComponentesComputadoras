@@ -62,7 +62,7 @@ const controller = {
         if(!file){
             const error = new Error('No ha seleccionado un archivo')
             error.httpStatusCode = 400;
-            return next(error)
+            return res.render('error400.ejs')
         }
 
         const id = req.params.id
