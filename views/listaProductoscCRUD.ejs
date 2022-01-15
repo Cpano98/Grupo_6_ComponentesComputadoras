@@ -17,7 +17,7 @@
                     <p>Se muestra el listado de los productos registrados</p><br>
 
                     <!--Aquí va el lista de productos para el CRUD-->
-                    <div class="row separacion">
+                    <div class="row separacion" id="nombresLista">
                         <div class="col-1">
                             <h6>Imagen </h6>
                         </div>
@@ -45,26 +45,26 @@
                                     alt="MacBook Pro 2019">
                             </div>
                             <div class="col-4">
-                                <h2 class="titulo_producto">
+                                <h2 class="titulo_producto" id="tituloCrud">
                                     <%= item.nombre_producto.substring(0,25) %>
                                 </h2>
-                                <p class="descrip_producto">
+                                <p class="descrip_producto" id="descripcionProductosCrud">
                                     <%= item.descripcion.substring(0,150) %>
                                 </p>
 
-                                <p class="descrip_producto">
+                                <p class="descrip_producto" id="hide">
                                     <strong>SKU:</strong> <%= item.sku %>
                                 </p>
                             </div>
 
-                            <div class="col">
+                            <div class="col" id="hide">
                                 <%= item.piezas %> piezas
                             </div>
-                            <div class="col">
+                            <div class="col" id="hide">
                                 <%= item.precio %>
                             </div>
 
-                            <div class="col">
+                            <div class="col" id="hide">
                                 <%= item.descuento %> %OFF
                             </div>
 

@@ -3,6 +3,8 @@
 * User
 */
 
+@import ".././overrides/media-variables";
+
 .main {
 	background-color: #ffffff;
 	background-image: radial-gradient(#a0a3a7 1.5px, #ffffff 1.5px);
@@ -91,4 +93,46 @@
 	border-bottom: solid #e7e7e7 1px;
 	padding-top: 25px;
 	padding-bottom: 25px;
+}
+
+
+@media (max-width: $screen-md) {
+	.op-elemento{
+		margin: 0px;
+		border: solid white 5px;
+	}
+
+	.grid-slider {
+		display: none;
+	}
+
+	#nombresLista, #descripcionProductosCrud, #hide{
+		display: none;
+	}
+
+	.login3{
+		text-align: center;
+	}
+
+	#tituloCrud {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.col-4 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 100%;
+		max-width: 100%;
+		/* width: 390px; */
+	}
+
+	.col-1 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 8.333333%;
+		flex: 0 0 100%;
+		width: 100%;
+		max-width: 100%;
+	}
+
 }
