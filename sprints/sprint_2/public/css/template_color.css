@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.manual_de_colores{
+    /* GRADIENTE DE ROJO A NARANJA*/
+    background: rgb(226,62,78);
+    background: linear-gradient(141deg, rgba(226,62,78,1) 0%, rgba(228,158,41,1) 100%);
+
+    /* GRADIENTE DE NARANJA A ROJO*/
+    background: rgb(228,158,41);
+    background: linear-gradient(141deg, rgba(228,158,41,1) 0%, rgba(226,62,78,1) 100%);
+ 
+    /* ROJO */
+    color: #fff;
+    color: #e7e7e7;
+    color: #e49e29;
+    color: #e23e4e;
+    color: #000;
+}
+
+.btn1{
+    background-color: rgba(226,62,78,0);
+    border-radius: 150px;
+    padding: 10px 20px 10px 20px;
+}
