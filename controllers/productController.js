@@ -9,6 +9,9 @@ const controller = {
     lista: (req, res) => {
         res.render("listaProductoscCRUD.ejs", { products });
     },
+    confirmacionEliminado: (req, res) => {
+        res.render("productoEliminado.ejs");
+    },
     //Detalles de producto
     product: (req, res) => {
         //renombre productoEnviar por "item"
@@ -93,7 +96,7 @@ const controller = {
         products.splice(idx, 1)
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-        res.redirect("/products")
+        res.redirect("/products/eliminado")
 
     },
     //Mover el carrito?

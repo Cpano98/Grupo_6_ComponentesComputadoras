@@ -26,6 +26,9 @@ router.get("/admin", productController.admin);
 /* --- Get products --- */
 router.get("/", productController.lista);
 
+/* --- Eliminación --- */
+router.get("/eliminado", productController.confirmacionEliminado);
+
 /* --- Get detalle ---*/
 router.get("/productDetail/:id/", productController.product);
 
