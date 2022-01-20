@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title> Register | MiPC </title>
+	<%- include("partials/head.ejs") %>
+</head>
+
+<body>
+	<header>
+		<!--Header-escritorio-->
+		<%- include("partials/header.ejs") %>
+			<!-- Header hambuger  -->
+			<%- include("partials/headerhambugerMenu.ejs")%>
+	</header>
+
+	<main>
+
+		<div class="contenedor-login">
+			<div class="login2">
+
+				<h3>Bienvenid@ a MiPC!</h3>
+				<p>Crea tu cuenta y disfruta de grandes e increíbles beneficios</p>
+				<form>
+					<div class="campo-ind">
+						<label class="label-login">Nombre completo:</label><br>
+						<input class="campo-log" type="text" style="background-color: transparent;"
+							placeholder="¿cómo te llamas?" name="name">
+					</div>
+
+					<div class="campo-ind">
+						<label class="label-login">Nombre de usuario: </label><br>
+						<input class="campo-log" type="text" style="background-color: transparent;"
+							placeholder="username" name="username">
+					</div>
+
+					<div class="campo-ind">
+						<label class="label-login">Correo Electrónico:</label><br>
+						<input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email">
+					</div>
+
+					<div class="campo-ind">
+						<label class="label-login">Contraseña:</label><br>
+						<input class="campo-log" type="password" placeholder="--" name="password">
+					</div>
+					<div class="campo-ind">
+						<label class="label-login">Confirmar contraseña:</label><br>
+						<input class="campo-log" type="password" placeholder="" name="passwordVal">
+					</div>
+					<div id="contraseñaCheck">
+						<input type="checkbox" name="MostrarContraseña" value="False" />
+						<label for="MostrarContraseña">Mostrar contraseña</label>
+						<p></p>
+					</div>
+					<button class="btn btn-outline-success btn_search" type="submit">Registrarme</button>
+					<button style="
+						background-color: transparent; 
+						color: black;
+						border: solid black 1px;" class="btn btn-outline-success btn_search" type="reset">Comenzar de nuevo</button>
+					<p></p>
+					<p>
+						Al crear una cuenta aceptas las
+						<a href="">Condiciones de uso</a>
+						y el
+						<a href="">Aviso de privacidad</a>
+						de Mi|PC.
+					</p>
+
+				</form>
+
+			</div>
+
+
+		</div>
+	</main>
+	<!--FOOTER-->
+	<%- include("partials/footer.ejs") %>
+</body>
+
+</html>

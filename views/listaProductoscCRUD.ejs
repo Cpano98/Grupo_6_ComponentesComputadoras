@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head.ejs") %>
+        <title> Listado de productos | MiPC </title>
+</head>
+
+<body>
+    <%- include("./partials/adminMenu.ejs") %>
+
+        <main class="main">
+            <div class="contenedor-login2">
+                <div class="login3">
+
+                    <h3>Lista de productos (editar | borrar)</h3>
+                    <p>Se muestra el listado de los productos registrados</p><br>
+
+                    <!--Aquí va el lista de productos para el CRUD-->
+                    <div class="row separacion" id="nombresLista">
+                        <div class="col-1">
+                            <h6>Imagen </h6>
+                        </div>
+                        <div class="col-4">
+                            <h6>Título y descripción </h6>
+                        </div>
+                        <div class="col">
+                            <h6>Inventario </h6>
+                        </div>
+                        <div class="col">
+                            <h6>Precio ($ MXN) </h6>
+                        </div>
+                        <div class="col">
+                            <h6>Descuento (%)</h6>
+                        </div>
+                        <div class="col">
+                            <h6>Acciones </h6>
+
+                        </div>
+                    </div>
+                    <% for (const item of products) { %>
+                        <div class="row separacion">
+                            <div class="col-1">
+                                <img class="img_ind_admin" src="/images/productosPrueba/<%= item.image %>"
+                                    alt="MacBook Pro 2019">
+                            </div>
+                            <div class="col-4">
+                                <h2 class="titulo_producto" id="tituloCrud">
+                                    <%= item.nombre_producto.substring(0,25) %>
+                                </h2>
+                                <p class="descrip_producto" id="descripcionProductosCrud">
+                                    <%= item.descripcion.substring(0,150) %>
+                                </p>
+
+                                <p class="descrip_producto" id="hide">
+                                    <strong>SKU:</strong> <%= item.sku %>
+                                </p>
+                            </div>
+
+                            <div class="col" id="hide">
+                                <%= item.piezas %> piezas
+                            </div>
+                            <div class="col" id="hide">
+                                <%= item.precio %>
+                            </div>
+
+                            <div class="col" id="hide">
+                                <%= item.descuento %> %OFF
+                            </div>
+
+                            <div class="col">
+                                <a href="/products/edit/<%= item.id %>">
+                                    <button type="button" class="btn btn-success">Editar producto</button>
+                                </a>
+                                <p></p>
+
+                                <form action="/products/delete/<%= item.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-danger">Borrar producto</button>
+                                </form>
+
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bootstrap - JS -->
+        <%- include("./partials/bootstrap_script.ejs") %>
+
+            <%- include("./partials/footer.ejs") %>
+
+</body>
+
+</html>

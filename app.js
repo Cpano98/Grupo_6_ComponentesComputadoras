@@ -26,7 +26,6 @@ const productRoutes = require("./src/routes/productRoutes");
 app.use(express.static("./src/public"));
 
 
-
 app.set('view engine', 'ejs');
 
 //Anclado de rutas [se llama así?]
