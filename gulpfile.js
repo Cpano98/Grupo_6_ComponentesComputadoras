@@ -3,7 +3,7 @@
 // below as series() insted of gulp.series()
 
 const { src, dest, watch, series, parallel } = require('gulp');
-const dest_file = 'public/css/'
+const dest_file = '/src/public/css/'
 
 // Importing all the gulp-related packages we want to use
 const sass = require('gulp-sass')(require('sass')),

@@ -60,40 +60,5 @@
   "image": "img-tv-samsung-smart.jpg",
   "categoria": "visited",
   "estado": "nuevo"
- },
- {
-  "id": 15,
-  "nombre_producto": "Bicicleta Mountain Bike Fierce Rodado 29",
-  "descripcion": "Bicicleta Mountain Bike Fierce Rodado 29 21 velocidades. Tipo: Mountain Bike. Rodado: 29. Material Cuadro: Aluminio. Talle: 18. Suspensión: Delantera. Velocidades: 21 - Shimano. Sistema de Freno: Disco Mecánico. Llantas: Doble pared.",
-  "precio": 15979,
-  "descuento": 12,
-  "image": "img-bicicleta-fierce.jpg",
-  "categoria": "visited",
-  "piezas": "0",
-  "estado": "nuevo"
- },
- {
-  "id": 16,
-  "nombre_producto": "Sony Srs-xb12 Parlante Bluetooth Portátil",
-  "precio": 4699,
-  "descuento": 0,
-  "categoria": "in-sale",
-  "descripcion": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
-  "image": "img-parlante-sony.jpg",
-  "piezas": "10",
-  "estado": "usado"
- },
- {
-  "id": 17,
-  "nombre_producto": "Prueba de producto base crud",
-  "descripcion": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
-  "precio": "20",
-  "piezas": "0",
-  "categoria": "Laptops",
-  "estado": "Nuevo",
-  "sku": "56SK-001",
-  "descuento": "50",
-  "image": "img-parlante-sony.jpg",
-  "marca": "Samsung"
  }
 ]

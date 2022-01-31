@@ -17,15 +17,16 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 //app.use(express.bodyParser());
 
 /* bloque de routes */
-const mainRoutes = require("./routes/mainRoutes");
-const userRoutes = require("./routes/userRoutes");
-const productRoutes = require("./routes/productRoutes");
+const mainRoutes = require("./src/routes/mainRoutes");
+const userRoutes = require("./src/routes/userRoutes");
+const productRoutes = require("./src/routes/productRoutes");
 
 
 /* ruta de estilos */
-app.use(express.static("./public"));
+app.use(express.static("./src/public"));
 
-
+/* definiciones default de direcciones de directorios está en express */
+app.set('views', path.join( __dirname + "/src/views" ) )
 
 app.set('view engine', 'ejs');
 

@@ -1,0 +1,1 @@
+## Esta carpeta muestra los tableros actualizados antes del inicio del Sprint

@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="campo-ind">
-                            <label class="label-login">Marca del producto:  </label><br><br>
+                            <label class="label-login">Marca del producto:  </label><br>
                             <select name="marca" id="marca">
                                 <option value="value1" selected>Actual: <%= item.marca %></option>
                                 <option value="Samsung">Samsung</option>
@@ -38,7 +38,7 @@
                             <label class="label-login">Descripción de tu producto: </label><br>
                             <textarea class="campo-log"
                                 style="background-color: transparent; height: auto;"
-                                name="descripcion" id="descripcion"> <%= item.descripcion %>
+                                name="descripcion" id="descripcion"><%=item.descripcion%>
                             </textarea>
                         </div>
                         <!--  
@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="campo-ind">
-                            <label class="label-login">Imagen principal de producto: </label><br><br>
+                            <label class="label-login">Imagen principal de producto: </label><br>
                             <input class="campo-log" type="file" accept=".png, .jpg" 
                                     style="background-color: transparent;"
                                     placeholder="Se muestra a usuarios" name="image" id="image">
@@ -73,7 +73,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="campo-ind">
-                                    <label class="label-login">Categoría del producto: </label><br><br>
+                                    <label class="label-login">Categoría del producto: </label><br>
                                     <select name="categoria" id="categoria">
                                         <option value="value1" selected> Actual: <%= item.categoria %>
                                         </option>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="col">
                                 <div class="campo-ind">
-                                    <label class="label-login">Estado del producto: </label><br><br>
+                                    <label class="label-login">Estado del producto: </label><br>
                                     <select name="estado" id="estado">
                                         <option value="value1" selected>Actual: <%= item.estado %>
                                         </option>
