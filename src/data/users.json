@@ -1,20 +1,26 @@
 [
-	{
-		"name": "Carlos",
-		"username": "Cpano98",
-		"email": "carlospano8@gmail.com",
-		"password": "12345"
-	},
-	{
-		"name": "Osler",
-		"username": "Osler",
-		"email": "osler.villegas@gmail.com",
-		"password": "NarutoUzumaki"
-	},
-	{
-		"name": "José",
-		"username": "Enoc494",
-		"email": "angelavelarb.94@gmail.com",
-		"password": "password"
-	}
+ {
+  "name": "Carlos",
+  "username": "Cpano98",
+  "email": "carlospano8@gmail.com",
+  "password": "12345"
+ },
+ {
+  "name": "Osler",
+  "username": "Osler",
+  "email": "osler.villegas@gmail.com",
+  "password": "NarutoUzumaki"
+ },
+ {
+  "name": "José",
+  "username": "Enoc494",
+  "email": "angelavelarb.94@gmail.com",
+  "password": "password"
+ },
+ {
+  "name": "core2020",
+  "username": "mocos",
+  "email": "2@2",
+  "password": "mocos"
+ }
 ]

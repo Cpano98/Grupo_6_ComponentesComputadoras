@@ -1,0 +1,34 @@
+<!--
+    Aquí van los perfiles una ves que uno se logea/registra nos movemos aquí*
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+        <title> Perfil de usuario | MiPC </title>
+</head>
+
+<body>
+    <div>
+        <%= user.name %>
+    </div>
+    <div>
+        <%= user.username %>
+    </div>
+    <div>
+        <%= user.email %>
+    </div>
+    <div>
+        <%= user.password %>
+    </div>
+    <div>
+        Mostrar imagén del usuario
+        Boton de editar perfil ? 
+        -> cambiar nombre
+        -> cambiar Correo
+        -> cambiar imagen
+    </div>
+
+</body>
+</html>

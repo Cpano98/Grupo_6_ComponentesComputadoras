@@ -22,20 +22,19 @@
 
 				<h3>¿Ya tienes cuenta? </h3>
 				<p>Aquí podrás iniciar sesión y rastrear tus pedidos</p>
-				<form>
+				<form action="/user/login" method="POST">
 					<div class="campo-ind">
 						<label class="label-login">Correo Electrónico:</label><br>
-						<input class="campo-log" type="email" placeholder="ejemplo@mipc.com">
+						<input class="campo-log" name="email" type="email" placeholder="ejemplo@mipc.com">
 					</div>
 
 					<div class="campo-ind">
 						<label class="label-login">Contraseña:</label><br>
-						<input class="campo-log" type="password" placeholder="--">
+						<input class="campo-log" name="password" type="password" placeholder="--">
 					</div>
 
-					<button class="btn btn-outline-success btn_search" type="submit">Crear mi cuenta</button>
+					<button class="btn btn-outline-success btn_search" type="submit">Ingresar</button>
 
-					<p></p>
 					<p>
 						Al crear una cuenta aceptas las
 						<a href="">Condiciones de uso</a>

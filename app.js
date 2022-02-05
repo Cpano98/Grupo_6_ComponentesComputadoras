@@ -32,9 +32,8 @@ app.set('view engine', 'ejs');
 
 //Anclado de rutas [se llama así?]
 app.use("/", mainRoutes);
-app.use("/", userRoutes);
+app.use("/user", userRoutes);
 app.use("/products", productRoutes);
-//app.use("/admin", adminPanel);
 
 
 //Heroku Config
