@@ -10,7 +10,7 @@ const controller = {
     profile:  (req,res) => {
         //Si hay usuario logeado se debe mostrar** 
         //Usando cookies***
-        return res.render("perfil.ejs")
+        return res.render("profile.ejs")
         //Si no lo hay debemos redirigir a login
     },
 
@@ -25,7 +25,7 @@ const controller = {
             console.log("Usted no tiene cuenta")
             res.redirect("/user/register");
         }
-        res.render("perfil.ejs", {user});
+        res.render("profile.ejs", {user});
     },
     register: (req, res) => { 
         return res.render("register.ejs");
@@ -43,11 +43,11 @@ const controller = {
             users.push(newUser)
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
 
-            res.redder("perfil.ejs",{user});
+            res.redder("profile.ejs",{user});
         }
         else{
             //El usuario ya tiene cuenta, enviando
-            return res.render("perfil.ejs", {user})
+            return res.render("profile.ejs", {user})
         }   
     }
 }
