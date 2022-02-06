@@ -3,25 +3,29 @@
   "name": "Carlos",
   "username": "Cpano98",
   "email": "carlospano8@gmail.com",
-  "password": "12345"
+  "password": "12345",
+  "image": "user1.jpg"
  },
  {
   "name": "Osler",
   "username": "Osler",
   "email": "osler.villegas@gmail.com",
-  "password": "NarutoUzumaki"
+  "password": "NarutoUzumaki",
+  "image": "user1.jpg"
  },
  {
   "name": "José",
   "username": "Enoc494",
   "email": "angelavelarb.94@gmail.com",
-  "password": "password"
+  "password": "password",
+  "image": "user1.jpg"
  },
  {
   "name": "core2020",
-  "username": "mocos",
+  "username": "Enoc494",
   "email": "2@2",
-  "password": "mocos"
+  "password": "mocos",
+  "image": "Color_Wheel.jpg"
  },
  {
   "name": "Core",

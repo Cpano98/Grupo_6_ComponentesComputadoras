@@ -8,7 +8,7 @@
 <body>
     <div>
         Campos editables por el usuario
-        <form action="/user/register" method="POST">
+        <form action="/user/profileEdit?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="campo-ind">
                 <label class="label-login">Nombre completo:</label><br>
                 <input class="campo-log" type="text" style="background-color: transparent;"
@@ -38,6 +38,12 @@
                 <input type="checkbox" name="MostrarContraseña" value="False" />
                 <label for="MostrarContraseña">Mostrar contraseña</label>
                 <p></p>
+            </div>
+            <div class="campo-ind">
+                <label class="label-login">Avatar del usuario: </label><br>
+                <input class="campo-log" type="file" accept=".png, .jpg" 
+                        style="background-color: transparent;"
+                        placeholder="Se muestra a usuarios" name="image" id="image">
             </div>
             <button class="btn btn-outline-success btn_search" type="submit">Registrarme</button>
         </form>

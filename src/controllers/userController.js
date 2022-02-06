@@ -3,8 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 
+
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
+
 
 const controller = {
     profile:  (req,res) => {
@@ -13,7 +16,39 @@ const controller = {
         return res.render("profile.ejs")
         //Si no lo hay debemos redirigir a login
     },
+    profileEdit: (req, res) =>{
+        //mandar el usuario para rellenar defaults
+        const user = users.find(u => u.email == req.body.email)
+        return res.render("profileEdit.ejs", {user})
+    },
+    profileEditUp: (req, res)=>{
+        const file = req.file
+        if(!file){
+            const error = new Error('No hta seleccionado un archivo')
+            error.httpStatusCode = 400;
+            return res.render('error400.ejs')
+        }
 
+        //mandar el usuario para rellenar defaults
+        const user = users.find(u => u.email == req.body.email)
+        const idx =  users.findIndex(u => u.email == req.body.email);
+
+        
+        //Eliminar campo tras corroborar:
+        delete req.body.passwordVal
+
+        //edición del Json a nivel local por indice:
+        users[idx] ={
+            ...req.body,
+            image: file.originalname
+        }
+        
+        //almacenando cambios en JSON
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
+
+        //Cambiar esto por un redirect cuando el programa RECUERDE al usuario
+        return res.render("profile.ejs", {user})
+    },
     login: (req, res) => { 
         return res.render("login.ejs");
     },

@@ -16,7 +16,7 @@
                     <h3>Editando producto: <strong><%= item.nombre_producto %></strong> (ID: <%= item.id %>)
                     </h3>
                     <p>Edita las especificaciones de tu producto</p>
-                    <form action="/products/edit/<%= item.id %>?_method=PUT", method="post" enctype="multipart/form-data">
+                    <form action="/products/edit/<%= item.id %>?_method=PUT" method="post" enctype="multipart/form-data">
                         <div class="campo-ind">
                             <label class="label-login">Nombre del producto: </label><br>
                             <input class="campo-log" type="text" style="background-color: transparent;"

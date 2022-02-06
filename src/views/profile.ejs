@@ -23,11 +23,17 @@
         <%= user.password %>
     </div>
     <div>
-        Mostrar imagén del usuario
-        Boton de editar perfil ? 
-        -> cambiar nombre
-        -> cambiar Correo
-        -> cambiar imagen
+        <% if(user.image){ %>
+            <img src="/images/users/<%= user.image %>" alt="avatar">
+        <% }else{ %>
+            <img src="/images/users/default.jpg" alt="avatar default">
+        <%  } %>
+    </div>
+    <div>
+        <!--  Botón de editar aquí-->
+        <a href="/user/profileEdit">
+            <button type="button" class="btn btn-success">Editar perfil</button>
+        </a>
     </div>
 
 </body>
