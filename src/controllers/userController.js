@@ -43,7 +43,7 @@ const controller = {
             users.push(newUser)
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
 
-            res.redder("profile.ejs",{user});
+            res.render("profile.ejs",{user});
         }
         else{
             //El usuario ya tiene cuenta, enviando

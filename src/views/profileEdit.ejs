@@ -1,0 +1,50 @@
+<!-- Editar usuario, y borrarlo-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+        <title> Perfil de usuario | MiPC </title>
+</head>
+<body>
+    <div>
+        Campos editables por el usuario
+        <form action="/user/register" method="POST">
+            <div class="campo-ind">
+                <label class="label-login">Nombre completo:</label><br>
+                <input class="campo-log" type="text" style="background-color: transparent;"
+                    placeholder="¿cómo te llamas?" name="name">
+            </div>
+
+            <div class="campo-ind">
+                <label class="label-login">Nombre de usuario: </label><br>
+                <input class="campo-log" type="text" style="background-color: transparent;"
+                    placeholder="username" name="username">
+            </div>
+
+            <div class="campo-ind">
+                <label class="label-login">Correo Electrónico:</label><br>
+                <input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email">
+            </div>
+
+            <div class="campo-ind">
+                <label class="label-login">Contraseña:</label><br>
+                <input class="campo-log" type="password" placeholder="--" name="password">
+            </div>
+            <div class="campo-ind">
+                <label class="label-login">Confirmar contraseña:</label><br>
+                <input class="campo-log" type="password" placeholder="" name="passwordVal">
+            </div>
+            <div id="contraseñaCheck">
+                <input type="checkbox" name="MostrarContraseña" value="False" />
+                <label for="MostrarContraseña">Mostrar contraseña</label>
+                <p></p>
+            </div>
+            <button class="btn btn-outline-success btn_search" type="submit">Registrarme</button>
+        </form>
+        
+        <form action="/user/delete/>" method="GET">
+            <button type="submit">Eliminar perfil</button>
+        </form>
+    </div>  
+</body>
+</html>
