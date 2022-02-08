@@ -2,12 +2,10 @@
 
 const fs = require('fs');
 const path = require('path');
-
+const {validationResult} = require("express-validator")
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
-
 
 const controller = {
     profile:  (req,res) => {
@@ -22,6 +20,14 @@ const controller = {
         return res.render("profileEdit.ejs", {user})
     },
     profileEditUp: (req, res)=>{
+        //Validar
+        const resultVal = validationResult(req);
+        
+        if (!resultVal.isEmpty()){
+            return res.render('profileEdit.ejs', {
+                errors:resultVal.mapped(),
+                old:req.body })
+        }
         const file = req.file
         if(!file){
             const error = new Error('No hta seleccionado un archivo')
@@ -66,6 +72,15 @@ const controller = {
         return res.render("register.ejs");
     },
     registed: (req, res) =>{
+        //Validar
+        const resultVal = validationResult(req);
+        
+        if (!resultVal.isEmpty()){
+            return res.render('register.ejs', {
+                errors:resultVal.mapped(),
+                old:req.body })
+        }
+
         const user = users.find(u => u.email == req.body.email)
         if( user == undefined){
             //Usuario no encontrado, agregando

@@ -21,32 +21,75 @@
 
 				<h3>Bienvenid@ a MiPC!</h3>
 				<p>Crea tu cuenta y disfruta de grandes e increíbles beneficios</p>
+
 				<form action="/user/register" method="POST">
 					<div class="campo-ind">
 						<label class="label-login">Nombre completo:</label><br>
-						<input class="campo-log" type="text" style="background-color: transparent;"
-							placeholder="¿cómo te llamas?" name="name">
+						<input class="campo-log" 
+							type="text" 
+							style="background-color: transparent;"
+							placeholder="¿cómo te llamas?" 
+							name="name"
+							value= "<%= locals.old ? old.name : null %>" >
 					</div>
-
+					<%if(locals.errors && errors.name){ %>
+						<div class = "error-registro">
+							<%= errors.name.msg %>
+						</div>
+					<% } %>
 					<div class="campo-ind">
 						<label class="label-login">Nombre de usuario: </label><br>
-						<input class="campo-log" type="text" style="background-color: transparent;"
-							placeholder="username" name="username">
+						<input class="campo-log" 
+								type="text" 
+								style="background-color: transparent;"
+								placeholder="username" 
+								name="username"
+								value= "<%= locals.old ? old.username : null %>">
 					</div>
-
+					<%if(locals.errors && errors.username){ %>
+						<div class = "error-registro">
+							<%= errors.username.msg %>
+						</div>
+					<% } %>
 					<div class="campo-ind">
 						<label class="label-login">Correo Electrónico:</label><br>
-						<input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email">
+						<input class="campo-log" 
+								type="email" 
+								placeholder="ejemplo@mipc.com" 
+								name="email"
+								value= "<%= locals.old ? old.email : null %>">
 					</div>
-
+					<%if(locals.errors && errors.email){ %>
+						<div class = "error-registro">
+							<%= errors.email.msg %>
+						</div>
+					<% } %>
 					<div class="campo-ind">
 						<label class="label-login">Contraseña:</label><br>
-						<input class="campo-log" type="password" placeholder="--" name="password">
+						<input class="campo-log" 
+								type="password" 
+								placeholder="--" 
+								name="password"
+								value= "<%= locals.old ? old.name : null %>">
 					</div>
+					<%if(locals.errors && errors.password){ %>
+						<div class = "error-registro">
+							<%= errors.password.msg %>
+						</div>
+					<% } %>
 					<div class="campo-ind">
 						<label class="label-login">Confirmar contraseña:</label><br>
-						<input class="campo-log" type="password" placeholder="" name="passwordVal">
+						<input class="campo-log" 
+								type="password" 
+								placeholder="" 
+								name="passwordVal"
+								value= "<%= locals.passwordVal ? old.name : null %>">
 					</div>
+					<%if(locals.errors && errors.passwordVal){ %>
+						<div class = "error-registro">
+							<%= errors.passwordVal.msg %>
+						</div>
+					<% } %>
 					<div id="contraseñaCheck">
 						<input type="checkbox" name="MostrarContraseña" value="False" />
 						<label for="MostrarContraseña">Mostrar contraseña</label>
@@ -67,6 +110,7 @@
 					</p>
 
 				</form>
+				
 
 			</div>
 

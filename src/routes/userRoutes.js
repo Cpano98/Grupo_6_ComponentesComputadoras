@@ -2,6 +2,7 @@ const express = require("express");
 const router  = express.Router();
 const multer  = require('multer');
 const path    = require('path');
+const {body} = require('express-validator'); 
 
 const userController =require("../controllers/userController");
 
@@ -16,17 +17,34 @@ const storage = multer.diskStorage({
 })
 const upload = multer({storage});
 
+//Validaciones del registro de usuarios
+const validationReg = [
+    body('name').notEmpty().withMessage('Ingrese un nombre'),
+    body('username').notEmpty().withMessage('Ingrese un nick'),
+    body('email').notEmpty().withMessage('Ingrese un correo valido'),
+    body('password').notEmpty().withMessage('Ingrese una contraseña'),
+    body('passwordVal').notEmpty().withMessage('Ingrese su contraseña nuevamente'),
+]
+//Validaciones de la edición de datos de usuario
+const validationEdit = [
+    body('name').notEmpty().withMessage('Ingrese un nombre'),
+    body('username').notEmpty().withMessage('Ingrese un nick'),
+    body('email').notEmpty().withMessage('Ingrese un correo valido'),
+    body('password').notEmpty().withMessage('Ingrese una contraseña'),
+    body('passwordVal').notEmpty().withMessage('Ingrese su contraseña nuevamente'),
+]
+
 router.get("/login", userController.login);
 router.post("/login", userController.logger);
 
 router.get("/register", userController.register);
-router.post("/register", userController.registed);
+router.post("/register", validationReg, userController.registed);
 
 // "profile" es a la que deberían redirigir una vez se tiene un usuario
 router.get("/profile", userController.profile );
 
 router.get("/profileEdit", userController.profileEdit);
-router.put("/profileEdit", upload.single('image'), userController.profileEditUp); 
+router.put("/profileEdit", upload.single('image'), validationEdit , userController.profileEditUp); 
 
 //router.get (eliminar usuario, enviar a página de confirmación
 //router.delete (eliminar usuario)
