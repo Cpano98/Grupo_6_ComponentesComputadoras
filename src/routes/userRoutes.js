@@ -3,7 +3,7 @@ const router  = express.Router();
 const multer  = require('multer');
 const path    = require('path');
 const {body} = require('express-validator'); 
-
+const guestMiddle = require("../middlewares/guestMiddle");
 const userController =require("../controllers/userController");
 
 //Implementado de multer para usuario
@@ -43,10 +43,12 @@ const validationEdit = [
     body('passwordVal').notEmpty().withMessage('Ingrese su contraseña nuevamente'),
 ]
 
-router.get("/login", userController.login);
+
+
+router.get("/login", guestMiddle, userController.login);
 router.post("/login", userController.logger);
 
-router.get("/register", userController.register);
+router.get("/register", guestMiddle , userController.register);
 router.post("/register", validationReg, userController.registed);
 
 // "profile" es a la que deberían redirigir una vez se tiene un usuario

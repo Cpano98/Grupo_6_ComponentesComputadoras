@@ -12,7 +12,8 @@ const controller = {
     profile:  (req,res) => {
         //Si hay usuario logeado se debe mostrar** 
         //Usando cookies***
-        return res.render("profile.ejs")
+        let user = req.session.userLogged;
+        return res.render("profile.ejs",{user})
         //Si no lo hay debemos redirigir a login
     },
     profileEdit: (req, res) =>{
@@ -57,6 +58,7 @@ const controller = {
         return res.render("profile.ejs", {user})
     },
     login: (req, res) => { 
+        console.log(req.session)
         return res.render("login.ejs");
     },
     logger: (req,res) =>{ 
@@ -73,11 +75,7 @@ const controller = {
                 }
             });
         }
-        if( bcryptjs.compareSync(req.body.password, user.password) ){
-            return res.render("profile.ejs", {user});
-        }
-        else
-        {
+        if( !bcryptjs.compareSync(req.body.password, user.password) ){
             return res.render("login.ejs",{
                 errors:{
                     passwordErr:{
@@ -86,6 +84,11 @@ const controller = {
                 }
             })
         }
+        delete user.password; 
+        req.session.userLogged = user;
+        return res.render("profile.ejs", {user});
+            
+        
         
     },
     register: (req, res) => { 
