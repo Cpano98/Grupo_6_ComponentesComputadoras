@@ -80,8 +80,11 @@ const controller = {
                 errors:resultVal.mapped(),
                 old:req.body })
         }
-
+        //Si no tiene errores:
         const user = users.find(u => u.email == req.body.email)
+        
+
+
         if( user == undefined){
             //Usuario no encontrado, agregando
             console.log("Creando cuenta")
