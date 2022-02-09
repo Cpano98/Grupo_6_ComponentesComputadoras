@@ -4,12 +4,13 @@ const multer  = require('multer');
 const path    = require('path');
 
 const productController = require("../controllers/productController");
- 
+const guestMiddle = require("../middlewares/guestMiddle");
+const adminMiddle = require("../middlewares/adminMiddle");
 
 //implementación de multer para imagenes ***
 
 const storage = multer.diskStorage({
-    destination:(req, flie, cb)=>{
+    destination:(req, file, cb)=>{
         cb( null, path.join(__dirname, '../public/images/productosPrueba' ) );
     },
     filename:(req, file, cb )=>{
@@ -21,7 +22,7 @@ const upload = multer({storage});
 
 //Recordemos tienen el prefijo /products al buscarse aquí***
 /*-- admin  */
-router.get("/admin", productController.admin);
+router.get("/admin",adminMiddle , productController.admin);
 
 /* --- Get products --- */
 router.get("/", productController.lista);
@@ -33,11 +34,11 @@ router.get("/eliminado", productController.confirmacionEliminado);
 router.get("/productDetail/:id/", productController.product);
 
 /* --- Get/post crear producto --- */
-router.get("/create", productController.agregar);
+router.get("/create",adminMiddle , productController.agregar);
 router.post("/", upload.single('image'), productController.agregarProducto);
 
 /* --- Get/put editar producto --- */
-router.get('/edit/:id', productController.editar);
+router.get('/edit/:id', adminMiddle, productController.editar);
 router.put('/edit/:id', upload.single('image'), productController.actualizar);
 
 /* --- Delete borrar producto --- */

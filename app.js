@@ -21,20 +21,22 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     //cookie: { secure: true } //Session debe indicar cookies, no cookies default
-  }))
+}))
+
 
 /* bloque de routes */
 const mainRoutes = require("./src/routes/mainRoutes");
 const userRoutes = require("./src/routes/userRoutes");
 const productRoutes = require("./src/routes/productRoutes");
 
+/* bloque de middlewares globales  */
+const loggedMiddle = require("./src/middlewares/loggedMiddle");
 
 /* ruta de estilos */
 app.use(express.static("./src/public"));
 
 /* definiciones default de direcciones de directorios está en express */
 app.set('views', path.join( __dirname + "/src/views" ) )
-
 app.set('view engine', 'ejs');
 
 //Anclado de rutas [se llama así?]
@@ -42,6 +44,8 @@ app.use("/", mainRoutes);
 app.use("/user", userRoutes);
 app.use("/products", productRoutes);
 
+//aplicación de los middlewares
+app.use(loggedMiddle);
 
 //Heroku Config
 app.listen(process.env.PORT || 3000, function(){
