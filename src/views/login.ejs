@@ -32,6 +32,11 @@
 						<label class="label-login">Contraseña:</label><br>
 						<input class="campo-log" name="password" type="password" placeholder="--">
 					</div>
+					<%if(locals.errors && errors.passwordErr){ %>
+						<div class = "error-registro">
+							<%= errors.passwordErr.msg %>
+						</div>
+					<% } %>
 
 					<button class="btn btn-outline-success btn_search" type="submit">Ingresar</button>
 

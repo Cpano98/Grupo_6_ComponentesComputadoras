@@ -23,7 +23,13 @@
 				<p>Crea tu cuenta y disfruta de grandes e increíbles beneficios</p>
 
 				<form action="/user/register" method="POST">
+					<%if(locals.errors && errors.reg){ %>
+						<div class = "error-registro">
+							<%= errors.reg.msg %>
+						</div>
+					<% } %>
 					<div class="campo-ind">
+						
 						<label class="label-login">Nombre completo:</label><br>
 						<input class="campo-log" 
 							type="text" 

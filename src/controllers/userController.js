@@ -60,14 +60,33 @@ const controller = {
         return res.render("login.ejs");
     },
     logger: (req,res) =>{ 
-        /* identificar usuario por correo */
+
         const user = users.find(u => u.email == req.body.email)
+        
         if( user == undefined){
             //Usuario no encontrado:
-            console.log("Usted no tiene cuenta")
-            res.redirect("/user/register");
+            return res.render("register.ejs",{
+                errors:{
+                    reg:{
+                        msg:'Usted no tiene cuenta, favor de registrarse'
+                    }
+                }
+            });
         }
-        res.render("profile.ejs", {user});
+        if( bcryptjs.compareSync(req.body.password, user.password) ){
+            return res.render("profile.ejs", {user});
+        }
+        else
+        {
+            return res.render("login.ejs",{
+                errors:{
+                    passwordErr:{
+                        msg:'Contraseña Incorrecta'
+                    }
+                }
+            })
+        }
+        
     },
     register: (req, res) => { 
         return res.render("register.ejs");
@@ -95,8 +114,8 @@ const controller = {
             users.push(newUser)
 
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
-
-            res.render("profile.ejs",{user:newUser});
+            
+            return res.render("profile.ejs",{user:newUser});
         }
         else{
             //El usuario ya tiene cuenta, lo indicamos
