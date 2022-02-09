@@ -81,30 +81,32 @@ const controller = {
                 errors:resultVal.mapped(),
                 old:req.body })
         }
-        //Si no tiene errores:
+        //Si no tiene errores revisamos si existe el usuario
         const user = users.find(u => u.email == req.body.email)
-        
-
 
         if( user == undefined){
             //Usuario no encontrado, agregando
             console.log("Creando cuenta")
-            
-            //obtenemos la información enviada y eliminamos el objeto que no se almacena
+            //manipulación del usuario a guardar
             const newUser= req.body
-            
-            
             delete newUser.passwordVal;
-            
-            
+            newUser.password = bcryptjs.hashSync(req.body.password, 10)
+            console.log(newUser)
             users.push(newUser)
+
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
 
-            res.render("profile.ejs",{user});
+            res.render("profile.ejs",{user:newUser});
         }
         else{
-            //El usuario ya tiene cuenta, enviando
-            return res.render("profile.ejs", {user})
+            //El usuario ya tiene cuenta, lo indicamos
+            return res.render("register.ejs",  {
+                errors: {
+                    email:{
+                        msg:'Dicho correo ya está en uso por otro usuario'
+                    }
+                },
+                old:req.body })
         }   
     }
 }
