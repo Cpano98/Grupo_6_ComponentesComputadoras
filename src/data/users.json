@@ -21,22 +21,21 @@
   "image": "user1.jpg"
  },
  {
-  "name": "core2020",
-  "username": "Enoc494",
+  "name": "e",
+  "username": "e",
   "email": "2@2",
-  "password": "mocos",
-  "image": "Color_Wheel.jpg"
+  "password": "paco"
  },
  {
-  "name": "Core",
-  "username": "Enoc494",
-  "email": "ANGELAVELARB.94@GMAIL.COM",
+  "name": "core2020",
+  "username": "mocos",
+  "email": "3@3",
   "password": "mocos"
  },
  {
-  "name": "core2020",
-  "username": "",
-  "email": "",
-  "password": ""
+  "name": "core",
+  "username": "lel",
+  "email": "4@4",
+  "password": "mocos"
  }
 ]

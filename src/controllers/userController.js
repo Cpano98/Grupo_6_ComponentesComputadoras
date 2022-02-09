@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const {validationResult} = require("express-validator")
+const bcryptjs = require("bcryptjs");
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -91,7 +92,10 @@ const controller = {
             
             //obtenemos la información enviada y eliminamos el objeto que no se almacena
             const newUser= req.body
+            
+            
             delete newUser.passwordVal;
+            
             
             users.push(newUser)
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))

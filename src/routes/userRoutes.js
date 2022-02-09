@@ -23,7 +23,16 @@ const validationReg = [
     body('username').notEmpty().withMessage('Ingrese un nick'),
     body('email').notEmpty().withMessage('Ingrese un correo valido'),
     body('password').notEmpty().withMessage('Ingrese una contraseña'),
-    body('passwordVal').notEmpty().withMessage('Ingrese su contraseña nuevamente'),
+    body('passwordVal')
+        .notEmpty().withMessage('Ingrese su contraseña nuevamente').bail()
+        .custom( 
+            (value, {req} ) => {
+                if( value !== req.body.password){   
+                    throw new Error('Contraseña no coincide');
+                }
+            return true;
+        })
+
 ]
 //Validaciones de la edición de datos de usuario
 const validationEdit = [
