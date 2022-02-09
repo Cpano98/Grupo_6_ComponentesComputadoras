@@ -4,6 +4,7 @@ const multer  = require('multer');
 const path    = require('path');
 const {body} = require('express-validator'); 
 const guestMiddle = require("../middlewares/guestMiddle");
+const adminMiddle = require("../middlewares/adminMiddle");
 const userController =require("../controllers/userController");
 
 //Implementado de multer para usuario
@@ -52,13 +53,15 @@ router.get("/register", guestMiddle , userController.register);
 router.post("/register", validationReg, userController.registed);
 
 // "profile" es a la que deberían redirigir una vez se tiene un usuario
-router.get("/profile", userController.profile );
+router.get("/profile", adminMiddle, userController.profile );
 
-router.get("/profileEdit", userController.profileEdit);
+router.get("/profileEdit", adminMiddle, userController.profileEdit);
 router.put("/profileEdit", upload.single('image'), validationEdit , userController.profileEditUp); 
+
+router.get("/logout", adminMiddle, userController.logout );
 
 //router.get (eliminar usuario, enviar a página de confirmación
 //router.delete (eliminar usuario)
-//router.post (cerrar sesion) //Loggout??
+
 
 module.exports = router; 

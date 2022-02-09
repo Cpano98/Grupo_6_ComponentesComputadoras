@@ -10,15 +10,11 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const controller = {
     profile:  (req,res) => {
-        //Si hay usuario logeado se debe mostrar** 
-        //Usando cookies***
         let user = req.session.userLogged;
         return res.render("profile.ejs",{user})
-        //Si no lo hay debemos redirigir a login
     },
     profileEdit: (req, res) =>{
-        //mandar el usuario para rellenar defaults
-        const user = users.find(u => u.email == req.body.email)
+        let user = req.session.userLogged;
         return res.render("profileEdit.ejs", {user})
     },
     profileEditUp: (req, res)=>{
@@ -57,11 +53,10 @@ const controller = {
         //Cambiar esto por un redirect cuando el programa RECUERDE al usuario
         return res.render("profile.ejs", {user})
     },
-    login: (req, res) => { 
-        console.log(req.session)
+    login:  (req, res) => { 
         return res.render("login.ejs");
     },
-    logger: (req,res) =>{ 
+    logger: (req, res) =>{ 
 
         const user = users.find(u => u.email == req.body.email)
         
@@ -91,6 +86,11 @@ const controller = {
         
         
     },
+    logout: (req, res)=>{
+        //matamos session
+        req.session.destroy(); 
+        return res.redirect("/");
+    },
     register: (req, res) => { 
         return res.render("register.ejs");
     },
@@ -107,13 +107,10 @@ const controller = {
         const user = users.find(u => u.email == req.body.email)
 
         if( user == undefined){
-            //Usuario no encontrado, agregando
-            console.log("Creando cuenta")
             //manipulación del usuario a guardar
             const newUser= req.body
             delete newUser.passwordVal;
             newUser.password = bcryptjs.hashSync(req.body.password, 10)
-            console.log(newUser)
             users.push(newUser)
 
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
