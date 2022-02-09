@@ -11,7 +11,6 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const controller = {
     profile:  (req,res) => {
         let user = req.session.userLogged;
-        console.log(req.cookies.userEmail);
         return res.render("profile.ejs",{user})
     },
     profileEdit: (req, res) =>{
@@ -71,6 +70,8 @@ const controller = {
                 }
             });
         }
+        console.log(user.password)
+        console.log(req.body.password)
         if( !bcryptjs.compareSync(req.body.password, user.password) ){
             return res.render("login.ejs",{
                 errors:{
@@ -80,9 +81,12 @@ const controller = {
                 }
             })
         }
-        delete user.password; 
+        if(user.password){
+            //delete user.password; 
+        }
         req.session.userLogged = user;
-
+        
+        
         
         if(req.body.recordarUsuario){
             res.cookie('userEmail', req.body.email, { maxAge:1000 * 3600})

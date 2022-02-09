@@ -15,7 +15,6 @@ function loggedMiddle(req, res, next){
     let userFromCookie = users.find(u => u.email == req.cookies.userEmail)
     if(userFromCookie){
         req.session.userLogged = userFromCookie; 
-        delete req.session.userLogged.password
     }
 
 

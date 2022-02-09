@@ -44,10 +44,14 @@ const validationEdit = [
     body('passwordVal').notEmpty().withMessage('Ingrese su contraseña nuevamente'),
 ]
 
+const validationLog = [
+    body('password').notEmpty().withMessage('Debe incluir una contraseña')
+]
+
 
 
 router.get("/login", guestMiddle, userController.login);
-router.post("/login", userController.logger);
+router.post("/login", validationLog, userController.logger);
 
 router.get("/register", guestMiddle , userController.register);
 router.post("/register", validationReg, userController.registed);

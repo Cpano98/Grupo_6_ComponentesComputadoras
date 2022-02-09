@@ -17,7 +17,6 @@ const controller = {
         //renombre productoEnviar por "item"
         const id = req.params.id
         const item = products.find(p => p.id == id)
-        //console.log(id)
         res.render("productDetail.ejs", {item});
     },
 
