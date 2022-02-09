@@ -11,6 +11,7 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const controller = {
     profile:  (req,res) => {
         let user = req.session.userLogged;
+        console.log(req.cookies.userEmail);
         return res.render("profile.ejs",{user})
     },
     profileEdit: (req, res) =>{
@@ -81,6 +82,12 @@ const controller = {
         }
         delete user.password; 
         req.session.userLogged = user;
+
+        
+        if(req.body.recordarUsuario){
+            res.cookie('userEmail', req.body.email, { maxAge:1000 * 3600})
+        }
+
         return res.render("profile.ejs", {user});
             
         
@@ -89,9 +96,12 @@ const controller = {
     logout: (req, res)=>{
         //matamos session
         req.session.destroy(); 
+        res.clearCookie('userEmail');
+        //delete req.cookie.userEmail;
         return res.redirect("/");
     },
     register: (req, res) => { 
+        res.cookie('testing', 'hola mundo', {maxAge: 1000 * 30})
         return res.render("register.ejs");
     },
     registed: (req, res) =>{
