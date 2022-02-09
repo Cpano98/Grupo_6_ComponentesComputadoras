@@ -2,6 +2,7 @@
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const express = require('express');
+const session = require('express-session');
 const logger = require('morgan');
 const path = require('path');
 const methodOverride = require('method-override'); // Pasar poder usar los métodos PUT y DELETE
@@ -15,6 +16,12 @@ app.use(express.urlencoded({ extended: true }));
 //app.use(cookieParser());
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 //app.use(express.bodyParser());
+app.use(session({
+    secret: '10DeCarnazaParaLlevar',
+    resave: false,
+    saveUninitialized: false,
+    //cookie: { secure: true } //Session debe indicar cookies, no cookies default
+  }))
 
 /* bloque de routes */
 const mainRoutes = require("./src/routes/mainRoutes");
