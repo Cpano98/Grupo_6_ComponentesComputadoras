@@ -1,9 +1,9 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "username": "u699789424_MiPCuser",
+    "password": "c5XlUeB0];",
+    "database": "u699789424_MiPCproject",
+    "host": "151.106.116.113",
     "dialect": "mysql"
   },
   "test": {

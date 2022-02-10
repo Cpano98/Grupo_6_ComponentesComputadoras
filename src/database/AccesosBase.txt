@@ -1,0 +1,14 @@
+Base de Datos MySQL:
+u699789424_MiPCproject
+
+MySQL User:
+u699789424_MiPCuser
+
+Password:
+c5XlUeB0];
+
+Dirección IP:
+151.106.116.113
+
+Dominio principal:
+cpano.online
