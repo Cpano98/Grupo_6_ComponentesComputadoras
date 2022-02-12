@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const productsFilePath = path.join(__dirname, '../data/products.json');
+//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 // Sequelize requirements
 const db = require('../database/models');
@@ -17,7 +17,8 @@ const controller = {
 		// Sequelize Implementation
 		Products.findAll()
 		.then(products => {
-			res.render('listaProductosCRUD.ejs', { products });
+			//res.render('listaProductosCRUD.ejs', { products });
+			res.send(products)
 		})
 		.catch(err => {
 			res.render('error404', { status: 404, url: req.url });

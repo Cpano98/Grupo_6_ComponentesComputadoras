@@ -19,7 +19,7 @@
     "debug": "~2.6.9",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "gulp": "^4.0.2",
+    "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",

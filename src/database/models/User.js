@@ -25,7 +25,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         role: {
-            type: dataType.STRING(45),
+            type: dataTypes.STRING(45),
             allowNull: false
         },
         img: {
@@ -35,6 +35,7 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         timestamps: false,
+        tableName: 'user'
     }
     const User = sequelize.define(alias, cols, config); 
 

@@ -46,10 +46,10 @@
                             </div>
                             <div class="col-4">
                                 <h2 class="titulo_producto" id="tituloCrud">
-                                    <%= item.nombre_producto.substring(0,25) %>
+                                    <%= item.name %>
                                 </h2>
                                 <p class="descrip_producto" id="descripcionProductosCrud">
-                                    <%= item.descripcion.substring(0,150) %>
+                                    <%= item.description%>
                                 </p>
 
                                 <p class="descrip_producto" id="hide">
@@ -58,14 +58,14 @@
                             </div>
 
                             <div class="col" id="hide">
-                                <%= item.piezas %> piezas
+                                <%= item.pieces %> piezas
                             </div>
                             <div class="col" id="hide">
-                                <%= item.precio %>
+                                <%= item.price %>
                             </div>
 
                             <div class="col" id="hide">
-                                <%= item.descuento %> %OFF
+                                <%= item.discount %> %OFF
                             </div>
 
                             <div class="col">

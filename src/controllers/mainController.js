@@ -1,49 +1,40 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const productsFilePath = path.join(__dirname, '../data/products.json');
+//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 // Sequelize requirements
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const Op = db.Sequelize.Op;
+const { Op }= db.Sequelize.Op;
+const Product = require('../database/models/Product');
+
 const Products = db.Product;
 
 const controller = {
     index: (req, res) => {
-				/*
-        //Ofertas
-        const ofertas = [];
-        const sinOferta = [];
-
-        products.forEach(p => {
-            if (p.descuento != "0") {
-                ofertas.push(p);
-            } else {
-                sinOferta.push(p);
-            }
-        })
-
-        return res.render("index.ejs", { products, ofertas, sinOferta });
-				*/
-
 			// Sequelize Implementation
+			
 			const conOferta = [];
 			const sinOferta = [];
 			Products.findAll()
+			/*
 				.then(products => {
 					products.forEach(item => {
 						item.discount > 0 ? conOferta.push(item) : sinOferta.push(item)
 					})
 				})
-				.then(() => {
-					return res.render('index.ejs', {conOferta: conOferta, sinOferta: sinOferta})
+				*/
+
+				.then((products) => {
+					//return res.send(products)
+					return res.render('index.ejs', {conOferta: products, sinOferta: products})
 				})
 				.catch(err => {
-					res.render('error404.ejs', { status: 404, url: req.url });
+					res.send(err)
 				})
-
+			// */
     }
 }
 

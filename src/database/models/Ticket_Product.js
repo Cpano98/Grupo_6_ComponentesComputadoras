@@ -23,6 +23,7 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         timestamps: false,
+        tableName: 'ticket_product'
     }
     const Ticket_Product = sequelize.define(alias, cols, config); 
 
