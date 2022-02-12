@@ -22,6 +22,7 @@ app.use(session({
     saveUninitialized: false,
     //cookie: { secure: true } //Session debe indicar cookies, no cookies default
 }))
+app.use(express.json());
 
 
 /* bloque de routes */

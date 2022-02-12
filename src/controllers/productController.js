@@ -4,104 +4,122 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+// Sequelize requirements
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const Op = db.Sequelize.Op;
+const Products = db.Product;
+
 const controller = {
-    //Listado de productos
-    lista: (req, res) => {
-        res.render("listaProductoscCRUD.ejs", { products });
-    },
-    confirmacionEliminado: (req, res) => {
-        res.render("productoEliminado.ejs");
-    },
-    //Detalles de producto
-    product: (req, res) => {
-        //renombre productoEnviar por "item"
-        const id = req.params.id
-        const item = products.find(p => p.id == id)
-        res.render("productDetail.ejs", {item});
-    },
+	//Listado de productos
+	lista: (req, res) => {
+		//res.render("listaProductoscCRUD.ejs", { products });
+		Products.findAll()
+		.then(products => {
+			res.render('listaProductosCRUD.ejs', { products });
+		})
+		.catch(err => {
+			res.render('error404', { status: 404, url: req.url });
+		})
+	},
+	confirmacionEliminado: (req, res) => {
+		res.render("productoEliminado.ejs");
+	},
+	//Detalles de producto
+	product: (req, res) => {
+		//renombre productoEnviar por "item"
+		const id = req.params.id
+		const item = products.find(p => p.id == id)
+		res.render("productDetail.ejs", { item });
+		Products.findByPK(req.params.id)
+		.then()
+		.catch(err => {
+			res.render('error404', { status: 404, url: req.url });
+		})
+	},
 
-    /* Contenido de admin a product */
-    
-    admin: (req, res) => {
-        res.render("adminPanel.ejs");
-    },
-    agregar: (req, res) => {
-        res.render("agregarProducto.ejs");
-    },
-    agregarProducto: (req, res, next) => {
-        /*
-        Revisar si el id de productos es dinámico o nel?
-        */
-        const file = req.file
-        if(!file){
-            const error = new Error('No ha seleccionado un archivo')
-            error.httpStatusCode = 400;
-            return res.render('error400.ejs')
-            //return next(error)
-        }
+	/* Contenido de admin a product */
 
-        const newProduct = {
-            id: products[products.length - 1].id + 1,
-            ...req.body,
-            image: file.originalname
-        }
+	admin: (req, res) => {
+		res.render("adminPanel.ejs");
+	},
+	agregar: (req, res) => {
+		res.render("agregarProducto.ejs");
+	},
+	agregarProducto: (req, res, next) => {
+		/*
+		Revisar si el id de productos es dinámico o nel?
+		*/
+		const file = req.file
+		if (!file) {
+			const error = new Error('No ha seleccionado un archivo')
+			error.httpStatusCode = 400;
+			return res.render('error400.ejs')
+			//return next(error)
+		}
 
-        products.push(newProduct)
+		const newProduct = {
+			id: products[products.length - 1].id + 1,
+			...req.body,
+			image: file.originalname
+		}
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+		products.push(newProduct)
 
-        res.redirect("products")
-    },
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+
+		res.redirect("products")
+	},
 
 
-    editar: (req, res) => {
-        const id = req.params.id
-        const item = products.find(p => p.id == id)
-        return res.render("editarProducto.ejs", {item});
-    },
-    actualizar:(req, res, next)=>{
-        const file = req.file
-        if(!file){
-            const error = new Error('No hta seleccionado un archivo')
-            error.httpStatusCode = 400;
-            return res.render('error400.ejs')
-        }
+	editar: (req, res) => {
+		const id = req.params.id
+		const item = products.find(p => p.id == id)
+		return res.render("editarProducto.ejs", { item });
+	},
+	actualizar: (req, res, next) => {
+		const file = req.file
+		if (!file) {
+			const error = new Error('No hta seleccionado un archivo')
+			error.httpStatusCode = 400;
+			return res.render('error400.ejs')
+		}
 
-        const id = req.params.id
-        const idx = products.findIndex(p => p.id == id);
+		const id = req.params.id
+		const idx = products.findIndex(p => p.id == id);
 
-        
-        /* Revisar si sí actualizamos solo imagenes? */
-        /*Revisar cambios debidos a ponerle fechas a las imagenes*/
-        
-        const imagenAUsar = products[idx].image == file.originalname ? products[idx].image:file.originalname
 
-        products[idx] ={
-            id,
-            ...req.body,
-            image: imagenAUsar
-        }
+		/* Revisar si sí actualizamos solo imagenes? */
+		/*Revisar cambios debidos a ponerle fechas a las imagenes*/
 
-        
+		const imagenAUsar = products[idx].image == file.originalname ? products[idx].image : file.originalname
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-        res.redirect("/products/productDetail/"+id) 
-    },
+		products[idx] = {
+			id,
+			...req.body,
+			image: imagenAUsar
+		}
 
-    borrar: (req, res) => {
-        const id = req.params.id
-        const idx = products.findIndex(p => p.id == id)
 
-        products.splice(idx, 1)
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-        res.redirect("/products/eliminado")
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+		res.redirect("/products/productDetail/" + id)
+	},
 
-    },
-    //Mover el carrito?
-    cart: (req, res) => { 
-        return res.render("productCart.ejs");
-    }
+	borrar: (req, res) => {
+		const id = req.params.id
+		const idx = products.findIndex(p => p.id == id)
+
+		products.splice(idx, 1)
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+		res.redirect("/products/eliminado")
+
+	},
+	//Mover el carrito?
+	cart: (req, res) => {
+		return res.render("productCart.ejs");
+	}
 }
 
 module.exports = controller
