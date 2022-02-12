@@ -139,7 +139,6 @@
   "image": "img-parlante-sony.jpg",
   "piezas": "10",
   "estado": "usado"
-<<<<<<< HEAD
  },
  {
   "id": 17,
@@ -196,7 +195,5 @@
   "sku": "",
   "descuento": "",
   "image": ""
-=======
->>>>>>> 996e4591e437c431590abca64d74a0be90884a33
  }
 ]
