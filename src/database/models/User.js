@@ -6,6 +6,10 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
+        name: {
+            type: dataTypes.STRING(100),
+            allowNull: false
+        },
         // created_at: dataTypes.TIMESTAMP,
         // updated_at: dataTypes.TIMESTAMP,
         username: {
@@ -18,6 +22,10 @@ module.exports = (sequelize, dataTypes) => {
         },
         pass: {
             type: dataTypes.STRING(50),
+            allowNull: false
+        },
+        role: {
+            type: dataType.STRING(45),
             allowNull: false
         },
         img: {

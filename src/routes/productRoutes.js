@@ -2,6 +2,7 @@ const express = require("express");
 const router  = express.Router();
 const multer  = require('multer');
 const path    = require('path');
+const {body} = require('express-validator'); 
 
 const productController = require("../controllers/productController");
 const guestMiddle = require("../middlewares/guestMiddle");
@@ -19,6 +20,12 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({storage});
+
+//Validaciones del registro de productos
+/* ??? */
+const validationReg = [
+    body('sku').notEmpty().withMessage('Ingrese un nombre').bail()
+]
 
 //Recordemos tienen el prefijo /products al buscarse aquí***
 /*-- admin  */

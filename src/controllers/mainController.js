@@ -28,7 +28,7 @@ const controller = {
         return res.render("index.ejs", { products, ofertas, sinOferta });
 				*/
 
-			//Ofertas
+			// Sequelize Implementation
 			const conOferta = [];
 			const sinOferta = [];
 			Products.findAll()
@@ -38,10 +38,10 @@ const controller = {
 					})
 				})
 				.then(() => {
-					return res.render('index.js', {conOferta: conOferta, sinOferta: sinOferta})
+					return res.render('index.ejs', {conOferta: conOferta, sinOferta: sinOferta})
 				})
 				.catch(err => {
-					res.json({err: err.message})
+					res.render('error404.ejs', { status: 404, url: req.url });
 				})
 
     }

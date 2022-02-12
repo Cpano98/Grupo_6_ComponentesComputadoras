@@ -12,6 +12,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false
         },
+        sku:{
+            type: dataTypes.STRING(15),
+            allowNull:false
+        },
         description: {
             type: dataTypes.TEXT(800),
             allowNull: false
@@ -32,13 +36,13 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(30),
             allowNull: true
         },
-        pieces: {
-            type: dataTypes.INT,
-            allowNull: false
+        brand: {
+            type: dataTypes.STRING(30),
+            allowNull: true
         },
-        sku:{
-            type: dataTypes.STRING(15),
-            allowNull:false
+        pieces: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
 
     };
