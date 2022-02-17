@@ -7,35 +7,37 @@ const path = require('path');
 // Sequelize requirements
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const { Op }= db.Sequelize.Op;
+const { Op } = db.Sequelize.Op;
 const Product = require('../database/models/Product');
 
 const Products = db.Product;
 
 const controller = {
-    index: (req, res) => {
-			// Sequelize Implementation
-			
-			const conOferta = [];
-			const sinOferta = [];
-			Products.findAll()
-			/*
-				.then(products => {
-					products.forEach(item => {
-						item.discount > 0 ? conOferta.push(item) : sinOferta.push(item)
-					})
-				})
-				*/
+	index: (req, res) => {
+		//res.render("listaProductoscCRUD.ejs", { products });
+		// Sequelize Implementation
+		const conOferta = [];
+		const sinOferta = [];
 
-				.then((products) => {
-					//return res.send(products)
-					return res.render('index.ejs', {conOferta: products, sinOferta: products})
-				})
-				.catch(err => {
-					res.send(err)
-				})
-			// */
-    }
+		Products.findAll().then((products) => {
+
+			products.forEach(p => {
+				if (p.discount != "0") {
+					conOferta.push(p);
+				} else {
+					sinOferta.push(p);
+				}
+			})
+
+			//console.log(conOferta);
+			//console.log(sinOferta);
+
+			return res.render('index.ejs', { conOferta, sinOferta })
+		})
+			.catch(err => {
+				res.send(err)
+			})
+	}
 }
 
 module.exports = controller

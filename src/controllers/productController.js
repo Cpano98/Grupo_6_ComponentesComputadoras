@@ -15,14 +15,27 @@ const controller = {
 	lista: (req, res) => {
 		//res.render("listaProductoscCRUD.ejs", { products });
 		// Sequelize Implementation
-		Products.findAll()
-		.then(products => {
-			//res.render('listaProductosCRUD.ejs', { products });
-			res.send(products)
+		const conOferta = [];
+		const sinOferta = [];
+
+		Products.findAll().then((products) => {
+
+			products.forEach(p => {
+				if (p.discount != "0") {
+					conOferta.push(p);
+				} else {
+					sinOferta.push(p);
+				}
+			})
+
+			//console.log(conOferta);
+			//console.log(sinOferta);
+
+			return res.render('todosLosProductos.ejs', { conOferta, sinOferta })
 		})
-		.catch(err => {
-			res.render('error404', { status: 404, url: req.url });
-		})
+			.catch(err => {
+				res.send(err)
+			})
 	},
 	confirmacionEliminado: (req, res) => {
 		res.render("productoEliminado.ejs");
@@ -38,13 +51,13 @@ const controller = {
 		*/
 
 		// Sequelize Implementation
-		Products.findByPK(req.params.id)
-		.then(product => {
-			res.render("productDetail.ejs", { product });
-		})
-		.catch(err => {
-			res.render('error404', { status: 404, url: req.url });
-		})
+		Products.findByPk(req.params.id)
+			.then(product => {
+				res.render("productDetail.ejs", { item: product });
+			})
+			.catch(err => {
+				res.render('error404', { status: 404, url: req.url });
+			})
 	},
 
 	/* Contenido de admin a product */
@@ -52,15 +65,24 @@ const controller = {
 	admin: (req, res) => {
 		res.render("adminPanel.ejs");
 	},
+	adminLista: (req, res) => {
+		Products.findAll()
+			.then(products => {
+				//console.log(products);
+				res.render('listaProductosCRUD.ejs', { products });
+			})
+			.catch(err => {
+				res.render('error404', { status: 404, url: req.url });
+			})
+	},
 	agregar: (req, res) => {
 		res.render("agregarProducto.ejs");
 	},
 
 	/* - - - - - - - - AGREGAR PRODUCTO - - - - - - - - - */
 	agregarProducto: (req, res, next) => {
+
 		/*
-		Revisar si el id de productos es dinámico o nel?
-		*/
 		const file = req.file
 		if (!file) {
 			const error = new Error('No ha seleccionado un archivo')
@@ -68,32 +90,28 @@ const controller = {
 			return res.render('error404.ejs')
 			//return next(error)
 		}
-
-		/*
-		const newProduct = {
-			id: products[products.length - 1].id + 1,
-			...req.body,
-			image: file.originalname
-		}
-
-		products.push(newProduct)
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
 		*/
 
+		console.log("Valores form " + req.body);
+
+		//res.send("Info recibida")
+
 		Products.create({
-			name: req.body.nombre_producto,
+			name: req.body.name,
 			sku: req.body.sku,
-			description: req.body.descripcion,
-			price: req.body.precio,
-			discount: req.body.descuento,
-			image: file.originalname,
-			category: req.body.categoria,
-			brand: req.body.marca,
-			pieces: req.body.piezas
+			description: req.body.description,
+			price: req.body.price,
+			discount: req.body.discount,
+			//image: file.originalname,
+			category: req.body.category,
+			brand: req.body.brand,
+			pieces: req.body.pieces
+		}).then(products => {
+			//console.log(products);
+			res.redirect("admin/lista-productos")
 		})
 
-		res.redirect("products")
+
 	},
 
 	/* - - - - - - - - EDITAR PRODUCTO - - - - - - - - - */
@@ -104,24 +122,42 @@ const controller = {
 		return res.render("editarProducto.ejs", { item });
 		*/
 
+
 		// Sequelize Implementation
+
+		/*
 		Products.findByPK(req.params.id)
 		.then(product => {
-			res.render("editarProducto.ejs", { product });
+			res.render("editarProducto.ejs", { item:product });
 		})
 		.catch(err => {
 			res.render('error404', { status: 404, url: req.url });
 		})
+		*/
+
+		Products.findByPk(req.params.id)
+			.then(products => {
+				//console.log(products.name);
+				//console.log(products.id);
+				//console.log(products.discount);
+				res.render('editarProducto.ejs', { item: products });
+			})
+			.catch(err => {
+				res.render('error404', { status: 404, url: req.url });
+			})
+
 	},
 
 	/* - - - - - - - - ACTUALIZAR PRODUCTO - - - - - - - - - */
 	actualizar: (req, res, next) => {
+		/*
 		const file = req.file
 		if (!file) {
 			const error = new Error('No hta seleccionado un archivo')
 			error.httpStatusCode = 400;
 			return res.render('error400.ejs')
 		}
+		*/
 
 		/*
 		const id = req.params.id
@@ -146,17 +182,41 @@ const controller = {
 		*/
 
 		// Sequelize Implementation
-		Products.findByPK(req.params.id)
-		.then(product => {
-			product.image = product.image == file.originalname ? product.image : file.originalname;
-			return product
-		})
-		.then(product => {
-			res.redirect("/products/productDetail/" + product.id)
-		})
-		.catch(err => {
-			res.render('error404', { status: 404, url: req.url });
-		})
+		console.log("Editando producto: " + req.params.id);
+		console.log(req.body);
+
+		/*
+		Products.findByPk(req.params.id)
+			.then(product => {
+				product.image = product.image == file.originalname ? product.image : file.originalname;
+				return product
+			})
+			.then(product => {
+				res.redirect("/products/productDetail/" + product.id)
+			})
+			.catch(err => {
+				res.render('error404', { status: 404, url: req.url });
+			})
+			*/
+			Products.update({
+				name: req.body.name,
+				sku: req.body.sku,
+				description: req.body.description,
+				price: req.body.price,
+				discount: req.body.discount,
+				//image: file.originalname,
+				category: req.body.category,
+				brand: req.body.brand,
+				pieces: req.body.pieces
+			},
+			{
+				where: {id: req.params.id}
+			}).then(
+				res.render("productoActualizado.ejs")
+			);
+
+			
+			
 	},
 
 	/* - - - - - - - - BORRAR PRODUCTO - - - - - - - - - */
@@ -174,12 +234,12 @@ const controller = {
 		Products.destroy({
 			where: { id: req.params.id }
 		})
-		.then(() => {
-			res.redirect("/products/eliminado")
-		})
-		.catch(err => {
-			res.render('error404', { status: 404, url: req.url });
-		})
+			.then(() => {
+				res.redirect("/products/eliminado")
+			})
+			.catch(err => {
+				res.render('error404', { status: 404, url: req.url });
+			})
 
 	},
 	//Mover el carrito?

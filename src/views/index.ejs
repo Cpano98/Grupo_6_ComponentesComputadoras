@@ -120,7 +120,7 @@
                             <% if (item.discount=="0" ){ %>
                                 <p class="Soferta">-</p>
                                 <% }else{ %>
-                                    <p class="oferta"><strong>OFERTA:</strong> -<%= item.descount %>% de descuento</p>
+                                    <p class="oferta"><strong>OFERTA:</strong> -<%= item.discount %>% de descuento</p>
                                     <% } %>
                         </div>
 
@@ -149,7 +149,7 @@
                                     <% } %>
 
                                         <h2 class="titulo_producto">
-                                            <%= item.name %>
+                                            <%= item.name.substring(0,100) %>
                                         </h2>
 
                                         <p class="descrip_producto">

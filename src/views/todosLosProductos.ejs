@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title> Productos | MiPC </title>
+    <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+    <header>
+        <!--Header-escritorio-->
+        <%- include("partials/header.ejs") %>
+            <!-- Header hambuger  -->
+            <%- include("partials/headerhambugerMenu.ejs")%>
+    </header>
+    <main>
+       
+
+        <div class="marcas-container" style="background-color: #fff;">
+
+        </div>
+
+
+
+        <div class="grid-contenedor-productos" style="margin-top: 70px;">
+            <div class="title-cont">
+                <h2 class="tit-1" style="transform: translateY(-6px);">Productos elegidos para ti</h2>
+            </div>
+
+            <div class="pro-destacados">
+                <!--Producto Individual-->
+
+                <% for (const item of conOferta) { %>
+
+                    <article class="individual">
+                        <!--Ofert-->
+                        <div class="cont-oferta">
+                            <% if (item.discount=="0" ){ %>
+                                <p class="Soferta">-</p>
+                                <% }else{ %>
+                                    <p class="oferta"><strong>OFERTA:</strong> -<%= item.discount %>% de descuento</p>
+                                    <% } %>
+                        </div>
+
+                        <div class="contenedor-imagen">
+                            <img class="img_ind" src="/images/productosPrueba/<%= item.image %>" alt="MacBook Pro 2019">
+                        </div>
+
+                        <div class="contenedor_info">
+                            <!--Stock-->
+                            <% if (item.pieces=="0" ){ %>
+                                <p class="stock" style="color: #e23e4e;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="#e23e4e"
+                                        class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                        <circle cx="8" cy="8" r="8" />
+                                    </svg>
+                                    Sin stock
+                                </p>
+                                <% }else{ %>
+                                    <p class="stock" style="color: green">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="green"
+                                            class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                            <circle cx="8" cy="8" r="8" />
+                                        </svg>
+                                        <%= item.pieces %> piezas disponibles
+                                    </p>
+                                    <% } %>
+
+                                        <h2 class="titulo_producto">
+                                            <%= item.name.substring(0,50) %>
+                                        </h2>
+
+                                        <p class="descrip_producto">
+                                            <%= item.description %>
+                                        </p>
+                                        <p class="descrip_producto"> <strong>SKU: </strong>
+                                            <%= item.sku %>
+                                                | <strong>MARCA: </strong>
+                                                <%= item.brand %>
+                                        </p>
+
+                                        </h3>
+                                        <div class="atributos">
+
+                                            <% if (item.discount=="0" ){ %>
+                                                <div>
+                                                    <h3 class="precioNormal" style="color: white;"> -
+                                                    </h3>
+                                                    <h3 class="precio"> $<%= item.price %>
+                                                    </h3>
+                                                    <p class="descrip_producto" style="color: white;"> <strong>Sin
+                                                        </strong>
+                                                        descuento
+                                                    </p>
+                                                </div>
+
+
+                                                <% }else{ %>
+                                                    <% const precioFinal=item.discount / 100 * item.price; %>
+                                                        <div>
+                                                            <h3 class="precioNormal"> $<%= item.price %>
+                                                            </h3>
+                                                            <h3 class="precio"> $<%= item.price - precioFinal %>
+                                                            </h3>
+                                                            <p class="descrip_producto"> <strong>Ahorras: </strong>
+                                                                $<%= precioFinal %>
+                                                            </p>
+                                                        </div>
+                                                        <% } %>
+                                                            <div class="stars">
+                                                                <span class="fa fa-star checked"></span>
+                                                                <span class="fa fa-star checked"></span>
+                                                                <span class="fa fa-star checked"></span>
+                                                                <span class="fa fa-star"></span>
+                                                                <span class="fa fa-star"></span>
+                                                            </div>
+                                        </div>
+                                        <div class="agregar-carrito">
+                                            <button class="btn1">
+                                                <a href="/products/productDetail/<%= item.id %>" class="link">
+                                                    <div class="contenedor_btn">
+                                                        <p class="texto-carrito">Ver producto</p>
+                                                        <svg class="icon-tienda" xmlns="http://www.w3.org/2000/svg"
+                                                            width="16" height="16" fill="currentColor"
+                                                            class="bi bi-basket2-fill" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z" />
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                            </button>
+                                        </div>
+                        </div>
+                    </article>
+                    <% } %>
+
+                        <% for (const item of sinOferta) { %>
+
+                            <article class="individual">
+                                <!--Ofert-->
+                                <div class="cont-oferta">
+                                    <% if (item.discount=="0" ){ %>
+                                        <p class="Soferta">-</p>
+                                        <% }else{ %>
+                                            <p class="oferta"><strong>OFERTA:</strong> -<%= item.discount %>% de
+                                                    descuento</p>
+                                            <% } %>
+                                </div>
+
+                                <div class="contenedor-imagen">
+                                    <img class="img_ind" src="/images/productosPrueba/<%= item.image %>"
+                                        alt="MacBook Pro 2019">
+                                </div>
+
+                                <div class="contenedor_info">
+                                    <!--Stock-->
+                                    <% if (item.pieces=="0" ){ %>
+                                        <p class="stock" style="color: #e23e4e;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="#e23e4e"
+                                                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                <circle cx="8" cy="8" r="8" />
+                                            </svg>
+                                            Sin stock
+                                        </p>
+                                        <% }else{ %>
+                                            <p class="stock" style="color: green">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9"
+                                                    fill="green" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg>
+                                                <%= item.pieces %> piezas disponibles
+                                            </p>
+                                            <% } %>
+
+                                                <h2 class="titulo_producto">
+                                                    <%= item.name %>
+                                                </h2>
+
+                                                <p class="descrip_producto">
+                                                    <%= item.description %>
+                                                </p>
+                                                <p class="descrip_producto"> <strong>SKU: </strong>
+                                                    <%= item.sku %>
+                                                        | <strong>MARCA: </strong>
+                                                        <%= item.brand %>
+                                                </p>
+
+                                                </h3>
+                                                <div class="atributos">
+
+                                                    <% if (item.discount=="0" ){ %>
+                                                        <div>
+                                                            <h3 class="precioNormal" style="color: white;"> -
+                                                            </h3>
+                                                            <h3 class="precio"> $<%= item.price %>
+                                                            </h3>
+                                                            <p class="descrip_producto" style="color: white;">
+                                                                <strong>Sin
+                                                                </strong>
+                                                                descuento
+                                                            </p>
+                                                        </div>
+
+
+                                                        <% }else{ %>
+                                                            <% const precioFinal=item.discount / 100 * item.price; %>
+                                                                <div>
+                                                                    <h3 class="precioNormal"> $<%= item.price %>
+                                                                    </h3>
+                                                                    <h3 class="precio"> $<%= item.price - precioFinal %>
+                                                                    </h3>
+                                                                    <p class="descrip_producto"> <strong>Ahorras:
+                                                                        </strong>
+                                                                        $<%= precioFinal %>
+                                                                    </p>
+                                                                </div>
+                                                                <% } %>
+                                                                    <div class="stars">
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                    </div>
+                                                </div>
+                                                <div class="agregar-carrito">
+                                                    <button class="btn1">
+                                                        <a href="/products/productDetail/<%= item.id %>" class="link">
+                                                            <div class="contenedor_btn">
+                                                                <p class="texto-carrito">Ver producto</p>
+                                                                <svg class="icon-tienda"
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                    height="16" fill="currentColor"
+                                                                    class="bi bi-basket2-fill" viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z" />
+                                                                </svg>
+                                                            </div>
+                                                        </a>
+                                                    </button>
+                                                </div>
+                                </div>
+                            </article>
+
+                            <% } %>
+            </div>
+        </div>
+
+
+
+
+        <!--BANNERS-->
+        <div class="Ofertas-Prom" style="padding-bottom: 40px;">
+            <div class="container-fluid">
+                <h2 class="tit-2">Únicos, originales y exclusivos de MiPC</h2>
+                <p id="subtexto">Productos exclusivos de Mi PC</p>
+                <div class="row promocionesB" style="margin-bottom: -40px;">
+                    <div class="col-md p-banner" id="promo-1-b">
+                        <div id="overlay">
+                            <p class="texto-1-banner">Lo más nuevo</p>
+                            <h2 class="heading-1-banner">Gabinetes RGB para tu PC</h2>
+                            <a href="#" class="btn-1-banner">Comprar ahora<svg style="transform: translateY(7px);"
+                                    xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md p-banner" id="promo-2-b">
+                        <div id="overlay">
+                            <p class="texto-1-banner">M1 Macbook Pro</p>
+                            <h2 class="heading-1-banner">Supercomputadoras solo aquí</h2>
+                            <a href="#" class="btn-1-banner">Ver ahora<svg style="transform: translateY(7px);"
+                                    xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row promocionesB">
+                    <div class="col-md p-banner" id="promo-3-b">
+                        <div id="overlay">
+                            <p class="texto-1-banner">Accesorios para tus computadoras</p>
+                            <h2 class="heading-1-banner">Memorias, Coolers y mucho más</h2>
+                            <a href="#" class="btn-1-banner">Ver todos los accesorios<svg
+                                    style="transform: translateY(7px);" xmlns="http://www.w3.org/2000/svg" width="25"
+                                    height="25" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+    <%- include("partials/footer.ejs") %>
+
+        <!-- Bootstrap - JS -->
+        <%- include("partials/bootstrap_script.ejs") %>
+
+            <!--JS-->
+            <script type="text/javascript" src="/js/countdownOferta.js"></script>
+</body>
+
+</html>
