@@ -21,6 +21,11 @@
                             <input class="campo-log" type="text" style="background-color: transparent;"
                                 placeholder="Se muestra a los usuarios" name="name" id="nombre_producto">
                         </div>
+                        <%if(locals.errors && errors.name){ %>
+                            <div class = "error-registro">
+                                <%= errors.name.msg %>
+                            </div>
+                        <% } %>
 
                         <div class="campo-ind">
                             <label class="label-login">Marca del producto: </label><br><br>
@@ -34,13 +39,22 @@
                                 <option value="MSI">MSI</option>
                                 <option value="LG">Gigabyte</option>
                             </select>
-
                         </div>
+                        <%if(locals.errors && errors.brand){ %>
+                            <div class = "error-registro">
+                                <%= errors.brand.msg %>
+                            </div>
+                        <% } %>
                         <div class="campo-ind">
                             <label class="label-login">Descripción de tu producto: </label><br>
                             <textarea class="campo-log" style="background-color: transparent;" name="description"
                                 id="descripcion"> </textarea>
                         </div>
+                        <%if(locals.errors && errors.description){ %>
+                            <div class = "error-registro">
+                                <%= errors.description.msg %>
+                            </div>
+                        <% } %>
                         <!-- comentada
                         <div class="campo-ind">
                             <label class="label-login">Descripción secundaria de tu producto: </label><br>
@@ -53,13 +67,21 @@
                             <input class="campo-log" type="number" style="background-color: transparent;"
                                 placeholder="$0.00 MXN" name="price" id="precio">
                         </div>
-
+                        <%if(locals.errors && errors.price){ %>
+                            <div class = "error-registro">
+                                <%= errors.price.msg %>
+                            </div>
+                        <% } %>
                         <div class="campo-ind">
                             <label class="label-login">Cantidad disponible: </label><br>
                             <input class="campo-log" type="number" style="background-color: transparent;"
                                 placeholder="10" name="pieces" id="piezas">
                         </div>
-                        
+                        <%if(locals.errors && errors.pieces){ %>
+                            <div class = "error-registro">
+                                <%= errors.pieces.msg %>
+                            </div>
+                        <% } %>
                         
                         <div class="campo-ind">
                             <label class="label-login">Imagen principal de producto: </label><br><br>
@@ -67,7 +89,11 @@
                                    style="background-color: transparent;"
                                    placeholder="Se muestra a usuarios" name="image" id="image">
                         </div>
-                        
+                        <%if(locals.errors && errors.image){ %>
+                            <div class = "error-registro">
+                                <%= errors.image.msg %>
+                            </div>
+                        <% } %>
 
 
                         <div class="row">
@@ -83,6 +109,11 @@
 
                                 </div>
                             </div>
+                            <%if(locals.errors && errors.category){ %>
+                                <div class = "error-registro">
+                                    <%= errors.category.msg %>
+                                </div>
+                            <% } %>
                             <div class="col">
                                 <div class="campo-ind">
                                     <label class="label-login">SKU del producto: </label><br>
@@ -91,6 +122,11 @@
                                         name="sku" id="sku">
                                 </div>
                             </div>
+                            <%if(locals.errors && errors.sku){ %>
+                                <div class = "error-registro">
+                                    <%= errors.sku.msg %>
+                                </div>
+                            <% } %>
                             <div class="col">
                                 <div class="campo-ind">
                                     <label class="label-login">Descuento del producto: </label><br>
@@ -99,6 +135,11 @@
                                         name="discount" id="descuento">
                                 </div>
                             </div>
+                            <%if(locals.errors && errors.discount){ %>
+                                <div class = "error-registro">
+                                    <%= errors.discount.msg %>
+                                </div>
+                            <% } %>
                         </div>
 
                         <button class="btn btn-outline-success btn_search" type="submit">Registrar nuevo

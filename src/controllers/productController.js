@@ -82,14 +82,14 @@ const controller = {
 
 	/* - - - - - - - - AGREGAR PRODUCTO - - - - - - - - - */
 	agregarProducto: (req, res, next) => {
-        /* VALIDADOR de formulario de agregarProducto
+        /* VALIDADOR de formulario de agregarProducto */
         const resultVal = validationResult(req);
         if (!resultVal.isEmpty()){
-            return res.render('profileEdit.ejs', {
+            return res.render('agregarProducto.ejs', {
                 errors:resultVal.mapped(),
                 old:req.body })
         }
-        */
+        
 		const file = req.file
 		if (!file) {
 			const error = new Error('No ha seleccionado un archivo')
