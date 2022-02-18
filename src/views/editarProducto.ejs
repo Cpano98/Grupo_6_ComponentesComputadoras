@@ -19,9 +19,11 @@
                     <form action="/products/edit/<%= item.id %>?_method=PUT" method="post" enctype="multipart/form-data">
                         <div class="campo-ind">
                             <label class="label-login">Nombre del producto: </label><br>
-                            <input class="campo-log" type="text" style="background-color: transparent;"
-                                value="<%= item.name %>" 
-                                name="name" id="nombre_producto">
+                            <input class="campo-log" 
+                                    type="text" 
+                                    style="background-color: transparent;"
+                                    value="<%= locals.old ? old.name : item.name %>" 
+                                    name="name" id="nombre_producto">
                         </div>
                         <%if(locals.errors && errors.name){ %>
                             <div class = "error-registro">

@@ -39,7 +39,7 @@ const controller = {
 			})
 	},
 	confirmacionEliminado: (req, res) => {
-		res.render("productoEliminado.ejs");
+		return res.render("productoEliminado.ejs");
 	},
 
 	/* - - - - - - - - DETALLES PRODUCTO - - - - - - - - - */
@@ -54,30 +54,30 @@ const controller = {
 		// Sequelize Implementation
 		Products.findByPk(req.params.id)
 			.then(product => {
-				res.render("productDetail.ejs", { item: product });
+				return res.render("productDetail.ejs", { item: product });
 			})
 			.catch(err => {
-				res.render('error404', { status: 404, url: req.url });
+				return res.render('error404', { status: 404, url: req.url });
 			})
 	},
 
 	/* Contenido de admin a product */
 
 	admin: (req, res) => {
-		res.render("adminPanel.ejs");
+		return res.render("adminPanel.ejs");
 	},
 	adminLista: (req, res) => {
 		Products.findAll()
 			.then(products => {
 				console.log(products[0].image);
-				res.render('listaProductosCRUD.ejs', { products });
+				return res.render('listaProductosCRUD.ejs', { products });
 			})
 			.catch(err => {
-				res.render('error404', { status: 404, url: req.url });
+				return res.render('error404', { status: 404, url: req.url });
 			})
 	},
 	agregar: (req, res) => {
-		res.render("agregarProducto.ejs");
+		return res.render("agregarProducto.ejs");
 	},
 
 	/* - - - - - - - - AGREGAR PRODUCTO - - - - - - - - - */
@@ -110,7 +110,7 @@ const controller = {
 			description: req.body.description,
 			price: req.body.price,
 			discount: req.body.discount,
-			//image: file.originalname,
+			image: file.originalname,
 			category: req.body.category,
 			brand: req.body.brand,
 			pieces: req.body.pieces
@@ -146,24 +146,29 @@ const controller = {
 				//console.log(products.name);
 				//console.log(products.id);
 				//console.log(products.discount);
-				res.render('editarProducto.ejs', { item: products });
+				return res.render('editarProducto.ejs', { item: products });
 			})
 			.catch(err => {
-				res.render('error404', { status: 404, url: req.url });
+				return res.render('error404', { status: 404, url: req.url });
 			})
 
 	},
 
 	/* - - - - - - - - ACTUALIZAR PRODUCTO - - - - - - - - - */
-	actualizar: (req, res, next) => {
-		/* VALIDADOR de formulario de actualizarProducto
+	actualizar: async (req, res, next) => {
+		/* VALIDADOR de formulario de actualizarProducto */
         const resultVal = validationResult(req);
+
         if (!resultVal.isEmpty()){
-            return res.render('profileEdit.ejs', {
-                errors:resultVal.mapped(),
-                old:req.body })
+            let product = await Products.findByPk(req.params.id)
+            return res.render('editarProducto.ejs', 
+                { 
+                    item: product,
+                    errors:resultVal.mapped(),
+                    old:req.body 
+                });
         }
-        */
+        
 		const file = req.file
 		if (!file) {
 			const error = new Error('No hta seleccionado un archivo')
@@ -190,13 +195,6 @@ const controller = {
 		*/
 
 		// Sequelize Implementation
-        
-
-		console.log("Editando producto: " + req.params.id);
-        
-		console.log(req.body);
-        console.log('Info del file'+ file.originalname)
-		
         /*
 		Products.findByPk(req.params.id)
 			.then(product => {
@@ -210,7 +208,7 @@ const controller = {
 				res.render('error404', { status: 404, url: req.url });
 			})
 			*/
-        Products.update({
+        await Products.update({
             name: req.body.name,
             sku: req.body.sku,
             description: req.body.description,
@@ -223,9 +221,10 @@ const controller = {
         },
         {
             where: {id: req.params.id}
-        }).then(
-            res.render("productoActualizado.ejs")
-        );
+        });
+            
+        res.render("productoActualizado.ejs")
+        
 
 			
 			
