@@ -22,12 +22,51 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 //Validaciones del registro de productos
-/* ??? */
-const validationReg = [
-    body('sku').notEmpty().withMessage('Ingrese un nombre').bail()
+const validationProduct = [
+    body('name')
+        .notEmpty().withMessage('Ingrese un nombre').bail()
+        .isLength({max:30}).withMessage('Máximo 30 caracteres').bail(),
+    body('brand')
+        .notEmpty().withMessage('Debe elgir una marca').bail()
+        .custom( 
+            (value, {req} ) => {
+                if( value == "value1"){   
+                    throw new Error('OPCION DEFUALT TEST*');
+                }
+            return true;
+        }).bail(),
+    body('description')
+        .notEmpty().withMessage('Ingrese una descripción').bail()
+        .isLength({max:200}).withMessage('Máximo 200 caracteres').bail(),
+    body('price')
+        .notEmpty().withMessage('Ingrese un precio').bail(),
+    body('piece')
+        .notEmpty().withMessage('Ingrese la cantidad').bail()
+        .isInt({min:0,max:10000}).withMessage('acotado entre 0 y 10000').bail(),
+    body('image')
+        .custom( (value, {req})=>{
+            let file = req.file
+            if(!file){
+                throw new Error('Debes subir una imagen');
+            }
+            return True
+        }).bail(),
+    body('category')
+        .notEmpty().withMessage('Debe elgir una categoria').bail()
+        .custom( 
+            (value, {req} ) => {
+                if( value == "value1"){   
+                    throw new Error('OPCION DEFUALT TEST*');
+                }
+            return true;
+        }).bail(),
+    body('sku')
+        .notEmpty().withMessage('Ingrese un sku').bail()
+        .isLength({min:5}).withMessage('Al menos 5 caracteres').bail(),
+    body('discount')
+        .isInt({min:0,max:1000}).withMessage('acotado entre 0 y 1000').bail()
 ]
 
-//Recordemos tienen el prefijo /products al buscarse aquí***
 /*-- admin  */
 //router.get("/admin",adminMiddle , productController.admin);   ----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
 router.get("/admin", productController.admin);
@@ -46,16 +85,15 @@ router.get("/productDetail/:id/", productController.product);
 /* --- Get/post crear producto --- */
 //router.get("/create",adminMiddle , productController.agregar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
 router.get("/create", productController.agregar);
-//router.post("/createP", upload.single('image'), productController.agregarProducto);
-router.post("/create", productController.agregarProducto);
-
+//router.post("/create", upload.single('image'), productController.agregarProducto);
+router.post("/create", upload.single('image'), validationProduct, productController.agregarProducto);
 
 
 /* --- Get/put editar producto --- */
 //router.get('/edit/:id', adminMiddle, productController.editar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
 router.get('/edit/:id', productController.editar);
 //router.put('/edit/:id', upload.single('image'), productController.actualizar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
-router.put('/edit/:id', productController.actualizar);
+router.put('/edit/:id', upload.single('image'), validationProduct, productController.actualizar);
 
 /* --- Delete borrar producto --- */
 router.delete('/delete/:id', productController.borrar);

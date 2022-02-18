@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const {validationResult} = require("express-validator")
 
 //const productsFilePath = path.join(__dirname, '../data/products.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -28,7 +29,7 @@ const controller = {
 				}
 			})
 
-			//console.log(conOferta);
+			console.log(conOferta[0].image);
 			//console.log(sinOferta);
 
 			return res.render('todosLosProductos.ejs', { conOferta, sinOferta })
@@ -68,7 +69,7 @@ const controller = {
 	adminLista: (req, res) => {
 		Products.findAll()
 			.then(products => {
-				//console.log(products);
+				console.log(products[0].image);
 				res.render('listaProductosCRUD.ejs', { products });
 			})
 			.catch(err => {
@@ -81,8 +82,14 @@ const controller = {
 
 	/* - - - - - - - - AGREGAR PRODUCTO - - - - - - - - - */
 	agregarProducto: (req, res, next) => {
-
-		/*
+        /* VALIDADOR de formulario de agregarProducto */
+        const resultVal = validationResult(req);
+        if (!resultVal.isEmpty()){
+            return res.render('agregarProducto.ejs', {
+                errors:resultVal.mapped(),
+                old:req.body })
+        }
+        
 		const file = req.file
 		if (!file) {
 			const error = new Error('No ha seleccionado un archivo')
@@ -90,10 +97,10 @@ const controller = {
 			return res.render('error404.ejs')
 			//return next(error)
 		}
-		*/
+		
 
 		console.log("Valores form " + req.body);
-
+        console.log('Info del file'+ file.originalname)
 		//res.send("Info recibida")
 
 		Products.create({
@@ -121,8 +128,6 @@ const controller = {
 		const item = products.find(p => p.id == id)
 		return res.render("editarProducto.ejs", { item });
 		*/
-
-
 		// Sequelize Implementation
 
 		/*
@@ -134,7 +139,7 @@ const controller = {
 			res.render('error404', { status: 404, url: req.url });
 		})
 		*/
-
+        
 		Products.findByPk(req.params.id)
 			.then(products => {
 				//console.log(products.name);
@@ -150,19 +155,24 @@ const controller = {
 
 	/* - - - - - - - - ACTUALIZAR PRODUCTO - - - - - - - - - */
 	actualizar: (req, res, next) => {
-		/*
+		/* VALIDADOR de formulario de actualizarProducto
+        const resultVal = validationResult(req);
+        if (!resultVal.isEmpty()){
+            return res.render('profileEdit.ejs', {
+                errors:resultVal.mapped(),
+                old:req.body })
+        }
+        */
 		const file = req.file
 		if (!file) {
 			const error = new Error('No hta seleccionado un archivo')
 			error.httpStatusCode = 400;
 			return res.render('error400.ejs')
 		}
-		*/
-
+		
 		/*
 		const id = req.params.id
 		const idx = products.findIndex(p => p.id == id);
-
 
 		// Revisar si sí actualizamos solo imagenes?
 		// Revisar cambios debidos a ponerle fechas a las imagenes
@@ -174,18 +184,19 @@ const controller = {
 			...req.body,
 			image: imagenAUsar
 		}
-
-
-
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
 		res.redirect("/products/productDetail/" + id)
 		*/
 
 		// Sequelize Implementation
-		console.log("Editando producto: " + req.params.id);
-		console.log(req.body);
+        
 
-		/*
+		console.log("Editando producto: " + req.params.id);
+        
+		console.log(req.body);
+        console.log('Info del file'+ file.originalname)
+		
+        /*
 		Products.findByPk(req.params.id)
 			.then(product => {
 				product.image = product.image == file.originalname ? product.image : file.originalname;
@@ -198,22 +209,22 @@ const controller = {
 				res.render('error404', { status: 404, url: req.url });
 			})
 			*/
-			Products.update({
-				name: req.body.name,
-				sku: req.body.sku,
-				description: req.body.description,
-				price: req.body.price,
-				discount: req.body.discount,
-				//image: file.originalname,
-				category: req.body.category,
-				brand: req.body.brand,
-				pieces: req.body.pieces
-			},
-			{
-				where: {id: req.params.id}
-			}).then(
-				res.render("productoActualizado.ejs")
-			);
+        Products.update({
+            name: req.body.name,
+            sku: req.body.sku,
+            description: req.body.description,
+            price: req.body.price,
+            discount: req.body.discount,
+            image: file.originalname,
+            category: req.body.category,
+            brand: req.body.brand,
+            pieces: req.body.pieces
+        },
+        {
+            where: {id: req.params.id}
+        }).then(
+            res.render("productoActualizado.ejs")
+        );
 
 			
 			
