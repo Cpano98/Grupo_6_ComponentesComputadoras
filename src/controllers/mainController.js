@@ -29,7 +29,7 @@ const controller = {
 				}
 			})
 
-			//console.log(conOferta);
+			console.log(conOferta[0].image);
 			//console.log(sinOferta);
 
 			return res.render('index.ejs', { conOferta, sinOferta })

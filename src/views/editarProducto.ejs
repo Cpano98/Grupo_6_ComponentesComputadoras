@@ -16,7 +16,7 @@
                     <h3>Editando producto: <strong><%= item.name %></strong> (ID: <%= item.id %>)
                     </h3>
                     <p>Edita las especificaciones de tu producto</p>
-                    <form action="/products/edit/<%= item.id %>?_method=PUT" method="post">
+                    <form action="/products/edit/<%= item.id %>?_method=PUT" method="post" enctype="multipart/form-data">
                         <div class="campo-ind">
                             <label class="label-login">Nombre del producto: </label><br>
                             <input class="campo-log" type="text" style="background-color: transparent;"
@@ -27,7 +27,7 @@
                         <div class="campo-ind">
                             <label class="label-login">Marca del producto:  </label><br>
                             <select name="brand" id="marca">
-                                <option value="value1" selected>Actual: <%= item.brand %></option>
+                                <option value="value1" selected> <%= item.brand %></option>
                                 <option value="Samsung">Samsung</option>
                                 <option value="Apple">Apple</option>
                                 <option value="Huawei">Huawei</option>
@@ -80,7 +80,7 @@
                                 <div class="campo-ind">
                                     <label class="label-login">Categoría del producto: </label><br>
                                     <select name="category" id="categoria">
-                                        <option value="value1" selected>Selecccionar categoría</option>
+                                        <option value="value1" selected> <%=item.category %> </option>
                                         <option value="Monitores">Monitores</option>
                                         <option value="Tarjetas de video">Tarjetas de video</option>
                                         <option value="Tarjetas gráficas">Tarjetas gráficas</option>
