@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const {validationResult} = require("express-validator")
 
 //const productsFilePath = path.join(__dirname, '../data/products.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -81,8 +82,14 @@ const controller = {
 
 	/* - - - - - - - - AGREGAR PRODUCTO - - - - - - - - - */
 	agregarProducto: (req, res, next) => {
-
-		
+        /* VALIDADOR de formulario de agregarProducto
+        const resultVal = validationResult(req);
+        if (!resultVal.isEmpty()){
+            return res.render('profileEdit.ejs', {
+                errors:resultVal.mapped(),
+                old:req.body })
+        }
+        */
 		const file = req.file
 		if (!file) {
 			const error = new Error('No ha seleccionado un archivo')
@@ -148,9 +155,15 @@ const controller = {
 
 	/* - - - - - - - - ACTUALIZAR PRODUCTO - - - - - - - - - */
 	actualizar: (req, res, next) => {
-		
+		/* VALIDADOR de formulario de actualizarProducto
+        const resultVal = validationResult(req);
+        if (!resultVal.isEmpty()){
+            return res.render('profileEdit.ejs', {
+                errors:resultVal.mapped(),
+                old:req.body })
+        }
+        */
 		const file = req.file
-        
 		if (!file) {
 			const error = new Error('No hta seleccionado un archivo')
 			error.httpStatusCode = 400;
