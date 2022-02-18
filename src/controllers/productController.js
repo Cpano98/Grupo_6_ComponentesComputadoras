@@ -161,6 +161,7 @@ const controller = {
 
         if (!resultVal.isEmpty()){
             let product = await Products.findByPk(req.params.id)
+            
             return res.render('editarProducto.ejs', 
                 { 
                     item: product,
@@ -208,7 +209,8 @@ const controller = {
 				res.render('error404', { status: 404, url: req.url });
 			})
 			*/
-        await Products.update({
+        
+        Products.update({
             name: req.body.name,
             sku: req.body.sku,
             description: req.body.description,

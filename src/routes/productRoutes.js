@@ -49,7 +49,7 @@ const validationProduct = [
             if(!file){
                 throw new Error('Debes subir una imagen');
             }
-            return True
+            return true
         }).bail(),
     body('category')
         .notEmpty().withMessage('Debe elgir una categoria').bail()
