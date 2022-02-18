@@ -22,12 +22,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 //Validaciones del registro de productos
-/* ??? */
-const validationReg = [
+const validationProduct = [
     body('sku').notEmpty().withMessage('Ingrese un nombre').bail()
 ]
 
-//Recordemos tienen el prefijo /products al buscarse aquí***
+
 /*-- admin  */
 //router.get("/admin",adminMiddle , productController.admin);   ----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
 router.get("/admin", productController.admin);
@@ -46,8 +45,8 @@ router.get("/productDetail/:id/", productController.product);
 /* --- Get/post crear producto --- */
 //router.get("/create",adminMiddle , productController.agregar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
 router.get("/create", productController.agregar);
-//router.post("/createP", upload.single('image'), productController.agregarProducto);
-router.post("/create", productController.agregarProducto);
+//router.post("/create", upload.single('image'), productController.agregarProducto);
+router.post("/create", upload.single('image'), productController.agregarProducto);
 
 
 
@@ -55,7 +54,7 @@ router.post("/create", productController.agregarProducto);
 //router.get('/edit/:id', adminMiddle, productController.editar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
 router.get('/edit/:id', productController.editar);
 //router.put('/edit/:id', upload.single('image'), productController.actualizar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
-router.put('/edit/:id', productController.actualizar);
+router.put('/edit/:id', upload.single('image'), productController.actualizar);
 
 /* --- Delete borrar producto --- */
 router.delete('/delete/:id', productController.borrar);

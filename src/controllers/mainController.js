@@ -19,8 +19,8 @@ const controller = {
 		const conOferta = [];
 		const sinOferta = [];
 
-		Products.findAll().then((products) => {
-
+		Products.findAll()
+        .then((products) => {
 			products.forEach(p => {
 				if (p.discount != "0") {
 					conOferta.push(p);
@@ -34,9 +34,9 @@ const controller = {
 
 			return res.render('index.ejs', { conOferta, sinOferta })
 		})
-			.catch(err => {
-				res.send(err)
-			})
+        .catch(err => {
+            res.send(err)
+        })
 	}
 }
 
