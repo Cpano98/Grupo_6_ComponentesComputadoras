@@ -56,7 +56,7 @@
                             <textarea class="campo-log"
                                         style="background-color: transparent; height: auto;"
                                         name="description" 
-                                        id="descripcion"><%=locals.old ? old.description : item.description %>  
+                                        id="descripcion"><%= locals.old ? old.description : item.description %>  
                             </textarea>
                         </div>
                         <%if(locals.errors && errors.description){ %>
@@ -107,7 +107,7 @@
                             <label class="label-login">Imagen principal de producto: </label><br>
                             <input class="campo-log" 
                                     type="file" 
-                                    accept=".png, .jpg" 
+                                    accept=".png, .jpg, .webp, .jpeg" 
                                     style="background-color: transparent;"
                                     placeholder="Se muestra a usuarios" 
                                     name="image" 

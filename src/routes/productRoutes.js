@@ -37,7 +37,7 @@ const validationProduct = [
         }).bail(),
     body('description')
         .notEmpty().withMessage('Ingrese una descripción').bail()
-        .isLength({max:200}).withMessage('Máximo 200 caracteres').bail(),
+        .isLength({max:2000}).withMessage('Máximo 200 caracteres').bail(),
     body('price')
         .notEmpty().withMessage('Ingrese un precio').bail(),
     body('piece')

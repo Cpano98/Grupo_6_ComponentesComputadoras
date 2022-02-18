@@ -157,26 +157,28 @@ const controller = {
 	/* - - - - - - - - ACTUALIZAR PRODUCTO - - - - - - - - - */
 	actualizar: async (req, res, next) => {
 		/* VALIDADOR de formulario de actualizarProducto */
+        /*
         const resultVal = validationResult(req);
-
         if (!resultVal.isEmpty()){
             let product = await Products.findByPk(req.params.id)
-            
-            return res.render('editarProducto.ejs', 
+            //ESTE render entra con la promesa, pese a que no se quiera
+            res.render('editarProducto.ejs', 
                 { 
                     item: product,
                     errors:resultVal.mapped(),
                     old:req.body 
                 });
         }
+        */
         
 		const file = req.file
 		if (!file) {
 			const error = new Error('No hta seleccionado un archivo')
 			error.httpStatusCode = 400;
-			return res.render('error400.ejs')
+			
+            return res.render('error400.ejs')
 		}
-		
+        
 		/*
 		const id = req.params.id
 		const idx = products.findIndex(p => p.id == id);
@@ -224,8 +226,8 @@ const controller = {
         {
             where: {id: req.params.id}
         });
-            
-        res.render("productoActualizado.ejs")
+        console.log("ya llegué") 
+        return res.render("productoActualizado.ejs")
         
 
 			
