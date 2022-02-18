@@ -87,7 +87,8 @@ const controller = {
         if (!resultVal.isEmpty()){
             return res.render('agregarProducto.ejs', {
                 errors:resultVal.mapped(),
-                old:req.body })
+                old:req.body,
+                oldFile:req.file })
         }
         
 		const file = req.file

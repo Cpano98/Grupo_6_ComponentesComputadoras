@@ -18,8 +18,13 @@
                     <form  action="create" method="POST" enctype="multipart/form-data">
                         <div class="campo-ind">
                             <label class="label-login">Nombre del producto: </label><br>
-                            <input class="campo-log" type="text" style="background-color: transparent;"
-                                placeholder="Se muestra a los usuarios" name="name" id="nombre_producto">
+                            <input class="campo-log" 
+                                type="text" 
+                                style="background-color: transparent;"
+                                placeholder="Se muestra a los usuarios" 
+                                name="name" 
+                                id="nombre_producto"
+                                value="<%= locals.old ? old.name : null %>">
                         </div>
                         <%if(locals.errors && errors.name){ %>
                             <div class = "error-registro">
@@ -30,14 +35,15 @@
                         <div class="campo-ind">
                             <label class="label-login">Marca del producto: </label><br><br>
                             <select name="brand" id="marca">
-                                <option value="value1" selected> Selecccionar marca </option>
-                                <option value="Samsung">Samsung</option>
-                                <option value="Apple">Apple</option>
-                                <option value="Huawei">Huawei</option>
-                                <option value="Asus">Asus</option>
-                                <option value="LG">LG</option>
-                                <option value="MSI">MSI</option>
-                                <option value="LG">Gigabyte</option>
+                                <% let listaMarcas = ["Samsung", "Apple", "Huawei", "Asus", "LG", "MSI", "Gigabyte"]  %>
+                                <% for (const idx in listaMarcas){ %>
+                                    <% if(!locals.old){ %>
+                                        <option value="<%= listaMarcas[idx] %>" > <%=listaMarcas[idx]%> </option>
+                                    <% }else{  %>
+                                        <% let selected = listaMarcas[idx]==old.brand ? "selected" : null  %>
+                                        <option value="<%= listaMarcas[idx] %>" <%= selected %> > <%=listaMarcas[idx]%> </option>
+                                    <% } %>
+                                <% } %>
                             </select>
                         </div>
                         <%if(locals.errors && errors.brand){ %>
@@ -47,8 +53,11 @@
                         <% } %>
                         <div class="campo-ind">
                             <label class="label-login">Descripción de tu producto: </label><br>
-                            <textarea class="campo-log" style="background-color: transparent;" name="description"
-                                id="descripcion"> </textarea>
+                            <textarea class="campo-log"
+                                    style="background-color: transparent;" 
+                                    name="description"
+                                    id="descripcion"
+                                    value="<%= locals.old ? old.description : null %>"></textarea> </textarea>
                         </div>
                         <%if(locals.errors && errors.description){ %>
                             <div class = "error-registro">
@@ -64,8 +73,13 @@
                         -->
                         <div class="campo-ind">
                             <label class="label-login">Precio a público: </label><br>
-                            <input class="campo-log" type="number" style="background-color: transparent;"
-                                placeholder="$0.00 MXN" name="price" id="precio">
+                            <input class="campo-log" 
+                                    type="number" 
+                                    style="background-color: transparent;"
+                                    placeholder="$0.00 MXN" 
+                                    name="price" 
+                                    id="precio"
+                                    value="<%= locals.old ? old.price : null %>">
                         </div>
                         <%if(locals.errors && errors.price){ %>
                             <div class = "error-registro">
@@ -74,8 +88,13 @@
                         <% } %>
                         <div class="campo-ind">
                             <label class="label-login">Cantidad disponible: </label><br>
-                            <input class="campo-log" type="number" style="background-color: transparent;"
-                                placeholder="10" name="pieces" id="piezas">
+                            <input class="campo-log" 
+                                    type="number" 
+                                    style="background-color: transparent;"
+                                    placeholder="10" 
+                                    name="pieces" 
+                                    id="piezas"
+                                    value="<%= locals.old ? old.pieces : null %>">
                         </div>
                         <%if(locals.errors && errors.pieces){ %>
                             <div class = "error-registro">
@@ -85,9 +104,13 @@
                         
                         <div class="campo-ind">
                             <label class="label-login">Imagen principal de producto: </label><br><br>
-                            <input class="campo-log" type="file" accept=".png, .jpg" 
-                                   style="background-color: transparent;"
-                                   placeholder="Se muestra a usuarios" name="image" id="image">
+                            <input class="campo-log" 
+                                    type="file" 
+                                    accept=".png, .jpg" 
+                                    style="background-color: transparent;"
+                                    placeholder="Se muestra a usuarios" 
+                                    name="image" 
+                                    id="image">
                         </div>
                         <%if(locals.errors && errors.image){ %>
                             <div class = "error-registro">
@@ -101,7 +124,15 @@
                                 <div class="campo-ind">
                                     <label class="label-login">Categoría del producto: </label><br><br>
                                     <select name="category" id="categoria">
-                                        <option value="value1" selected>Selecccionar categoría</option>
+                                        <% let listaCategorias = ["Monitores","Tarjetas de video","Tarjetas gráficas"]  %>
+                                        <% for (const idx in listaCategorias){ %>
+                                            <% if(!locals.old){ %>
+                                                <option value="<%= listaCategorias[idx] %>" > <%=listaCategorias[idx]%> </option>
+                                            <% }else{  %>
+                                                <% let selected = listaCategorias[idx]==old.category ? "selected" : null  %>
+                                                <option value="<%= listaCategorias[idx] %>" <%= selected %> > <%=listaCategorias[idx]%> </option>
+                                            <% } %>
+                                        <% } %>
                                         <option value="Monitores">Monitores</option>
                                         <option value="Tarjetas de video">Tarjetas de video</option>
                                         <option value="Tarjetas gráficas">Tarjetas gráficas</option>
@@ -117,9 +148,12 @@
                             <div class="col">
                                 <div class="campo-ind">
                                     <label class="label-login">SKU del producto: </label><br>
-                                    <input class="campo-log" type="text"
-                                        style="background-color: transparent; min-height: 100%;" placeholder="##"
-                                        name="sku" id="sku">
+                                    <input class="campo-log" 
+                                            type="text"
+                                            style="background-color: transparent; min-height: 100%;" placeholder="##"
+                                            name="sku" 
+                                            id="sku"
+                                            value="<%= locals.old ? old.sku : null%>">
                                 </div>
                             </div>
                             <%if(locals.errors && errors.sku){ %>
@@ -130,9 +164,13 @@
                             <div class="col">
                                 <div class="campo-ind">
                                     <label class="label-login">Descuento del producto: </label><br>
-                                    <input class="campo-log" type="number"
-                                        style="background-color: transparent; min-height: 100%;" placeholder="##"
-                                        name="discount" id="descuento">
+                                    <input class="campo-log" 
+                                            type="number"
+                                            style="background-color: transparent; min-height: 100%;" 
+                                            placeholder="##"
+                                            name="discount"  
+                                            id="descuento"
+                                            value="<%= locals.old?old.discount:null%>">
                                 </div>
                             </div>
                             <%if(locals.errors && errors.discount){ %>
