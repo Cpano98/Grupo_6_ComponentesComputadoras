@@ -101,5 +101,9 @@ router.delete('/delete/:id', productController.borrar);
 //El carrito de compras va aquí??
 router.get("/productCart", productController.cart);
 
+/* --- BÚSQUEDA DE PRODUCTOS --- */
+//router.get("/busqueda-producto", productController.busqueda);
+router.post("/busqueda-producto", productController.busqueda);
+
 
 module.exports = router; 
