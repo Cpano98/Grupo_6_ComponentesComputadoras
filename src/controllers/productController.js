@@ -2,9 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require("express-validator")
 
-//const productsFilePath = path.join(__dirname, '../data/products.json');
-//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 // Sequelize requirements
 const db = require('../database/models');
 const sequelize = db.sequelize;
@@ -14,8 +11,6 @@ const Products = db.Product;
 const controller = {
 	/* - - - - - - - - LISTA PRODUCTO - - - - - - - - - */
 	lista: (req, res) => {
-		//res.render("listaProductoscCRUD.ejs", { products });
-		// Sequelize Implementation
 		const conOferta = [];
 		const sinOferta = [];
 
@@ -29,9 +24,6 @@ const controller = {
 				}
 			})
 
-			console.log(conOferta[0].image);
-			//console.log(sinOferta);
-
 			return res.render('todosLosProductos.ejs', { conOferta, sinOferta })
 		})
 			.catch(err => {
@@ -44,13 +36,6 @@ const controller = {
 
 	/* - - - - - - - - DETALLES PRODUCTO - - - - - - - - - */
 	product: (req, res) => {
-		/*
-		//renombre productoEnviar por "item"
-		const id = req.params.id
-		const item = products.find(p => p.id == id)
-		res.render("productDetail.ejs", { item });
-		*/
-
 		// Sequelize Implementation
 		Products.findByPk(req.params.id)
 			.then(product => {
@@ -97,13 +82,12 @@ const controller = {
 			const error = new Error('No ha seleccionado un archivo')
 			error.httpStatusCode = 404;
 			return res.render('error404.ejs')
-			//return next(error)
 		}
 
 
 		console.log("Valores form " + req.body);
 		console.log('Info del file' + file.originalname)
-		//res.send("Info recibida")
+		
 
 		Products.create({
 			name: req.body.name,
@@ -116,7 +100,7 @@ const controller = {
 			brand: req.body.brand,
 			pieces: req.body.pieces
 		}).then(products => {
-			//console.log(products);
+	
 			res.redirect("admin/lista-productos")
 		})
 
@@ -125,28 +109,8 @@ const controller = {
 
 	/* - - - - - - - - EDITAR PRODUCTO - - - - - - - - - */
 	editar: (req, res) => {
-		/*
-		const id = req.params.id
-		const item = products.find(p => p.id == id)
-		return res.render("editarProducto.ejs", { item });
-		*/
-		// Sequelize Implementation
-
-		/*
-		Products.findByPK(req.params.id)
-		.then(product => {
-			res.render("editarProducto.ejs", { item:product });
-		})
-		.catch(err => {
-			res.render('error404', { status: 404, url: req.url });
-		})
-		*/
-
 		Products.findByPk(req.params.id)
 			.then(products => {
-				//console.log(products.name);
-				//console.log(products.id);
-				//console.log(products.discount);
 				return res.render('editarProducto.ejs', { item: products });
 			})
 			.catch(err => {
@@ -180,38 +144,6 @@ const controller = {
 			return res.render('error400.ejs')
 		}
 
-		/*
-		const id = req.params.id
-		const idx = products.findIndex(p => p.id == id);
-
-		// Revisar si sí actualizamos solo imagenes?
-		// Revisar cambios debidos a ponerle fechas a las imagenes
-
-		const imagenAUsar = products[idx].image == file.originalname ? products[idx].image : file.originalname
-
-		products[idx] = {
-			id,
-			...req.body,
-			image: imagenAUsar
-		}
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-		res.redirect("/products/productDetail/" + id)
-		*/
-
-		// Sequelize Implementation
-		/*
-		Products.findByPk(req.params.id)
-			.then(product => {
-				product.image = product.image == file.originalname ? product.image : file.originalname;
-				return product
-			})
-			.then(product => {
-				res.redirect("/products/productDetail/" + product.id)
-			})
-			.catch(err => {
-				res.render('error404', { status: 404, url: req.url });
-			})
-			*/
 
 		Products.update({
 			name: req.body.name,
@@ -227,25 +159,12 @@ const controller = {
 			{
 				where: { id: req.params.id }
 			});
-		console.log("ya llegué")
 		return res.render("productoActualizado.ejs")
-
-
-
 
 	},
 
 	/* - - - - - - - - BORRAR PRODUCTO - - - - - - - - - */
 	borrar: (req, res) => {
-		/*
-		const id = req.params.id
-		const idx = products.findIndex(p => p.id == id)
-
-		products.splice(idx, 1)
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-		res.redirect("/products/eliminado")
-		*/
 
 		Products.destroy({
 			where: { id: req.params.id }
@@ -299,7 +218,6 @@ const controller = {
 				['price', 'DESC'],
 			]
 		}).then(products => {
-			//console.log(products)
 			return res.render('resultadosDeBusqueda.ejs', { busqueda: palabraBusqueda, products });
 		}).catch(err => {
 			console.log(err);
