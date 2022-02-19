@@ -54,7 +54,7 @@
 			<div class="detalle-de-producto-info">
 				<div class="border_contenedor">
 					<!--Stock-->
-					<% if (item.piezas=="0" ){ %>
+					<% if (item.pieces=="0" ){ %>
 						<p class="stock" style="color: red;">
 							<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="red"
 								class="bi bi-circle-fill" viewBox="0 0 16 16">
@@ -68,14 +68,14 @@
 									class="bi bi-circle-fill" viewBox="0 0 16 16">
 									<circle cx="8" cy="8" r="8" />
 								</svg>
-								<%= item.piezas %> piezas disponibles
+								<%= item.pieces %> piezas disponibles
 							</p>
 							<% } %>
 					<h2 class="titulo_producto">
-						<%= item.nombre_producto %>
+						<%= item.name %>
 					</h2>
 					<p class="descrip_producto" style="margin-top: 10px;">
-						<%= item.descripcion %>
+						<%= item.description %>
 					</p>
 					<p class="descrip_producto">
 						<strong>SKU:</strong> <%= item.sku %>
@@ -92,11 +92,11 @@
 
 					<div class="atributos" id="precio-movil">
 
-						<% if (item.descuento=="0" ){ %>
+						<% if (item.discount){ %>
 							<div>
 								<h3 class="precioNormal" style="color: white;"> -
 								</h3>
-								<h3 class="precio"> $<%= item.precio %>
+								<h3 class="precio"> $<%= item.price %>
 								</h3>
 								<p class="descrip_producto" style="color: white;"> <strong>Sin
 									</strong>
@@ -106,11 +106,11 @@
 
 
 							<% }else{ %>
-								<% const precioFinal=item.descuento / 100 * item.precio; %>
+								<% const precioFinal=item.discount / 100 * item.price; %>
 									<div>
-										<h3 class="precioNormal"> $<%= item.precio %>
+										<h3 class="precioNormal"> $<%= item.price %>
 										</h3>
-										<h3 class="precio"> $<%= item.precio - precioFinal %>
+										<h3 class="precio"> $<%= item.price - precioFinal %>
 										</h3>
 										<p class="descrip_producto"> <strong>Ahorras: </strong>
 											$<%= precioFinal %>
@@ -132,11 +132,6 @@
 
 					<!--Atributos-->
 					<div class="atributos">
-						<div class="col-especificaciones border-gris" >
-							<p>
-								<%= item.descripcion_dos %>
-							</p>
-						</div>
 						<div class="col-botones">
 							<div>
 								<label>Cantidad de piezas:</label>
@@ -188,34 +183,7 @@
 		<div class="contenedor-recomendados">
 
 		</div>
-		<div class="contenedor-especificaciones">
-			<div class="grid-caracteristicas-principales">
-				<h3>Características principales</h3>
-				<div class="grid-bloque-caracteristicas">
-					<table class="grid-caracteristicas-principales">
-						<tr class="fila-tabla-impar">
-							<th class="tabla-caracteristica">Caracteristica</th>
-							<th class="tabla-valor">Valor</th>
-						</tr>
-						<tr class="fila-tabla-par">
-							<th class="tabla-caracteristica">Caracteristica</th>
-							<th class="tabla-valor">Valor</th>
-						</tr>
-						<tr class="fila-tabla-impar">
-							<th class="tabla-caracteristica">Caracteristica</th>
-							<th class="tabla-valor">Valor</th>
-						</tr>
-						<tr class="fila-tabla-par">
-							<th class="tabla-caracteristica">Caracteristica</th>
-							<th class="tabla-valor">Valor</th>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="grid-descripcion">
-
-			</div>
-		</div>
+		
 		<div class="contenedor-comentarios">
 			<h3>Comentarios</h3>
 			<!-- Import de Comentarios -->

@@ -20,10 +20,18 @@ const upload = multer({storage});
 
 //Validaciones del registro de usuarios
 const validationReg = [
-    body('name').notEmpty().withMessage('Ingrese un nombre'),
-    body('username').notEmpty().withMessage('Ingrese un nick'),
-    body('email').notEmpty().withMessage('Ingrese un correo valido'),
-    body('password').notEmpty().withMessage('Ingrese una contraseña'),
+    body('name')
+        .notEmpty().withMessage('Ingrese un nombre').bail()
+        .isLength({min:5}).withMessage('Al menos 5 caracteres').bail(),
+    body('username')
+        .notEmpty().withMessage('Ingrese un nick').bail()
+        .isLength({min:5}).withMessage('Al menos 5 caracteres').bail(),
+    body('email')
+        .notEmpty().withMessage('Ingrese un correo valido').bail()
+        .isEmail().withMessage('Debe ingresar un Email valido').bail(),
+    body('password')
+        .notEmpty().withMessage('Ingrese una contraseña').bail()
+        .isLength({min:5}).withMessage('Al menos 5 caracteres').bail(),
     body('passwordVal')
         .notEmpty().withMessage('Ingrese su contraseña nuevamente').bail()
         .custom( 
@@ -37,15 +45,23 @@ const validationReg = [
 ]
 //Validaciones de la edición de datos de usuario
 const validationEdit = [
-    body('name').notEmpty().withMessage('Ingrese un nombre'),
-    body('username').notEmpty().withMessage('Ingrese un nick'),
-    body('email').notEmpty().withMessage('Ingrese un correo valido'),
-    body('password').notEmpty().withMessage('Ingrese una contraseña'),
-    body('passwordVal').notEmpty().withMessage('Ingrese su contraseña nuevamente'),
+    body('name')
+        .notEmpty().withMessage('Ingrese un nombre').bail()
+        .isLength({min:5}).withMessage('Al menos 5 caracteres').bail(),
+    body('username')
+        .notEmpty().withMessage('Ingrese un nick').bail()
+        .isLength({min:5}).withMessage('Al menos 5 caracteres').bail(),
+    body('email')
+        .notEmpty().withMessage('Ingrese un correo valido').bail()
+        .isEmail().withMessage('Debe ingresar un Email valido').bail(),
+    body('password')
+        .notEmpty().withMessage('Ingrese una contraseña').bail()
+        .isLength({min:5}).withMessage('Al menos 5 caracteres').bail(),
+    body('passwordVal').notEmpty().withMessage('Ingrese su contraseña nuevamente').bail(),
 ]
 
 const validationLog = [
-    body('password').notEmpty().withMessage('Debe incluir una contraseña')
+    body('password').notEmpty().withMessage('Debe incluir una contraseña').bail()
 ]
 
 

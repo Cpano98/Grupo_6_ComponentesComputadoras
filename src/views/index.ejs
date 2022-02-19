@@ -112,15 +112,15 @@
             <div class="pro-destacados">
                 <!--Producto Individual-->
 
-                <% for (const item of ofertas) { %>
+                <% for (const item of conOferta) { %>
 
                     <article class="individual">
                         <!--Ofert-->
                         <div class="cont-oferta">
-                            <% if (item.descuento=="0" ){ %>
+                            <% if (item.discount=="0" ){ %>
                                 <p class="Soferta">-</p>
                                 <% }else{ %>
-                                    <p class="oferta"><strong>OFERTA:</strong> -<%= item.descuento %>% de descuento</p>
+                                    <p class="oferta"><strong>OFERTA:</strong> -<%= item.discount %>% de descuento</p>
                                     <% } %>
                         </div>
 
@@ -130,7 +130,7 @@
 
                         <div class="contenedor_info">
                             <!--Stock-->
-                            <% if (item.piezas=="0" ){ %>
+                            <% if (item.pieces=="0" ){ %>
                                 <p class="stock" style="color: #e23e4e;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="#e23e4e"
                                         class="bi bi-circle-fill" viewBox="0 0 16 16">
@@ -144,31 +144,31 @@
                                             class="bi bi-circle-fill" viewBox="0 0 16 16">
                                             <circle cx="8" cy="8" r="8" />
                                         </svg>
-                                        <%= item.piezas %> piezas disponibles
+                                        <%= item.pieces %> piezas disponibles
                                     </p>
                                     <% } %>
 
                                         <h2 class="titulo_producto">
-                                            <%= item.nombre_producto %>
+                                            <%= item.name.substring(0,100) %>
                                         </h2>
 
                                         <p class="descrip_producto">
-                                            <%= item.descripcion.substring(0,100) %>
+                                            <%= item.description %>
                                         </p>
                                         <p class="descrip_producto"> <strong>SKU: </strong>
                                             <%= item.sku %>
                                                 | <strong>MARCA: </strong>
-                                                <%= item.marca %>
+                                                <%= item.brand %>
                                         </p>
 
                                         </h3>
                                         <div class="atributos">
 
-                                            <% if (item.descuento=="0" ){ %>
+                                            <% if (item.discount=="0" ){ %>
                                                 <div>
                                                     <h3 class="precioNormal" style="color: white;"> -
                                                     </h3>
-                                                    <h3 class="precio"> $<%= item.precio %>
+                                                    <h3 class="precio"> $<%= item.price %>
                                                     </h3>
                                                     <p class="descrip_producto" style="color: white;"> <strong>Sin
                                                         </strong>
@@ -178,11 +178,11 @@
 
 
                                                 <% }else{ %>
-                                                    <% const precioFinal=item.descuento / 100 * item.precio; %>
+                                                    <% const precioFinal=item.discount / 100 * item.price; %>
                                                         <div>
-                                                            <h3 class="precioNormal"> $<%= item.precio %>
+                                                            <h3 class="precioNormal"> $<%= item.price %>
                                                             </h3>
-                                                            <h3 class="precio"> $<%= item.precio - precioFinal %>
+                                                            <h3 class="precio"> $<%= item.price - precioFinal %>
                                                             </h3>
                                                             <p class="descrip_producto"> <strong>Ahorras: </strong>
                                                                 $<%= precioFinal %>
@@ -332,10 +332,10 @@
                     <article class="individual">
                         <!--Ofert-->
                         <div class="cont-oferta">
-                            <% if (item.descuento=="0" ){ %>
+                            <% if (item.discount=="0" ){ %>
                                 <p class="Soferta">-</p>
                                 <% }else{ %>
-                                    <p class="oferta"><strong>OFERTA:</strong> -<%= item.descuento %>% de descuento</p>
+                                    <p class="oferta"><strong>OFERTA:</strong> -<%= item.discount %>% de descuento</p>
                                     <% } %>
                         </div>
 
@@ -345,7 +345,7 @@
 
                         <div class="contenedor_info">
                             <!--Stock-->
-                            <% if (item.piezas=="0" ){ %>
+                            <% if (item.pieces=="0" ){ %>
                                 <p class="stock" style="color: #e23e4e;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="#e23e4e"
                                         class="bi bi-circle-fill" viewBox="0 0 16 16">
@@ -359,31 +359,31 @@
                                             class="bi bi-circle-fill" viewBox="0 0 16 16">
                                             <circle cx="8" cy="8" r="8" />
                                         </svg>
-                                        <%= item.piezas %> piezas disponibles
+                                        <%= item.pieces %> piezas disponibles
                                     </p>
                                     <% } %>
 
                                         <h2 class="titulo_producto">
-                                            <%= item.nombre_producto %>
+                                            <%= item.name %>
                                         </h2>
 
                                         <p class="descrip_producto">
-                                            <%= item.descripcion.substring(0,100) %>
+                                            <%= item.description %>
                                         </p>
                                         <p class="descrip_producto"> <strong>SKU: </strong>
                                             <%= item.sku %>
                                                 | <strong>MARCA: </strong>
-                                                <%= item.marca %>
+                                                <%= item.brand %>
                                         </p>
 
                                         </h3>
                                         <div class="atributos">
 
-                                            <% if (item.descuento=="0" ){ %>
+                                            <% if (item.discount=="0" ){ %>
                                                 <div>
                                                     <h3 class="precioNormal" style="color: white;"> -
                                                     </h3>
-                                                    <h3 class="precio"> $<%= item.precio %>
+                                                    <h3 class="precio"> $<%= item.price %>
                                                     </h3>
                                                     <p class="descrip_producto" style="color: white;"> <strong>Sin
                                                         </strong>
@@ -393,11 +393,11 @@
 
 
                                                 <% }else{ %>
-                                                    <% const precioFinal=item.descuento / 100 * item.precio; %>
+                                                    <% const precioFinal=item.discount / 100 * item.price; %>
                                                         <div>
-                                                            <h3 class="precioNormal"> $<%= item.precio %>
+                                                            <h3 class="precioNormal"> $<%= item.price %>
                                                             </h3>
-                                                            <h3 class="precio"> $<%= item.precio - precioFinal %>
+                                                            <h3 class="precio"> $<%= item.price - precioFinal %>
                                                             </h3>
                                                             <p class="descrip_producto"> <strong>Ahorras: </strong>
                                                                 $<%= precioFinal %>

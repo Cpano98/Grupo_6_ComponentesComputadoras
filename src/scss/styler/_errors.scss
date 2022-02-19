@@ -20,4 +20,11 @@ body{
         font-size: 5vw;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
+
+    //Mensaje de error de express-validator
+    .error-registro {
+        color:Red;
+        border: rgba(255, 255, 255, 0);
+    
+    }
 }

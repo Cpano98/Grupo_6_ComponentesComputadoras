@@ -18,7 +18,6 @@ const controller = {
         return res.render("profileEdit.ejs", {user})
     },
     profileEditUp: (req, res)=>{
-        //Validar
         const resultVal = validationResult(req);
         
         if (!resultVal.isEmpty()){
@@ -33,7 +32,7 @@ const controller = {
             return res.render('error400.ejs')
         }
 
-        //mandar el usuario para rellenar defaults
+
         const user = users.find(u => u.email == req.body.email)
         const idx =  users.findIndex(u => u.email == req.body.email);
 
