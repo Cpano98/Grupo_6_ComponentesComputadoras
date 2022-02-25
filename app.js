@@ -29,6 +29,7 @@ app.use(express.json());
 const mainRoutes = require("./src/routes/mainRoutes");
 const userRoutes = require("./src/routes/userRoutes");
 const productRoutes = require("./src/routes/productRoutes");
+const purchaseRoutes = require("./src/routes/purchaseRoutes")
 
 /* bloque de middlewares globales  */
 const loggedMiddle = require("./src/middlewares/loggedMiddle");
@@ -44,6 +45,7 @@ app.set('view engine', 'ejs');
 app.use("/", mainRoutes);
 app.use("/user", userRoutes);
 app.use("/products", productRoutes);
+app.use("/cart", purchaseRoutes);
 
 //aplicación de los middlewares
 app.use(loggedMiddle);

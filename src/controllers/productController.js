@@ -30,6 +30,7 @@ const controller = {
 				res.send(err)
 			})
 	},
+	
 	confirmacionEliminado: (req, res) => {
 		return res.render("productoEliminado.ejs");
 	},
@@ -62,15 +63,15 @@ const controller = {
 			})
 	},
 	agregar: (req, res) => {
-		return res.render("agregarProducto.ejs");
+		return res.render("productAdd.ejs");
 	},
 
-	/* - - - - - - - - AGREGAR PRODUCTO - - - - - - - - - */
-	agregarProducto: (req, res, next) => {
-		/* VALIDADOR de formulario de agregarProducto */
+	/* - - - - - - - - ADD PRODUCT - - - - - - - - - */
+	productAdd: (req, res, next) => {
+		// Validate the add product form
 		const resultVal = validationResult(req);
 		if (!resultVal.isEmpty()) {
-			return res.render('agregarProducto.ejs', {
+			return res.render('productAdd.ejs', {
 				errors: resultVal.mapped(),
 				old: req.body,
 				oldFile: req.file
@@ -84,11 +85,9 @@ const controller = {
 			return res.render('error404.ejs')
 		}
 
-
-		console.log("Valores form " + req.body);
-		console.log('Info del file' + file.originalname)
+		//console.log("Valores form " + req.body);
+		//console.log('Info del file' + file.originalname)
 		
-
 		Products.create({
 			name: req.body.name,
 			sku: req.body.sku,
@@ -103,8 +102,6 @@ const controller = {
 	
 			res.redirect("admin/lista-productos")
 		})
-
-
 	},
 
 	/* - - - - - - - - EDITAR PRODUCTO - - - - - - - - - */
@@ -177,10 +174,13 @@ const controller = {
 			})
 
 	},
+	//*
 	//Mover el carrito?
 	cart: (req, res) => {
 		return res.render("productCart.ejs");
 	},
+	// */
+
 	busqueda: (req, res) => {
 
 		let palabraBusqueda = req.body.search

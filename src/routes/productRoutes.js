@@ -86,7 +86,7 @@ router.get("/productDetail/:id/", productController.product);
 //router.get("/create",adminMiddle , productController.agregar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
 router.get("/create", productController.agregar);
 //router.post("/create", upload.single('image'), productController.agregarProducto);
-router.post("/create", upload.single('image'), validationProduct, productController.agregarProducto);
+router.post("/create", upload.single('image'), validationProduct, productController.productAdd);
 
 
 /* --- Get/put editar producto --- */
@@ -99,7 +99,7 @@ router.put('/edit/:id', upload.single('image'), validationProduct, productContro
 router.delete('/delete/:id', productController.borrar);
 
 //El carrito de compras va aquí??
-router.get("/productCart", productController.cart);
+//router.get("/productCart", productController.cart);
 
 /* --- BÚSQUEDA DE PRODUCTOS --- */
 //router.get("/busqueda-producto", productController.busqueda);
