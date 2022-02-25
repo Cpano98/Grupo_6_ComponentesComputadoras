@@ -1,201 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <%- include("./partials/head.ejs") %>
-        <title> Agregar Producto | MiPC </title>
-</head>
-
-<body>
-    <%- include("./partials/adminMenu.ejs") %>
-
-        <main class="main">
-            <div class="contenedor-login2">
-                <div class="login3">
-                    <h3>Agregar nuevo producto</h3>
-                    <p>Agregar un nuevo artículo a tu tienda</p>
-
-                    <form  action="create" method="POST" enctype="multipart/form-data">
-                        <div class="campo-ind">
-                            <label class="label-login">Nombre del producto: </label><br>
-                            <input class="campo-log" 
-                                type="text" 
-                                style="background-color: transparent;"
-                                placeholder="Se muestra a los usuarios" 
-                                name="name" 
-                                id="nombre_producto"
-                                value="<%= locals.old ? old.name : null %>">
-                        </div>
-                        <%if(locals.errors && errors.name){ %>
-                            <div class = "error-registro">
-                                <%= errors.name.msg %>
-                            </div>
-                        <% } %>
-
-                        <div class="campo-ind">
-                            <label class="label-login">Marca del producto: </label><br><br>
-                            <select name="brand" id="marca">
-                                <% let listaMarcas = ["Samsung", "Apple", "Huawei", "Asus", "LG", "MSI", "Gigabyte"]  %>
-                                <% for (const idx in listaMarcas){ %>
-                                    <% if(!locals.old){ %>
-                                        <option value="<%= listaMarcas[idx] %>" > <%=listaMarcas[idx]%> </option>
-                                    <% }else{  %>
-                                        <% let selected = listaMarcas[idx]==old.brand ? "selected" : null  %>
-                                        <option value="<%= listaMarcas[idx] %>" <%= selected %> > <%=listaMarcas[idx]%> </option>
-                                    <% } %>
-                                <% } %>
-                            </select>
-                        </div>
-                        <%if(locals.errors && errors.brand){ %>
-                            <div class = "error-registro">
-                                <%= errors.brand.msg %>
-                            </div>
-                        <% } %>
-                        <div class="campo-ind">
-                            <label class="label-login">Descripción de tu producto: </label><br>
-                            <textarea class="campo-log"
-                                    style="background-color: transparent;" 
-                                    name="description"
-                                    id="descripcion"
-                                    value="<%= locals.old ? old.description : null %>"></textarea> </textarea>
-                        </div>
-                        <%if(locals.errors && errors.description){ %>
-                            <div class = "error-registro">
-                                <%= errors.description.msg %>
-                            </div>
-                        <% } %>
-                        <!-- comentada
-                        <div class="campo-ind">
-                            <label class="label-login">Descripción secundaria de tu producto: </label><br>
-                            <textarea class="campo-log" style="background-color: transparent;" name="descripcion_dos"
-                                id="descripcion_dos"> </textarea>
-                        </div>
-                        -->
-                        <div class="campo-ind">
-                            <label class="label-login">Precio a público: </label><br>
-                            <input class="campo-log" 
-                                    type="number" 
-                                    style="background-color: transparent;"
-                                    placeholder="$0.00 MXN" 
-                                    name="price" 
-                                    id="precio"
-                                    value="<%= locals.old ? old.price : null %>">
-                        </div>
-                        <%if(locals.errors && errors.price){ %>
-                            <div class = "error-registro">
-                                <%= errors.price.msg %>
-                            </div>
-                        <% } %>
-                        <div class="campo-ind">
-                            <label class="label-login">Cantidad disponible: </label><br>
-                            <input class="campo-log" 
-                                    type="number" 
-                                    style="background-color: transparent;"
-                                    placeholder="10" 
-                                    name="pieces" 
-                                    id="piezas"
-                                    value="<%= locals.old ? old.pieces : null %>">
-                        </div>
-                        <%if(locals.errors && errors.pieces){ %>
-                            <div class = "error-registro">
-                                <%= errors.pieces.msg %>
-                            </div>
-                        <% } %>
-                        
-                        <div class="campo-ind">
-                            <label class="label-login">Imagen principal de producto: </label><br><br>
-                            <input class="campo-log" 
-                                    type="file" 
-                                    accept=".png, .jpg" 
-                                    style="background-color: transparent;"
-                                    placeholder="Se muestra a usuarios" 
-                                    name="image" 
-                                    id="image">
-                        </div>
-                        <%if(locals.errors && errors.image){ %>
-                            <div class = "error-registro">
-                                <%= errors.image.msg %>
-                            </div>
-                        <% } %>
-
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="campo-ind">
-                                    <label class="label-login">Categoría del producto: </label><br><br>
-                                    <select name="category" id="categoria">
-                                        <% let listaCategorias = ["Monitores","Tarjetas de video","Tarjetas gráficas"]  %>
-                                        <% for (const idx in listaCategorias){ %>
-                                            <% if(!locals.old){ %>
-                                                <option value="<%= listaCategorias[idx] %>" > <%=listaCategorias[idx]%> </option>
-                                            <% }else{  %>
-                                                <% let selected = listaCategorias[idx]==old.category ? "selected" : null  %>
-                                                <option value="<%= listaCategorias[idx] %>" <%= selected %> > <%=listaCategorias[idx]%> </option>
-                                            <% } %>
-                                        <% } %>
-                                        <option value="Monitores">Monitores</option>
-                                        <option value="Tarjetas de video">Tarjetas de video</option>
-                                        <option value="Tarjetas gráficas">Tarjetas gráficas</option>
-                                    </select>
-
-                                </div>
-                            </div>
-                            <%if(locals.errors && errors.category){ %>
-                                <div class = "error-registro">
-                                    <%= errors.category.msg %>
-                                </div>
-                            <% } %>
-                            <div class="col">
-                                <div class="campo-ind">
-                                    <label class="label-login">SKU del producto: </label><br>
-                                    <input class="campo-log" 
-                                            type="text"
-                                            style="background-color: transparent; min-height: 100%;" placeholder="##"
-                                            name="sku" 
-                                            id="sku"
-                                            value="<%= locals.old ? old.sku : null%>">
-                                </div>
-                            </div>
-                            <%if(locals.errors && errors.sku){ %>
-                                <div class = "error-registro">
-                                    <%= errors.sku.msg %>
-                                </div>
-                            <% } %>
-                            <div class="col">
-                                <div class="campo-ind">
-                                    <label class="label-login">Descuento del producto: </label><br>
-                                    <input class="campo-log" 
-                                            type="number"
-                                            style="background-color: transparent; min-height: 100%;" 
-                                            placeholder="##"
-                                            name="discount"  
-                                            id="descuento"
-                                            value="<%= locals.old?old.discount:null%>">
-                                </div>
-                            </div>
-                            <%if(locals.errors && errors.discount){ %>
-                                <div class = "error-registro">
-                                    <%= errors.discount.msg %>
-                                </div>
-                            <% } %>
-                        </div>
-
-                        <button class="btn btn-outline-success btn_search" type="submit">Registrar nuevo
-                            producto</button>
-                    </form>
-
-                </div>
-
-
-            </div>
-
-        </main>
-
-        <!-- Bootstrap - JS -->
-        <%- include("./partials/bootstrap_script.ejs") %>
-
-            <%- include("./partials/footer.ejs") %>
-
-</body>
-
+	<head>
+		<%- include("./partials/head.ejs") %>
+			<title> Agregar Producto | MiPC </title>
+	</head>
+	<body>
+		<%- include("./partials/adminMenu.ejs") %>
+		<main class="main">
+			<div class="contenedor-login2">
+				<div class="login3">
+					<h3>Agregar nuevo producto</h3>
+					<p>Agregar un nuevo artículo a tu tienda</p>
+					<form action="create" method="POST" enctype="multipart/form-data">
+						<div class="campo-ind">
+							<label class="label-login">Nombre del producto: </label>
+							<input class="campo-log" type="text" style="background-color: transparent;"
+								placeholder="Se muestra a los usuarios" name="name" id="nombre_producto"
+								value="<%= locals.old ? old.name : null %>">
+						</div>
+						<% if ( locals.errors && errors.name ) { %>
+							<div class="error-registro"><%= errors.name.msg %></div>
+						<% } %>
+						<div class="campo-ind">
+							<label class="label-login">Marca del producto: </label>
+							<select name="brand" id="marca">
+								<% let listaMarcas = ["Samsung", "Apple" , "Huawei" , "Asus" , "LG" , "MSI" , "Gigabyte" ] %>
+								<% for ( const idx in listaMarcas ){ %>
+									<% if ( !locals.old ) { %>
+										<option value="<%= listaMarcas[idx] %>"><%=listaMarcas[idx]%></option>
+									<% } else { %>
+										<% let selected=listaMarcas[idx] == old.brand ? "selected" : null %>
+										<option value="<%= listaMarcas[idx] %>" <%=selected %>><%= listaMarcas[idx] %></option>
+									<% } %>
+								<% } %>
+							</select>
+						</div>
+						<% if ( locals.errors && errors.brand ) { %>
+						<div class="error-registro"><%= errors.brand.msg %></div>
+						<% } %>
+						<div class="campo-ind">
+							<label class="label-login">Descripción de tu producto: </label>
+							<textarea class="campo-log" style="background-color: transparent;" name="description"
+								id="descripcion" value="<%= locals.old ? old.description : null %>"></textarea> </textarea>
+						</div>
+						<% if ( locals.errors && errors.description ) { %>
+							<div class="error-registro"><%= errors.description.msg %></div>
+						<% } %>
+						<div class="campo-ind">
+							<label class="label-login">Precio a público:</label>
+							<input 
+								class="campo-log"
+								type="number"
+								style="background-color: transparent;"
+								placeholder="$0.00 MXN"
+								name="price"
+								id="precio"
+								value="<%= locals.old ? old.price : null %>"
+							>
+						</div>
+						<% if ( locals.errors && errors.price ) { %>
+							<div class="error-registro"><%= errors.price.msg %></div>
+						<% } %>
+						<div class="campo-ind">
+							<label class="label-login">Cantidad disponible:</label>
+							<input class="campo-log" type="number" style="background-color: transparent;"
+								placeholder="10" name="pieces" id="piezas"
+								value="<%= locals.old ? old.pieces : null %>">
+						</div>
+						<% if ( locals.errors && errors.pieces ) { %>
+							<div class="error-registro"><%= errors.pieces.msg %></div>
+						<% } %>
+						<div class="campo-ind">
+							<label class="label-login">Imagen principal de producto:</label>
+							<input
+								class="campo-log"
+								type="file"
+								accept=".png, .jpg"
+								style="background-color: transparent;"
+								placeholder="Se muestra a usuarios"
+								name="image"
+								id="image">
+						</div>
+						<% if ( locals.errors && errors.image ) { %>
+							<div class="error-registro"><%= errors.image.msg %></div>
+						<% } %>
+						<div class="row">
+							<div class="col">
+								<div class="campo-ind">
+									<label class="label-login">Categoría del producto: </label>
+									<select name="category" id="categoria">
+										<% let listaCategorias=["Monitores","Tarjetas de video","Tarjetas gráficas"]%>
+										<% for (const idx in listaCategorias){ %>
+											<% if(!locals.old){ %>
+												<option value="<%= listaCategorias[idx] %>"><%=listaCategorias[idx]%></option>
+											<% } else { %>
+												<% let selected = listaCategorias[idx] == old.category ? "selected" :null %>
+												<option value="<%= listaCategorias[idx] %>" <%=selected %> ><%=listaCategorias[idx]%></option>
+												<% } %>
+										<% } %>
+												<option value="Monitores">Monitores</option>
+												<option value="Tarjetas de video">Tarjetas de video</option>
+												<option value="Tarjetas gráficas">Tarjetas gráficas</option>
+									</select>
+								</div>
+							</div>
+							<% if ( locals.errors && errors.category ) { %>
+								<div class="error-registro"><%= errors.category.msg %></div>
+							<% } %>
+							<div class="col">
+								<div class="campo-ind">
+									<label class="label-login">SKU del producto: </label>
+									<input 
+										class="campo-log" 
+										type="text" 
+										style="background-color: transparent; min-height: 100%;"
+										placeholder="##" name="sku" id="sku"
+										value="<%= locals.old ? old.sku : null%>">
+								</div>
+							</div>
+							<%if (locals.errors && errors.sku) { %>
+								<div class="error-registro"><%= errors.sku.msg %></div>
+							<% } %>
+							<div class="col">
+								<div class="campo-ind">
+									<label class="label-login">Descuento del producto: </label>
+									<input
+										class="campo-log"
+										type="number"
+										style="background-color: transparent; min-height: 100%;"
+										placeholder="##"
+										name="discount"
+										id="descuento"
+										value="<%= locals.old?old.discount:null%>">
+								</div>
+							</div>
+							<%if ( locals.errors && errors.discount ) { %>
+								<div class="error-registro"><%= errors.discount.msg %></div>
+							<% } %>
+						</div>
+						<button class="btn btn-outline-success btn_search" type="submit">Registrar nuevo producto</button>
+					</form>
+				</div>
+			</div>
+		</main>
+		<!-- Bootstrap - JS -->
+		<%- include("./partials/bootstrap_script.ejs") %>
+		<%- include("./partials/footer.ejs") %>
+	</body>
 </html>
