@@ -4,42 +4,34 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include("./partials/head.ejs") %>
-        <title> Perfil de usuario | MiPC </title>
-</head>
+    <title>Perfil de usuario | MiPC</title>
+  </head>
 
-<body>
+  <body>
+    <div><%= user.name %></div>
+    <div><%= user.username %></div>
+    <div><%= user.email %></div>
+    <div><%= user.password %></div>
     <div>
-        <%= user.name %>
+      <% if(user.image){ %>
+      <img src="/images/users/<%= user.image %>" alt="avatar" />
+      <% }else{ %>
+      <img src="/images/users/default.jpg" alt="avatar default" />
+      <% } %>
     </div>
     <div>
-        <%= user.username %>
+      <!--  Botón de editar aquí-->
+      <a href="/user/profileEdit">
+        <button type="button" class="btn btn-success">Editar perfil</button>
+      </a>
     </div>
     <div>
-        <%= user.email %>
+      <!--  Botón de logout-->
+      <a href="/user/logout">
+        <button type="button" class="btn btn-success">Salir [logout]</button>
+      </a>
     </div>
-    <div>
-        <%= user.password %>
-    </div>
-    <div>
-        <% if(user.image){ %>
-            <img src="/images/users/<%= user.image %>" alt="avatar">
-        <% }else{ %>
-            <img src="/images/users/default.jpg" alt="avatar default">
-        <%  } %>
-    </div>
-    <div>
-        <!--  Botón de editar aquí-->
-        <a href="/user/profileEdit">
-            <button type="button" class="btn btn-success">Editar perfil</button>
-        </a>
-    </div>
-    <div>
-        <!--  Botón de logout-->
-        <a href="/user/logout">
-            <button type="button" class="btn btn-success">Salir [logout]</button>
-        </a>
-    </div>
-</body>
+  </body>
 </html>

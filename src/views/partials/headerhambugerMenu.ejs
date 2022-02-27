@@ -16,28 +16,35 @@
 
 <!-- Top Navigation Menu -->
 <div class="topnav">
-    <a href="#home"><img src="/images/logo/logo_v1.png" alt="Logo_mypc" width="80px"
-            style="filter: brightness(0) invert(1);"></a>
+  <a href="#home"
+    ><img
+      src="/images/logo/logo_v1.png"
+      alt="Logo_mypc"
+      width="80px"
+      style="filter: brightness(0) invert(1)"
+  /></a>
 
-    <div id="myLinks">
-        <p class="menu-hamburgesa-link"><a href="/">INICIO</a></p>
-        <p class="menu-hamburgesa-link"><a href="/cart">CARRITO DE COMPRAS</a></p>
-        <p class="menu-hamburgesa-link"><a href="/user/register">CREAR CUENTA</a></p>
-        <p class="menu-hamburgesa-link"><a href="/user/login">INICIAR SESION</a></p>
-    </div>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-    </a>
+  <div id="myLinks">
+    <p class="menu-hamburgesa-link"><a href="/">INICIO</a></p>
+    <p class="menu-hamburgesa-link"><a href="/cart">CARRITO DE COMPRAS</a></p>
+    <p class="menu-hamburgesa-link">
+      <a href="/user/register">CREAR CUENTA</a>
+    </p>
+    <p class="menu-hamburgesa-link"><a href="/user/login">INICIAR SESION</a></p>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
 </div>
 <!-- End smartphone / tablet look -->
 
 <script>
-    function myFunction() {
-        var x = document.getElementById("myLinks");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "block";
-        }
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
     }
+  }
 </script>
