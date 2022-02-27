@@ -1,10 +1,19 @@
 module.exports = {
-	"development": {
+	"development-Oz": {
     "username": "root",
     "password": "MaiBunnyGirl@22",
     "database": "u699789424_mipcproject",
     "host": "127.0.0.1",
     "dialect": "mysql"
+  },
+  "development-Jos": {
+    "username": "root",
+    "password": "12345",
+    "database": "u699789424_mipcproject",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port":"3307",
+    "logging": false
   },
 	/*
   "development": {
