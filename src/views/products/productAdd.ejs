@@ -40,8 +40,11 @@
 						<% } %>
 						<div class="campo-ind">
 							<label class="label-login">Descripción de tu producto: </label>
-							<textarea class="campo-log" style="background-color: transparent;" name="description"
-								id="descripcion" value="<%= locals.old ? old.description : null %>"></textarea> </textarea>
+							<textarea class="campo-log" 
+									style="background-color: transparent;" 
+									name="description"
+									id="descripcion" 
+							><%= locals.old ? old.description : null %></textarea>
 						</div>
 						<% if ( locals.errors && errors.description ) { %>
 							<div class="error-registro"><%= errors.description.msg %></div>

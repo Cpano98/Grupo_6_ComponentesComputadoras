@@ -63,7 +63,9 @@ const productController = {
   productAddUp: (req, res, next) => {
     // Validate the add product form
     const resultVal = validationResult(req);
+    console.log(resultVal.isEmpty())
     if (!resultVal.isEmpty()) {
+      console.log(resultVal.mapped())
       return res.render("productAdd.ejs", {
         errors: resultVal.mapped(),
         old: req.body,
@@ -76,9 +78,7 @@ const productController = {
       error.httpStatusCode = 404;
       return res.render("error404.ejs");
     }
-
-    //console.log("Valores form " + req.body);
-    //console.log('Info del file' + file.originalname)
+    console.log(req.body)
 
     Products.create({
       name: req.body.name,
@@ -90,8 +90,9 @@ const productController = {
       category: req.body.category,
       brand: req.body.brand,
       pieces: req.body.pieces,
-    }).then((products) => {
-      res.redirect("admin/adminList");
+    }).then((product) => {
+      console.log(product)
+      return res.redirect("/productDetail/:prodict.datavalues.id/");
     });
   },
   /* - - - - - - - - EDITAR PRODUCTO - - - - - - - - - */
@@ -119,17 +120,17 @@ const productController = {
 				});
 		}
 		
-
+    
     const file = req.file;
+    console.log(file)
     if (!file) {
       const error = new Error("No hta seleccionado un archivo");
       error.httpStatusCode = 400;
 
-      return res.render("error400.ejs");
+      return res.render("error40X.ejs");
     }
 
-    Products.update(
-      {
+    Products.update({
         name: req.body.name,
         sku: req.body.sku,
         description: req.body.description,
@@ -142,9 +143,11 @@ const productController = {
       },
       {
         where: { id: req.params.id },
-      }
-    );
-    return res.render("productoActualizado.ejs");
+      }).then( (product) => {
+        console.log('aquí llegó')
+        return res.redirect('/')
+      });
+    
   },
   /* - - - - - - - - BORRAR PRODUCTO - - - - - - - - - */
   productDelete: (req, res) => {
@@ -152,7 +155,7 @@ const productController = {
       where: { id: req.params.id },
     })
       .then(() => {
-        res.redirect("/products/eliminado");
+        res.redirect("/products/delete");
       })
       .catch((err) => {
         res.render("error404", { status: 404, url: req.url });

@@ -46,6 +46,7 @@ app.set("views", [
   path.join(__dirname + "/src/views/products"),
   path.join(__dirname + "/src/views/purchase"),
   path.join(__dirname + "/src/views/users"),
+  path.join(__dirname + "/src/views/partials"),
 ]);
 
 app.set("view engine", "ejs");

@@ -49,7 +49,7 @@ const validationProduct = [
     .withMessage("Máximo 200 caracteres")
     .bail(),
   body("price").notEmpty().withMessage("Ingrese un precio").bail(),
-  body("piece")
+  body("pieces")
     .notEmpty()
     .withMessage("Ingrese la cantidad")
     .bail()
