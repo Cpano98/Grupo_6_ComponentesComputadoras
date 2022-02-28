@@ -1,99 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<%- include("./partials/head.ejs") %>
-	<title>Listado de productos | MiPC</title>
+    <%- include("./partials/head.ejs") %>
+    <title>Listado de productos | MiPC</title>
   </head>
 
   <body>
-	<header>
-	  <!--Header-escritorio-->
-	  <%- include("partials/header.ejs") %>
-	  <!-- Header hambuger  -->
-	  <%- include("partials/headerhambugerMenu.ejs")%>
-	</header>
+    <header>
+      <!--Header-escritorio-->
+      <%- include("partials/header.ejs") %>
+      <!-- Header hambuger  -->
+      <%- include("partials/headerhambugerMenu.ejs")%>
+    </header>
 
-	<main class="main">
-	  <div class="contenedor-login2">
-		<div class="login3">
-		  <h3>
-			Resultados de búsqueda para: <strong> <%= busqueda %> </strong>
-		  </h3>
-		  <p>
-			¿No encuentras lo que buscas?
-			<a href="/products">Visita todos los productos </a>
-		  </p>
-		  <br />
+    <main class="main">
+      <div class="contenedor-login2">
+        <div class="login3">
+          <h3>
+            Resultados de búsqueda para: <strong> <%= busqueda %> </strong>
+          </h3>
+          <p>
+            ¿No encuentras lo que buscas?
+            <a href="/products">Visita todos los productos </a>
+          </p>
+          <br />
 
-		  <!--Aquí va el lista de productos para el CRUD-->
-		  <div class="row separacion" id="nombresLista">
-			<div class="col-1">
-			  <h6 style="font-weight: bold">Imagen</h6>
-			</div>
-			<div class="col-4">
-			  <h6 style="font-weight: bold">Título y descripción</h6>
-			</div>
-			<div class="col">
-			  <h6 style="font-weight: bold">Inventario</h6>
-			</div>
-			<div class="col">
-			  <h6 style="font-weight: bold">Precio (MXN)</h6>
-			</div>
-			<div class="col">
-			  <h6 style="font-weight: bold">Marca</h6>
-			</div>
-			<div class="col">
-			  <h6 style="font-weight: bold">Acciones</h6>
-			</div>
-		  </div>
+          <!--Aquí va el lista de productos para el CRUD-->
+          <div class="row separacion" id="nombresLista">
+            <div class="col-1">
+              <h6 style="font-weight: bold">Imagen</h6>
+            </div>
+            <div class="col-4">
+              <h6 style="font-weight: bold">Título y descripción</h6>
+            </div>
+            <div class="col">
+              <h6 style="font-weight: bold">Inventario</h6>
+            </div>
+            <div class="col">
+              <h6 style="font-weight: bold">Precio (MXN)</h6>
+            </div>
+            <div class="col">
+              <h6 style="font-weight: bold">Marca</h6>
+            </div>
+            <div class="col">
+              <h6 style="font-weight: bold">Acciones</h6>
+            </div>
+          </div>
 
-		  <% for (const item of products) { %>
-		  <div class="row separacion">
-			<div class="col-1">
-			  <img
-				class="img_ind_admin"
-				src="/images/productosPrueba/<%= item.image %>"
-				alt="MacBook Pro 2019"
-			  />
-			</div>
-			<div class="col-4">
-			  <h2 class="titulo_producto" id="tituloCrud"><%= item.name %></h2>
-			  <p class="descrip_producto" id="descripcionProductosCrud">
-				<%= item.description%>
-			  </p>
+          <% for (const item of products) { %>
+          <div class="row separacion">
+            <div class="col-1">
+              <img
+                class="img_ind_admin"
+                src="/images/productosPrueba/<%= item.image %>"
+                alt="MacBook Pro 2019"
+              />
+            </div>
+            <div class="col-4">
+              <h2 class="titulo_producto" id="tituloCrud"><%= item.name %></h2>
+              <p class="descrip_producto" id="descripcionProductosCrud">
+                <%= item.description%>
+              </p>
 
-			  <p class="descrip_producto" id="hide">
-				<strong>SKU:</strong>
-				<%= item.sku %>
-			  </p>
-			</div>
+              <p class="descrip_producto" id="hide">
+                <strong>SKU:</strong>
+                <%= item.sku %>
+              </p>
+            </div>
 
-			<div class="col" id="hide"><%= item.pieces %> piezas</div>
-			<div class="col" id="hide">
-			  <h6>$<%= item.price %></h6>
-			</div>
+            <div class="col" id="hide"><%= item.pieces %> piezas</div>
+            <div class="col" id="hide">
+              <h6>$<%= item.price %></h6>
+            </div>
 
-			<div class="col" id="hide"><%= item.brand %></div>
+            <div class="col" id="hide"><%= item.brand %></div>
 
-			<div class="col">
-			  <a href="/products/productDetail/<%= item.id %>">
-				<button
-				  type="button"
-				  style="margin-bottom: 20px"
-				  class="btn btn-success"
-				>
-				  Ver detalles
-				</button>
-			  </a>
-			</div>
-		  </div>
-		  <% } %>
-		</div>
-	  </div>
-	</main>
+            <div class="col">
+              <a href="/products/productDetail/<%= item.id %>">
+                <button
+                  type="button"
+                  style="margin-bottom: 20px"
+                  class="btn btn-success"
+                >
+                  Ver detalles
+                </button>
+              </a>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </main>
 
-	<!-- Bootstrap - JS -->
-	<%- include("./partials/bootstrap_script.ejs") %> <%-
-	include("./partials/footer.ejs") %>
+    <!-- Bootstrap - JS -->
+    <%- include("./partials/bootstrap_script.ejs") %> <%-
+    include("./partials/footer.ejs") %>
   </body>
 </html>

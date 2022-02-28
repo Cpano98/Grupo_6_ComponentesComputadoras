@@ -2,112 +2,112 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<%- include("./partials/head.ejs") %>
-	<title>Perfil de usuario | MiPC</title>
+    <%- include("./partials/head.ejs") %>
+    <title>Perfil de usuario | MiPC</title>
   </head>
   <body>
-	<div class="contenedor-login">
-		Campos editables por el usuario
-		<form
-		action="/user/profileEdit?_method=PUT"
-		method="POST"
-		enctype="multipart/form-data"
-		>
-		<div class="campo-ind">
-			<label class="label-login">Nombre completo:</label><br />
-			<input
-			class="campo-log"
-			type="text"
-			style="background-color: transparent"
-			placeholder="¿cómo te llamas?"
-			name="name"
-			value="<%= locals.old ? old.name : null %>"
-			/>
-		</div>
-		<%if(locals.errors && errors.name){ %>
-		<div class="error-registro"><%= errors.name.msg %></div>
-		<% } %>
-		<div class="campo-ind">
-			<label class="label-login">Nombre de usuario: </label><br />
-			<input
-			class="campo-log"
-			type="text"
-			style="background-color: transparent"
-			placeholder="username"
-			name="username"
-			value="<%= locals.old ? old.username : null %>"
-			/>
-		</div>
-		<%if(locals.errors && errors.username){ %>
-		<div class="error-registro"><%= errors.username.msg %></div>
-		<% } %>
-		<div class="campo-ind">
-			<label class="label-login">Correo Electrónico:</label><br />
-			<input
-			class="campo-log"
-			type="email"
-			placeholder="ejemplo@mipc.com"
-			name="email"
-			value="<%= locals.old ? old.email : null %>"
-			/>
-		</div>
-		<%if(locals.errors && errors.email){ %>
-		<div class="error-registro"><%= errors.email.msg %></div>
-		<% } %>
-		<div class="campo-ind">
-			<label class="label-login">Contraseña:</label><br />
-			<input
-			class="campo-log"
-			type="password"
-			placeholder="--"
-			name="password"
-			value="<%= locals.old ? old.password : null %>"
-		/>
-		</div>
-		<%if(locals.errors && errors.password){ %>
-		<div class="error-registro"><%= errors.name.password %></div>
-		<% } %>
-		<div class="campo-ind">
-			<label class="label-login">Confirmar contraseña:</label><br />
-			<input
-			class="campo-log"
-			type="password"
-			placeholder=""
-			name="passwordVal"
-			value="<%= locals ? old.passwordVal : null %>"
-		  />
-		</div>
-		<%if(locals.errors && errors.passwordVal){ %>
-		<div class="error-registro"><%= errors.name.passwordVal %></div>
-		<% } %>
-		<div id="contraseñaCheck">
-		  <input type="checkbox" name="MostrarContraseña" value="False" />
-		  <label for="MostrarContraseña">Mostrar contraseña</label>
-		  <p></p>
-		</div>
-		<div class="campo-ind">
-		  <label class="label-login">Avatar del usuario: </label><br />
-		  <input
-			class="campo-log"
-			type="file"
-			accept=".png, .jpg"
-			style="background-color: transparent"
-			placeholder="Se muestra a usuarios"
-			name="image"
-			id="image"
-		  />
-		</div>
-		<%if(locals.errors && errors.name){ %>
-		<div class="error-registro"><%= errors.name.msg %></div>
-		<% } %>
-		<button class="btn btn-outline-success btn_search" type="submit">
-		  Registrarme
-		</button>
-	  </form>
+    <div class="contenedor-login">
+      Campos editables por el usuario
+      <form
+        action="/user/profileEdit?_method=PUT"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="campo-ind">
+          <label class="label-login">Nombre completo:</label><br />
+          <input
+            class="campo-log"
+            type="text"
+            style="background-color: transparent"
+            placeholder="¿cómo te llamas?"
+            name="name"
+            value="<%= locals.old ? old.name : null %>"
+          />
+        </div>
+        <%if(locals.errors && errors.name){ %>
+        <div class="error-registro"><%= errors.name.msg %></div>
+        <% } %>
+        <div class="campo-ind">
+          <label class="label-login">Nombre de usuario: </label><br />
+          <input
+            class="campo-log"
+            type="text"
+            style="background-color: transparent"
+            placeholder="username"
+            name="username"
+            value="<%= locals.old ? old.username : null %>"
+          />
+        </div>
+        <%if(locals.errors && errors.username){ %>
+        <div class="error-registro"><%= errors.username.msg %></div>
+        <% } %>
+        <div class="campo-ind">
+          <label class="label-login">Correo Electrónico:</label><br />
+          <input
+            class="campo-log"
+            type="email"
+            placeholder="ejemplo@mipc.com"
+            name="email"
+            value="<%= locals.old ? old.email : null %>"
+          />
+        </div>
+        <%if(locals.errors && errors.email){ %>
+        <div class="error-registro"><%= errors.email.msg %></div>
+        <% } %>
+        <div class="campo-ind">
+          <label class="label-login">Contraseña:</label><br />
+          <input
+            class="campo-log"
+            type="password"
+            placeholder="--"
+            name="password"
+            value="<%= locals.old ? old.password : null %>"
+          />
+        </div>
+        <%if(locals.errors && errors.password){ %>
+        <div class="error-registro"><%= errors.name.password %></div>
+        <% } %>
+        <div class="campo-ind">
+          <label class="label-login">Confirmar contraseña:</label><br />
+          <input
+            class="campo-log"
+            type="password"
+            placeholder=""
+            name="passwordVal"
+            value="<%= locals ? old.passwordVal : null %>"
+          />
+        </div>
+        <%if(locals.errors && errors.passwordVal){ %>
+        <div class="error-registro"><%= errors.name.passwordVal %></div>
+        <% } %>
+        <div id="contraseñaCheck">
+          <input type="checkbox" name="MostrarContraseña" value="False" />
+          <label for="MostrarContraseña">Mostrar contraseña</label>
+          <p></p>
+        </div>
+        <div class="campo-ind">
+          <label class="label-login">Avatar del usuario: </label><br />
+          <input
+            class="campo-log"
+            type="file"
+            accept=".png, .jpg"
+            style="background-color: transparent"
+            placeholder="Se muestra a usuarios"
+            name="image"
+            id="image"
+          />
+        </div>
+        <%if(locals.errors && errors.name){ %>
+        <div class="error-registro"><%= errors.name.msg %></div>
+        <% } %>
+        <button class="btn btn-outline-success btn_search" type="submit">
+          Registrarme
+        </button>
+      </form>
 
-	  <form action="/user/delete/>" method="GET">
-		<button type="submit">Eliminar perfil</button>
-	  </form>
-	</div>
+      <form action="/user/delete/>" method="GET">
+        <button type="submit">Eliminar perfil</button>
+      </form>
+    </div>
   </body>
 </html>
