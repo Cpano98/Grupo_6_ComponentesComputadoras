@@ -10,7 +10,7 @@ const Products = db.Product;
 
 const productController = {
 	/* - - - - - - - - LISTA PRODUCTO - - - - - - - - - */
-	lista: (req, res) => {
+	list: (req, res) => {
 		const conOferta = [];
 		const sinOferta = [];
 
@@ -30,13 +30,9 @@ const productController = {
 				res.send(err)
 			})
 	},
-	
-	confirmacionEliminado: (req, res) => {
-		return res.render("productoEliminado.ejs");
-	},
 
 	/* - - - - - - - - DETALLES PRODUCTO - - - - - - - - - */
-	product: (req, res) => {
+	productDetail: (req, res) => {
 		// Sequelize Implementation
 		Products.findByPk(req.params.id)
 			.then(product => {
@@ -49,10 +45,10 @@ const productController = {
 
 	/* Contenido de admin a product */
 
-	admin: (req, res) => {
+	adminPanel: (req, res) => {
 		return res.render("adminPanel.ejs");
 	},
-	adminLista: (req, res) => {
+	adminList: (req, res) => {
 		Products.findAll()
 			.then(products => {
 				console.log(products[0].image);
@@ -62,12 +58,11 @@ const productController = {
 				return res.render('error404', { status: 404, url: req.url });
 			})
 	},
-	agregar: (req, res) => {
+	/* - - - - - - - - ADD PRODUCT - - - - - - - - - */
+	productAdd: (req, res) => {
 		return res.render("productAdd.ejs");
 	},
-
-	/* - - - - - - - - ADD PRODUCT - - - - - - - - - */
-	productAdd: (req, res, next) => {
+	productAddUp: (req, res, next) => {
 		// Validate the add product form
 		const resultVal = validationResult(req);
 		if (!resultVal.isEmpty()) {
@@ -77,7 +72,6 @@ const productController = {
 				oldFile: req.file
 			})
 		}
-
 		const file = req.file
 		if (!file) {
 			const error = new Error('No ha seleccionado un archivo')
@@ -105,7 +99,7 @@ const productController = {
 	},
 
 	/* - - - - - - - - EDITAR PRODUCTO - - - - - - - - - */
-	editar: (req, res) => {
+	productEdit: (req, res) => {
 		Products.findByPk(req.params.id)
 			.then(products => {
 				return res.render('editarProducto.ejs', { item: products });
@@ -115,9 +109,7 @@ const productController = {
 			})
 
 	},
-
-	/* - - - - - - - - ACTUALIZAR PRODUCTO - - - - - - - - - */
-	actualizar: async (req, res, next) => {
+	productEditUp: async (req, res, next) => {
 		/* VALIDADOR de formulario de actualizarProducto */
 		/*
 		const resultVal = validationResult(req);
@@ -161,7 +153,7 @@ const productController = {
 	},
 
 	/* - - - - - - - - BORRAR PRODUCTO - - - - - - - - - */
-	borrar: (req, res) => {
+	productDelete: (req, res) => {
 
 		Products.destroy({
 			where: { id: req.params.id }
@@ -174,6 +166,10 @@ const productController = {
 			})
 
 	},
+	
+	deleteConfirm: (req, res) => {
+		return res.render("productoEliminado.ejs");
+	},
 	//*
 	//Mover el carrito?
 	cart: (req, res) => {
@@ -181,8 +177,7 @@ const productController = {
 	},
 	// */
 
-	busqueda: (req, res) => {
-
+	search: (req, res) => {
 		let palabraBusqueda = req.body.search
 		console.log("Se buscó: " + palabraBusqueda);
 

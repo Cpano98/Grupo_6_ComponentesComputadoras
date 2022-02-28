@@ -68,42 +68,36 @@ const validationProduct = [
 ]
 
 /*-- admin  */
-//router.get("/admin",adminMiddle , productController.admin);   ----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
-router.get("/admin", productController.admin);
-router.get("/admin/lista-productos", productController.adminLista);
+router.get("/admin", adminMiddle, productController.adminPanel);
+router.get("/admin/list", productController.adminList);
 
 
 /* --- Get products --- */
-router.get("/", productController.lista);
+router.get("/", productController.list);
 
-/* --- Eliminación --- */
-router.get("/eliminado", productController.confirmacionEliminado);
 
 /* --- Get detalle ---*/
-router.get("/productDetail/:id/", productController.product);
+router.get("/productDetail/:id/", productController.productDetail);
 
 /* --- Get/post crear producto --- */
-//router.get("/create",adminMiddle , productController.agregar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
-router.get("/create", productController.agregar);
-//router.post("/create", upload.single('image'), productController.agregarProducto);
-router.post("/create", upload.single('image'), validationProduct, productController.productAdd);
-
+router.get("/create",adminMiddle, productController.productAdd);
+router.post("/create", upload.single('image'), validationProduct, productController.productAddUp);
 
 /* --- Get/put editar producto --- */
-//router.get('/edit/:id', adminMiddle, productController.editar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
-router.get('/edit/:id', productController.editar);
-//router.put('/edit/:id', upload.single('image'), productController.actualizar);----LO QUITE POR EL MOMENTO PARA EDITAR RAPIDO. CP
-router.put('/edit/:id', upload.single('image'), validationProduct, productController.actualizar);
+router.get('/edit/:id',adminMiddle, productController.productEdit);
+router.put('/edit/:id', upload.single('image'), validationProduct, productController.productEditUp);
 
 /* --- Delete borrar producto --- */
-router.delete('/delete/:id', productController.borrar);
+router.delete('/delete/:id', productController.productDelete);
+router.get("/delete", productController.deleteConfirm);
+
 
 //El carrito de compras va aquí??
 //router.get("/productCart", productController.cart);
 
 /* --- BÚSQUEDA DE PRODUCTOS --- */
 //router.get("/busqueda-producto", productController.busqueda);
-router.post("/busqueda-producto", productController.busqueda);
+router.post("/busqueda-producto", productController.search);
 
 
 module.exports = router; 
