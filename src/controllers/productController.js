@@ -91,7 +91,7 @@ const productController = {
       brand: req.body.brand,
       pieces: req.body.pieces,
     }).then((products) => {
-      res.redirect("admin/lista-productos");
+      res.redirect("admin/adminList");
     });
   },
   /* - - - - - - - - EDITAR PRODUCTO - - - - - - - - - */
@@ -104,12 +104,12 @@ const productController = {
         return res.render("error404", { status: 404, url: req.url });
       });
   },
-  productEditUp: async (req, res, next) => {
+  productEditUp: (req, res, next) => {
     /* VALIDADOR de formulario de actualizarProducto */
-    /*
+    
 		const resultVal = validationResult(req);
 		if (!resultVal.isEmpty()){
-			let product = await Products.findByPk(req.params.id)
+			let product =  Products.findByPk(req.params.id)
 			//ESTE render entra con la promesa, pese a que no se quiera
 			res.render('editarProducto.ejs', 
 				{ 
@@ -118,7 +118,7 @@ const productController = {
 					old:req.body 
 				});
 		}
-		*/
+		
 
     const file = req.file;
     if (!file) {

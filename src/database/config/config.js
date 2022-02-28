@@ -15,7 +15,7 @@ module.exports = {
     "port":"3307",
     "logging": false
   },
-	/*
+	//*
   "development": {
     "username": "u699789424_MiPCuser",
     "password": "c5XlUeB0];",
