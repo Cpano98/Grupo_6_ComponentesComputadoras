@@ -12,7 +12,7 @@ const Product = require('../database/models/Product');
 
 const Products = db.Product;
 
-const controller = {
+const mainController = {
 	index: (req, res) => {
 		//res.render("listaProductoscCRUD.ejs", { products });
 		// Sequelize Implementation
@@ -40,4 +40,4 @@ const controller = {
 	}
 }
 
-module.exports = controller
+module.exports = mainController

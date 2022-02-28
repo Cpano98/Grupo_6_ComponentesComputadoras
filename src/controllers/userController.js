@@ -8,7 +8,7 @@ const bcryptjs = require("bcryptjs");
 const usersFilePath = path.join(__dirname, "../data/users.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
-const controller = {
+const userController = {
   profile: (req, res) => {
     let user = req.session.userLogged;
     return res.render("profile.ejs", { user });
@@ -137,4 +137,4 @@ const controller = {
   },
 };
 
-module.exports = controller;
+module.exports = userController;

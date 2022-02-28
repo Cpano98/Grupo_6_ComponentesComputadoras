@@ -8,7 +8,7 @@ const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 const Products = db.Product;
 
-const controller = {
+const productController = {
 	/* - - - - - - - - LISTA PRODUCTO - - - - - - - - - */
 	lista: (req, res) => {
 		const conOferta = [];
@@ -226,4 +226,4 @@ const controller = {
 	}
 }
 
-module.exports = controller
+module.exports = productController
