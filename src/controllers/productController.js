@@ -65,7 +65,6 @@ const productController = {
     const resultVal = validationResult(req);
     console.log(resultVal.isEmpty())
     if (!resultVal.isEmpty()) {
-      console.log(resultVal.mapped())
       return res.render("productAdd.ejs", {
         errors: resultVal.mapped(),
         old: req.body,
@@ -78,7 +77,7 @@ const productController = {
       error.httpStatusCode = 404;
       return res.render("error404.ejs");
     }
-    console.log(req.body)
+   
 
     Products.create({
       name: req.body.name,
@@ -90,10 +89,11 @@ const productController = {
       category: req.body.category,
       brand: req.body.brand,
       pieces: req.body.pieces,
-    }).then((product) => {
-      console.log(product)
-      return res.redirect("/productDetail/:prodict.datavalues.id/");
+    }).then((product) => { 
+      return res.render("productDetail.ejs", { item: product.dataValues });
     });
+    //FALTA CATCH DE CUANDO OCURREN ERRORES EN EL SQL
+
   },
   /* - - - - - - - - EDITAR PRODUCTO - - - - - - - - - */
   productEdit: (req, res) => {
@@ -111,7 +111,6 @@ const productController = {
 		const resultVal = validationResult(req);
 		if (!resultVal.isEmpty()){
 			let product =  Products.findByPk(req.params.id)
-			//ESTE render entra con la promesa, pese a que no se quiera
 			res.render('editarProducto.ejs', 
 				{ 
 					item: product,
@@ -119,14 +118,12 @@ const productController = {
 					old:req.body 
 				});
 		}
-		
-    
+		    
     const file = req.file;
     console.log(file)
     if (!file) {
       const error = new Error("No hta seleccionado un archivo");
       error.httpStatusCode = 400;
-
       return res.render("error40X.ejs");
     }
 
@@ -143,9 +140,15 @@ const productController = {
       },
       {
         where: { id: req.params.id },
-      }).then( (product) => {
-        console.log('aquí llegó')
-        return res.redirect('/')
+      }).then( () => {
+        Products.findByPk(req.params.id)
+        .then((products) => {
+          console.log(Products)
+          console.log('editado')
+          return res.render("productDetail.ejs", { item: products });
+        })
+
+        
       });
     
   },
