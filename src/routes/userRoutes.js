@@ -94,7 +94,7 @@ const validationEdit = [
     .withMessage("Ingrese su contraseña nuevamente")
     .bail(),
 ];
-
+//Validaciones del loggeo del usuario
 const validationLog = [
   body("password").notEmpty().withMessage("Debe incluir una contraseña").bail(),
 ];
@@ -103,7 +103,7 @@ router.get("/login", guestMiddle, userController.login);
 router.post("/login", validationLog, userController.logger);
 
 router.get("/register", guestMiddle, userController.register);
-router.post("/register", validationReg, userController.registed);
+router.post("/register", validationReg, userController.registerUp);
 
 // "profile" es a la que deberían redirigir una vez se tiene un usuario
 router.get("/profile", adminMiddle, userController.profile);

@@ -100,7 +100,7 @@ const userController = {
     res.cookie("testing", "hola mundo", { maxAge: 1000 * 30 });
     return res.render("register.ejs");
   },
-  registed: (req, res) => {
+  registerUp: (req, res) => {
     //Validar
     const resultVal = validationResult(req);
 
