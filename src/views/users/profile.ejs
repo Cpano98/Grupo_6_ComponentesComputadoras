@@ -4,34 +4,78 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include("./partials/head.ejs") %>
-    <title>Perfil de usuario | MiPC</title>
-  </head>
 
-  <body>
-    <div><%= user.name %></div>
-    <div><%= user.username %></div>
-    <div><%= user.email %></div>
-    <div><%= user.password %></div>
+<head>
+  <%- include("./partials/head.ejs") %>
+    <title>Perfil de usuario | MiPC</title>
+</head>
+
+<body>
+  <header>
+    <!--Header-escritorio-->
+    <%- include("partials/header.ejs") %>
+      <!-- Header hambuger  -->
+      <%- include("partials/headerhambugerMenu.ejs")%>
+  </header>
+  <main>
     <div>
-      <% if(user.image){ %>
-      <img src="/images/users/<%= user.image %>" alt="avatar" />
-      <% }else{ %>
-      <img src="/images/users/default.jpg" alt="avatar default" />
-      <% } %>
+      <!-- Bloque principal de perfil-->
+      <div class="grid-profile-img">
+        <div>
+          <!-- image-->
+          <% if(user.image){ %>
+            <img src="/images/users/<%= user.image %>" alt="avatar" />
+          <% }else{ %>
+            <img src="/images/users/default.jpg" alt="avatar default" />
+          <% } %>
+        </div>
+        <div>
+          <!--buttons-->
+          <div>
+            <a href="/user/profileEdit">
+              <button type="button" class="btn btn-success">Editar perfil</button>
+            </a>
+          </div>
+          <div>
+            <a href="/user/logout">
+              <button type="button" class="btn btn-success">Salir </button>
+            </a>
+          </div>
+          <div>
+            <a href="/purchase">
+              <button type="button" class="btn btn-success">MiCarro </button>
+            </a>
+          </div>
+          <div>
+            <a href="/purchase">
+              <button type="button" class="btn btn-success">MisCompras</button>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <div class="grid-profile-info">
+        <div>
+          <%= user.name %>
+        </div>
+        <div>
+          <%= user.username %>
+        </div>
+        <div>
+          <%= user.email %>
+        </div>
+        <div>
+          <%= user.password %>
+        </div>
+      </div>
     </div>
-    <div>
-      <!--  Botón de editar aquí-->
-      <a href="/user/profileEdit">
-        <button type="button" class="btn btn-success">Editar perfil</button>
-      </a>
-    </div>
-    <div>
-      <!--  Botón de logout-->
-      <a href="/user/logout">
-        <button type="button" class="btn btn-success">Salir [logout]</button>
-      </a>
-    </div>
-  </body>
+
+
+
+  </main>
+  <!-- FOOTER -->
+  <%- include("partials/footer.ejs") %>
+
+</body>
+
 </html>
