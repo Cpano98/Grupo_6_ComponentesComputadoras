@@ -1,7 +1,3 @@
-<!--
-	Aquí van los perfiles una ves que uno se logea/registra nos movemos aquí*
--->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,10 +14,10 @@
       <%- include("partials/headerhambugerMenu.ejs")%>
   </header>
   <main>
-    <div>
+    <div class="grid-profile">
       <!-- Bloque principal de perfil-->
       <div class="grid-profile-img">
-        <div>
+        <div class="user-img">
           <!-- image-->
           <% if(user.image){ %>
             <img src="/images/users/<%= user.image %>" alt="avatar" />
@@ -29,44 +25,38 @@
             <img src="/images/users/default.jpg" alt="avatar default" />
           <% } %>
         </div>
-        <div>
+        <div class="user-buttons">
           <!--buttons-->
           <div>
             <a href="/user/profileEdit">
-              <button type="button" class="btn btn-success">Editar perfil</button>
+              <button type="button" class="btn-profile">Editar perfil</button>
+            </a>
+          </div>
+          <div>
+            <a href="/purchase">
+              <button type="button" class="btn-profile">MiCarro</button>
+            </a>
+          </div>
+          <div>
+            <a href="/purchase">
+              <button type="button" class="btn-profile">MisCompras</button>
             </a>
           </div>
           <div>
             <a href="/user/logout">
-              <button type="button" class="btn btn-success">Salir </button>
-            </a>
-          </div>
-          <div>
-            <a href="/purchase">
-              <button type="button" class="btn btn-success">MiCarro </button>
-            </a>
-          </div>
-          <div>
-            <a href="/purchase">
-              <button type="button" class="btn btn-success">MisCompras</button>
+              <button type="button" class="btn-profile">Salir</button>
             </a>
           </div>
         </div>
-
       </div>
       <div class="grid-profile-info">
-        <div>
-          <%= user.name %>
-        </div>
-        <div>
-          <%= user.username %>
-        </div>
-        <div>
-          <%= user.email %>
-        </div>
-        <div>
-          <%= user.password %>
-        </div>
+        <ul>
+          <li> Nombre: <%= user.name %>  </li>
+          <li> Nick:   <%= user.username %> </li>
+          <li> Correo: <%= user.email %> </li>
+          <li> Password: <%= user.password %></li>
+        </ul>
+        password debería ser un null, revisar su valor*
       </div>
     </div>
 
