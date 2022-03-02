@@ -14,10 +14,6 @@
       <%- include("partials/headerhambugerMenu.ejs")%>
   </header>
   <main>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-
 
     <div class="profileBackgoundImage" style="background-image: url('/images/621ec0ceb0d56.jpg');"></div>
     <div class="contenedor-login">
@@ -130,57 +126,6 @@
 
           </div>
         </div>
-=======
->>>>>>> Stashed changes
-    <div class="grid-profile">
-      <!-- Bloque principal de perfil-->
-      <div class="grid-profile-img">
-        <div class="user-img">
-          <!-- image-->
-          <% if(user.image){ %>
-            <img src="/images/users/<%= user.image %>" alt="avatar" />
-          <% }else{ %>
-            <img src="/images/users/default.jpg" alt="avatar default" />
-          <% } %>
-        </div>
-        <div class="user-buttons">
-          <!--buttons-->
-          <div>
-            <a href="/user/profileEdit">
-              <button type="button" class="btn-profile">Editar perfil</button>
-            </a>
-          </div>
-          <div>
-            <a href="/purchase">
-              <button type="button" class="btn-profile">MiCarro</button>
-            </a>
-          </div>
-          <div>
-            <a href="/purchase">
-              <button type="button" class="btn-profile">MisCompras</button>
-            </a>
-          </div>
-          <div>
-            <a href="/user/logout">
-              <button type="button" class="btn-profile">Salir</button>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="grid-profile-info">
-        <ul>
-          <li> Nombre: <%= user.name %>  </li>
-          <li> Nick:   <%= user.username %> </li>
-          <li> Correo: <%= user.email %> </li>
-          <li> Password: <%= user.password %></li>
-        </ul>
-        password debería ser un null, revisar su valor*
-<<<<<<< Updated upstream
-=======
->>>>>>> d36ddba79612975830805f93981286d9841f6f6a
->>>>>>> Stashed changes
-      </div>
-
 
     </div>
 
