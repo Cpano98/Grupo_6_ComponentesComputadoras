@@ -110,6 +110,18 @@ div input[type="reset"] {
 	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05);
 }
 
+.panelUserContainer{
+	color: black;
+	background-color: white;
+	padding: 30px;
+	margin-right: 40px;
+	text-align: center;
+	-webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05);
+	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05);
+	transform: translateY(-200px);
+
+}
+
 .campo-ind {
 	color: #717171;
 	border: solid #ced4da 1px;

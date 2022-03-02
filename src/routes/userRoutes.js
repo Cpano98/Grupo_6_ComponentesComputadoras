@@ -106,7 +106,8 @@ router.get("/register", guestMiddle, userController.register);
 router.post("/register", validationReg, userController.registerUp);
 
 // "profile" es a la que deberían redirigir una vez se tiene un usuario
-router.get("/profile", adminMiddle, userController.profile);
+router.get("/profile", userController.profile);
+
 
 router.get("/profileEdit", adminMiddle, userController.profileEdit);
 router.put(

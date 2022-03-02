@@ -90,11 +90,12 @@ const validationProduct = [
 ];
 
 /*-- admin  */
-router.get("/admin", adminMiddle, productController.adminPanel);
+router.get("/admin", productController.adminPanel);
 router.get("/admin/list", productController.adminList);
 
 /* --- Get products --- */
 router.get("/", productController.list);
+router.get("/:category", productController.listCategory);
 
 /* --- Get detalle ---*/
 router.get("/productDetail/:id/", productController.productDetail);

@@ -14,6 +14,124 @@
       <%- include("partials/headerhambugerMenu.ejs")%>
   </header>
   <main>
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+
+    <div class="profileBackgoundImage" style="background-image: url('/images/621ec0ceb0d56.jpg');"></div>
+    <div class="contenedor-login">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-3 panelUserContainer">
+            <img src="/images/users/UserAvatar.jpeg" alt="UserAvatar" class="UserAvatarPP">
+
+            <div class="InnerSectionProfile">
+              <h5><strong>
+                  <%= user.name %>
+                </strong></h5>
+              <h6>
+                <%= user.username %>
+              </h6>
+            </div>
+
+            <div class="InnerSectionProfile">
+              <h5><strong> Email </strong></h5>
+              <h6>
+                <%= user.email %>
+              </h6>
+            </div>
+
+            <div class="InnerSectionProfile">
+              <h5><strong> Password </strong></h5>
+              <h6>
+                <%= user.pass %>
+              </h6>
+            </div>
+
+          </div>
+          <div class="col panelUserContainer" style="text-align: left; width: 100%;">
+            <h3>Editar mi perfil</h3>
+            <p>Editar mi información</p>
+
+            <form action="/user/register" method="POST">
+              <%if(locals.errors && errors.reg){ %>
+                <div class="error-registro">
+                  <%= errors.reg.msg %>
+                </div>
+                <% } %>
+                  <div class="campo-ind">
+                    <label class="label-login">Nombre completo:</label><br />
+                    <input class="campo-log" type="text" style="background-color: transparent"
+                      placeholder="¿cómo te llamas?" name="name" value="<%= user.name %>" />
+                  </div>
+                  <%if(locals.errors && errors.name){ %>
+                    <div class="error-registro">
+                      <%= errors.name.msg %>
+                    </div>
+                    <% } %>
+                      <div class="campo-ind">
+                        <label class="label-login">Nombre de usuario: </label><br />
+                        <input class="campo-log" type="text" style="background-color: transparent" name="username"
+                          value="<%= user.username %>" />
+                      </div>
+                      <%if(locals.errors && errors.username){ %>
+                        <div class="error-registro">
+                          <%= errors.username.msg %>
+                        </div>
+                        <% } %>
+                          <div class="campo-ind">
+                            <label class="label-login">Correo Electrónico:</label><br />
+                            <input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email"
+                              value="<%= user.email %>" />
+                          </div>
+                          <%if(locals.errors && errors.email){ %>
+                            <div class="error-registro">
+                              <%= errors.email.msg %>
+                            </div>
+                            <% } %>
+                              <div class="campo-ind">
+                                <label class="label-login">Contraseña actual:</label><br />
+                                <input class="campo-log" type="password" placeholder="--" name="password"
+                                  value="<%= user.pass %>" />
+                              </div>
+                              <%if(locals.errors && errors.password){ %>
+                                <div class="error-registro">
+                                  <%= errors.password.msg %>
+                                </div>
+                                <% } %>
+
+                                  <%if(locals.errors && errors.passwordVal){ %>
+                                    <div class="error-registro">
+                                      <%= errors.passwordVal.msg %>
+                                    </div>
+                                    <% } %>
+
+                                      <button class="btn btn-outline-success btn_search" type="submit">
+                                        Actualizar mi información
+                                      </button>
+
+                                      <form action="/user/delete/>" method="GET">
+                                        <button type="submit">Eliminar perfil</button>
+                                      </form>
+
+                                      <p></p>
+                                      <p>
+                                        Al editar tu información aceptas las
+                                        <a href="">Condiciones de uso</a>
+                                        y el
+                                        <a href="">Aviso de privacidad</a>
+                                        de Mi|PC.
+                                      </p>
+            </form>
+
+
+
+          </div>
+        </div>
+=======
+>>>>>>> Stashed changes
     <div class="grid-profile">
       <!-- Bloque principal de perfil-->
       <div class="grid-profile-img">
@@ -57,8 +175,18 @@
           <li> Password: <%= user.password %></li>
         </ul>
         password debería ser un null, revisar su valor*
+<<<<<<< Updated upstream
+=======
+>>>>>>> d36ddba79612975830805f93981286d9841f6f6a
+>>>>>>> Stashed changes
       </div>
+
+
     </div>
+
+
+
+
 
 
 

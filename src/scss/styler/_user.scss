@@ -31,6 +31,31 @@
 }
 
 
+
+.profileBackgoundImage{
+	height: 150px;
+	background-size: cover;
+	background-position: center;
+
+
+}
+
+.UserAvatarPP{
+	max-width: 80%;
+	border-radius: 1000px;
+	-webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05);
+	box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.05);
+	margin-bottom: 25px;
+}
+
+.InnerSectionProfile{
+	
+	border-top: solid #e7e7e7 1px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+
 .contenedorAdmin,
 .contenedor-login2 {
 	padding: 40px;
