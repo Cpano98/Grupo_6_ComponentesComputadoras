@@ -196,19 +196,22 @@ const userController = {
 	},
 	deleteUser: (req, res) => {
 		console.log('Estoy intando eliminar')
-		console.log(req.session.userLogged)
+		console.log(req.session.userLogged.id)
 		
-		/*
+		
 		Users.destroy({
-			where: { id: req.params.id },
+			where: { id: req.session.userLogged.id},
 		})
 		.then(() => {
-			res.redirect("/products/admin/listUsers");
+		//Destruimos posibles session y cookies antes de redirijir al usuario
+		req.session.destroy();
+		res.clearCookie("userEmail");
+			res.redirect("/");
 		})
 		.catch((err) => {
 			res.render("error404", { status: 404, url: req.url });
 		});
-		*/
+		
 	},
 	editUserAdmin: (req, res) => {
 
