@@ -46,6 +46,13 @@
               </h6>
             </div>
 
+            <div class="InnerSectionProfile">
+              <h5><strong> ID: </strong></h5>
+              <h6>
+                <%= user.id %>
+              </h6>
+            </div>
+
           </div>
           <div class="col panelUserContainer" style="text-align: left; width: 100%;">
             <h3>Editar mi perfil</h3>
@@ -57,6 +64,13 @@
                   <%= errors.reg.msg %>
                 </div>
                 <% } %>
+
+                  <div class="campo-ind">
+                    <label class="label-login">ID DE USUARIO: </label><br />
+                    <input class="campo-log" type="text" style="background-color: transparent; color: #717171;"
+                      value="<%= user.id %>" name="id" readonly />
+                  </div>
+
                   <div class="campo-ind">
                     <label class="label-login">Nombre completo:</label><br />
                     <input class="campo-log" type="text" style="background-color: transparent"
@@ -108,7 +122,7 @@
                                         Actualizar mi información
                                       </button>
 
-                                      <form action="/user/delete/>" method="GET">
+                                      <form action="/user/delete/<%= user.id %>" method="POST">
                                         <button type="submit">Eliminar perfil</button>
                                       </form>
 
@@ -121,13 +135,10 @@
                                         de Mi|PC.
                                       </p>
             </form>
-
-
-
           </div>
         </div>
 
-    </div>
+      </div>
 
 
 
