@@ -5,8 +5,8 @@ const path = require("path");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 
-const usersFilePath = path.join(__dirname, "../data/users.json");
-const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+//const usersFilePath = path.join(__dirname, "../data/users.json");
+//const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 // Sequelize requirements
 const db = require("../database/models");
@@ -62,39 +62,53 @@ const userController = {
 		return res.render("login.ejs");
 	},
 	logger: (req, res) => {
-		const user = users.find((u) => u.email == req.body.email);
-
-		if (user == undefined) {
-			//Usuario no encontrado:
-			return res.render("register.ejs", {
-				errors: {
-					reg: {
-						msg: "Usted no tiene cuenta, favor de registrarse",
+		// Buscamos al usuario en la base de datos no en el script
+		// ANTES:
+		//const user = users.find((u) => u.email == req.body.email);
+		// AHORA, dentro de una promesa:
+		Users.findOne({ where: { email: req.body.email } })
+		.then((userInfo) => {
+				
+			if(!userInfo){
+				return res.render("register.ejs", {
+					errors: {
+						reg: {
+							msg: "Usted no tiene cuenta, favor de registrarse",
+						},
 					},
-				},
-			});
-		}
-		console.log(user.password);
-		console.log(req.body.password);
-		if (!bcryptjs.compareSync(req.body.password, user.password)) {
-			return res.render("login.ejs", {
-				errors: {
-					passwordErr: {
-						msg: "Contraseña Incorrecta",
+				});
+			}
+			
+			console.log(userInfo.dataValues)
+			//Usuario encontrado, validando contraseña
+			if (!bcryptjs.compareSync(req.body.password, userInfo.dataValues.pass)) {
+				return res.render("login.ejs", {
+					errors: {
+						passwordErr: {
+							msg: "Contraseña Incorrecta",
+						},
 					},
-				},
-			});
-		}
-		if (user.password) {
-			//delete user.password;
-		}
-		req.session.userLogged = user;
+				});
+			}
+			//Usuario validado, procediento
+			/*
+			if (userInfo.dataValues.password) {
+				//* * * * * * * *
+				// posible error al borrar user.password tras el loggeo exitoso
+				delete userInfo.dataValues.password;
+			}
+			*/
+			//Almacenando usuario en variable session, SIN password:
+			req.session.userLogged = userInfo.dataValues
+			//Sí la checkbox fue marcada, creamos la cookie:
+			if (req.body.recordarUsuario) {
+				res.cookie("userEmail", req.body.email, { maxAge: 1000 * 3600 });
+			}
+			return res.render("profile.ejs", { user:userInfo.dataValues });
 
-		if (req.body.recordarUsuario) {
-			res.cookie("userEmail", req.body.email, { maxAge: 1000 * 3600 });
-		}
+		})
+	
 
-		return res.render("profile.ejs", { user });
 	},
 	logout: (req, res) => {
 		//matamos session
@@ -119,16 +133,10 @@ const userController = {
 		}
 
 		Users.findOne({ where: { email: req.body.email } })
-			.then((UserInfo) => {
-
-				let userRegistration = UserInfo.dataValues.username
-				console.log("Username: " + userRegistration);
-
-				if (userRegistration == null || userRegistration == undefined) {
-					console.log("Verificacion")
-					res.redirect("/")
-
-				} else {
+			//Si se encuentra un usuario:
+			.then( (UserInfo) => {		
+				if(UserInfo != null)
+				{		
 					//El usuario ya tiene cuenta, lo indicamos
 					return res.render("register.ejs", {
 						errors: {
@@ -137,21 +145,23 @@ const userController = {
 							},
 						},
 						old: req.body,
-					});
+					});	
 				}
-
-			})
-			.catch((err) => {
+				//Sino se encuentra ningún usuario, lo creamos 
 				Users.create({
 					name: req.body.name,
 					username: req.body.username,
 					email: req.body.email,
-					pass: req.body.password,
+					pass: bcryptjs.hashSync(req.body.password, 10), 
 					role: "client",
 					img: "images/users/default.jpg"
 				}).then((user) => {
 					return res.render("profile.ejs", { user });
 				});
+			})
+			.catch((err) => {
+				/* * * * * */
+				//Revisar que poner en este catch
 
 			});
 	},

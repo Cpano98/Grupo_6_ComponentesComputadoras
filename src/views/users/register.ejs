@@ -74,7 +74,7 @@
                 type="password"
                 placeholder="--"
                 name="password"
-                value="<%= locals.old ? old.name : null %>"
+                value="<%= locals.old ? old.password : null %>"
               />
             </div>
             <%if(locals.errors && errors.password){ %>
@@ -87,7 +87,7 @@
                 type="password"
                 placeholder=""
                 name="passwordVal"
-                value="<%= locals.passwordVal ? old.name : null %>"
+                value="<%= locals.old ? old.passwordVal : null %>"
               />
             </div>
             <%if(locals.errors && errors.passwordVal){ %>
