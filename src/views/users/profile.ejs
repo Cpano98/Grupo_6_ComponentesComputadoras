@@ -78,66 +78,69 @@
                   </div>
                   <%if(locals.errors && errors.name){ %>
                     <div class="error-registro">
-                      <%= errors.name.msg %>
+                  <%= errors.name.msg %>
                     </div>
-                    <% } %>
-                      <div class="campo-ind">
-                        <label class="label-login">Nombre de usuario: </label><br />
-                        <input class="campo-log" type="text" style="background-color: transparent" name="username"
-                          value="<%= user.username %>" />
-                      </div>
-                      <%if(locals.errors && errors.username){ %>
-                        <div class="error-registro">
-                          <%= errors.username.msg %>
-                        </div>
-                        <% } %>
-                          <div class="campo-ind">
-                            <label class="label-login">Correo Electrónico:</label><br />
-                            <input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email"
-                              value="<%= user.email %>" />
-                          </div>
-                          <%if(locals.errors && errors.email){ %>
-                            <div class="error-registro">
-                              <%= errors.email.msg %>
-                            </div>
-                            <% } %>
-                              <div class="campo-ind">
-                                <label class="label-login">Contraseña actual:</label><br />
-                                <input class="campo-log" type="password" placeholder="--" name="password"
-                                  value="<%= user.pass %>" />
-                              </div>
-                              <%if(locals.errors && errors.password){ %>
-                                <div class="error-registro">
-                                  <%= errors.password.msg %>
-                                </div>
-                                <% } %>
+                  <% } %>
+                  <div class="campo-ind">
+                    <label class="label-login">Nombre de usuario: </label><br />
+                    <input class="campo-log" type="text" style="background-color: transparent" name="username"
+                       value="<%= user.username %>" />
+                  </div>
+                  <%if(locals.errors && errors.username){ %>
+                    <div class="error-registro">
+                      <%= errors.username.msg %>
+                    </div>
+                  <% } %>
+                  <div class="campo-ind">
+                   <label class="label-login">Correo Electrónico:</label><br />
+                    <input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email"
+                      value="<%= user.email %>" />
+                  </div>
+                  <%if(locals.errors && errors.email){ %>
+                  <div class="error-registro">
+                    <%= errors.email.msg %>
+                  </div>
+                  <% } %>
+                  <div class="campo-ind">
+                    <label class="label-login">Contraseña actual:</label><br />
+                    <input class="campo-log" type="password" placeholder="--" name="password"
+                      value="<%= user.pass %>" />
+                  </div>
+                  <%if(locals.errors && errors.password){ %>
+                    <div class="error-registro">
+                      <%= errors.password.msg %>
+                    </div>
+                  <% } %>
 
-                                  <%if(locals.errors && errors.passwordVal){ %>
-                                    <div class="error-registro">
-                                      <%= errors.passwordVal.msg %>
-                                    </div>
-                                    <% } %>
+                  <%if(locals.errors && errors.passwordVal){ %>
+                    <div class="error-registro">
+                      <%= errors.passwordVal.msg %>
+                    </div>
+                  <% } %>
 
-                                      <button class="btn btn-outline-success btn_search" type="submit">
-                                        Actualizar mi información
-                                      </button>
+                  <button class="btn btn-outline-success btn_search" type="submit">
+                    Actualizar mi información
+                  </button>
 
-                                      <form action="/user/delete/<%= user.id %>" method="POST">
-                                        <button type="submit">Eliminar perfil</button>
-                                      </form>
+                  
 
-                                      <form action="/user/logout" method="GET">
-                                        <button type="submit">Cerrar sesión</button>
-                                      </form>
+                  <p></p>
+                  <p>
+                    Al editar tu información aceptas las
+                    <a href="">Condiciones de uso</a>
+                    y el
+                    <a href="">Aviso de privacidad</a>
+                    de Mi|PC.
+                  </p>
+            </form>
+            <form action="/user/delete/<%= user.id %>" method="POST">
+              <button type="submit" class="btn btn-danger" onclick="success()">
+                Borrar este usuario
+              </button>
+            </form>
 
-                                      <p></p>
-                                      <p>
-                                        Al editar tu información aceptas las
-                                        <a href="">Condiciones de uso</a>
-                                        y el
-                                        <a href="">Aviso de privacidad</a>
-                                        de Mi|PC.
-                                      </p>
+            <form action="/user/logout" method="GET">
+              <button type="submit">Cerrar sesión</button>
             </form>
           </div>
         </div>

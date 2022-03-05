@@ -109,7 +109,7 @@ router.post("/register", validationReg, userController.registerUp);
 router.get("/profile", userController.profile);
 
 //Eliminar Usuario
-router.post("/delete/:id", userController.eliminarUsuario);
+router.post("/delete/:id", userController.deleteUser);
 
 //Edicion de usuario en CRUD
 router.get("/editUserAdmin/:id", userController.editUserAdmin);

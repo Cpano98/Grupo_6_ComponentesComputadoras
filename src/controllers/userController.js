@@ -125,6 +125,7 @@ const userController = {
 	},
 	logout: (req, res) => {
 		//matamos session
+		console.log('estoy deslogeando')
 		req.session.destroy();
 		res.clearCookie("userEmail");
 		//delete req.cookie.userEmail;
@@ -193,9 +194,11 @@ const userController = {
 				
 			});
 	},
-	eliminarUsuario: (req, res) => {
+	deleteUser: (req, res) => {
+		console.log('Estoy intando eliminar')
 		console.log(req.session.userLogged)
 		
+		/*
 		Users.destroy({
 			where: { id: req.params.id },
 		})
@@ -205,7 +208,7 @@ const userController = {
 		.catch((err) => {
 			res.render("error404", { status: 404, url: req.url });
 		});
-		
+		*/
 	},
 	editUserAdmin: (req, res) => {
 
