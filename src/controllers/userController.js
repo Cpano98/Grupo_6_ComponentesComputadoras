@@ -186,37 +186,27 @@ const userController = {
 				}).then((user) => {
 					return res.render("profile.ejs", { user });
 				});
-
 			});
-
-
-
 	},
 	editUserAdminPost: (req, res) => {
-
-		Users.findOne({ where: { id: req.params.id } })
-			.then((UserInfo) => {
-
-				let userRegistration = UserInfo.dataValues
-				//console.log("Username: " + userRegistration);
-				res.render("editUserbyAdmin.ejs", { user:userRegistration })
-			})
-			.catch((err) => {
-				Users.create({
-					name: req.body.name,
-					username: req.body.username,
-					email: req.body.email,
-					pass: req.body.password,
-					role: "client",
-					img: "images/users/default.jpg"
-				}).then((user) => {
-					return res.render("profile.ejs", { user });
-				});
-
-			});
-
-
-
+		console.log("Info del usuario a editar:")
+		console.log(req.body)
+		
+		Users.update({
+			name: req.body.name,
+			username: req.body.username,
+			email: req.body.email,
+			role: req.body.role,
+			pass: req.body.password,
+		  },
+		  {
+			where: { 
+				id: req.body.id 
+			},
+		  }).then( (UserInfo) => {
+			res.redirect("/products/admin/listUsers")
+		  });
+		  
 	},
 };
 

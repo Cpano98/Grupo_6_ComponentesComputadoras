@@ -18,12 +18,17 @@
                 </h3>
                 <p>Editar la información de este usuario</p>
 
-                <form action="/user/register" method="POST">
+                <form action="/user/editUserAdmin/" method="POST">
                     <%if(locals.errors && errors.reg){ %>
                         <div class="error-registro">
                             <%= errors.reg.msg %>
                         </div>
                         <% } %>
+
+                            <div class="campo-ind">
+                                <label class="label-login">ID DE USUARIO: </label><br />
+                                <input class="campo-log" type="text" style="background-color: transparent" value="<%= user.id %>" name="id" readonly/>
+                            </div>
                             <div class="campo-ind">
                                 <label class="label-login">Nombre completo:</label><br />
                                 <input class="campo-log" type="text" style="background-color: transparent"
@@ -67,10 +72,13 @@
 
                                                             <div class="campo-ind">
 
-                                                                <label class="label-login">Rol de usuario: </label><br />
+                                                                <label class="label-login">Rol de usuario:
+                                                                </label><br />
                                                                 <select class="form-select"
-                                                                    aria-label="Default select example">
-                                                                    <option selected><%= user.role %></option>
+                                                                    aria-label="Default select example" name="role">
+                                                                    <option selected>
+                                                                        <%= user.role %>
+                                                                    </option>
                                                                     <option value="Admin">Admin</option>
                                                                     <option value="Client">Client</option>
                                                                 </select>
