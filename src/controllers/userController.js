@@ -14,6 +14,9 @@ const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 const Users = db.User;
 
+//Constantes globales:
+const saltRounds = 10;
+
 const userController = {
 	profile: (req, res) => {
 		let user = req.session.userLogged;
@@ -53,7 +56,7 @@ const userController = {
 		};
 
 		//almacenando cambios en JSON
-		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+		//fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 
 		//Cambiar esto por un redirect cuando el programa RECUERDE al usuario
 		return res.render("profile.ejs", { user });
@@ -82,10 +85,12 @@ const userController = {
 			//Usuario encontrado, validando contraseña
 			console.log(req.body.password)
 			console.log(userInfo.dataValues.pass)
-			// NO HAY CONSISTENCIA EN EL HASHEO algo pasó
+		
+			//let passHash = bcryptjs.hashSync(password, bcryptjs.genSaltSync(saltRounds))
+			let comparison2 = bcryptjs.compareSync(req.body.password, userInfo.dataValues.pass)
+			console.log(comparison2)
 			
-			console.log(bcryptjs.hashSync(req.body.password, 10))
-			console.log(bcryptjs.hashSync(req.body.password, 10))
+			
 			/*
 			if (!bcryptjs.compareSync(req.body.password, userInfo.dataValues.pass)) {
 				return res.render("login.ejs", {
@@ -157,21 +162,28 @@ const userController = {
 						old: req.body,
 					});	
 				}
+				//APARENTEMENTE debe instanciarse a fuerzas
+				let passHash = bcryptjs.hashSync(req.body.password, bcryptjs.genSaltSync(saltRounds))
+				console.log(passHash+' pass ')
+
+				//Revision del hash
+				console.log('Salio:' + bcryptjs.compareSync(req.body.password, passHash) )
 
 				Users.create({
 					name: req.body.name,
 					username: req.body.username,
 					email: req.body.email,
-					pass: req.body.password, //bcryptjs.hashSync(req.body.password,10), 
+					pass: passHash, //req.body.password, 
 					role: "client",
 					img: "images/users/default.jpg"
 				}).then((user) => {
 					//* * * * */
 					// eliminamos la propiedad password antes de enviarlo:
-					console.log(user.pass)
-					console.log(bcryptjs.hashSync(req.body.password,10))
-					console.log(req.body.password)
-					return res.render("profile.ejs", { user });
+					
+					// la primera vez que el usuario se registra se guarda en session, pero no en cookies
+					req.session.userLogged = user.dataValues
+					
+					return res.render("profile.ejs", { user: user.dataValues });
 				});
 				
 			})
@@ -182,15 +194,18 @@ const userController = {
 			});
 	},
 	eliminarUsuario: (req, res) => {
+		console.log(req.session.userLogged)
+		
 		Users.destroy({
 			where: { id: req.params.id },
 		})
-			.then(() => {
-				res.redirect("/products/admin/listUsers");
-			})
-			.catch((err) => {
-				res.render("error404", { status: 404, url: req.url });
-			});
+		.then(() => {
+			res.redirect("/products/admin/listUsers");
+		})
+		.catch((err) => {
+			res.render("error404", { status: 404, url: req.url });
+		});
+		
 	},
 	editUserAdmin: (req, res) => {
 

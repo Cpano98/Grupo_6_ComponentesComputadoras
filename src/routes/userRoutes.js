@@ -126,7 +126,6 @@ router.put(
 
 router.get("/logout", adminMiddle, userController.logout);
 
-//router.get (eliminar usuario, enviar a página de confirmación
-//router.delete (eliminar usuario)
+
 
 module.exports = router;
