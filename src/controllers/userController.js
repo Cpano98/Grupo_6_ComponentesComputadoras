@@ -79,8 +79,14 @@ const userController = {
 				});
 			}
 			
-			console.log(userInfo.dataValues)
 			//Usuario encontrado, validando contraseña
+			console.log(req.body.password)
+			console.log(userInfo.dataValues.pass)
+			// NO HAY CONSISTENCIA EN EL HASHEO algo pasó
+			
+			console.log(bcryptjs.hashSync(req.body.password, 10))
+			console.log(bcryptjs.hashSync(req.body.password, 10))
+			/*
 			if (!bcryptjs.compareSync(req.body.password, userInfo.dataValues.pass)) {
 				return res.render("login.ejs", {
 					errors: {
@@ -90,6 +96,8 @@ const userController = {
 					},
 				});
 			}
+			*/
+			
 			//Usuario validado, procediento
 			/*
 			if (userInfo.dataValues.password) {
@@ -131,12 +139,14 @@ const userController = {
 				old: req.body,
 			});
 		}
-
+		
 		Users.findOne({ where: { email: req.body.email } })
 			//Si se encuentra un usuario:
-			.then( (UserInfo) => {		
+			.then( (UserInfo) => {
+				console.log(UserInfo)		
+				
 				if(UserInfo != null)
-				{		
+				{
 					//El usuario ya tiene cuenta, lo indicamos
 					return res.render("register.ejs", {
 						errors: {
@@ -147,22 +157,28 @@ const userController = {
 						old: req.body,
 					});	
 				}
-				//Sino se encuentra ningún usuario, lo creamos 
+
 				Users.create({
 					name: req.body.name,
 					username: req.body.username,
 					email: req.body.email,
-					pass: bcryptjs.hashSync(req.body.password, 10), 
+					pass: req.body.password, //bcryptjs.hashSync(req.body.password,10), 
 					role: "client",
 					img: "images/users/default.jpg"
 				}).then((user) => {
+					//* * * * */
+					// eliminamos la propiedad password antes de enviarlo:
+					console.log(user.pass)
+					console.log(bcryptjs.hashSync(req.body.password,10))
+					console.log(req.body.password)
 					return res.render("profile.ejs", { user });
 				});
+				
 			})
 			.catch((err) => {
-				/* * * * * */
-				//Revisar que poner en este catch
-
+				console.log('YES')
+				//Sino se encuentra ningún usuario, lo creamos 
+				
 			});
 	},
 	eliminarUsuario: (req, res) => {
