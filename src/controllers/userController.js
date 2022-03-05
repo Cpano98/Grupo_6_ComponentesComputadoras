@@ -88,9 +88,8 @@ const userController = {
 		
 			//let passHash = bcryptjs.hashSync(password, bcryptjs.genSaltSync(saltRounds))
 			let comparison2 = bcryptjs.compareSync(req.body.password, userInfo.dataValues.pass)
-			console.log(comparison2)
-			
-			
+			console.log(comparison2)	
+			console.log('Corregirme cuando la DB acepte password largas')
 			/*
 			if (!bcryptjs.compareSync(req.body.password, userInfo.dataValues.pass)) {
 				return res.render("login.ejs", {
@@ -104,19 +103,20 @@ const userController = {
 			*/
 			
 			//Usuario validado, procediento
-			/*
-			if (userInfo.dataValues.password) {
+			console.log(userInfo.dataValues)
+			if(userInfo.dataValues.pass!=undefined) {
 				//* * * * * * * *
 				// posible error al borrar user.password tras el loggeo exitoso
-				delete userInfo.dataValues.password;
+				delete userInfo.dataValues.pass;
 			}
-			*/
+			
 			//Almacenando usuario en variable session, SIN password:
 			req.session.userLogged = userInfo.dataValues
 			//Sí la checkbox fue marcada, creamos la cookie:
 			if (req.body.recordarUsuario) {
 				res.cookie("userEmail", req.body.email, { maxAge: 1000 * 3600 });
 			}
+			console.log(userInfo.dataValues)
 			return res.render("profile.ejs", { user:userInfo.dataValues });
 
 		})
@@ -221,8 +221,8 @@ const userController = {
 					name: req.body.name,
 					username: req.body.username,
 					email: req.body.email,
-					pass: req.body.password,
-					role: "client",
+					pass: bcryptjs.hashSync(req.body.password, bcryptjs.genSaltSync(saltRounds)) ,
+					role: "Client",
 					img: "images/users/default.jpg"
 				}).then((user) => {
 					return res.render("profile.ejs", { user });
@@ -238,7 +238,7 @@ const userController = {
 			username: req.body.username,
 			email: req.body.email,
 			role: req.body.role,
-			pass: req.body.password,
+			pass: bcryptjs.hashSync(req.body.password, bcryptjs.genSaltSync(saltRounds)),
 		  },
 		  {
 			where: { 
