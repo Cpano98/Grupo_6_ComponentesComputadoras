@@ -210,11 +210,26 @@ const userController = {
 	editUserAdmin: (req, res) => {
 
 		Users.findOne({ where: { id: req.params.id } })
-			.then((UserInfo) => {
+			.then((userInfo) => {
+			/* * * * * * *
+			 * FALTA VALIDAR ESTE FORMULARIO NUEVO
+		 	 *
+			 *
+			 */
 
-				let userRegistration = UserInfo.dataValues
+				console.log(userInfo)
+			
 				//console.log("Username: " + userRegistration);
-				res.render("editUserbyAdmin.ejs", { user:userRegistration })
+				
+				/*
+        * Este render solo debe realizarse después de validar al usuario	
+				*
+				res.render("editUserbyAdmin.ejs", { 
+					user:userInfo.dataValues, 
+					old:req.body })
+				*/
+				res.render("editUserbyAdmin.ejs", { user:userInfo.dataValues })
+		
 			})
 			.catch((err) => {
 				Users.create({
