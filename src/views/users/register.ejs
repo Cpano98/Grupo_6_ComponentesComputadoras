@@ -93,10 +93,9 @@
             <%if(locals.errors && errors.passwordVal){ %>
             <div class="error-registro"><%= errors.passwordVal.msg %></div>
             <% } %>
-            <div id="contraseñaCheck">
+            <div id="passwordCheck">
               <input type="checkbox" name="MostrarContraseña" value="False" />
               <label for="MostrarContraseña">Mostrar contraseña</label>
-              <p></p>
             </div>
             <button class="btn btn-outline-success btn_search" type="submit">
               Registrarme
@@ -128,5 +127,7 @@
     <%- include("partials/footer.ejs") %>
 
   </body>
+  <script src = "/js/viewPassword.js">
+  </script>
 
 </html>
