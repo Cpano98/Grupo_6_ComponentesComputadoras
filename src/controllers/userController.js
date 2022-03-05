@@ -177,14 +177,17 @@ const userController = {
 					pass: passHash, //req.body.password, 
 					role: "client",
 					img: "images/users/default.jpg"
-				}).then((user) => {
-					//* * * * */
+				}).then((userInfo) => {
+					
 					// eliminamos la propiedad password antes de enviarlo:
-					
+					if(userInfo.dataValues.pass!=undefined) {
+						//* * * * * * * *
+						// posible error al borrar user.password tras el loggeo exitoso
+						delete userInfo.dataValues.pass;
+					}
 					// la primera vez que el usuario se registra se guarda en session, pero no en cookies
-					req.session.userLogged = user.dataValues
-					
-					return res.render("profile.ejs", { user: user.dataValues });
+					req.session.userLogged = userInfo.dataValues
+					return res.render("profile.ejs", { user: userInfo.dataValues });
 				});
 				
 			})
