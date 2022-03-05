@@ -155,6 +155,69 @@ const userController = {
 
 			});
 	},
+	eliminarUsuario: (req, res) => {
+		Users.destroy({
+			where: { id: req.params.id },
+		})
+			.then(() => {
+				res.redirect("/products/admin/listUsers");
+			})
+			.catch((err) => {
+				res.render("error404", { status: 404, url: req.url });
+			});
+	},
+	editUserAdmin: (req, res) => {
+
+		Users.findOne({ where: { id: req.params.id } })
+			.then((UserInfo) => {
+
+				let userRegistration = UserInfo.dataValues
+				//console.log("Username: " + userRegistration);
+				res.render("editUserbyAdmin.ejs", { user:userRegistration })
+			})
+			.catch((err) => {
+				Users.create({
+					name: req.body.name,
+					username: req.body.username,
+					email: req.body.email,
+					pass: req.body.password,
+					role: "client",
+					img: "images/users/default.jpg"
+				}).then((user) => {
+					return res.render("profile.ejs", { user });
+				});
+
+			});
+
+
+
+	},
+	editUserAdminPost: (req, res) => {
+
+		Users.findOne({ where: { id: req.params.id } })
+			.then((UserInfo) => {
+
+				let userRegistration = UserInfo.dataValues
+				//console.log("Username: " + userRegistration);
+				res.render("editUserbyAdmin.ejs", { user:userRegistration })
+			})
+			.catch((err) => {
+				Users.create({
+					name: req.body.name,
+					username: req.body.username,
+					email: req.body.email,
+					pass: req.body.password,
+					role: "client",
+					img: "images/users/default.jpg"
+				}).then((user) => {
+					return res.render("profile.ejs", { user });
+				});
+
+			});
+
+
+
+	},
 };
 
 module.exports = userController;

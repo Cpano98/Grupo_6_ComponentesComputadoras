@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include("./partials/head.ejs") %>
-    <title>Admin Panel | MiPC</title>
-  </head>
 
-  <body>
-    <%- include("./partials/adminMenu.ejs") %>
+<head>
+  <%- include("./partials/head.ejs") %>
+    <title>Admin Panel | MiPC</title>
+</head>
+
+<body>
+  <%- include("./partials/adminMenu.ejs") %>
 
     <main class="main">
       <div class="contenedorAdmin">
@@ -14,18 +15,10 @@
         <div class="cuadricula-opciones">
           <div class="op-elemento" id="productAdd">
             <div class="centrar">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                fill="currentColor"
-                class="bi bi-bag-plus-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z" />
               </svg>
 
               <h2 style="color: white">Agregar nuevo producto</h2>
@@ -34,25 +27,15 @@
                 tu tienda.
               </p>
               <br />
-              <a class="btn4" href="/products/create">Agregar Producto</a>
+              <a class="btn4" href="/products/create/new">Agregar Producto</a>
             </div>
           </div>
           <div class="op-elemento">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="50"
-              height="50"
-              fill="currentColor"
-              class="bi bi-arrow-clockwise"
-              viewBox="0 0 16 16"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+              class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
               <path
-                fill-rule="evenodd"
-                d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
-              />
-              <path
-                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
-              />
+                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
             </svg>
 
             <h2 style="color: white">Actualizar</h2>
@@ -63,17 +46,10 @@
             <a class="btn4" href="admin/list">Ver</a>
           </div>
           <div class="op-elemento last">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="50"
-              height="50"
-              fill="currentColor"
-              class="bi bi-trash2"
-              viewBox="0 0 16 16"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-trash2"
+              viewBox="0 0 16 16">
               <path
-                d="M14 3a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2zM3.215 4.207l1.493 8.957a1 1 0 0 0 .986.836h4.612a1 1 0 0 0 .986-.836l1.493-8.957C11.69 4.689 9.954 5 8 5c-1.954 0-3.69-.311-4.785-.793z"
-              />
+                d="M14 3a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2zM3.215 4.207l1.493 8.957a1 1 0 0 0 .986.836h4.612a1 1 0 0 0 .986-.836l1.493-8.957C11.69 4.689 9.954 5 8 5c-1.954 0-3.69-.311-4.785-.793z" />
             </svg>
 
             <h2 style="color: white">Eliminar</h2>
@@ -84,11 +60,61 @@
             <a class="btn4" href="/products/admin/list">Borrar</a>
           </div>
         </div>
+
+        <div class="cuadricula-opciones">
+          <div class="op-elemento" id="productAdd">
+            <div class="centrar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+              </svg>
+
+              <h2 style="color: white">Agregar nuevo usuario</h2>
+              <p style="color: white; font-weight: 300; padding-right: 35%">
+                Ingresa las especificaciones del nuevo usuario que deseas agregar.
+              </p>
+              <br />
+              <a class="btn4" href="/products/create/new">Agregar usuario</a>
+            </div>
+          </div>
+          <div class="op-elemento">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+              class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+              <path
+                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+            </svg>
+
+            <h2 style="color: white">Actualizar</h2>
+            <p style="color: white; font-weight: 300">
+              Cambiar las especificaciones del cualquier producto
+            </p>
+            <br />
+            <a class="btn4" href="/products/admin/listUsers">Ver</a>
+          </div>
+          <div class="op-elemento last">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-trash2"
+              viewBox="0 0 16 16">
+              <path
+                d="M14 3a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2zM3.215 4.207l1.493 8.957a1 1 0 0 0 .986.836h4.612a1 1 0 0 0 .986-.836l1.493-8.957C11.69 4.689 9.954 5 8 5c-1.954 0-3.69-.311-4.785-.793z" />
+            </svg>
+
+            <h2 style="color: white">Eliminar</h2>
+            <p style="color: white; font-weight: 300">
+              Borra algún producto fuera de temporada
+            </p>
+            <br />
+            <a class="btn4" href="/products/admin/listUsers">Borrar</a>
+          </div>
+        </div>
+
       </div>
     </main>
 
     <!-- Bootstrap - JS -->
-    <%- include("./partials/bootstrap_script.ejs") %> <%-
-    include("./partials/footer.ejs") %>
-  </body>
+    <%- include("./partials/bootstrap_script.ejs") %>
+      <%- include("./partials/footer.ejs") %>
+</body>
+
 </html>

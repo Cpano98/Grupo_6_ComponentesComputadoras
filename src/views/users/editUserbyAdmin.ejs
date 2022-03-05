@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Register | MiPC</title>
+    <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+    <header>
+        <%- include("./partials/adminMenu.ejs") %>
+    </header>
+
+    <main>
+        <div class="contenedor-login">
+            <div class="login2">
+                <h3>Editar Usuario: <%= user.username %>
+                </h3>
+                <p>Editar la información de este usuario</p>
+
+                <form action="/user/register" method="POST">
+                    <%if(locals.errors && errors.reg){ %>
+                        <div class="error-registro">
+                            <%= errors.reg.msg %>
+                        </div>
+                        <% } %>
+                            <div class="campo-ind">
+                                <label class="label-login">Nombre completo:</label><br />
+                                <input class="campo-log" type="text" style="background-color: transparent"
+                                    placeholder="¿cómo te llamas?" name="name" value="<%= user.name %>" />
+                            </div>
+                            <%if(locals.errors && errors.name){ %>
+                                <div class="error-registro">
+                                    <%= errors.name.msg %>
+                                </div>
+                                <% } %>
+                                    <div class="campo-ind">
+                                        <label class="label-login">Nombre de usuario: </label><br />
+                                        <input class="campo-log" type="text" style="background-color: transparent"
+                                            placeholder="username" name="username" value="<%= user.username %>" />
+                                    </div>
+                                    <%if(locals.errors && errors.username){ %>
+                                        <div class="error-registro">
+                                            <%= errors.username.msg %>
+                                        </div>
+                                        <% } %>
+                                            <div class="campo-ind">
+                                                <label class="label-login">Correo Electrónico:</label><br />
+                                                <input class="campo-log" type="email" placeholder="ejemplo@mipc.com"
+                                                    name="email" value="<%= user.email %>" />
+                                            </div>
+                                            <%if(locals.errors && errors.email){ %>
+                                                <div class="error-registro">
+                                                    <%= errors.email.msg %>
+                                                </div>
+                                                <% } %>
+                                                    <div class="campo-ind">
+                                                        <label class="label-login">Contraseña:</label><br />
+                                                        <input class="campo-log" type="password" placeholder="--"
+                                                            name="password" value="<%= user.pass %>" />
+                                                    </div>
+                                                    <%if(locals.errors && errors.password){ %>
+                                                        <div class="error-registro">
+                                                            <%= errors.password.msg %>
+                                                        </div>
+                                                        <% } %>
+
+                                                            <div class="campo-ind">
+
+                                                                <label class="label-login">Rol de usuario: </label><br />
+                                                                <select class="form-select"
+                                                                    aria-label="Default select example">
+                                                                    <option selected><%= user.role %></option>
+                                                                    <option value="Admin">Admin</option>
+                                                                    <option value="Client">Client</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <%if(locals.errors && errors.passwordVal){ %>
+                                                                <div class="error-registro">
+                                                                    <%= errors.passwordVal.msg %>
+                                                                </div>
+                                                                <% } %>
+
+                                                                    <button class="btn btn-outline-success btn_search"
+                                                                        type="submit">
+                                                                        Editar usuario
+                                                                    </button>
+
+                                                                    <p></p>
+
+                </form>
+            </div>
+        </div>
+    </main>
+    <!--FOOTER-->
+    <%- include("partials/footer.ejs") %>
+
+</body>
+
+</html>

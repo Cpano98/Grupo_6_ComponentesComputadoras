@@ -7,6 +7,7 @@ const db = require("../database/models");
 const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 const Products = db.Product;
+const Users = db.User;
 
 const productController = {
   /* - - - - - - - - LISTA PRODUCTO - - - - - - - - - */
@@ -88,6 +89,15 @@ const productController = {
       .then((products) => {
         console.log(products[0].image);
         return res.render("listaProductosCRUD.ejs", { products });
+      })
+      .catch((err) => {
+        return res.render("error404", { status: 404, url: req.url });
+      });
+  },
+  adminListUsers: (req, res) => {
+    Users.findAll()
+      .then((products) => {
+        return res.render("users/userCRUDlist.ejs", { products });
       })
       .catch((err) => {
         return res.render("error404", { status: 404, url: req.url });
@@ -195,7 +205,7 @@ const productController = {
       where: { id: req.params.id },
     })
       .then(() => {
-        res.redirect("/products/delete");
+        res.redirect("/products/delete/confirmation");
       })
       .catch((err) => {
         res.render("error404", { status: 404, url: req.url });

@@ -108,6 +108,13 @@ router.post("/register", validationReg, userController.registerUp);
 // "profile" es a la que deberían redirigir una vez se tiene un usuario
 router.get("/profile", userController.profile);
 
+//Eliminar Usuario
+router.post("/delete/:id", userController.eliminarUsuario);
+
+//Edicion de usuario en CRUD
+router.get("/editUserAdmin/:id", userController.editUserAdmin);
+router.post("/editUserAdmin/", userController.editUserAdminPost);
+
 
 router.get("/profileEdit", adminMiddle, userController.profileEdit);
 router.put(

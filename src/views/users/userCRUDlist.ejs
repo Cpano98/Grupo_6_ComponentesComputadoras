@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include("./partials/head.ejs") %>
+    <title>Listado de Usuarios | MiPC</title>
+
+
+    <link rel="stylesheet" href="/node_modules/sweetalert2/dist/sweetalert2.min.css">
+
+</head>
+
+<body>
+  <%- include("./partials/adminMenu.ejs") %>
+
+    <main class="main">
+      <div class="contenedor-login2">
+        <div class="login3">
+          <h3>Usuarios registrados</h3>
+          <p>Se muestra el listado de los usuarios</p>
+          <br />
+
+          <!--Aquí va el lista de productos para el CRUD-->
+          <div class="row separacion" id="nombresLista">
+            <div class="col-3">
+              <h6>Nombre</h6>
+            </div>
+            <div class="col-2">
+              <h6>Username</h6>
+            </div>
+            <div class="col-3">
+              <h6>Correo</h6>
+            </div>
+            <div class="col-4">
+              <h6>Acciones</h6>
+            </div>
+          </div>
+          <% for (const item of products) { %>
+            <div class="row separacion">
+
+              <div class="col-3">
+                <h2 class="titulo_producto" id="tituloCrud">
+                  <%= item.name %>
+                </h2>
+                <p><strong>Id: </strong>
+                  <%= item.id %> | <strong>Status: </strong>
+                    <%= item.role %>
+                </p>
+              </div>
+
+              <div class="col-2" id="hide">
+                <%= item.username %>
+              </div>
+              <div class="col-3" id="hide">
+                <%= item.email %>
+              </div>
+
+              <div class="col-4" style="display: flex; justify-content: space-evenly;">
+                <a href="/user/editUserAdmin/<%= item.id %>">
+                  <button type="button" class="btn btn-success">
+                    Editar este usuario
+                  </button>
+                </a>
+
+                <form action="/user/delete/<%= item.id %>" method="POST">
+                  <button type="submit" class="btn btn-danger" onclick="success()">
+                    Borrar este producto
+                  </button>
+                </form>
+              </div>
+            </div>
+            <% } %>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bootstrap - JS -->
+    <%- include("./partials/bootstrap_script.ejs") %>
+      <%- include("./partials/footer.ejs") %>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+  function success() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Usuario eliminado con éxito',
+      showConfirmButton: false,
+      timer: 6000
+    })
+  }
+</script>
+
+
+
+
+</html>

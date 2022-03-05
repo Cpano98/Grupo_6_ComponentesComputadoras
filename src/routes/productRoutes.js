@@ -92,6 +92,10 @@ const validationProduct = [
 /*-- admin  */
 router.get("/admin", productController.adminPanel);
 router.get("/admin/list", productController.adminList);
+router.get("/admin/listUsers", productController.adminListUsers);
+
+
+
 
 /* --- Get products --- */
 router.get("/", productController.list);
@@ -101,9 +105,10 @@ router.get("/:category", productController.listCategory);
 router.get("/productDetail/:id/", productController.productDetail);
 
 /* --- Get/post crear producto --- */
-router.get("/create", adminMiddle, productController.productAdd);
+router.get("/create/new", productController.productAdd);
+
 router.post(
-  "/create",
+  "/create/new",
   upload.single("image"),
   validationProduct,
   productController.productAddUp
@@ -120,7 +125,7 @@ router.put(
 
 /* --- Delete borrar producto --- */
 router.delete("/delete/:id", productController.productDelete);
-router.get("/delete", productController.deleteConfirm);
+router.get("/delete/confirmation", productController.deleteConfirm);
 
 /* --- BÚSQUEDA DE PRODUCTOS --- */
 router.post("/search", productController.search);
