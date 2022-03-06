@@ -87,10 +87,7 @@ const userController = {
 			console.log(userInfo.dataValues.pass)
 		
 			//let passHash = bcryptjs.hashSync(password, bcryptjs.genSaltSync(saltRounds))
-			let comparison2 = bcryptjs.compareSync(req.body.password, userInfo.dataValues.pass)
-			console.log(comparison2)	
-			console.log('Corregirme cuando la DB acepte password largas')
-			/*
+			
 			if (!bcryptjs.compareSync(req.body.password, userInfo.dataValues.pass)) {
 				return res.render("login.ejs", {
 					errors: {
@@ -100,7 +97,7 @@ const userController = {
 					},
 				});
 			}
-			*/
+			
 			
 			//Usuario validado, procediento
 			console.log(userInfo.dataValues)
@@ -175,7 +172,7 @@ const userController = {
 					username: req.body.username,
 					email: req.body.email,
 					pass: passHash, //req.body.password, 
-					role: "client",
+					role: "Client",
 					img: "images/users/default.jpg"
 				}).then((userInfo) => {
 					
@@ -199,20 +196,23 @@ const userController = {
 	},
 	deleteUser: (req, res) => {
 		console.log('Estoy intando eliminar')
-		console.log(req.session.userLogged.id)
+		console.log(req.params.id)
 		
+		//Evitar borrarse a uno mismo aquí?
+		// * * * * * * 
 		
 		Users.destroy({
-			where: { id: req.session.userLogged.id},
+			where: { id: req.params.id},
 		})
 		.then(() => {
-		//Destruimos posibles session y cookies antes de redirijir al usuario
-		req.session.destroy();
-		res.clearCookie("userEmail");
+			
+
+			//Este redirect puede ir a otro lado
+			// * * * * 
 			res.redirect("/");
 		})
 		.catch((err) => {
-			res.render("error404", { status: 404, url: req.url });
+				console.log('Aquí va una ventana de error')
 		});
 		
 	},
