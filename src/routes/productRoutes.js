@@ -8,8 +8,7 @@ const productController = require("../controllers/productController");
 const guestMiddle = require("../middlewares/guestMiddle");
 const adminMiddle = require("../middlewares/adminMiddle");
 
-//implementación de multer para imagenes ***
-
+//implementación de multer para imagenes 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, path.join(__dirname, "../public/images/productosPrueba"));
@@ -46,7 +45,10 @@ const validationProduct = [
     .withMessage("Ingrese una descripción")
     .bail()
     .isLength({ max: 2000 })
-    .withMessage("Máximo 200 caracteres")
+    .withMessage("Máximo 2000 caracteres")
+    .bail()
+    .isLength({ min: 20 })
+    .withMessage("Mínimo 20 caracteres")
     .bail(),
   body("price").notEmpty().withMessage("Ingrese un precio").bail(),
   body("pieces")
@@ -60,7 +62,7 @@ const validationProduct = [
     .custom((value, { req }) => {
       let file = req.file;
       if (!file) {
-        throw new Error("Debes subir una imagen");
+        throw new Error("'Debes' subir una imagen");
       }
       return true;
     })
