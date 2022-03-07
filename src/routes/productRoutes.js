@@ -26,8 +26,8 @@ const validationProduct = [
     .notEmpty()
     .withMessage("Ingrese un nombre")
     .bail()
-    .isLength({ max: 30 })
-    .withMessage("Máximo 30 caracteres")
+    .isLength({ max: 50 })
+    .withMessage("Máximo 50 caracteres")
     .bail(),
   body("brand")
     .notEmpty()
@@ -61,8 +61,16 @@ const validationProduct = [
   body("image")
     .custom((value, { req }) => {
       let file = req.file;
+      let extensions = [".png", ".jpg", ".webp", ".jpeg", ".gif"]
+
       if (!file) {
         throw new Error("'Debes' subir una imagen");
+      }
+      else{
+        let fileExtension = path.extname(file.originalname);
+        if( !extensions.includes(fileExtension) ){
+          throw new Error("'Formato' de archivo no valido");
+        }
       }
       return true;
     })
@@ -86,8 +94,8 @@ const validationProduct = [
     .withMessage("Al menos 5 caracteres")
     .bail(),
   body("discount")
-    .isInt({ min: 0, max: 1000 })
-    .withMessage("acotado entre 0 y 1000")
+    .isInt({ min: 0, max: 100 })
+    .withMessage("acotado entre 0 y 100")
     .bail(),
 ];
 

@@ -21,22 +21,39 @@
 			<div class="login">
 
 				<h3>¿Ya tienes cuenta? </h3>
-				<p>Aquí podrás iniciar sesión y rastrear tus pedidos</p>
+				<p>Aquí podrás iniciar sesión </p>
 				<form action="/user/login" method="POST">
 					<div class="campo-ind">
 						<label class="label-login">Correo Electrónico:</label><br>
-						<input class="campo-log" name="email" type="email" placeholder="ejemplo@mipc.com">
+						<input class="campo-log" 
+										name="email" 
+										type="email" 
+										placeholder="ejemplo@mipc.com"
+										value="<%= locals.old ? old.email : null %>">
 					</div>
+					<%if(locals.errors && errors.email){ %>
+						<div class = "error-registro">
+							<%= errors.email.msg %>
+						</div>
+					<% } %>
 
 					<div class="campo-ind">
 						<label class="label-login">Contraseña:</label><br>
-						<input class="campo-log" name="password" type="password" placeholder="--">
+						<input class="campo-log" 
+										name="password" 
+										type="password" 
+										placeholder=""
+										value="<%= locals.old ? old.password : null %>">
 					</div>
-					<%if(locals.errors && errors.passwordErr){ %>
+					<%if(locals.errors && errors.password){ %>
 						<div class = "error-registro">
-							<%= errors.passwordErr.msg %>
+							<%= errors.password.msg %>
 						</div>
 					<% } %>
+					<div id="passwordCheck">
+						<input type="checkbox" name="MostrarContraseña"  />
+						<label for="MostrarContraseña">Mostrar contraseña</label>
+					</div>
 
 					<div id="recordarCheck">
 						<input type="checkbox" name="recordarUsuario" value="recordarUsuario" />
@@ -64,5 +81,6 @@
 	<!-- FOOTER -->
 	<%- include("partials/footer.ejs") %>
 </body>
-
+<script src = "/js/viewPassword.js">
+</script>
 </html>

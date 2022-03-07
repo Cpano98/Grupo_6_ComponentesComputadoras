@@ -24,15 +24,21 @@ const validationReg = [
     .notEmpty()
     .withMessage("Ingrese un nombre")
     .bail()
-    .isLength({ min: 5 })
-    .withMessage("Al menos 5 caracteres")
+    .isLength({ min: 2 })
+    .withMessage("Al menos 2 caracteres")
+    .bail()
+    .isLength({ max: 15 })
+    .withMessage("Máximo 15 caracteres")
     .bail(),
   body("username")
     .notEmpty()
     .withMessage("Ingrese un nick")
     .bail()
-    .isLength({ min: 5 })
-    .withMessage("Al menos 5 caracteres")
+    .isLength({ min: 2 })
+    .withMessage("Al menos 2 caracteres")
+    .bail()
+    .isLength({ max: 15 })
+    .withMessage("Máximo 15 caracteres")
     .bail(),
   body("email")
     .notEmpty()
@@ -45,9 +51,24 @@ const validationReg = [
     .notEmpty()
     .withMessage("Ingrese una contraseña")
     .bail()
-    .isLength({ min: 5 })
-    .withMessage("Al menos 5 caracteres")
-    .bail(),
+    .isLength({ min: 8 })
+    .withMessage("Al menos 8 caracteres")
+    .bail()
+    .isLength({ max: 15 })
+    .withMessage("Máximo 15 caracteres")
+    .bail()
+    .custom( (value, {req} ) =>{
+      let condMayu = RegExp('[A-Z]').test(value) // mayus
+      let condMinu = RegExp('[a-z]').test(value) // minus
+      let condNumb = RegExp('[0-9]').test(value) // number
+      let condSymb = RegExp('[^0-9a-zA-Z *]').test(value) // simbol
+      console.log(condSymb)
+      if(!condMayu){  throw new Error("Incluir al menos una mayúscula"); }  
+      if(!condMinu){  throw new Error("Incluir al menos una minúscula"); }  
+      if(!condNumb){  throw new Error("Incluir al menos un número"); }  
+      if(!condSymb){  throw new Error("Incluir al menos un símbolo no númerico"); }  
+      return true;
+    }),
   body("passwordVal")
     .notEmpty()
     .withMessage("Ingrese su contraseña nuevamente")
@@ -59,44 +80,20 @@ const validationReg = [
       return true;
     }),
 ];
-//Validaciones de la edición de datos de usuario
-const validationEdit = [
-  body("name")
-    .notEmpty()
-    .withMessage("Ingrese un nombre")
-    .bail()
-    .isLength({ min: 5 })
-    .withMessage("Al menos 5 caracteres")
-    .bail(),
-  body("username")
-    .notEmpty()
-    .withMessage("Ingrese un nick")
-    .bail()
-    .isLength({ min: 5 })
-    .withMessage("Al menos 5 caracteres")
-    .bail(),
-  body("email")
-    .notEmpty()
-    .withMessage("Ingrese un correo valido")
-    .bail()
-    .isEmail()
-    .withMessage("Debe ingresar un Email valido")
-    .bail(),
-  body("password")
-    .notEmpty()
-    .withMessage("Ingrese una contraseña")
-    .bail()
-    .isLength({ min: 5 })
-    .withMessage("Al menos 5 caracteres")
-    .bail(),
-  body("passwordVal")
-    .notEmpty()
-    .withMessage("Ingrese su contraseña nuevamente")
-    .bail(),
-];
+
 //Validaciones del loggeo del usuario
 const validationLog = [
-  body("password").notEmpty().withMessage("Debe incluir una contraseña").bail(),
+  body("email")
+  .notEmpty()
+  .withMessage("Debe incluir algún correo")
+  .bail()
+  .isEmail()
+  .withMessage("Debe ingresar un Email valido")
+  .bail(),
+  body("password")
+  .notEmpty()
+  .withMessage("Debe incluir una contraseña")
+  .bail(),
 ];
 
 router.get("/login", guestMiddle, userController.login);
@@ -106,7 +103,8 @@ router.get("/register", guestMiddle, userController.register);
 router.post("/register", validationReg, userController.registerUp);
 
 // "profile" es a la que deberían redirigir una vez se tiene un usuario
-router.get("/profile", userController.profile);
+router.get("/profile", adminMiddle, userController.profile);
+router.put("/profile", upload.single("image"), validationReg, userController.profileUp);
 
 //Eliminar Usuario
 router.post("/delete/:id", userController.deleteUser);
@@ -116,13 +114,6 @@ router.get("/editUserAdmin/:id", userController.editUserAdmin);
 router.post("/editUserAdmin/", userController.editUserAdminPost);
 
 
-router.get("/profileEdit", adminMiddle, userController.profileEdit);
-router.put(
-  "/profileEdit",
-  upload.single("image"),
-  validationEdit,
-  userController.profileEditUp
-);
 
 router.get("/logout", adminMiddle, userController.logout);
 

@@ -23,52 +23,47 @@ const userController = {
 		return res.render("profile.ejs", { user });
 
 	},
-	profileEdit: (req, res) => {
-		let user = req.session.userLogged;
-		return res.render("profileEdit.ejs", { user });
-	},
-	profileEditUp: (req, res) => {
+	profileUp: (req, res) => {
 		const resultVal = validationResult(req);
 
 		if (!resultVal.isEmpty()) {
-			return res.render("profileEdit.ejs", {
+			return res.render("profile.ejs", {
 				errors: resultVal.mapped(),
 				old: req.body,
 			});
 		}
+
 		const file = req.file;
-		if (!file) {
-			const error = new Error("No ha seleccionado un archivo");
-			error.httpStatusCode = 400;
-			return res.render("error400.ejs");
-		}
+		/* Si no hay imagen no hay problema */
+		/* Pero sí hay AQUI van validaciones extra */
 
-		const user = users.find((u) => u.email == req.body.email);
-		const idx = users.findIndex((u) => u.email == req.body.email);
+		// Datos viejos  ???
+		// Datos nuevos: req.body
 
-		//Eliminar campo tras corroborar:
-		delete req.body.passwordVal;
+		console.log('ESTOY EDITANDO AL USUARIO')
 
-		//edición del Json a nivel local por indice:
-		users[idx] = {
-			...req.body,
-			image: file.originalname,
-		};
+		// Buscamos al usurio en la DB para modificarlo
+		
 
-		//almacenando cambios en JSON
-		//fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-
-		//Cambiar esto por un redirect cuando el programa RECUERDE al usuario
-		return res.render("profile.ejs", { user });
+		
+		
+		
+		//return res.render("profile.ejs", { user });
 	},
 	login: (req, res) => {
 		return res.render("login.ejs");
 	},
 	logger: (req, res) => {
-		// Buscamos al usuario en la base de datos no en el script
-		// ANTES:
-		//const user = users.find((u) => u.email == req.body.email);
-		// AHORA, dentro de una promesa:
+		//Antes de buscar al usuario, revisamos los errores del formulario
+		const resultVal = validationResult(req);
+
+		if (!resultVal.isEmpty()) {
+			return res.render("login.ejs", {
+				errors: resultVal.mapped(),
+				old: req.body,
+			});
+		}
+
 		Users.findOne({ where: { email: req.body.email } })
 		.then((userInfo) => {
 				
@@ -83,15 +78,11 @@ const userController = {
 			}
 			
 			//Usuario encontrado, validando contraseña
-			console.log(req.body.password)
-			console.log(userInfo.dataValues.pass)
 		
-			//let passHash = bcryptjs.hashSync(password, bcryptjs.genSaltSync(saltRounds))
-			
 			if (!bcryptjs.compareSync(req.body.password, userInfo.dataValues.pass)) {
 				return res.render("login.ejs", {
 					errors: {
-						passwordErr: {
+						password: {
 							msg: "Contraseña Incorrecta",
 						},
 					},
@@ -100,7 +91,7 @@ const userController = {
 			
 			
 			//Usuario validado, procediento
-			console.log(userInfo.dataValues)
+			
 			if(userInfo.dataValues.pass!=undefined) {
 				//* * * * * * * *
 				// posible error al borrar user.password tras el loggeo exitoso
@@ -113,7 +104,7 @@ const userController = {
 			if (req.body.recordarUsuario) {
 				res.cookie("userEmail", req.body.email, { maxAge: 1000 * 3600 });
 			}
-			console.log(userInfo.dataValues)
+			
 			return res.render("profile.ejs", { user:userInfo.dataValues });
 
 		})
@@ -122,7 +113,7 @@ const userController = {
 	},
 	logout: (req, res) => {
 		//matamos session
-		console.log('estoy deslogeando')
+		
 		req.session.destroy();
 		res.clearCookie("userEmail");
 		//delete req.cookie.userEmail;
@@ -146,7 +137,7 @@ const userController = {
 		Users.findOne({ where: { email: req.body.email } })
 			//Si se encuentra un usuario:
 			.then( (UserInfo) => {
-				console.log(UserInfo)		
+						
 				
 				if(UserInfo != null)
 				{
@@ -162,11 +153,9 @@ const userController = {
 				}
 				//APARENTEMENTE debe instanciarse a fuerzas
 				let passHash = bcryptjs.hashSync(req.body.password, bcryptjs.genSaltSync(saltRounds))
-				console.log(passHash+' pass ')
+				
 
-				//Revision del hash
-				console.log('Salio:' + bcryptjs.compareSync(req.body.password, passHash) )
-
+				
 				Users.create({
 					name: req.body.name,
 					username: req.body.username,
@@ -196,7 +185,7 @@ const userController = {
 	},
 	deleteUser: (req, res) => {
 		console.log('Estoy intando eliminar')
-		console.log(req.params.id)
+		
 		
 		//Evitar borrarse a uno mismo aquí?
 		// * * * * * * 
@@ -226,9 +215,9 @@ const userController = {
 			 *
 			 */
 
-				console.log(userInfo)
+				
 			
-				//console.log("Username: " + userRegistration);
+				
 				
 				/*
         * Este render solo debe realizarse después de validar al usuario	
@@ -254,8 +243,7 @@ const userController = {
 			});
 	},
 	editUserAdminPost: (req, res) => {
-		console.log("Info del usuario a editar:")
-		console.log(req.body)
+		
 		
 		Users.update({
 			name: req.body.name,

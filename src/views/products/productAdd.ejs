@@ -106,10 +106,11 @@
 												<option value="Tarjetas gráficas">Tarjetas gráficas</option>
 									</select>
 								</div>
+								<% if ( locals.errors && errors.category ) { %>
+									<div class="error-registro"><%= errors.category.msg %></div>
+								<% } %>
 							</div>
-							<% if ( locals.errors && errors.category ) { %>
-								<div class="error-registro"><%= errors.category.msg %></div>
-							<% } %>
+							
 							<div class="col">
 								<div class="campo-ind">
 									<label class="label-login">SKU del producto: </label>
@@ -120,10 +121,11 @@
 										placeholder="##" name="sku" id="sku"
 										value="<%= locals.old ? old.sku : null%>">
 								</div>
+								<%if (locals.errors && errors.sku) { %>
+									<div class="error-registro"><%= errors.sku.msg %></div>
+								<% } %>
 							</div>
-							<%if (locals.errors && errors.sku) { %>
-								<div class="error-registro"><%= errors.sku.msg %></div>
-							<% } %>
+							
 							<div class="col">
 								<div class="campo-ind">
 									<label class="label-login">Descuento del producto: </label>
@@ -136,10 +138,11 @@
 										id="descuento"
 										value="<%= locals.old?old.discount:null%>">
 								</div>
+								<%if ( locals.errors && errors.discount ) { %>
+									<div class="error-registro"><%= errors.discount.msg %></div>
+								<% } %>
 							</div>
-							<%if ( locals.errors && errors.discount ) { %>
-								<div class="error-registro"><%= errors.discount.msg %></div>
-							<% } %>
+							
 						</div>
 						<button class="btn btn-outline-success btn_search" type="submit">Registrar nuevo producto</button>
 					</form>

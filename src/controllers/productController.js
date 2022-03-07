@@ -146,6 +146,7 @@ const productController = {
   productEdit: (req, res) => {
     Products.findByPk(req.params.id)
       .then((products) => {
+        console.log(products.image)
         return res.render("editarProducto.ejs", { item: products });
       })
       .catch((err) => {

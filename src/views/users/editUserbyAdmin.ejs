@@ -79,11 +79,11 @@
                                                                     <% let roles = ['Admin','Client'] %>
                                                                     <% for (const idx in roles){ %>
                                                                       <% if(!locals.old){ %>
-                                                                        <% console.log('No hay locals.old') %>
+                                                                        
                                                                         <% let selected = roles[idx]==user.role ? "selected" : null  %>
                                                                         <option value="<%= roles[idx] %>" <%= selected %> > <%=roles[idx]%> </option>
                                                                       <% }else{  %>
-                                                                        <% console.log(' hay locals.old') %>
+                                                                        
                                                                         <% let selected = roles[idx]==old.role ? "selected" : null  %>
                                                                         <option value="<%= roles[idx] %>" <%= selected %> > <%=roles[idx]%> </option>
                                                                       <% } %>
