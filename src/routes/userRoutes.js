@@ -96,6 +96,52 @@ const validationLog = [
   .bail(),
 ];
 
+//Validaciones del edición de usuarios
+const validationEdit = [
+  body("name")
+    .notEmpty()
+    .withMessage("Ingrese un nombre")
+    .bail()
+    .isLength({ min: 2 })
+    .withMessage("Al menos 2 caracteres")
+    .bail()
+    .isLength({ max: 15 })
+    .withMessage("Máximo 15 caracteres")
+    .bail(),
+  body("username")
+    .notEmpty()
+    .withMessage("Ingrese un nick")
+    .bail()
+    .isLength({ min: 2 })
+    .withMessage("Al menos 2 caracteres")
+    .bail()
+    .isLength({ max: 15 })
+    .withMessage("Máximo 15 caracteres")
+    .bail(),
+  body("email")
+    .notEmpty()
+    .withMessage("Ingrese un correo valido")
+    .bail()
+    .isEmail()
+    .withMessage("Debe ingresar un Email valido")
+    .bail(),
+  body("image")
+    .custom((value, { req }) => {
+      let file = req.file;
+      let extensions = [".png", ".jpg", ".webp", ".jpeg", ".gif"]
+
+      if (file != undefined){
+        let fileExtension = path.extname(file.originalname);
+        if( !extensions.includes(fileExtension) ){
+          throw new Error("'Formato' de archivo no valido");
+        }
+      }
+      return true;
+    })
+    .bail()
+  
+];
+
 router.get("/login", guestMiddle, userController.login);
 router.post("/login", validationLog, userController.logger);
 
@@ -104,7 +150,7 @@ router.post("/register", validationReg, userController.registerUp);
 
 // "profile" es a la que deberían redirigir una vez se tiene un usuario
 router.get("/profile", adminMiddle, userController.profile);
-router.put("/profile", upload.single("image"), validationReg, userController.profileUp);
+router.put("/profile", upload.single("image"), validationEdit, userController.profileUp);
 
 //Eliminar Usuario
 router.post("/delete/:id", userController.deleteUser);

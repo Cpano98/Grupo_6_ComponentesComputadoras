@@ -24,31 +24,76 @@ const userController = {
 
 	},
 	profileUp: (req, res) => {
-		const resultVal = validationResult(req);
 
+		console.log('ESTOY EDITANDO AL USUARIO')
+		//Carga de datos originales:
+		let user = req.session.userLogged;
+		
+		const resultVal = validationResult(req);
+		
 		if (!resultVal.isEmpty()) {
+			console.log(resultVal)
 			return res.render("profile.ejs", {
 				errors: resultVal.mapped(),
 				old: req.body,
+				user
 			});
 		}
+		console.log("Emitido por el formulario:\n" )
+		console.log(req.body)
+		console.log("Emitido por la db:\n" )
+		console.log(user)
+		//Validación interna si hubo modificación de contraseña:
+		/*
+		[ body("password")
+    .notEmpty()
+    .withMessage("Ingrese una contraseña")
+    .bail()
+    .isLength({ min: 8 })
+    .withMessage("Al menos 8 caracteres")
+    .bail()
+    .isLength({ max: 15 })
+    .withMessage("Máximo 15 caracteres")
+    .bail()
+    .custom( (value, {req} ) =>{
+      let condMayu = RegExp('[A-Z]').test(value) // mayus
+      let condMinu = RegExp('[a-z]').test(value) // minus
+      let condNumb = RegExp('[0-9]').test(value) // number
+      let condSymb = RegExp('[^0-9a-zA-Z *]').test(value) // simbol
+      console.log(condSymb)
+      if(!condMayu){  throw new Error("Incluir al menos una mayúscula"); }  
+      if(!condMinu){  throw new Error("Incluir al menos una minúscula"); }  
+      if(!condNumb){  throw new Error("Incluir al menos un número"); }  
+      if(!condSymb){  throw new Error("Incluir al menos un símbolo no númerico"); }  
+      return true;
+    }),
+  body("passwordVal")
+    .notEmpty()
+    .withMessage("Repita su contraseña")
+    .bail()
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error("Contraseña no coincide");
+      }
+      return true;
+    })]
+		*/
+
 
 		const file = req.file;
+		console.log(file)
 		/* Si no hay imagen no hay problema */
-		/* Pero sí hay AQUI van validaciones extra */
+		/* Validación interna si se agregó una imagen*/
 
 		// Datos viejos  ???
 		// Datos nuevos: req.body
 
-		console.log('ESTOY EDITANDO AL USUARIO')
+		//Formación de envio de datos a editar:
 
-		// Buscamos al usurio en la DB para modificarlo
+		// Update de aquellos elementos diferentes
 		
 
-		
-		
-		
-		//return res.render("profile.ejs", { user });
+		return res.render("profile.ejs", { user });
 	},
 	login: (req, res) => {
 		return res.render("login.ejs");

@@ -59,12 +59,8 @@
             <h3>Editar mi perfil</h3>
             <p>Editar mi información</p>
 
-            <form action="/products/edit/<%= item.id %>?_method=PUT" method="post" enctype="multipart/form-data">
-              <%if(locals.errors && errors.reg){ %>
-                <div class="error-registro">
-                  <%= errors.reg.msg %>
-                </div>
-                <% } %>
+            <form action="/user/profile?_method=PUT" method="post" enctype="multipart/form-data">
+              
                   <!--  ID omitido
                   <div class="campo-ind">
                     <label class="label-login">ID DE USUARIO: </label><br />
@@ -117,20 +113,22 @@
                     </div>
                   <% } %>
                   <div class="campo-ind">
-                    <label class="label-login">Contraseña:</label><br />
+                    <label class="label-login">Nueva contraseña:</label><br />
                     <input
                       class="campo-log"
                       type="password"
-                      placeholder="--"
+                      placeholder=""
                       name="password"
                       value="<%= locals.old ? old.password : null %>"
                     />
                   </div>
                   <%if(locals.errors && errors.password){ %>
-                  <div class="error-registro"><%= errors.password.msg %></div>
+                    <div class="error-registro">
+                      <%= errors.password.msg %>
+                    </div>
                   <% } %>
                   <div class="campo-ind">
-                    <label class="label-login">Confirmar contraseña:</label><br />
+                    <label class="label-login">Confirmar nueva contraseña:</label><br />
                     <input
                       class="campo-log"
                       type="password"
@@ -140,24 +138,16 @@
                     />
                   </div>
                   <%if(locals.errors && errors.passwordVal){ %>
-                  <div class="error-registro"><%= errors.passwordVal.msg %></div>
+                    <div class="error-registro">
+                      <%= errors.passwordVal.msg %>
+                    </div>
                   <% } %>
                   <div id="passwordCheck">
                     <input type="checkbox" name="MostrarContraseña"  />
                     <label for="MostrarContraseña">Mostrar contraseña</label>
                   </div>
                   
-                  <%if(locals.errors && errors.password){ %>
-                    <div class="error-registro">
-                      <%= errors.password.msg %>
-                    </div>
-                  <% } %>
-
-                  <%if(locals.errors && errors.passwordVal){ %>
-                    <div class="error-registro">
-                      <%= errors.passwordVal.msg %>
-                    </div>
-                  <% } %>
+                
 
                   <button class="btn btn-outline-success btn_search" type="submit">
                     Actualizar mi información
@@ -199,5 +189,7 @@
   <%- include("partials/footer.ejs") %>
 
 </body>
+<script src = "/js/viewPassword.js">
+</script>
 
 </html>
