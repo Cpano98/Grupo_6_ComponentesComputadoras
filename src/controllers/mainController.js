@@ -14,7 +14,7 @@ const Products = db.Product;
 
 const mainController = {
 	index: (req, res) => {
-		//res.render("listaProductoscCRUD.ejs", { products });
+		
 		// Sequelize Implementation
 		const conOferta = [];
 		const sinOferta = [];
@@ -33,10 +33,11 @@ const mainController = {
 
 			return res.render('index.ejs', { conOferta, sinOferta })
 		})
-        .catch(err => {
-            res.send(err)
-        })
+    .catch(err => {
+        res.send(err)
+    })
 	}
+
 }
 
 module.exports = mainController
