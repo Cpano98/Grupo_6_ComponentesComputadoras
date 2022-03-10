@@ -20,8 +20,9 @@
             <input class="campo-log" 
                     type="text" 
                     style="background-color: transparent;"
-                    value="<%= locals.old ? old.name : item.name %>" 
+                    value= "<%# = locals.old ? old.name : item.name %>" 
                     name="name" id="nombre_producto">
+						
           </div>
           <%if(locals.errors && errors.name){ %>
             <div class = "error-registro">
@@ -109,6 +110,10 @@
                     placeholder="Se muestra a usuarios" 
                     name="image" 
                     id="image">
+						<input  type="hidden" 
+                    name="image-hidden" 
+                    id="image-hidden" 
+										value=" imagen ">
           </div>
           <%if(locals.errors && errors.image){ %>
             <div class = "error-registro">
