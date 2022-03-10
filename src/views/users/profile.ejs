@@ -10,8 +10,8 @@
   <header>
     <!--Header-escritorio-->
     <%- include("partials/header.ejs") %>
-      <!-- Header hambuger  -->
-      <%- include("partials/headerhambugerMenu.ejs")%>
+    <!-- Header hambuger  -->
+    <%- include("partials/headerhambugerMenu.ejs")%>
   </header>
   <main>
 
@@ -89,7 +89,7 @@
                     </div>
                   <% } %>
                   <div class="campo-ind">
-                   <label class="label-login">Correo Electrónico:</label><br />
+                    <label class="label-login">Correo Electrónico:</label><br />
                     <input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email"
                       value="<%= user.email %>" />
                   </div>
@@ -113,18 +113,33 @@
                     </div>
                   <% } %>
                   <div class="campo-ind">
+                    <label class="label-login">Contraseña actual:</label><br />
+                    <input
+                      class="campo-log"
+                      type="password"
+                      placeholder=""
+                      name="passwordNow"
+                      value="<%= locals.old ? old.passwordNow : null %>"
+                    />
+                  </div>
+                  <%if(locals.errors && errors.passwordNow){ %>
+                    <div class="error-registro">
+                      <%= errors.passwordNow.msg %>
+                    </div>
+                  <% } %>
+                  <div class="campo-ind">
                     <label class="label-login">Nueva contraseña:</label><br />
                     <input
                       class="campo-log"
                       type="password"
                       placeholder=""
-                      name="password"
-                      value="<%= locals.old ? old.password : null %>"
+                      name="passwordNew"
+                      value="<%= locals.old ? old.passwordNew : null %>"
                     />
                   </div>
-                  <%if(locals.errors && errors.password){ %>
+                  <%if(locals.errors && errors.passwordNew){ %>
                     <div class="error-registro">
-                      <%= errors.password.msg %>
+                      <%= errors.passwordNew.msg %>
                     </div>
                   <% } %>
                   <div class="campo-ind">
@@ -133,29 +148,23 @@
                       class="campo-log"
                       type="password"
                       placeholder=""
-                      name="passwordVal"
-                      value="<%= locals.old ? old.passwordVal : null %>"
+                      name="passwordNewVal"
+                      value="<%= locals.old ? old.passwordNewVal : null %>"
                     />
                   </div>
-                  <%if(locals.errors && errors.passwordVal){ %>
+                  <%if(locals.errors && errors.passwordNewVal){ %>
                     <div class="error-registro">
-                      <%= errors.passwordVal.msg %>
+                      <%= errors.passwordNewVal.msg %>
                     </div>
                   <% } %>
                   <div id="passwordCheck">
                     <input type="checkbox" name="MostrarContraseña"  />
                     <label for="MostrarContraseña">Mostrar contraseña</label>
                   </div>
-                  
                 
-
                   <button class="btn btn-outline-success btn_search" type="submit">
                     Actualizar mi información
                   </button>
-
-                  
-
-                  <p></p>
                   <p>
                     Al editar tu información aceptas las
                     <a href="">Condiciones de uso</a>
@@ -177,12 +186,6 @@
         </div>
 
       </div>
-
-
-
-
-
-
 
   </main>
   <!-- FOOTER -->

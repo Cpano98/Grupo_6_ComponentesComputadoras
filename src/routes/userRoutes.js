@@ -146,7 +146,9 @@ const validationEdit = [
       return true;
     })
     .bail()
-  
+    /*
+    Validación especial de passwords
+     */
 ];
 
 router.get("/login", guestMiddle, userController.login);

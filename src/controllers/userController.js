@@ -41,8 +41,14 @@ const userController = {
 		}
 		console.log("Emitido por el formulario:\n" )
 		console.log(req.body)
-		console.log("Emitido por la db:\n" )
+		console.log("Emitido por session:\n" )
 		console.log(user)
+		/*
+		Users.findOne({ where: { email: req.body.email } })
+		.then((userInfo) => {
+			return userInfo	
+		}
+			*/
 		//Validación interna si hubo modificación de contraseña:
 		/*
 		[ body("password")

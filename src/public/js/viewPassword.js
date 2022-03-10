@@ -4,12 +4,12 @@
  */ 
 
 let checkBox = document.querySelector('#passwordCheck input')
-let password = document.getElementsByName('password')
-let passwordVal = document.getElementsByName('passwordVal')
+let passwords = document.querySelectorAll('input[type=password]')
 
+console.log(passwords[0])
 checkBox.addEventListener('click',(e)=>{
-  checkBox.checked ? password[0].type='text' : password[0].type='password';
-  checkBox.checked ? passwordVal[0].type='text' : passwordVal[0].type='password';
- 
+  passwords.forEach( (pass) =>{
+    checkBox.checked ? pass.type='text' : pass.type='password';
+  }) 
 })
 
