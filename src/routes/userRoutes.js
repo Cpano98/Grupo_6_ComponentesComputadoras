@@ -62,11 +62,18 @@ const validationReg = [
       let condMinu = RegExp('[a-z]').test(value) // minus
       let condNumb = RegExp('[0-9]').test(value) // number
       let condSymb = RegExp('[^0-9a-zA-Z *]').test(value) // simbol
-      console.log(condSymb)
+      
       if(!condMayu){  throw new Error("Incluir al menos una mayúscula"); }  
       if(!condMinu){  throw new Error("Incluir al menos una minúscula"); }  
       if(!condNumb){  throw new Error("Incluir al menos un número"); }  
       if(!condSymb){  throw new Error("Incluir al menos un símbolo no númerico"); }  
+
+      /*
+      RegexFunction = function(ErrorMSG){
+        throw new Error(ErrorMSG)
+      }
+      !RegExp('[A-Z]').test(value) ? RegexFunction("Incluir al menos una mayúscula") : null ;
+      */
       return true;
     }),
   body("passwordVal")
