@@ -56,7 +56,12 @@ app.use("/", mainRoutes);
 app.use("/user", userRoutes);
 app.use("/products", productRoutes);
 app.use("/cart", purchaseRoutes);
-
+//Callback de 404
+app.use( (req, res, next)=>{
+  res.status(404).render('error4xx.ejs', {
+    xx:'04', 
+    msg:'Bad Request'});
+});
 //aplicación de los middlewares
 app.use(loggedMiddle);
 
