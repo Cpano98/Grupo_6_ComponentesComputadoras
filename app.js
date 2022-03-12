@@ -50,7 +50,8 @@ app.set("views", [
 ]);
 
 app.set("view engine", "ejs");
-
+//aplicación de los middlewares globales
+app.use(loggedMiddle);
 //Anclado de rutas [se llama así?]
 app.use("/", mainRoutes);
 app.use("/user", userRoutes);
@@ -62,8 +63,7 @@ app.use( (req, res, next)=>{
     xx:'04', 
     msg:'Bad Request'});
 });
-//aplicación de los middlewares
-app.use(loggedMiddle);
+
 
 //Heroku Config
 app.listen(process.env.PORT || 3000, function () {

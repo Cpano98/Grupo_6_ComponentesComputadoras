@@ -113,11 +113,12 @@ const userController = {
 			}
 			
 			
-			//Usuario validado, procediento
 			
-		
-			//Almacenando usuario en variable session, SIN password:
 			req.session.userLogged = userInfo.dataValues
+			//Independientemente se si quizo o no ser recordado actualizamos
+			//res.locals a true:
+			
+			res.locals.isLogged = true;
 			//Sí la checkbox fue marcada, creamos la cookie:
 			if (req.body.recordarUsuario) {
 				res.cookie("userEmail", req.body.email, { maxAge: 1000 * 3600 });
