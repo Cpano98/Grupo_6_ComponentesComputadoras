@@ -39,13 +39,7 @@ const userController = {
 				user
 			});
 		}
-		console.log("Emitido por el formulario:\n" )
-		console.log(req.body)
-		console.log("Emitido por session:\n" )
-		console.log(user)
-		
 	
-		console.log('Elementos del body existentes en usuario')
 		
 		for( element in req.body){
 			if(user[element]){
@@ -61,8 +55,7 @@ const userController = {
 		if(req.body.passwordNew!=''){
 			user['pass'] = bcryptjs.hashSync(req.body.passwordNew, bcryptjs.genSaltSync(saltRounds)) 
 		}
-		console.log("user planchado: ")
-		console.log(user)
+
 		
 		Users.update(user,
 		  {
