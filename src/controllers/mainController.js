@@ -44,8 +44,8 @@ const mainController = {
   },
   adminListUsers: (req, res) => {
     Users.findAll()
-      .then((products) => {
-        return res.render("userCRUDlist.ejs", { products });
+      .then((users) => {
+        return res.render("userCRUDlist.ejs", { users });
       })
       .catch((err) => {
         return res.render("error404", { status: 404, url: req.url });
