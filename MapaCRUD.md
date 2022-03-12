@@ -1,6 +1,6 @@
 ## **Mapa de CRUD**
 
-Admin Panel = [Ingresar](http://localhost:3000/products/admin "Ingresar")
+Admin Panel = [Ingresar](http://localhost:3000/admin "Ingresar")
 
 
 1. [Listado de productos](http://localhost:3000/products "Listado de productos")

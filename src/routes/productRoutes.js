@@ -99,11 +99,6 @@ const validationProduct = [
     .bail(),
 ];
 
-/*-- admin  */
-router.get("/admin", productController.adminPanel);
-router.get("/admin/list", productController.adminList);
-router.get("/admin/listUsers", productController.adminListUsers);
-
 
 
 

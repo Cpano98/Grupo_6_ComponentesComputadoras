@@ -7,7 +7,7 @@ const db = require("../database/models");
 const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 const Products = db.Product;
-const Users = db.User;
+
 
 const productController = {
   /* - - - - - - - - LISTA PRODUCTO - - - - - - - - - */
@@ -80,29 +80,8 @@ const productController = {
         return res.render("error404", { status: 404, url: req.url });
       });
   },
-  /* Contenido de admin a product */
-  adminPanel: (req, res) => {
-    return res.render("adminPanel.ejs");
-  },
-  adminList: (req, res) => {
-    Products.findAll()
-      .then((products) => {
-        console.log(products[0].image);
-        return res.render("listaProductosCRUD.ejs", { products });
-      })
-      .catch((err) => {
-        return res.render("error404", { status: 404, url: req.url });
-      });
-  },
-  adminListUsers: (req, res) => {
-    Users.findAll()
-      .then((products) => {
-        return res.render("users/userCRUDlist.ejs", { products });
-      })
-      .catch((err) => {
-        return res.render("error404", { status: 404, url: req.url });
-      });
-  },
+ 
+ 
   /* - - - - - - - - ADD PRODUCT - - - - - - - - - */
   productAdd: (req, res) => {
     return res.render("productAdd.ejs");

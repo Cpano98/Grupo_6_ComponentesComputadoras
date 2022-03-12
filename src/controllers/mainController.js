@@ -1,16 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-
-//const productsFilePath = path.join(__dirname, '../data/products.json');
-//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 // Sequelize requirements
 const db = require('../database/models');
-const sequelize = db.sequelize;
-const { Op } = db.Sequelize.Op;
-const Product = require('../database/models/Product');
-
 const Products = db.Product;
+const Users = db.User;
 
 const mainController = {
 	index: (req, res) => {
@@ -36,7 +28,29 @@ const mainController = {
     .catch(err => {
         res.send(err)
     })
-	}
+	},
+	adminPanel: (req, res) => {
+    return res.render("adminPanel.ejs");
+  },
+  adminListProducts: (req, res) => {
+    Products.findAll()
+      .then((products) => {
+        console.log(products[0].image);
+        return res.render("listaProductosCRUD.ejs", { products });
+      })
+      .catch((err) => {
+        return res.render("error404", { status: 404, url: req.url });
+      });
+  },
+  adminListUsers: (req, res) => {
+    Users.findAll()
+      .then((products) => {
+        return res.render("userCRUDlist.ejs", { products });
+      })
+      .catch((err) => {
+        return res.render("error404", { status: 404, url: req.url });
+      });
+  },
 
 }
 

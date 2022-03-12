@@ -270,7 +270,7 @@ const userController = {
 				id: req.body.id 
 			},
 		  }).then( (UserInfo) => {
-			res.redirect("/products/admin/listUsers")
+			res.redirect("/admin/listUsers")
 		  });
 		  
 	},
