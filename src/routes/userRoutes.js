@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const { body } = require("express-validator");
+const bcryptjs = require("bcryptjs");
 const guestMiddle = require("../middlewares/guestMiddle");
 const adminMiddle = require("../middlewares/adminMiddle");
 const userController = require("../controllers/userController");
@@ -145,10 +146,61 @@ const validationEdit = [
       }
       return true;
     })
+    .bail(),
+    body('passwordNow')
+    .if( body('passwordNew').notEmpty() )
+    .notEmpty()
+    .withMessage('Ingrese su contraseña previa')
     .bail()
-    /*
-    Validación especial de passwords
-     */
+    .if( body('passwordNewVal').notEmpty() )
+    .notEmpty()
+    .withMessage('Ingrese su contraseña previa')
+    .bail()
+    .if( body('passwordNow').notEmpty() ) //Si él mismo no está vacio
+    .custom( (value, {req} ) =>{
+      // Validando con session
+      if (!bcryptjs.compareSync(req.body.passwordNow,  req.session.userLogged.pass) ){
+        throw new Error("Su contraseña actual es incorrecta")
+      }
+      return true;
+    }),
+    body('passwordNew')
+    .if( body('passwordNew').notEmpty()  ) 
+    .notEmpty()
+    .withMessage("Ingrese una contraseña")
+    .bail()
+    .isLength({ min: 8 })
+    .withMessage("Al menos 8 caracteres")
+    .bail()
+    .isLength({ max: 15 })
+    .withMessage("Máximo 15 caracteres")
+    .bail()
+    .custom( (value, {req} ) =>{
+      let condMayu = RegExp('[A-Z]').test(value) // mayus
+      let condMinu = RegExp('[a-z]').test(value) // minus
+      let condNumb = RegExp('[0-9]').test(value) // number
+      let condSymb = RegExp('[^0-9a-zA-Z *]').test(value) // simbol
+      console.log(condSymb)
+      if(!condMayu){  throw new Error("Incluir al menos una mayúscula"); }  
+      if(!condMinu){  throw new Error("Incluir al menos una minúscula"); }  
+      if(!condNumb){  throw new Error("Incluir al menos un número"); }  
+      if(!condSymb){  throw new Error("Incluir al menos un símbolo no númerico"); }  
+      return true;
+    }),
+    body("passwordNewVal")
+    .if( body('passwordNew').notEmpty()  ) 
+    .notEmpty()
+    .withMessage("Ingrese su contraseña nuevamente")
+    .bail()
+    .custom((value, { req }) => {
+      if (value !== req.body.passwordNew) {
+        throw new Error("Contraseña no coincide");
+      }
+      return true;
+    }),
+
+    
+    
 ];
 
 router.get("/login", guestMiddle, userController.login);

@@ -28,7 +28,7 @@ const userController = {
 		console.log('ESTOY EDITANDO AL USUARIO')
 		//Carga de datos originales:
 		let user = req.session.userLogged;
-		
+		const file = req.file;
 		const resultVal = validationResult(req);
 		
 		if (!resultVal.isEmpty()) {
@@ -43,63 +43,39 @@ const userController = {
 		console.log(req.body)
 		console.log("Emitido por session:\n" )
 		console.log(user)
-		/*
-		Users.findOne({ where: { email: req.body.email } })
-		.then((userInfo) => {
-			return userInfo	
-		}
-			*/
-		//Validación interna si hubo modificación de contraseña:
-		/*
-		[ body("password")
-    .notEmpty()
-    .withMessage("Ingrese una contraseña")
-    .bail()
-    .isLength({ min: 8 })
-    .withMessage("Al menos 8 caracteres")
-    .bail()
-    .isLength({ max: 15 })
-    .withMessage("Máximo 15 caracteres")
-    .bail()
-    .custom( (value, {req} ) =>{
-      let condMayu = RegExp('[A-Z]').test(value) // mayus
-      let condMinu = RegExp('[a-z]').test(value) // minus
-      let condNumb = RegExp('[0-9]').test(value) // number
-      let condSymb = RegExp('[^0-9a-zA-Z *]').test(value) // simbol
-      console.log(condSymb)
-      if(!condMayu){  throw new Error("Incluir al menos una mayúscula"); }  
-      if(!condMinu){  throw new Error("Incluir al menos una minúscula"); }  
-      if(!condNumb){  throw new Error("Incluir al menos un número"); }  
-      if(!condSymb){  throw new Error("Incluir al menos un símbolo no númerico"); }  
-      return true;
-    }),
-  body("passwordVal")
-    .notEmpty()
-    .withMessage("Repita su contraseña")
-    .bail()
-    .custom((value, { req }) => {
-      if (value !== req.body.password) {
-        throw new Error("Contraseña no coincide");
-      }
-      return true;
-    })]
-		*/
-
-
-		const file = req.file;
-		console.log(file)
-		/* Si no hay imagen no hay problema */
-		/* Validación interna si se agregó una imagen*/
-
-		// Datos viejos  ???
-		// Datos nuevos: req.body
-
-		//Formación de envio de datos a editar:
-
-		// Update de aquellos elementos diferentes
 		
-
-		return res.render("profile.ejs", { user });
+	
+		console.log('Elementos del body existentes en usuario')
+		
+		for( element in req.body){
+			if(user[element]){
+				//planchado en user
+				user[element]=req.body[element]
+			}
+		}
+		
+		//Update del campo img
+		user['img'] = !file ? user['img'] : "/images/users/"+file.filename
+		
+		//Si el passwordNew es diferente a vacio y llegamos aquí le actualizamos
+		if(req.body.passwordNew!=''){
+			user['pass'] = bcryptjs.hashSync(req.body.passwordNew, bcryptjs.genSaltSync(saltRounds)) 
+		}
+		console.log("user planchado: ")
+		console.log(user)
+		
+		Users.update(user,
+		  {
+			where: { 
+				id: user.id 
+			},
+		  }).then( (UserInfo) => {
+				
+				return res.render("profile.ejs", { user });
+		  });
+		
+	
+		
 	},
 	login: (req, res) => {
 		return res.render("login.ejs");
@@ -143,11 +119,12 @@ const userController = {
 			
 			//Usuario validado, procediento
 			
+			// NO BORRAR PERO TAMPOCO MOSTRAR
+			/*
 			if(userInfo.dataValues.pass!=undefined) {
-				//* * * * * * * *
-				// posible error al borrar user.password tras el loggeo exitoso
 				delete userInfo.dataValues.pass;
 			}
+			*/
 			
 			//Almacenando usuario en variable session, SIN password:
 			req.session.userLogged = userInfo.dataValues
@@ -213,7 +190,7 @@ const userController = {
 					email: req.body.email,
 					pass: passHash, //req.body.password, 
 					role: "Client",
-					img: "images/users/default.jpg"
+					img: "/images/users/UserAvatar.jpeg"
 				}).then((userInfo) => {
 					
 					// eliminamos la propiedad password antes de enviarlo:
