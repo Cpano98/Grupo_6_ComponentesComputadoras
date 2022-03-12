@@ -20,12 +20,15 @@ const saltRounds = 10;
 const userController = {
 	profile: (req, res) => {
 		let user = req.session.userLogged;
+		//eliminamos el pass antes de enviar
+		console.log(user)
+		
 		return res.render("profile.ejs", { user });
 
 	},
 	profileUp: (req, res) => {
 
-		console.log('ESTOY EDITANDO AL USUARIO')
+		
 		//Carga de datos originales:
 		let user = req.session.userLogged;
 		const file = req.file;
@@ -112,20 +115,14 @@ const userController = {
 			
 			//Usuario validado, procediento
 			
-			// NO BORRAR PERO TAMPOCO MOSTRAR
-			/*
-			if(userInfo.dataValues.pass!=undefined) {
-				delete userInfo.dataValues.pass;
-			}
-			*/
-			
+		
 			//Almacenando usuario en variable session, SIN password:
 			req.session.userLogged = userInfo.dataValues
 			//Sí la checkbox fue marcada, creamos la cookie:
 			if (req.body.recordarUsuario) {
 				res.cookie("userEmail", req.body.email, { maxAge: 1000 * 3600 });
 			}
-			
+		
 			return res.render("profile.ejs", { user:userInfo.dataValues });
 
 		})
@@ -186,12 +183,7 @@ const userController = {
 					img: "/images/users/UserAvatar.jpeg"
 				}).then((userInfo) => {
 					
-					// eliminamos la propiedad password antes de enviarlo:
-					if(userInfo.dataValues.pass!=undefined) {
-						//* * * * * * * *
-						// posible error al borrar user.password tras el loggeo exitoso
-						delete userInfo.dataValues.pass;
-					}
+					
 					// la primera vez que el usuario se registra se guarda en session, pero no en cookies
 					req.session.userLogged = userInfo.dataValues
 					return res.render("profile.ejs", { user: userInfo.dataValues });
