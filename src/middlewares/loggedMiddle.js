@@ -1,10 +1,13 @@
 //Global middleware para autorizar acceso a otras páginas
 
-
 const fs = require('fs');
 const path = require('path');
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+//const usersFilePath = path.join(__dirname, '../data/users.json');
+//const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
+// Sequelize requirements
+const db = require("../database/models");
+const Users = db.User;
 
 function loggedMiddle(req, res, next){
     
@@ -17,20 +20,48 @@ function loggedMiddle(req, res, next){
      * 
      *      
      */
+    console.log("Estatus del session")
+    console.log(req.session)
 
-    res.locals.isLogged = false; //Bandera global
+    if(!req.session.userLogged){
+        res.locals.isLogged = 'Guest'; //Bandera global
+    }else{
+        console.log(req.session.userLogged.role)
+        res.locals.isLogged = req.session.userLogged.role; //Bandera global
+        res.locals.userLogged = req.session.userLogged;
+    }
+    
+    
+   
+    if(req.cookies.userEmail!=undefined){
+        Users.findOne({ 
+            where: { email: req.cookies.userEmail } 
+            })
+            .then((userFromCookie) => {
+                //Tras encontrar al usuario:
+                console.log("LOGGED MIDDLEWARE con DB")
+                console.log("usuario encontrado:")
+                console.log(userFromCookie)
 
-    //Permite revisar y cargar el usuario desde cookie
-    let userFromCookie = users.find(u => u.email == req.cookies.userEmail)
-    if(userFromCookie){
-        req.session.userLogged = userFromCookie; 
+                if(userFromCookie){
+                    req.session.userLogged = userFromCookie; 
+                }
+
+                if(req.session && req.session.userLogged){ 
+                    
+                    res.locals.isLogged = 'Admin'; //Bandera global
+                    res.locals.userLogged = req.session.userLogged; //Usuario global
+                }   
+                next();
+            })
+    }
+    else{
+        next();
     }
 
 
-    if(req.session && req.session.userLogged){ 
-        res.locals.isLogged = true; //Bandera global
-    }   res.locals.userLogged = req.session.userLogged; //Usuario global
-    next();
+
+   
 } 
 
 module.exports = loggedMiddle;

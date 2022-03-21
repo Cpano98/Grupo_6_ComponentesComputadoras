@@ -9,7 +9,7 @@
             <a class="nav-link active" aria-current="page" href="/">
               Inicio</a>
           </li>
-          <% if(!locals.isLogged){ %>
+          <% if(locals.isLogged=='Guest'){ %>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/user/register">
                 Crear cuenta</a>
@@ -17,7 +17,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/user/login">Iniciar sesión</a>
             </li>  
-          <%}else{%>
+          <%}else if(locals.isLogged=="Admin"){%>
             <li class="nav-item">
               <a class="nav-link" href="/user/profile">Mi Perfil</a>
             </li> 
@@ -30,7 +30,17 @@
             <li class="nav-item">
               <a class="nav-link" href="/user/logout">Cerrar sesión</a>
             </li>
-          <%}%>
+          <%}else{%>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/profile">Mi Perfil</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/cart">Carrito de compras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/logout">Cerrar sesión</a>
+            </li>
+          <% } %>
         </ul>
       </nav>
     </div>

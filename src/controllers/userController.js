@@ -21,7 +21,7 @@ const userController = {
 	profile: (req, res) => {
 		let user = req.session.userLogged;
 		//eliminamos el pass antes de enviar
-		console.log(user)
+		//console.log(user)
 		
 		return res.render("profile.ejs", { user });
 
@@ -35,7 +35,7 @@ const userController = {
 		const resultVal = validationResult(req);
 		
 		if (!resultVal.isEmpty()) {
-			console.log(resultVal)
+			//console.log(resultVal)
 			return res.render("profile.ejs", {
 				errors: resultVal.mapped(),
 				old: req.body,
@@ -115,11 +115,8 @@ const userController = {
 			
 			
 			req.session.userLogged = userInfo.dataValues
-			//Independientemente se si quizo o no ser recordado actualizamos
-			//res.locals a true:
-			
-			res.locals.isLogged = true;
-			//Sí la checkbox fue marcada, creamos la cookie:
+			res.locals.isLogged = req.session.userLogged.role	;
+		
 			if (req.body.recordarUsuario) {
 				res.cookie("userEmail", req.body.email, { maxAge: 1000 * 3600 });
 			}
@@ -229,10 +226,6 @@ const userController = {
 			 *
 			 */
 
-				
-			
-				
-				
 				/*
         * Este render solo debe realizarse después de validar al usuario	
 				*
@@ -240,6 +233,7 @@ const userController = {
 					user:userInfo.dataValues, 
 					old:req.body })
 				*/
+				
 				res.render("editUserbyAdmin.ejs", { user:userInfo.dataValues })
 		
 			})
@@ -270,8 +264,9 @@ const userController = {
 			where: { 
 				id: req.body.id 
 			},
-		  }).then( (UserInfo) => {
-			res.redirect("/admin/listUsers")
+		  }).then( (userInfo) => {
+				req.session.userLogged =userInfo.dataValues
+				res.redirect("/admin/listUsers")
 		  });
 		  
 	},
