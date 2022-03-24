@@ -12,7 +12,7 @@
 					<h3>Agregar nuevo producto</h3>
 					<p>Agregar un nuevo artículo a tu tienda</p>
 					<form action="/products/create/new" method="POST" enctype="multipart/form-data">
-						<div class="campo-ind">
+						<div class="campo-ind" id="name">
 							<label class="label-login">Nombre del producto: </label>
 							<input class="campo-log" type="text" style="background-color: transparent;"
 								placeholder="Se muestra a los usuarios" name="name" id="nombre_producto"
@@ -38,7 +38,7 @@
 						<% if ( locals.errors && errors.brand ) { %>
 						<div class="error-registro"><%= errors.brand.msg %></div>
 						<% } %>
-						<div class="campo-ind">
+						<div class="campo-ind" id="description">
 							<label class="label-login">Descripción de tu producto: </label>
 							<textarea class="campo-log" 
 									style="background-color: transparent;" 
@@ -73,7 +73,7 @@
 						<% if ( locals.errors && errors.pieces ) { %>
 							<div class="error-registro"><%= errors.pieces.msg %></div>
 						<% } %>
-						<div class="campo-ind">
+						<div class="campo-ind" id="image">
 							<label class="label-login">Imagen principal de producto:</label>
 							<input
 								class="campo-log"
@@ -144,7 +144,12 @@
 							</div>
 							
 						</div>
-						<button class="btn btn-outline-success btn_search" type="submit">Registrar nuevo producto</button>
+						<div class="errores">
+							Revisar los siguientes errores:
+						</div>
+						<button class="btn btn-outline-success btn_search" 
+										type="submit"
+										id="boton_submit">Registrar nuevo producto</button>
 					</form>
 				</div>
 			</div>

@@ -48,8 +48,8 @@ campos.forEach( (campo)=>{
 // Change
 nombre.addEventListener('change',(e)=>{
   //CUIDADO, hay que usar los childen, debido al div***
-  console.log(nombre.children[2].value)
-  let val = nombre.children[2].value.length
+  console.log(nombre.children[1].value)
+  let val = nombre.children[1].value.length
   if(val< 5){
     errores.nombre = 'Nombre muy corto, al menos 5 caracteres'
     alert(errores.nombre);
@@ -58,8 +58,8 @@ nombre.addEventListener('change',(e)=>{
 
 descripcion.addEventListener('change',(e)=>{
   //CUIDADO, hay que usar los childen, debido al div***
-  console.log(descripcion.children[2].value)
-  let val = descripcion.children[2].value.length
+  console.log(descripcion.children[1].value)
+  let val = descripcion.children[1].value.length
   if(val< 20){
     errores.descripcion = 'Descripción muy corta, al menos 20 caracteres'
     alert(errores.descripcion);
@@ -67,7 +67,7 @@ descripcion.addEventListener('change',(e)=>{
 })
 imagen.addEventListener('change',(e)=>{
   //CUIDADO, hay que usar los childen, debido al div***
-  let val = imagen.children[2].value
+  let val = imagen.children[1].value
   if(val!=''){
     let tipo = val.split('.').pop()
 
