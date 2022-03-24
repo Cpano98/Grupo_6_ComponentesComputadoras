@@ -234,7 +234,7 @@ const userController = {
 					old:req.body })
 				*/
 				
-				res.render("editUserbyAdmin.ejs", { user:userInfo.dataValues })
+				return res.render("editUserbyAdmin.ejs", { user:userInfo.dataValues })
 		
 			})
 			.catch((err) => {

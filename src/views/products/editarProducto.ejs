@@ -14,8 +14,8 @@
         <h3>Editando producto: <strong><%= item.name %></strong> (ID: <%= item.id %>)
         </h3>
         <p>Edita las especificaciones de tu producto</p>
-        <form action="/products/edit/<%= item.id %>?_method=PUT" method="post" enctype="multipart/form-data">
-          <div class="campo-ind">
+        <form action="/products/edit/<%=item.id%>?_method=PUT" method="post" enctype="multipart/form-data">
+          <div class="campo-ind" id="name">
             <label class="label-login">Nombre del producto: </label><br>
             <input class="campo-log" 
                     type="text" 
@@ -50,7 +50,7 @@
             </div>
           <% } %>
 
-          <div class="campo-ind">
+          <div class="campo-ind" id="description">
               <label class="label-login">Descripción de tu producto: </label><br>
               <textarea class="campo-log"
                           style="background-color: transparent; height: auto;"
@@ -101,7 +101,7 @@
             </div>
           <% } %>
 
-          <div class="campo-ind">
+          <div class="campo-ind" id="image">
             <label class="label-login">Imagen principal de producto: </label><br>
             <input class="campo-log" 
                     type="file" 
@@ -178,7 +178,12 @@
               <% } %>
             </div>
           </div>
-          <button class="btn btn-outline-success btn_search" type="submit">Editar este producto</button>
+          <div class="errores">
+            Revisar los siguientes errores:
+          </div>
+          <button class="btn btn-outline-success btn_search" 
+                  type="submit"
+                  id="boton_submit">Editar este producto</button>
 
         </form>
 
@@ -192,5 +197,6 @@
   <%- include("./partials/footer.ejs") %>
 
 	</body>
-
+  <script src = "/js/productValidator.js">
+	</script>
 </html>

@@ -89,7 +89,7 @@ const productController = {
   productAddUp: (req, res, next) => {
     // Validate the add product form
     const resultVal = validationResult(req);
-    console.log(resultVal.isEmpty())
+    
     if (!resultVal.isEmpty()) {
       return res.render("productAdd.ejs", {
         errors: resultVal.mapped(),
@@ -125,7 +125,7 @@ const productController = {
   productEdit: (req, res) => {
     Products.findByPk(req.params.id)
       .then((products) => {
-        console.log(products.image)
+        
         return res.render("editarProducto.ejs", { item: products });
       })
       .catch((err) => {
@@ -137,46 +137,53 @@ const productController = {
     
 		const resultVal = validationResult(req);
 		if (!resultVal.isEmpty()){
-			let product =  Products.findByPk(req.params.id)
-			res.render('editarProducto.ejs', 
-				{ 
-					item: product,
-					errors:resultVal.mapped(),
-					old:req.body 
-				});
-		}
-		    
-    const file = req.file;
-    console.log(file)
-    if (!file) {
-      const error = new Error("No hta seleccionado un archivo");
-      error.httpStatusCode = 400;
-      return res.render("error40X.ejs");
-    }
-
-    Products.update({
+			Products.findByPk(req.params.id)
+      .then( (product)=>{
+        
+        return res.render('editarProducto.ejs', 
+          { 
+            item: product,
+            errors:resultVal.mapped(),
+            old:req.body 
+          });
+      })
+			
+		}else{
+      let productUpdated = {
         name: req.body.name,
         sku: req.body.sku,
         description: req.body.description,
         price: req.body.price,
         discount: req.body.discount,
-        image: file.originalname,
         category: req.body.category,
         brand: req.body.brand,
-        pieces: req.body.pieces,
-      },
-      {
-        where: { id: req.params.id },
-      }).then( () => {
-        Products.findByPk(req.params.id)
-        .then((products) => {
-          console.log(Products)
-          console.log('editado')
-          return res.render("productDetail.ejs", { item: products });
-        })
+        pieces: req.body.pieces
+      }
+      
+      const file = req.file;
+      console.log(file)
+      if (file) {
+        productUpdated.image = file.originalname
+      }
+      
+      console.log(productUpdated)
+      Products.update(
+        productUpdated,
+        {
+          where: { id: req.params.id },
+        }).then( () => {
+          Products.findByPk(req.params.id)
+          .then((products) => {
+            
+            return res.render("productDetail.ejs", { item: products });
+          })
+  
+          
+        });
 
-        
-      });
+    }
+		
+    
     
   },
   /* - - - - - - - - BORRAR PRODUCTO - - - - - - - - - */
@@ -188,7 +195,7 @@ const productController = {
         res.redirect("/products/delete/confirmation");
       })
       .catch((err) => {
-        res.render("error404", { status: 404, url: req.url });
+        return res.render("error404", { status: 404, url: req.url });
       });
   },
   deleteConfirm: (req, res) => {
@@ -241,7 +248,7 @@ const productController = {
         });
       })
       .catch((err) => {
-        console.log(err);
+        
         return res.render("error404", { status: 404, url: req.url });
       });
   },

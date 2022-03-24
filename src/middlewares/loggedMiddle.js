@@ -20,13 +20,12 @@ function loggedMiddle(req, res, next){
      * 
      *      
      */
-    console.log("Estatus del session")
-    console.log(req.session)
+    
 
     if(!req.session.userLogged){
         res.locals.isLogged = 'Guest'; //Bandera global
     }else{
-        console.log(req.session.userLogged.role)
+       
         res.locals.isLogged = req.session.userLogged.role; //Bandera global
         res.locals.userLogged = req.session.userLogged;
     }
@@ -39,9 +38,7 @@ function loggedMiddle(req, res, next){
             })
             .then((userFromCookie) => {
                 //Tras encontrar al usuario:
-                console.log("LOGGED MIDDLEWARE con DB")
-                console.log("usuario encontrado:")
-                console.log(userFromCookie)
+               
 
                 if(userFromCookie){
                     req.session.userLogged = userFromCookie; 

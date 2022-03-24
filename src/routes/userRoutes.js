@@ -138,7 +138,7 @@ const validationEdit = [
       let file = req.file;
       let extensions = [".png", ".jpg", ".webp", ".jpeg", ".gif"]
 
-      if (file != undefined){
+      if (file){
         let fileExtension = path.extname(file.originalname);
         if( !extensions.includes(fileExtension) ){
           throw new Error("'Formato' de archivo no valido");

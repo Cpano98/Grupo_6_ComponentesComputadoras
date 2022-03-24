@@ -63,10 +63,7 @@ const validationProduct = [
       let file = req.file;
       let extensions = [".png", ".jpg", ".webp", ".jpeg", ".gif"]
 
-      if (!file) {
-        throw new Error("'Debes' subir una imagen");
-      }
-      else{
+      if (file){
         let fileExtension = path.extname(file.originalname);
         if( !extensions.includes(fileExtension) ){
           throw new Error("'Formato' de archivo no valido");
