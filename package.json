@@ -2,7 +2,7 @@
   "name": "mipc-app",
   "version": "1.0.0",
   "description": "Proyecto Integrador Equipo 6",
-  "main": "app.js",
+  "main": "index.js",
   "engines": {
     "node": "14.17.4"
   },
