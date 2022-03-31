@@ -19,7 +19,7 @@
           <h3>Bienvenid@ a MiPC!</h3>
           <p>Crea tu cuenta y disfruta de grandes e increíbles beneficios</p>
 
-          <form action="/user/register" method="POST">
+          <form action="/user/register" method="POST" id="formRegister">
             <%if(locals.errors && errors.reg){ %>
             <div class="error-registro"><%= errors.reg.msg %></div>
             <% } %>
@@ -128,6 +128,9 @@
 
   </body>
   <script src = "/js/viewPassword.js">
+    
   </script>
+
+<script src = "/js/validateInputsRegister.js"></script>
 
 </html>
