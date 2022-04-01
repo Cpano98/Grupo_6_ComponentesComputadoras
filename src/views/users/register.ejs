@@ -65,7 +65,7 @@
             <%if(locals.errors && errors.email){ %>
             <div class="error-registro"><%= errors.email.msg %></div>
             <% } %>
-            <div class="campo-ind">
+            <div class="campo-ind" id="password">
               <label class="label-login">Contraseña:</label>
               <input
                 class="campo-log"
@@ -74,6 +74,9 @@
                 name="password"
                 value="<%= locals.old ? old.password : null %>"
               />
+              <span id="passwordComplexity">
+                weak
+              </span>
             </div>
             <%if(locals.errors && errors.password){ %>
             <div class="error-registro"><%= errors.password.msg %></div>
