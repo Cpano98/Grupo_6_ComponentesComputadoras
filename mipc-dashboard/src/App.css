@@ -354,3 +354,8 @@ template {
   padding: 0px;
   margin: 0px;
 }
+
+.App{
+  max-width: 1600px; 
+  margin: 0 auto; 
+}

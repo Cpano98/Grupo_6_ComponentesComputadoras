@@ -22,38 +22,50 @@ function Layout() {
   return (
     <div>
       <div className="header">
-        <div>
+        <div className="gridColumnSplit">
+          <div>
+            <a href="http://152.70.154.161:3000/" target="_blank">
+              <img
+                src="https://cpano98.github.io/Grupo_6_ComponentesComputadoras/src/public/images/logo/logo_v1.png"
+                className="logoMiPc"
+                alt="LogoMiPC"
+              ></img>
+            </a>
+          </div>
 
-        </div>
-
-        <div>
-          <nav>
-            <ul className="navMenu">
-              <li>
-                <Link to="/" className="linkBtn">
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="linkBtn">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard" className="linkBtn">
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link to="/nothing-here" className="linkBtn">
-                  Nothing Here
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <div>
+            <nav>
+              <ul className="navMenu">
+                <li>
+                  <Link to="/" className="linkBtn">
+                    Inicio
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="linkBtn">
+                    Agregar producto
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard" className="linkBtn">
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/nothing-here" className="linkBtn">
+                    Nothing Here
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
-      <Outlet />
+      <div className="contentContainer">
+          <div className="whiteContainer">
+        <Outlet />
+        </div>
+      </div>
     </div>
   );
 }
