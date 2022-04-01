@@ -1,0 +1,19 @@
+.header{
+    background-color: #000;
+}
+
+.navMenu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background-color: #000;
+}
+
+.linkBtn{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 300;
+}
