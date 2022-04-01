@@ -23,7 +23,7 @@
             <%if(locals.errors && errors.reg){ %>
             <div class="error-registro"><%= errors.reg.msg %></div>
             <% } %>
-            <div class="campo-ind">
+            <div class="campo-ind" id="name">
               <label class="label-login">Nombre completo:</label>
               <input
                 class="campo-log"
@@ -51,7 +51,7 @@
             <%if(locals.errors && errors.username){ %>
             <div class="error-registro"><%= errors.username.msg %></div>
             <% } %>
-            <div class="campo-ind">
+            <div class="campo-ind" id="email">
               <label class="label-login">Correo Electrónico:</label>
               <input
                 class="campo-log"

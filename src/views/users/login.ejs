@@ -20,7 +20,7 @@
           <h3>¿Ya tienes cuenta?</h3>
           <p>Aquí podrás iniciar sesión</p>
           <form action="/user/login" method="POST" id="formRegister">
-            <div class="campo-ind">
+            <div class="campo-ind" id="email">
               <label class="label-login">Correo Electrónico:</label>
               <input
                 class="campo-log"
@@ -34,7 +34,7 @@
             <div class="error-registro"><%= errors.email.msg %></div>
             <% } %>
 
-            <div class="campo-ind">
+            <div class="campo-ind" id="password">
               <label class="label-login">Contraseña:</label>
               <input
                 class="campo-log"

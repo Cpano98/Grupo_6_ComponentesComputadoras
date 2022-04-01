@@ -99,8 +99,7 @@ boton.addEventListener('click',(e)=>{
     
     erroresVista.innerText = "Revisar los siguientes errores:"
     Object.keys(errores).forEach(key =>{
-      erroresVista.innerText+= '\n'
-      erroresVista.innerText+= errores[key] 
+      erroresVista.innerText += "\n"+errores[key];
     })
     erroresVista.style.display = "block"
   }else{

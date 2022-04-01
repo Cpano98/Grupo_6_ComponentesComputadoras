@@ -3,12 +3,18 @@ window.addEventListener("load", function () {
   var form = document.getElementById("formRegister");
   let inputs = document.querySelectorAll("div.campo-ind");
   let boton = document.querySelector("button#boton_submit");
-  let password = document.querySelector("div.campo-ind#password")
+  let name  = document.querySelector("div.campo-ind#name");
+  let email = document.querySelector("div.campo-ind#email");
+  let password = document.querySelector("div.campo-ind#password");
+
   let passwordComplexity = document.querySelector("#passwordComplexity")
-  passwordComplexity.style.display="none"
+  passwordComplexity ? passwordComplexity.style.display="none" : null
+
   //Nombramiento de errores de la vista:
   let erroresVista = document.querySelector("div.errores");
   erroresVista.style.display = "none";
+
+  let errores = {}; 
 
   inputs.forEach((campo) => {
     campo.addEventListener("focusin", (e) => {
@@ -25,10 +31,27 @@ window.addEventListener("load", function () {
   });
 
   //Revisión expecifica de contenido de los campos:
-  //Sin revisión especifica, de esta full back
+  if(name){
+    name.addEventListener("change", (e)=>{
+      const value = name.children[1].value;
+      if( value.length<=2){
+        errores.name = 'Nombre muy corto';
+        alert(errores.name);
+      }
+    })
+  }
+  
+
+  email.addEventListener("change", (e)=>{
+    const value = email.children[1].value;
+    if(!value.includes("@")){
+      errores.email = 'Debe ingresar un correo valido'
+      this.alert(errores.email)
+    }
+  })
 
   boton.addEventListener("click", function (event) {
-		let errores = {}; 
+		
     //Revisión de inputs vacias
     let num = 0;
     for (var i = 0; i < inputs.length; i++) {
@@ -45,17 +68,17 @@ window.addEventListener("load", function () {
     //Revisión del objeto errores
     if (Object.keys(errores).length > 0) {
       event.preventDefault();
-      console.log(errores);
+      //console.log(errores);
 
       erroresVista.innerText = "Revisar los siguientes errores: ";
 			
       Object.keys(errores).forEach((key) => {
-        erroresVista.innerText += "\n";
-        erroresVista.innerText += errores[key];
+        
+        erroresVista.innerText += "\n"+errores[key];
       });
       erroresVista.style.display = "block";
     } else {
-      console.log("Enviando");
+      //console.log("Enviando");
     }
   });
 
