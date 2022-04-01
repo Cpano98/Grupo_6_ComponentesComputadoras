@@ -23,8 +23,8 @@
             <%if(locals.errors && errors.reg){ %>
             <div class="error-registro"><%= errors.reg.msg %></div>
             <% } %>
-            <div class="campo-ind">
-              <label class="label-login">Nombre completo:</label><br />
+            <div class="campo-ind" id="name">
+              <label class="label-login">Nombre completo:</label>
               <input
                 class="campo-log"
                 type="text"
@@ -38,7 +38,7 @@
             <div class="error-registro"><%= errors.name.msg %></div>
             <% } %>
             <div class="campo-ind">
-              <label class="label-login">Nombre de usuario: </label><br />
+              <label class="label-login">Nombre de usuario: </label>
               <input
                 class="campo-log"
                 type="text"
@@ -51,8 +51,8 @@
             <%if(locals.errors && errors.username){ %>
             <div class="error-registro"><%= errors.username.msg %></div>
             <% } %>
-            <div class="campo-ind">
-              <label class="label-login">Correo Electrónico:</label><br />
+            <div class="campo-ind" id="email">
+              <label class="label-login">Correo Electrónico:</label>
               <input
                 class="campo-log"
                 type="email"
@@ -62,13 +62,11 @@
               />
             </div>
 
-
-            
             <%if(locals.errors && errors.email){ %>
             <div class="error-registro"><%= errors.email.msg %></div>
             <% } %>
-            <div class="campo-ind">
-              <label class="label-login">Contraseña:</label><br />
+            <div class="campo-ind" id="password">
+              <label class="label-login">Contraseña:</label>
               <input
                 class="campo-log"
                 type="password"
@@ -76,12 +74,15 @@
                 name="password"
                 value="<%= locals.old ? old.password : null %>"
               />
+              <span id="passwordComplexity">
+                weak
+              </span>
             </div>
             <%if(locals.errors && errors.password){ %>
             <div class="error-registro"><%= errors.password.msg %></div>
             <% } %>
             <div class="campo-ind">
-              <label class="label-login">Confirmar contraseña:</label><br />
+              <label class="label-login">Confirmar contraseña:</label>
               <input
                 class="campo-log"
                 type="password"
@@ -94,10 +95,17 @@
             <div class="error-registro"><%= errors.passwordVal.msg %></div>
             <% } %>
             <div id="passwordCheck">
-              <input type="checkbox" name="MostrarContraseña"  />
+              <input type="checkbox" name="MostrarContraseña" />
               <label for="MostrarContraseña">Mostrar contraseña</label>
             </div>
-            <button class="btn btn-outline-success btn_search" type="submit">
+
+            <div class="errores">Revisar los siguientes errores:</div>
+
+            <button
+              class="btn btn-outline-success btn_search"
+              type="submit"
+              id="boton_submit"
+            >
               Registrarme
             </button>
             <button
@@ -125,12 +133,8 @@
     </main>
     <!--FOOTER-->
     <%- include("partials/footer.ejs") %>
-
   </body>
-  <script src = "/js/viewPassword.js">
-    
-  </script>
+  <script src="/js/viewPassword.js"></script>
 
-<script src = "/js/validateInputsRegister.js"></script>
-
+  <script src="/js/validateInputsRegister.js"></script>
 </html>

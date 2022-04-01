@@ -23,18 +23,14 @@ erroresVista.style.display  = "none"
 
 let errores = {}; //Porque los usaré en las alertas igual
 
-console.log(formulario)
-console.log(nombre)
-console.log(boton)
-console.log(descripcion)
-console.log(imagen)
+
 
 // Foctusin/Focusout, a todos los elementos del formulario*, hacer con for*
 campos.forEach( (campo)=>{
   campo.addEventListener('focusin', (e)=>{
     campo.style.borderColor = 'black'
     campo.style.borderStyle = 'ridge'
-    campo.style.borderWidth = '5px'
+    campo.style.borderWidth = '3px'
   })
   campo.addEventListener('focusout', (e)=>{
     campo.style.borderColor = '#ced4da'
@@ -53,6 +49,7 @@ nombre.addEventListener('change',(e)=>{
   if(val< 5){
     errores.nombre = 'Nombre muy corto, al menos 5 caracteres'
     alert(errores.nombre);
+   
   }
 })
 
@@ -78,15 +75,31 @@ imagen.addEventListener('change',(e)=>{
   }
 })
 boton.addEventListener('click',(e)=>{
-  
+
+
+
+  //Revisamos si hay inputs vacias, 
+  let num = 0
+  campos.forEach( (campo)=>{
+    
+    let val = campo.children[1].value
+    
+    if(val==''){
+      campo.style.borderColor = 'red'
+      campo.style.borderStyle = 'ridge'
+      campo.style.borderWidth = '2px'
+      num = num + 1;
+      errores.campo = ' Tienes '+num+' campos vacios remarcados en rojo.'
+    }
+  })
+
   if(Object.keys(errores).length>0){
     e.preventDefault();
     console.log(errores)
     
     erroresVista.innerText = "Revisar los siguientes errores:"
     Object.keys(errores).forEach(key =>{
-      erroresVista.innerText+= '\n'
-      erroresVista.innerText+= errores[key] 
+      erroresVista.innerText += "\n"+errores[key];
     })
     erroresVista.style.display = "block"
   }else{
