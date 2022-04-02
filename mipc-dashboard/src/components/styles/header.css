@@ -1,11 +1,11 @@
 .header {
   background-color: #000;
-  padding: 0.8rem 70px;
+  padding: 0.5rem 70px;
 }
 
 .navMenu {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   height: 50px;
   width: 100%;
@@ -19,9 +19,10 @@ ul {
 .linkBtn {
   color: white;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 12px;
+  text-transform: uppercase;
   font-weight: 300;
-  padding-left: 4rem;
+  padding-right: 2rem;
 }
 .linkBtn:hover {
   color: rgba(255, 255, 255, 0.7);
@@ -29,12 +30,12 @@ ul {
 
 .logoMiPc {
   filter: brightness(0) invert(1);
-  width: 50%;
+  width: 125px;
 }
 
 .gridColumnSplit {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 155px 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   align-items: center;

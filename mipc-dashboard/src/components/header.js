@@ -3,6 +3,8 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 import "../App.css";
 import "./styles/header.css";
 
+import PageOne from "./home";
+
 function header() {
   return (
     <div>
@@ -38,32 +40,30 @@ function Layout() {
               <ul className="navMenu">
                 <li>
                   <Link to="/" className="linkBtn">
-                    Inicio
+                    General
                   </Link>
                 </li>
-                <li>
-                  <Link to="/about" className="linkBtn">
-                    Agregar producto
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/dashboard" className="linkBtn">
-                    Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/nothing-here" className="linkBtn">
-                    Nothing Here
-                  </Link>
-                </li>
+                <a
+                  className="linkBtn"
+                  href="http://152.70.154.161:3000/products/create/new"
+                >
+                  Agregar producto
+                </a>
+
+                <a
+                  className="linkBtn"
+                  href="http://152.70.154.161:3000/admin/listUsers"
+                >
+                  EDITAR | ELIMINAR DE USUARIOS
+                </a>
               </ul>
             </nav>
           </div>
         </div>
       </div>
       <div className="contentContainer">
-          <div className="whiteContainer">
-        <Outlet />
+        <div className="whiteContainer">
+          <Outlet />
         </div>
       </div>
     </div>
@@ -71,11 +71,7 @@ function Layout() {
 }
 
 function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
-  );
+  return <PageOne />;
 }
 
 function About() {
