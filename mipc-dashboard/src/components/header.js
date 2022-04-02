@@ -40,9 +40,15 @@ function Layout() {
               <ul className="navMenu">
                 <li>
                   <Link to="/" className="linkBtn">
-                    General
+                    Overview
                   </Link>
                 </li>
+                <a
+                  className="linkBtn"
+                  href="http://152.70.154.161:3000/admin"
+                >
+                  Panel de administración
+                </a>
                 <a
                   className="linkBtn"
                   href="http://152.70.154.161:3000/products/create/new"
