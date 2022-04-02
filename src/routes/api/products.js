@@ -5,13 +5,13 @@ const productAPIController = require('../../controllers/api/productAPIController
 //Rutas gets
 
 // en el json de la api se devuelve:
-router.get('/list', productAPIController.list);
+router.get('/', productAPIController.list);
 //total de productos
 //lista de todos los productos
 //detalle último producto agregado
 
 
-router.get('/detail/:id', productAPIController.detail);
+router.get('/:id', productAPIController.detail);
 //detalle de producto
 
 router.get('/categories', productAPIController.categories);
