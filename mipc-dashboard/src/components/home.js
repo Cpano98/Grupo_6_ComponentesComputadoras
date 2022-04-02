@@ -3,6 +3,7 @@ import "./styles/home.css";
 import DataCont from '../components/dataCont';
 
 function home() {
+    
   return (
     <div>
         <div className='genaralInfoContainer'>
