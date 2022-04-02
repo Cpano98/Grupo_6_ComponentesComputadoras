@@ -47,6 +47,7 @@ ul {
   background-size: 15px 15px;
   min-height: 100vh;
   padding: 35px 70px;
+  overflow-x: hidden;
 }
 
 .whiteContainer {

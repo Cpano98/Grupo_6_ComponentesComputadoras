@@ -7,13 +7,13 @@ function home() {
     <div>
         <div className='genaralInfoContainer'>
             <div>
-                <DataCont />
+                <DataCont titulo={'Hola mund saf'} descripcion={'Esta es la descripcion del componente'} valor={12}/>
             </div>
             <div>
-                <DataCont />
+                <DataCont titulo={'Hola mund saf'} descripcion={'Esta es la descripcion del componente'} valor={12}/>
             </div>
             <div>
-                <DataCont />
+                <DataCont titulo={'Hola mund saf'} descripcion={'Esta es la descripcion del componente'} valor={12}/>
             </div>
         </div>
     </div>

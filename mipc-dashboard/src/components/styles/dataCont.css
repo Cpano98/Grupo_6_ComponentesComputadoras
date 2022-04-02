@@ -2,9 +2,21 @@
   background-color: #a0a3a720;
   border-radius: 5px;
   padding: 35px 35px;
-  width: 270px;
+  min-width: 270px;
   border-left-width: 15px;
   border-right-width: 0px;
   border-style: solid;
   border-image: linear-gradient(180deg,#e49e29,#e23e4e) 1 100%;
+}
+
+p{
+    font-weight: 300;
+}
+
+.spacer-1{
+    height: 20px;
+}
+
+h2{
+    font-size: 50px;
 }
