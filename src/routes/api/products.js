@@ -6,10 +6,10 @@ const productAPIController = require('../../controllers/api/productAPIController
 
 // en el json de la api se devuelve:
 router.get('/list', productAPIController.list);
-//lista de todos los productos
-//dos listas de productos, con descuento y sin descuento.
-//detalle último producto agregado
 //total de productos
+//lista de todos los productos
+//detalle último producto agregado
+
 
 router.get('/detail/:id', productAPIController.detail);
 //detalle de producto

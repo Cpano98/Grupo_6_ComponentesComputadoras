@@ -2,7 +2,19 @@ const express = require('express');
 const router = express.Router();
 const userAPIController = require('../../controllers/api/userAPIController');
 
-//Listado de todos los generos
-router.get('/', userAPIController.list);
-//Detalle del genero
-router.get('/:id', userAPIController.detail);
+//Rutas gets
+// en el json de la api se devuelve:
+router.get('/list', userAPIController.list);
+//total de usuarios
+//lista de todos los usuarios
+//detalle último usuario agregado
+
+router.get('/detail/:id', userAPIController.detail);
+//detalle del usuario con id
+
+
+//router.post('/create', usersAPIController.create);
+//router.put('/update/:id', usersAPIController.update);
+//router.delete('/delete/:id', usersAPIController.destroy);
+
+module.exports = router;

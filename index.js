@@ -33,7 +33,7 @@ const productRoutes = require("./src/routes/productRoutes");
 const purchaseRoutes = require("./src/routes/purchaseRoutes");
 
 /* bloque de routes de API */
-//const apiUserRouter = require('./src/routes/api/user.js')
+const apiUserRouter = require('./src/routes/api/user.js')
 const apiProductRouter = require('./src/routes/api/products.js')
 
 /* bloque de middlewares globales  */
@@ -63,7 +63,7 @@ app.use("/products", productRoutes);
 app.use("/cart", purchaseRoutes);
 
 //Anclado de rutas de API
-//app.use('/api/users', apiUserRouter);
+app.use('/api/users', apiUserRouter);
 app.use("/api/products", apiProductRouter);
 
 //Callback de 404
