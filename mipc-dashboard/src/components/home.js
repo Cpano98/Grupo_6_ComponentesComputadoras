@@ -5,6 +5,7 @@ import UltimoProducto from "../components/ultimoProducto";
 import ListadoCategorias from "../components/listadoCategorias";
 
 function home() {
+
   return (
     <div>
       <div className="genaralInfoContainer">

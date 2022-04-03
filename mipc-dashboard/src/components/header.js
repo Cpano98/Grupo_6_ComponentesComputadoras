@@ -27,7 +27,7 @@ function Layout() {
       <div className="header">
         <div className="gridColumnSplit">
           <div>
-            <a href="http://152.70.154.161:3000/" target="_blank">
+            <a href="http://152.70.154.161:3000/">
               <img
                 src="https://cpano98.github.io/Grupo_6_ComponentesComputadoras/src/public/images/logo/logo_v1.png"
                 className="logoMiPc"

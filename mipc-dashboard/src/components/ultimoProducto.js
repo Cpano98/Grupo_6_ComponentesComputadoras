@@ -32,8 +32,51 @@ function ultimoProducto({ titulo, descripcion }) {
         <h4>Stock:</h4>
         <p>2 piezas</p>
       </div>
+
+      <MyComponent />
     </div>
   );
+}
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://152.70.154.161:3000/index/list")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log("API: " + result);
+
+          this.setState({
+            isLoaded: true,
+            items: result.items,
+          });
+        },
+        // Nota: es importante manejar errores aquí y no en
+        // un bloque catch() para que no interceptemos errores
+        // de errores reales en los componentes.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
+  }
+
+  render() {
+    return (
+      <h1>Hola</h1>
+    );
+  }
 }
 
 export default ultimoProducto;
