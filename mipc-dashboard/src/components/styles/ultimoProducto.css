@@ -1,0 +1,20 @@
+.dataContUlt {
+  background-color: #a0a3a720;
+  border-radius: 5px;
+  padding: 35px 35px;
+  border: #0000002b solid 1px;
+  border-left-width: 15px;
+  border-right-width: 0px;
+  border-style: solid;
+  border-image: linear-gradient(180deg, #000000, #000000) 1 100%;
+}
+
+.elemento {
+  border-bottom: solid #00000025 1px;
+  margin-top: 15px;
+  padding-bottom: 15px;
+}
+
+h4 {
+  font-weight: 500;
+}

@@ -2,16 +2,17 @@
     display: grid; 
     grid-auto-flow: column; 
     grid-auto-rows: 1fr; 
-    grid-template-columns: repeat(3, 300px);
-    grid-gap: 100px;
+    /* grid-template-columns: repeat(3, 300px); */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
 }
 
 .genaralTwoContainer{
     display: grid; 
     grid-auto-flow: column; 
     grid-auto-rows: 1fr; 
-    grid-template-columns: repeat(2, 500px);
-    grid-gap: 100px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
 }
 
 /*

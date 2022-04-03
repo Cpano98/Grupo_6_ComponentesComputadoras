@@ -4,6 +4,7 @@ import "../App.css";
 import "./styles/header.css";
 
 import PageOne from "./home";
+import TodosLosProductos from "./todosLosProductos";
 
 function header() {
   return (
@@ -11,7 +12,7 @@ function header() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
+          <Route path="todos" element={<Todos />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
@@ -41,6 +42,11 @@ function Layout() {
                 <li>
                   <Link to="/" className="linkBtn">
                     Overview
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/todos" className="linkBtn">
+                    Todos los productos
                   </Link>
                 </li>
                 <a
@@ -80,12 +86,8 @@ function Home() {
   return <PageOne />;
 }
 
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
+function Todos() {
+  return <TodosLosProductos />;
 }
 
 function Dashboard() {

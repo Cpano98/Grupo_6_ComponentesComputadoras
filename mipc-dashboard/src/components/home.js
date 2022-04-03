@@ -1,9 +1,10 @@
 import React from "react";
 import "./styles/home.css";
 import DataCont from "../components/dataCont";
+import UltimoProducto from "../components/ultimoProducto";
+import ListadoCategorias from "../components/listadoCategorias";
 
 function home() {
-    
   return (
     <div>
       <div className="genaralInfoContainer">
@@ -23,7 +24,7 @@ function home() {
         </div>
         <div>
           <DataCont
-            titulo={"Total categorias"}
+            titulo={"Total categorías"}
             descripcion={"de productos"}
             valor={12}
           />
@@ -34,18 +35,10 @@ function home() {
 
       <div className="genaralTwoContainer">
         <div>
-          <DataCont
-            titulo={"Total de productos"}
-            descripcion={"Esta es la descripcion del componente"}
-            valor={12}
-          />
+          <UltimoProducto titulo={"Último producto"} descripcion={"creado"} />
         </div>
         <div>
-          <DataCont
-            titulo={"Total de usuarios"}
-            descripcion={"Esta es la descripcion del componente"}
-            valor={12}
-          />
+          <ListadoCategorias titulo={"Categorías"} descripcion={"creadas"} />
         </div>
       </div>
     </div>
