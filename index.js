@@ -73,6 +73,10 @@ app.use( (req, res, next)=>{
     xx:'04', 
     msg:'Bad Request'});
 });
+// Configurar origenes de cors
+app.use(cors({
+  origin: '*' //aceptando todo, YOLO * * * * 
+}));
 
 // Configurar cabeceras y cors
 app.use((req, res, next) => {
