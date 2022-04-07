@@ -77,6 +77,7 @@ window.addEventListener("load", function () {
         erroresVista.innerText += "\n"+errores[key];
       });
       erroresVista.style.display = "block";
+      errores = {}; 
     } else {
       //console.log("Enviando");
     }
