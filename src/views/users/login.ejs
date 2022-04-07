@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!--HEAD-->
+<!--HEAD-->
 
-  <head>
-    <title>Login | MiPC</title>
-    <%- include("partials/head.ejs") %>
-  </head>
+<head>
+  <title>Login | MiPC</title>
+  <%- include("partials/head.ejs") %>
+</head>
 
-  <body>
+<body>
+  <section class="containerGeneral">
     <header>
       <!--Header-escritorio-->
       <%- include("partials/header.ejs") %>
-      <!-- Header hambuger  -->
-      <%- include("partials/headerhambugerMenu.ejs")%>
+        <!-- Header hambuger  -->
+        <%- include("partials/headerhambugerMenu.ejs")%>
     </header>
     <main>
       <div class="contenedor-login">
@@ -22,69 +23,57 @@
           <form action="/user/login" method="POST" id="formRegister">
             <div class="campo-ind" id="email">
               <label class="label-login">Correo Electrónico:</label>
-              <input
-                class="campo-log"
-                name="email"
-                type="email"
-                placeholder="ejemplo@mipc.com"
-                value="<%= locals.old ? old.email : null %>"
-              />
+              <input class="campo-log" name="email" type="email" placeholder="ejemplo@mipc.com"
+                value="<%= locals.old ? old.email : null %>" />
             </div>
             <%if(locals.errors && errors.email){ %>
-            <div class="error-registro"><%= errors.email.msg %></div>
-            <% } %>
+              <div class="error-registro">
+                <%= errors.email.msg %>
+              </div>
+              <% } %>
 
-            <div class="campo-ind" id="password">
-              <label class="label-login">Contraseña:</label>
-              <input
-                class="campo-log"
-                name="password"
-                type="password"
-                placeholder=""
-                value="<%= locals.old ? old.password : null %>"
-              />
-            </div>
-            <%if(locals.errors && errors.password){ %>
-            <div class="error-registro"><%= errors.password.msg %></div>
-            <% } %>
-            <div id="passwordCheck">
-              <input type="checkbox" name="MostrarContraseña" />
-              <label for="MostrarContraseña">Mostrar contraseña</label>
-            </div>
+                <div class="campo-ind" id="password">
+                  <label class="label-login">Contraseña:</label>
+                  <input class="campo-log" name="password" type="password" placeholder=""
+                    value="<%= locals.old ? old.password : null %>" />
+                </div>
+                <%if(locals.errors && errors.password){ %>
+                  <div class="error-registro">
+                    <%= errors.password.msg %>
+                  </div>
+                  <% } %>
+                    <div id="passwordCheck">
+                      <input type="checkbox" name="MostrarContraseña" />
+                      <label for="MostrarContraseña">Mostrar contraseña</label>
+                    </div>
 
-            <div id="recordarCheck">
-              <input
-                type="checkbox"
-                name="recordarUsuario"
-                value="recordarUsuario"
-              />
-              <label for="recordarUsuario">Recordar usuario</label>
-            </div>
+                    <div id="recordarCheck">
+                      <input type="checkbox" name="recordarUsuario" value="recordarUsuario" />
+                      <label for="recordarUsuario">Recordar usuario</label>
+                    </div>
 
-            <div class="errores">Revisar los siguientes errores:</div>
+                    <div class="errores">Revisar los siguientes errores:</div>
 
-            <button
-              class="btn btn-outline-success btn_search"
-              type="submit"
-              id="boton_submit"
-            >
-              Ingresar
-            </button>
+                    <button class="btn btn-outline-success btn_search" type="submit" id="boton_submit">
+                      Ingresar
+                    </button>
 
-            <p>
-              Al crear una cuenta aceptas las
-              <a href="">Condiciones de uso</a>
-              y el
-              <a href="">Aviso de privacidad</a>
-              de Mi|PC.
-            </p>
+                    <p>
+                      Al crear una cuenta aceptas las
+                      <a href="">Condiciones de uso</a>
+                      y el
+                      <a href="">Aviso de privacidad</a>
+                      de Mi|PC.
+                    </p>
           </form>
         </div>
       </div>
     </main>
     <!-- FOOTER -->
     <%- include("partials/footer.ejs") %>
-  </body>
-  <script src="/js/viewPassword.js"></script>
-  <script src="/js/validateInputsRegister.js"></script>
+  </section>
+</body>
+<script src="/js/viewPassword.js"></script>
+<script src="/js/validateInputsRegister.js"></script>
+
 </html>

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<title>Detalle de Producto | MiPC</title>
-		<%- include("partials/head.ejs") %>
-	</head>
-	<body>
+
+<head>
+	<title>Detalle de Producto | MiPC</title>
+	<%- include("partials/head.ejs") %>
+</head>
+
+<body>
+	<section class="containerGeneral">
 		<header>
 			<!--Header-escritorio-->
 			<%- include("partials/header.ejs") %>
-			<!-- Header hambuger  -->
-			<%- include("partials/headerhambugerMenu.ejs")%>
+				<!-- Header hambuger  -->
+				<%- include("partials/headerhambugerMenu.ejs")%>
 		</header>
 		<main>
 			<div class="contenedor-detalle-de-producto">
@@ -25,32 +28,34 @@
 				<div class="detalle-de-producto-info">
 					<div class="border_contenedor">
 						<!--Stock-->
-						<% if ( item.pieces == "0" ) { %>
+						<% if ( item.pieces=="0" ) { %>
 							<p class="stock" style="color: red">
-								<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="red" class="bi bi-circle-fill" viewBox="0 0 16 16">
+								<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="red"
+									class="bi bi-circle-fill" viewBox="0 0 16 16">
 									<circle cx="8" cy="8" r="8" />
 								</svg>
 								Sin stock
 							</p>
-						<% } else { %>
-							<p class="stock" style="color: green">
-								<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="green" class="bi bi-circle-fill" viewBox="0 0 16 16">
-									<circle cx="8" cy="8" r="8" />
-								</svg>
-								<%= item.pieces %> piezas disponibles
-							</p>
-						<% } %>
-						<h2 class="titulo_producto">
-							<%= item.name %>
-						</h2>
-						<p class="descrip_producto" style="margin-top: 10px">
-							<%= item.description %>
-						</p>
-						<p class="descrip_producto">
-							<strong>SKU:</strong>
-							<%= item.sku %>
-						</p>
-						<!--
+							<% } else { %>
+								<p class="stock" style="color: green">
+									<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="green"
+										class="bi bi-circle-fill" viewBox="0 0 16 16">
+										<circle cx="8" cy="8" r="8" />
+									</svg>
+									<%= item.pieces %> piezas disponibles
+								</p>
+								<% } %>
+									<h2 class="titulo_producto">
+										<%= item.name %>
+									</h2>
+									<p class="descrip_producto" style="margin-top: 10px">
+										<%= item.description %>
+									</p>
+									<p class="descrip_producto">
+										<strong>SKU:</strong>
+										<%= item.sku %>
+									</p>
+									<!--
 							<div class="atributos" id="precio-escritorio">
 								<h3 style="font-size: 30px;"> $<%= item.precio %>
 								</h3>
@@ -59,62 +64,68 @@
 								</p>
 							</div>
 						-->
-						<div class="atributos" id="precio-movil">
-						<% if (item.discount){ %>
-							<div>
-								<h3 class="precioNormal" style="color: white">-</h3>
-								<h3 class="precio">$<%= item.price %></h3>
-								<p class="descrip_producto" style="color: white">
-									<strong>Sin </strong>descuento
-								</p>
-							</div>
-						<% } else { %>
-							<% const precioFinal=item.discount / 100 * item.price; %>
-							<div>
-								<h3 class="precioNormal">$<%= item.price %>
-								</h3>
-								<h3 class="precio">$<%= item.price - precioFinal %>
-								</h3>
-								<p class="descrip_producto">
-									<strong>Ahorras: </strong>
-									$<%= precioFinal %>
-								</p>
-							</div>
-						<% } %>
-						<div class="stars">
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
-						</div>
-						</div>
-						<h3 id="Especificaciones">Especificaciones:</h3>
-						<!--Atributos-->
-						<div class="atributos">
-							<div class="col-botones">
-								<form action="addToCart" method="POST" enctype="multipart/form-data">
-									<div>
-										<label>Cantidad de piezas:</label>
-										<select name="qty_product" id="qty_product" class="form-select" aria-label="Default select example">
-											<option selected>Seleccionar cantidad</option>
-											<option value="1">1 pieza</option>
-											<option value="2">2 piezas</option>
-											<option value="3">3 piezas</option>
-										</select>
+									<div class="atributos" id="precio-movil">
+										<% if (item.discount){ %>
+											<div>
+												<h3 class="precioNormal" style="color: white">-</h3>
+												<h3 class="precio">$<%= item.price %>
+												</h3>
+												<p class="descrip_producto" style="color: white">
+													<strong>Sin </strong>descuento
+												</p>
+											</div>
+											<% } else { %>
+												<% const precioFinal=item.discount / 100 * item.price; %>
+													<div>
+														<h3 class="precioNormal">$<%= item.price %>
+														</h3>
+														<h3 class="precio">$<%= item.price - precioFinal %>
+														</h3>
+														<p class="descrip_producto">
+															<strong>Ahorras: </strong>
+															$<%= precioFinal %>
+														</p>
+													</div>
+													<% } %>
+														<div class="stars">
+															<span class="fa fa-star checked"></span>
+															<span class="fa fa-star checked"></span>
+															<span class="fa fa-star checked"></span>
+															<span class="fa fa-star"></span>
+															<span class="fa fa-star"></span>
+														</div>
 									</div>
-									<button class="btn2" type="submit">
-										<div class="contenedor_btn">
-											<p class="texto-carrito" style="color: white; font-size: 15px; font-weight: 300">
-												Agregar al carrito
-											</p>
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket2-fill" viewBox="0 0 16 16">
-												<path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z" />
-											</svg>
-										</div>
-									</button>
-								</form>
-								<!-- 
+									<h3 id="Especificaciones">Especificaciones:</h3>
+									<!--Atributos-->
+									<div class="atributos">
+										<div class="col-botones">
+											<form action="addToCart" method="POST" enctype="multipart/form-data">
+												<div>
+													<label>Cantidad de piezas:</label>
+													<select name="qty_product" id="qty_product" class="form-select"
+														aria-label="Default select example">
+														<option selected>Seleccionar cantidad</option>
+														<option value="1">1 pieza</option>
+														<option value="2">2 piezas</option>
+														<option value="3">3 piezas</option>
+													</select>
+												</div>
+												<button class="btn2" type="submit">
+													<div class="contenedor_btn">
+														<p class="texto-carrito"
+															style="color: white; font-size: 15px; font-weight: 300">
+															Agregar al carrito
+														</p>
+														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+															fill="currentColor" class="bi bi-basket2-fill"
+															viewBox="0 0 16 16">
+															<path
+																d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z" />
+														</svg>
+													</div>
+												</button>
+											</form>
+											<!-- 
 								<button class="btn5">
 									<div class="contenedor_btn">
 										<p class="texto-carrito" style="color: white; font-size: 15px; font-weight: 300;">
@@ -122,17 +133,17 @@
 									</div>
 								</button>
 								-->
-							</div>
-						</div>
-						<h3 id="Especificaciones" style="margin-top: 20px">Más características</h3>
-						<div class="col-especificaciones border-gris col-especificaciones2">
-							<p>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-								Architecto, labore totam provident quas, doloribus excepturi
-								facere nam rerum, minus corporis incidunt. Saepe quasi non
-								inventore necessitatibus atque sed nostrum beatae.
-							</p>
-						</div>
+										</div>
+									</div>
+									<h3 id="Especificaciones" style="margin-top: 20px">Más características</h3>
+									<div class="col-especificaciones border-gris col-especificaciones2">
+										<p>
+											Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+											Architecto, labore totam provident quas, doloribus excepturi
+											facere nam rerum, minus corporis incidunt. Saepe quasi non
+											inventore necessitatibus atque sed nostrum beatae.
+										</p>
+									</div>
 					</div>
 				</div>
 			</div>
@@ -141,40 +152,42 @@
 				<h3>Comentarios</h3>
 				<!-- Import de Comentarios -->
 				<%- include("partials/comentario")%>
-				<div class="grid-comentario">
-					<div class="grid-perfil-usuario">
-						<p>
-							<i class="fas fa-user"></i>
-							Nombre Usuario
-						</p>
-					</div>
-					<div class="grid-puntuacion">
-						<i class="fas fa-star"></i>
-						<i class="far fa-star"></i>
-						<i class="far fa-star"></i>
-						<i class="far fa-star"></i>
-						<i class="far fa-star"></i>
-					</div>
 					<div class="grid-comentario">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-							fermentum a sem eget pretium. Curabitur non ipsum at eros
-							fermentum suscipit at sit amet urna.
-						</p>
+						<div class="grid-perfil-usuario">
+							<p>
+								<i class="fas fa-user"></i>
+								Nombre Usuario
+							</p>
+						</div>
+						<div class="grid-puntuacion">
+							<i class="fas fa-star"></i>
+							<i class="far fa-star"></i>
+							<i class="far fa-star"></i>
+							<i class="far fa-star"></i>
+							<i class="far fa-star"></i>
+						</div>
+						<div class="grid-comentario">
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+								fermentum a sem eget pretium. Curabitur non ipsum at eros
+								fermentum suscipit at sit amet urna.
+							</p>
+						</div>
 					</div>
-				</div>
 			</div>
 		</main>
 		<%- include("partials/footer.ejs") %>
-		<!-- Bootstrap - JS -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-			crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-			crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-			crossorigin="anonymous"></script>
-	</body>
+			<!-- Bootstrap - JS -->
+			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+				integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+				crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+				integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+				crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+				integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+				crossorigin="anonymous"></script>
+	</section>
+</body>
+
 </html>

@@ -11,72 +11,74 @@
 </head>
 
 <body>
-  <%- include("./partials/adminMenu.ejs") %>
+  <section class="containerGeneral">
+    <%- include("./partials/adminMenu.ejs") %>
 
-    <main class="main">
-      <div class="contenedor-login2">
-        <div class="login3">
-          <h3>Usuarios registrados</h3>
-          <p>Se muestra el listado de los usuarios</p>
-          <br />
+      <main class="main">
+        <div class="contenedor-login2">
+          <div class="login3">
+            <h3>Usuarios registrados</h3>
+            <p>Se muestra el listado de los usuarios</p>
+            <br />
 
-          <!--Aquí va el lista de productos para el CRUD-->
-          <div class="row separacion" id="nombresLista">
-            <div class="col-3">
-              <h6>Nombre</h6>
-            </div>
-            <div class="col-2">
-              <h6>Username</h6>
-            </div>
-            <div class="col-3">
-              <h6>Correo</h6>
-            </div>
-            <div class="col-4">
-              <h6>Acciones</h6>
-            </div>
-          </div>
-          <% for (const item of users) { %>
-            <div class="row separacion">
-
+            <!--Aquí va el lista de productos para el CRUD-->
+            <div class="row separacion" id="nombresLista">
               <div class="col-3">
-                <h2 class="titulo_producto" id="tituloCrud">
-                  <%= item.name %>
-                </h2>
-                <p><strong>Id: </strong>
-                  <%= item.id %> | <strong>Status: </strong>
-                    <%= item.role %>
-                </p>
+                <h6>Nombre</h6>
               </div>
-
-              <div class="col-2" id="hide">
-                <%= item.username %>
+              <div class="col-2">
+                <h6>Username</h6>
               </div>
-              <div class="col-3" id="hide">
-                <%= item.email %>
+              <div class="col-3">
+                <h6>Correo</h6>
               </div>
-
-              <div class="col-4" style="display: flex; justify-content: space-evenly;">
-                <a href="/user/editUserAdmin/<%= item.id %>">
-                  <button type="button" class="btn btn-success">
-                    Editar este usuario
-                  </button>
-                </a>
-
-                <form action="/user/delete/<%= item.id %>" method="POST">
-                  <button type="submit" class="btn btn-danger" onclick="success()">
-                    Borrar este usuario
-                  </button>
-                </form>
+              <div class="col-4">
+                <h6>Acciones</h6>
               </div>
             </div>
-            <% } %>
-        </div>
-      </div>
-    </main>
+            <% for (const item of users) { %>
+              <div class="row separacion">
 
-    <!-- Bootstrap - JS -->
-    <%- include("./partials/bootstrap_script.ejs") %>
-      <%- include("./partials/footer.ejs") %>
+                <div class="col-3">
+                  <h2 class="titulo_producto" id="tituloCrud">
+                    <%= item.name %>
+                  </h2>
+                  <p><strong>Id: </strong>
+                    <%= item.id %> | <strong>Status: </strong>
+                      <%= item.role %>
+                  </p>
+                </div>
+
+                <div class="col-2" id="hide">
+                  <%= item.username %>
+                </div>
+                <div class="col-3" id="hide">
+                  <%= item.email %>
+                </div>
+
+                <div class="col-4" style="display: flex; justify-content: space-evenly;">
+                  <a href="/user/editUserAdmin/<%= item.id %>">
+                    <button type="button" class="btn btn-success">
+                      Editar este usuario
+                    </button>
+                  </a>
+
+                  <form action="/user/delete/<%= item.id %>" method="POST">
+                    <button type="submit" class="btn btn-danger" onclick="success()">
+                      Borrar este usuario
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <% } %>
+          </div>
+        </div>
+      </main>
+
+      <!-- Bootstrap - JS -->
+      <%- include("./partials/bootstrap_script.ejs") %>
+        <%- include("./partials/footer.ejs") %>
+  </section>
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

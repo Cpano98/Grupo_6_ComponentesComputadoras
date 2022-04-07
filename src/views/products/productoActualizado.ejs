@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<title> Actualizado | MiPC </title>
-		<%- include("partials/head.ejs") %>
-	</head>
-	<body>
+
+<head>
+	<title> Actualizado | MiPC </title>
+	<%- include("partials/head.ejs") %>
+</head>
+
+<body>
+	<section class="containerGeneral">
 		<header>
 			<%- include("./partials/adminMenu.ejs") %>
 		</header>
@@ -13,10 +16,11 @@
 
 			<div class="contenedor-login">
 				<div class="login2">
-									<p style="text-align: center;">Operación exitosa</p>
+					<p style="text-align: center;">Operación exitosa</p>
 					<h3 style="text-align:center; font-weight: bold;">¡Producto actualizado con éxito!</h3><br>
-									<a style="margin-left: auto; margin-right: auto;" href="/admin/listProducts">Regresar a listado de productos</a>
-					
+					<a style="margin-left: auto; margin-right: auto;" href="/admin/listProducts">Regresar a listado de
+						productos</a>
+
 				</div>
 
 
@@ -24,5 +28,7 @@
 		</main>
 		<!--FOOTER-->
 		<%- include("partials/footer.ejs") %>
-	</body>
+	</section>
+</body>
+
 </html>

@@ -7,45 +7,46 @@
 </head>
 
 <body>
-  <header>
-    <!--Header-escritorio-->
-    <%- include("partials/header.ejs") %>
-    <!-- Header hambuger  -->
-    <%- include("partials/headerhambugerMenu.ejs")%>
-  </header>
-  <main>
+  <section class="containerGeneral">
+    <header>
+      <!--Header-escritorio-->
+      <%- include("partials/header.ejs") %>
+        <!-- Header hambuger  -->
+        <%- include("partials/headerhambugerMenu.ejs")%>
+    </header>
+    <main>
 
-    <div class="profileBackgoundImage" style="background-image: url('/images/621ec0ceb0d56.jpg');"></div>
-    <div class="contenedor-login">
+      <div class="profileBackgoundImage" style="background-image: url('/images/621ec0ceb0d56.jpg');"></div>
+      <div class="contenedor-login">
 
-      <div class="container">
-        <div class="row">
-          <div class="col-3 panelUserContainer">
-            <img src="<%= user.img %>" alt="UserAvatar" class="UserAvatarPP">
+        <div class="container">
+          <div class="row">
+            <div class="col-3 panelUserContainer">
+              <img src="<%= user.img %>" alt="UserAvatar" class="UserAvatarPP">
 
-            <div class="InnerSectionProfile">
-              <h5><strong>
-                  <%= user.name %>
-                </strong></h5>
-              <h6>
-                <%= user.username %>
-              </h6>
-            </div>
+              <div class="InnerSectionProfile">
+                <h5><strong>
+                    <%= user.name %>
+                  </strong></h5>
+                <h6>
+                  <%= user.username %>
+                </h6>
+              </div>
 
-            <div class="InnerSectionProfile">
-              <h5><strong> Email </strong></h5>
-              <h6>
-                <%= user.email %>
-              </h6>
-            </div>
+              <div class="InnerSectionProfile">
+                <h5><strong> Email </strong></h5>
+                <h6>
+                  <%= user.email %>
+                </h6>
+              </div>
 
-            <div class="InnerSectionProfile">
-              <h5><strong> Password </strong></h5>
-              <h6>
-                <%= user.pass %> 
-              </h6>
-            </div>
-            <!-- ID OMITIDO 
+              <div class="InnerSectionProfile">
+                <h5><strong> Password </strong></h5>
+                <h6>
+                  <%= user.pass %>
+                </h6>
+              </div>
+              <!-- ID OMITIDO 
             <div class="InnerSectionProfile">
               <h5><strong> ID: </strong></h5>
               <h6>
@@ -54,145 +55,126 @@
             </div>
             -->
 
-          </div>
-          <div class="col panelUserContainer" style="text-align: left; width: 100%;">
-            <h3>Editar mi perfil</h3>
-            <p>Editar mi información</p>
+            </div>
+            <div class="col panelUserContainer" style="text-align: left; width: 100%;">
+              <h3>Editar mi perfil</h3>
+              <p>Editar mi información</p>
 
-            <form action="/user/profile?_method=PUT" method="post" enctype="multipart/form-data">
-              
-                  <!--  ID omitido
+              <form action="/user/profile?_method=PUT" method="post" enctype="multipart/form-data">
+
+                <!--  ID omitido
                   <div class="campo-ind">
                     <label class="label-login">ID DE USUARIO: </label>
                     <input class="campo-log" type="text" style="background-color: transparent; color: #717171;"
                       value="<%= user.id %>" name="id" readonly />
                   </div>
                   -->
-                  <div class="campo-ind">
-                    <label class="label-login">Nombre completo:</label>
-                    <input class="campo-log" type="text" style="background-color: transparent"
-                      placeholder="¿cómo te llamas?" name="name" value="<%= user.name %>" />
-                  </div>
-                  <%if(locals.errors && errors.name){ %>
-                    <div class="error-registro">
-                  <%= errors.name.msg %>
-                    </div>
-                  <% } %>
-                  <div class="campo-ind">
-                    <label class="label-login">Nombre de usuario: </label>
-                    <input class="campo-log" type="text" style="background-color: transparent" name="username"
-                            value="<%= user.username %>" />
-                  </div>
-                  <%if(locals.errors && errors.username){ %>
-                    <div class="error-registro">
-                      <%= errors.username.msg %>
-                    </div>
-                  <% } %>
-                  <div class="campo-ind">
-                    <label class="label-login">Correo Electrónico:</label>
-                    <input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email"
-                      value="<%= user.email %>" />
-                  </div>
-                  <%if(locals.errors && errors.email){ %>
+                <div class="campo-ind">
+                  <label class="label-login">Nombre completo:</label>
+                  <input class="campo-log" type="text" style="background-color: transparent"
+                    placeholder="¿cómo te llamas?" name="name" value="<%= user.name %>" />
+                </div>
+                <%if(locals.errors && errors.name){ %>
                   <div class="error-registro">
-                    <%= errors.email.msg %>
+                    <%= errors.name.msg %>
                   </div>
                   <% } %>
-                  <div class="campo-ind">
-                    <label class="label-login">Avatar del usuario </label>
-                    <input class="campo-log" 
-                            type="file" 
-                            accept=".png, .jpg, .webp, .jpeg, .gif" 
-                            style="background-color: transparent;" 
-                            name="image" 
-                            id="image">
-                  </div>
-                  <%if(locals.errors && errors.image){ %>
-                    <div class = "error-registro">
-                        <%= errors.image.msg %>
+                    <div class="campo-ind">
+                      <label class="label-login">Nombre de usuario: </label>
+                      <input class="campo-log" type="text" style="background-color: transparent" name="username"
+                        value="<%= user.username %>" />
                     </div>
-                  <% } %>
-                  <div class="campo-ind">
-                    <label class="label-login">Contraseña actual:</label>
-                    <input
-                      class="campo-log"
-                      type="password"
-                      placeholder=""
-                      name="passwordNow"
-                      value="<%= locals.old ? old.passwordNow : null %>"
-                    />
-                  </div>
-                  <%if(locals.errors && errors.passwordNow){ %>
-                    <div class="error-registro">
-                      <%= errors.passwordNow.msg %>
-                    </div>
-                  <% } %>
-                  <div class="campo-ind">
-                    <label class="label-login">Nueva contraseña:</label>
-                    <input
-                      class="campo-log"
-                      type="password"
-                      placeholder=""
-                      name="passwordNew"
-                      value="<%= locals.old ? old.passwordNew : null %>"
-                    />
-                  </div>
-                  <%if(locals.errors && errors.passwordNew){ %>
-                    <div class="error-registro">
-                      <%= errors.passwordNew.msg %>
-                    </div>
-                  <% } %>
-                  <div class="campo-ind">
-                    <label class="label-login">Confirmar nueva contraseña:</label>
-                    <input
-                      class="campo-log"
-                      type="password"
-                      placeholder=""
-                      name="passwordNewVal"
-                      value="<%= locals.old ? old.passwordNewVal : null %>"
-                    />
-                  </div>
-                  <%if(locals.errors && errors.passwordNewVal){ %>
-                    <div class="error-registro">
-                      <%= errors.passwordNewVal.msg %>
-                    </div>
-                  <% } %>
-                  <div id="passwordCheck">
-                    <input type="checkbox" name="MostrarContraseña"  />
-                    <label for="MostrarContraseña">Mostrar contraseña</label>
-                  </div>
-                
-                  <button class="btn btn-outline-success btn_search" type="submit">
-                    Actualizar mi información
-                  </button>
-                  <p>
-                    Al editar tu información aceptas las
-                    <a href="">Condiciones de uso</a>
-                    y el
-                    <a href="">Aviso de privacidad</a>
-                    de Mi|PC.
-                  </p>
-            </form>
-            <form action="/user/delete/<%= user.id %>" method="POST">
-              <button type="submit" class="btn btn-danger" onclick="success()">
-                Borrar este usuario
-              </button>
-            </form>
+                    <%if(locals.errors && errors.username){ %>
+                      <div class="error-registro">
+                        <%= errors.username.msg %>
+                      </div>
+                      <% } %>
+                        <div class="campo-ind">
+                          <label class="label-login">Correo Electrónico:</label>
+                          <input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email"
+                            value="<%= user.email %>" />
+                        </div>
+                        <%if(locals.errors && errors.email){ %>
+                          <div class="error-registro">
+                            <%= errors.email.msg %>
+                          </div>
+                          <% } %>
+                            <div class="campo-ind">
+                              <label class="label-login">Avatar del usuario </label>
+                              <input class="campo-log" type="file" accept=".png, .jpg, .webp, .jpeg, .gif"
+                                style="background-color: transparent;" name="image" id="image">
+                            </div>
+                            <%if(locals.errors && errors.image){ %>
+                              <div class="error-registro">
+                                <%= errors.image.msg %>
+                              </div>
+                              <% } %>
+                                <div class="campo-ind">
+                                  <label class="label-login">Contraseña actual:</label>
+                                  <input class="campo-log" type="password" placeholder="" name="passwordNow"
+                                    value="<%= locals.old ? old.passwordNow : null %>" />
+                                </div>
+                                <%if(locals.errors && errors.passwordNow){ %>
+                                  <div class="error-registro">
+                                    <%= errors.passwordNow.msg %>
+                                  </div>
+                                  <% } %>
+                                    <div class="campo-ind">
+                                      <label class="label-login">Nueva contraseña:</label>
+                                      <input class="campo-log" type="password" placeholder="" name="passwordNew"
+                                        value="<%= locals.old ? old.passwordNew : null %>" />
+                                    </div>
+                                    <%if(locals.errors && errors.passwordNew){ %>
+                                      <div class="error-registro">
+                                        <%= errors.passwordNew.msg %>
+                                      </div>
+                                      <% } %>
+                                        <div class="campo-ind">
+                                          <label class="label-login">Confirmar nueva contraseña:</label>
+                                          <input class="campo-log" type="password" placeholder="" name="passwordNewVal"
+                                            value="<%= locals.old ? old.passwordNewVal : null %>" />
+                                        </div>
+                                        <%if(locals.errors && errors.passwordNewVal){ %>
+                                          <div class="error-registro">
+                                            <%= errors.passwordNewVal.msg %>
+                                          </div>
+                                          <% } %>
+                                            <div id="passwordCheck">
+                                              <input type="checkbox" name="MostrarContraseña" />
+                                              <label for="MostrarContraseña">Mostrar contraseña</label>
+                                            </div>
 
-            <form action="/user/logout" method="GET">
-              <button type="submit">Cerrar sesión</button>
-            </form>
+                                            <button class="btn btn-outline-success btn_search" type="submit">
+                                              Actualizar mi información
+                                            </button>
+                                            <p>
+                                              Al editar tu información aceptas las
+                                              <a href="">Condiciones de uso</a>
+                                              y el
+                                              <a href="">Aviso de privacidad</a>
+                                              de Mi|PC.
+                                            </p>
+              </form>
+              <form action="/user/delete/<%= user.id %>" method="POST">
+                <button type="submit" class="btn btn-danger" onclick="success()">
+                  Borrar este usuario
+                </button>
+              </form>
+
+              <form action="/user/logout" method="GET">
+                <button type="submit">Cerrar sesión</button>
+              </form>
+            </div>
           </div>
+
         </div>
 
-      </div>
-
-  </main>
-  <!-- FOOTER -->
-  <%- include("partials/footer.ejs") %>
-
+    </main>
+    <!-- FOOTER -->
+    <%- include("partials/footer.ejs") %>
+  </section>
 </body>
-<script src = "/js/viewPassword.js">
+<script src="/js/viewPassword.js">
 </script>
 
 </html>

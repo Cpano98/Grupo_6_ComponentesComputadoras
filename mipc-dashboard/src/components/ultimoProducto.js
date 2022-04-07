@@ -7,38 +7,12 @@ function ultimoProducto({ titulo, descripcion }) {
       <h3>{titulo}</h3>
       <p>{descripcion}</p>
       <div className="spacer-1"></div>
-
-      <div className="elemento">
-        <h4>Nombre:</h4>
-        <p>Monitor Gamer ASUS TUF Gaming VG27WQ LED 27</p>
-      </div>
-
-      <div className="elemento">
-        <h4>Precio:</h4>
-        <p>$8499</p>
-      </div>
-
-      <div className="elemento">
-        <h4>Marca:</h4>
-        <p>Asus</p>
-      </div>
-
-      <div className="elemento">
-        <h4>SKU:</h4>
-        <p>90LM05F0B01E10</p>
-      </div>
-
-      <div className="elemento">
-        <h4>Stock:</h4>
-        <p>2 piezas</p>
-      </div>
-
-      <MyComponent />
+      <Productos />
     </div>
   );
 }
 
-class MyComponent extends React.Component {
+class Productos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,11 +27,11 @@ class MyComponent extends React.Component {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log("API: " + result);
+          console.log("RESPUESTA API: " + result.data.lastProduct);
 
           this.setState({
             isLoaded: true,
-            items: result.items,
+            item: result.data.lastProduct,
           });
         },
         // Nota: es importante manejar errores aquí y no en
@@ -73,9 +47,41 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    return (
-      <h1>Hola</h1>
-    );
+    const { error, isLoaded, item } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <ul>
+          <div className="elemento">
+            <h4>Nombre:</h4>
+            <p>{item.name}</p>
+          </div>
+
+          <div className="elemento">
+            <h4>Precio:</h4>
+            <p>$ {item.price}</p>
+          </div>
+
+          <div className="elemento">
+            <h4>Marca:</h4>
+            <p>{item.brand}</p>
+          </div>
+
+          <div className="elemento">
+            <h4>SKU:</h4>
+            <p>{item.sku}</p>
+          </div>
+
+          <div className="elemento">
+            <h4>Stock:</h4>
+            <p>{item.pieces} piezas</p>
+          </div>
+        </ul>
+      );
+    }
   }
 }
 

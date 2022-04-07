@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>Register | MiPC</title>
-    <%- include("partials/head.ejs") %>
-  </head>
 
-  <body>
+<head>
+  <title>Register | MiPC</title>
+  <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+  <section class="containerGeneral">
     <header>
       <!--Header-escritorio-->
       <%- include("partials/header.ejs") %>
-      <!-- Header hambuger  -->
-      <%- include("partials/headerhambugerMenu.ejs")%>
+        <!-- Header hambuger  -->
+        <%- include("partials/headerhambugerMenu.ejs")%>
     </header>
 
     <main>
@@ -21,120 +23,99 @@
 
           <form action="/user/register" method="POST" id="formRegister">
             <%if(locals.errors && errors.reg){ %>
-            <div class="error-registro"><%= errors.reg.msg %></div>
-            <% } %>
-            <div class="campo-ind" id="name">
-              <label class="label-login">Nombre completo:</label>
-              <input
-                class="campo-log"
-                type="text"
-                style="background-color: transparent"
-                placeholder="¿cómo te llamas?"
-                name="name"
-                value="<%= locals.old ? old.name : null %>"
-              />
-            </div>
-            <%if(locals.errors && errors.name){ %>
-            <div class="error-registro"><%= errors.name.msg %></div>
-            <% } %>
-            <div class="campo-ind">
-              <label class="label-login">Nombre de usuario: </label>
-              <input
-                class="campo-log"
-                type="text"
-                style="background-color: transparent"
-                placeholder="username"
-                name="username"
-                value="<%= locals.old ? old.username : null %>"
-              />
-            </div>
-            <%if(locals.errors && errors.username){ %>
-            <div class="error-registro"><%= errors.username.msg %></div>
-            <% } %>
-            <div class="campo-ind" id="email">
-              <label class="label-login">Correo Electrónico:</label>
-              <input
-                class="campo-log"
-                type="email"
-                placeholder="ejemplo@mipc.com"
-                name="email"
-                value="<%= locals.old ? old.email : null %>"
-              />
-            </div>
+              <div class="error-registro">
+                <%= errors.reg.msg %>
+              </div>
+              <% } %>
+                <div class="campo-ind" id="name">
+                  <label class="label-login">Nombre completo:</label>
+                  <input class="campo-log" type="text" style="background-color: transparent"
+                    placeholder="¿cómo te llamas?" name="name" value="<%= locals.old ? old.name : null %>" />
+                </div>
+                <%if(locals.errors && errors.name){ %>
+                  <div class="error-registro">
+                    <%= errors.name.msg %>
+                  </div>
+                  <% } %>
+                    <div class="campo-ind">
+                      <label class="label-login">Nombre de usuario: </label>
+                      <input class="campo-log" type="text" style="background-color: transparent" placeholder="username"
+                        name="username" value="<%= locals.old ? old.username : null %>" />
+                    </div>
+                    <%if(locals.errors && errors.username){ %>
+                      <div class="error-registro">
+                        <%= errors.username.msg %>
+                      </div>
+                      <% } %>
+                        <div class="campo-ind" id="email">
+                          <label class="label-login">Correo Electrónico:</label>
+                          <input class="campo-log" type="email" placeholder="ejemplo@mipc.com" name="email"
+                            value="<%= locals.old ? old.email : null %>" />
+                        </div>
 
-            <%if(locals.errors && errors.email){ %>
-            <div class="error-registro"><%= errors.email.msg %></div>
-            <% } %>
-            <div class="campo-ind" id="password">
-              <label class="label-login">Contraseña:</label>
-              <input
-                class="campo-log"
-                type="password"
-                placeholder="--"
-                name="password"
-                value="<%= locals.old ? old.password : null %>"
-              />
-              <span id="passwordComplexity">
-                weak
-              </span>
-            </div>
-            <%if(locals.errors && errors.password){ %>
-            <div class="error-registro"><%= errors.password.msg %></div>
-            <% } %>
-            <div class="campo-ind">
-              <label class="label-login">Confirmar contraseña:</label>
-              <input
-                class="campo-log"
-                type="password"
-                placeholder=""
-                name="passwordVal"
-                value="<%= locals.old ? old.passwordVal : null %>"
-              />
-            </div>
-            <%if(locals.errors && errors.passwordVal){ %>
-            <div class="error-registro"><%= errors.passwordVal.msg %></div>
-            <% } %>
-            <div id="passwordCheck">
-              <input type="checkbox" name="MostrarContraseña" />
-              <label for="MostrarContraseña">Mostrar contraseña</label>
-            </div>
+                        <%if(locals.errors && errors.email){ %>
+                          <div class="error-registro">
+                            <%= errors.email.msg %>
+                          </div>
+                          <% } %>
+                            <div class="campo-ind" id="password">
+                              <label class="label-login">Contraseña:</label>
+                              <input class="campo-log" type="password" placeholder="--" name="password"
+                                value="<%= locals.old ? old.password : null %>" />
+                              <span id="passwordComplexity">
+                                weak
+                              </span>
+                            </div>
+                            <%if(locals.errors && errors.password){ %>
+                              <div class="error-registro">
+                                <%= errors.password.msg %>
+                              </div>
+                              <% } %>
+                                <div class="campo-ind">
+                                  <label class="label-login">Confirmar contraseña:</label>
+                                  <input class="campo-log" type="password" placeholder="" name="passwordVal"
+                                    value="<%= locals.old ? old.passwordVal : null %>" />
+                                </div>
+                                <%if(locals.errors && errors.passwordVal){ %>
+                                  <div class="error-registro">
+                                    <%= errors.passwordVal.msg %>
+                                  </div>
+                                  <% } %>
+                                    <div id="passwordCheck">
+                                      <input type="checkbox" name="MostrarContraseña" />
+                                      <label for="MostrarContraseña">Mostrar contraseña</label>
+                                    </div>
 
-            <div class="errores">Revisar los siguientes errores:</div>
+                                    <div class="errores">Revisar los siguientes errores:</div>
 
-            <button
-              class="btn btn-outline-success btn_search"
-              type="submit"
-              id="boton_submit"
-            >
-              Registrarme
-            </button>
-            <button
-              style="
+                                    <button class="btn btn-outline-success btn_search" type="submit" id="boton_submit">
+                                      Registrarme
+                                    </button>
+                                    <button style="
                 background-color: transparent;
                 color: black;
                 border: solid black 1px;
-              "
-              class="btn btn-outline-success btn_search"
-              type="reset"
-            >
-              Comenzar de nuevo
-            </button>
-            <p></p>
-            <p>
-              Al crear una cuenta aceptas las
-              <a href="">Condiciones de uso</a>
-              y el
-              <a href="">Aviso de privacidad</a>
-              de Mi|PC.
-            </p>
+              " class="btn btn-outline-success btn_search" type="reset">
+                                      Comenzar de nuevo
+                                    </button>
+                                    <p></p>
+                                    <p>
+                                      Al crear una cuenta aceptas las
+                                      <a href="">Condiciones de uso</a>
+                                      y el
+                                      <a href="">Aviso de privacidad</a>
+                                      de Mi|PC.
+                                    </p>
           </form>
         </div>
       </div>
     </main>
     <!--FOOTER-->
     <%- include("partials/footer.ejs") %>
-  </body>
-  <script src="/js/viewPassword.js"></script>
+  </section>
+</body>
+<script src="/js/viewPassword.js"></script>
 
-  <script src="/js/validateInputsRegister.js"></script>
+<script src="/js/validateInputsRegister.js"></script>
+
 </html>

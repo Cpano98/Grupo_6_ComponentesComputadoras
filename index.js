@@ -11,6 +11,8 @@ const methodOverride = require("method-override"); // Pasar poder usar los méto
 // ************ express() - (don't touch) ************
 const app = express();
 
+
+
 app.use(express.urlencoded({ extended: true }));
 //app.use(logger('dev'));
 //app.use(express.json());
@@ -26,6 +28,20 @@ app.use(
   })
 );
 app.use(express.json());
+
+// Configurar origenes de cors
+app.use(cors({
+  origin: '*' //aceptando todo, YOLO * * * * 
+}));
+
+// Configurar cabeceras y cors
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+  next();
+});
 
 /* bloque de routes */
 const mainRoutes = require("./src/routes/mainRoutes");
@@ -73,19 +89,8 @@ app.use( (req, res, next)=>{
     xx:'04', 
     msg:'Bad Request'});
 });
-// Configurar origenes de cors
-app.use(cors({
-  origin: '*' //aceptando todo, YOLO * * * * 
-}));
 
-// Configurar cabeceras y cors
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-  next();
-});
+
 
 
 //Heroku Config
