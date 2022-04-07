@@ -24,7 +24,7 @@ class Categorias extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://152.70.154.161:3000/api/products")
+    fetch("https://cors-everywhere.herokuapp.com/http://152.70.154.161:3000/api/products")
       .then((res) => res.json())
       .then(
         (result) => {
