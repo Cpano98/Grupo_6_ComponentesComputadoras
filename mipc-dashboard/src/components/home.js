@@ -51,7 +51,7 @@ class MyComponent extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3030/api/products")
+    fetch("http://152.70.154.161:3000/api/products")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -99,7 +99,7 @@ class Users extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3030/api/users")
+    fetch("http://152.70.154.161:3000/api/users")
       .then((res) => res.json())
       .then(
         (result) => {

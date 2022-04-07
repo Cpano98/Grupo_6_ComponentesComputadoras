@@ -94,6 +94,6 @@ app.use( (req, res, next)=>{
 
 
 //Heroku Config
-app.listen(process.env.PORT || 3030, function () {
-  console.log("Servidor activo en 3030");
+app.listen(process.env.PORT || 3000, function () {
+  console.log("Servidor activo en 3000");
 });
