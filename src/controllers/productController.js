@@ -86,6 +86,7 @@ const productController = {
   productAdd: (req, res) => {
     return res.render("productAdd.ejs");
   },
+
   productAddUp: (req, res, next) => {
     // Validate the add product form
     const resultVal = validationResult(req);

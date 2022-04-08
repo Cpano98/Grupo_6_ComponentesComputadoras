@@ -205,11 +205,8 @@ const userController = {
 			where: { id: req.params.id},
 		})
 		.then(() => {
-			
-
-			//Este redirect puede ir a otro lado
-			// * * * * 
-			res.redirect("/");
+		
+			res.redirect("/admin/listUsers");
 		})
 		.catch((err) => {
 				console.log('Aquí va una ventana de error')
@@ -220,20 +217,6 @@ const userController = {
 
 		Users.findOne({ where: { id: req.params.id } })
 			.then((userInfo) => {
-			/* * * * * * *
-			 * FALTA VALIDAR ESTE FORMULARIO NUEVO
-		 	 *
-			 *
-			 */
-
-				/*
-        * Este render solo debe realizarse después de validar al usuario	
-				*
-				res.render("editUserbyAdmin.ejs", { 
-					user:userInfo.dataValues, 
-					old:req.body })
-				*/
-				
 				return res.render("editUserbyAdmin.ejs", { user:userInfo.dataValues })
 		
 			})
