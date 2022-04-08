@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- plantilla de errores 40x -->
-  
-  <head>
-    <title>Home | MiPC</title>
-    <%- include("partials/head.ejs") %>
-  </head>
-  <body>
-    <img class="imgError" src="/images/notFound.png" alt="Error 4<%=xx%>" />
-    <div class="textError">4<%=xx%> <%= locals.msg %> </div>
-  </body>
+<!-- plantilla de errores 40x -->
+
+<head>
+  <title>Home | MiPC</title>
+  <%- include("partials/head.ejs") %>
+</head>
+
+<style>
+  .pageError-container {
+    min-height: 50vh;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 42px;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+  }
+</style>
+
+<body>
+  <section class="containerGeneral">
+    <header>
+      <!--Header-escritorio-->
+      <%- include("partials/header.ejs") %>
+        <!-- Header hambuger  -->
+        <%- include("partials/headerhambugerMenu.ejs")%>
+    </header>
+
+    <div class="pageError-container">
+      <div class="textError">
+        <h2> 4<%=xx%>
+        </h2>
+        <p>
+          <%= locals.msg %>
+        </p>
+      </div>
+      <div>
+<img src="https://www.rd.com/wp-content/uploads/2019/01/shutterstock_673465372.jpg?fit=700,467" width="100%" alt="">
+      </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <%- include("partials/footer.ejs") %>
+
+      <!-- Bootstrap - JS -->
+      <%- include("partials/bootstrap_script.ejs") %>
+
+        <!--JS-->
+        <script type="text/javascript" src="/js/countdownOferta.js"></script>
+  </section>
+
+
+</body>
+
 </html>
