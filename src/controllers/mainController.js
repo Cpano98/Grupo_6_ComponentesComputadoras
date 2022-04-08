@@ -36,10 +36,16 @@ const mainController = {
     Products.findAll()
       .then((products) => {
         console.log(products[0].image);
-        return res.render("listaProductosCRUD.ejs", { products });
+        return res.status(404).render('error4xx.ejs', {
+          xx:'04', 
+          msg:'Bad Request'});
+        //return res.render("listaProductosCRUD.ejs", { products });
       })
       .catch((err) => {
-        return res.render("error404", { status: 404, url: req.url });
+        return res.status(404).render('error4xx.ejs', {
+          xx:'04', 
+          msg:'Bad Request'});
+        //return res.render("error404", { status: 404, url: req.url });
       });
   },
   adminListUsers: (req, res) => {
@@ -48,7 +54,10 @@ const mainController = {
         return res.render("userCRUDlist.ejs", { users });
       })
       .catch((err) => {
-        return res.render("error404", { status: 404, url: req.url });
+        return res.status(404).render('error4xx.ejs', {
+          xx:'04', 
+          msg:'Bad Request'});
+        //return res.render("error404", { status: 404, url: req.url });
       });
   },
 
