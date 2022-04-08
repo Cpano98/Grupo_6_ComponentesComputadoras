@@ -77,7 +77,10 @@ const productController = {
         return res.render("productDetail.ejs", { item: product });
       })
       .catch((err) => {
-        return res.render("error404", { status: 404, url: req.url });
+        res.status(404).render('error4xx.ejs', {
+          xx:'04', 
+          msg:'Bad Request'});
+        //return res.render("error404", { status: 404, url: req.url });
       });
   },
  
@@ -102,7 +105,10 @@ const productController = {
     if (!file) {
       const error = new Error("No ha seleccionado un archivo");
       error.httpStatusCode = 404;
-      return res.render("error404.ejs");
+      return res.status(404).render('error4xx.ejs', {
+        xx:'04', 
+        msg:'Bad Request'});
+      //return res.render("error404.ejs");
     }
    
 
@@ -130,7 +136,10 @@ const productController = {
         return res.render("editarProducto.ejs", { item: products });
       })
       .catch((err) => {
-        return res.render("error404", { status: 404, url: req.url });
+        res.status(404).render('error4xx.ejs', {
+          xx:'04', 
+          msg:'Bad Request'});
+        //return res.render("error404", { status: 404, url: req.url });
       });
   },
   productEditUp: (req, res, next) => {
@@ -196,7 +205,10 @@ const productController = {
         res.redirect("/products/delete/confirmation");
       })
       .catch((err) => {
-        return res.render("error404", { status: 404, url: req.url });
+        return res.status(404).render('error4xx.ejs', {
+          xx:'04', 
+          msg:'Bad Request'});
+        //return res.render("error404", { status: 404, url: req.url });
       });
   },
   deleteConfirm: (req, res) => {
@@ -249,8 +261,10 @@ const productController = {
         });
       })
       .catch((err) => {
-        
-        return res.render("error404", { status: 404, url: req.url });
+        return res.status(404).render('error4xx.ejs', {
+          xx:'04', 
+          msg:'Bad Request'});
+        //return res.render("error404", { status: 404, url: req.url });
       });
   },
 };
