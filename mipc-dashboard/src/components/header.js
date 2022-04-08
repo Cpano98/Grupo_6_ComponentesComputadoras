@@ -102,6 +102,7 @@ function NoMatch() {
   return (
     <div>
       <h2>Nothing to see here!</h2>
+			<iframe src="https://giphy.com/embed/xTiN0L7EW5trfOvEk0" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen/>
       <p>
         <Link to="/">Go to the home page</Link>
       </p>
